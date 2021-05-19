@@ -1,0 +1,15 @@
+title: Integrations
+arrange:
+  - bridges
+  - ethlibraries
+  - oracles
+  - wallets
+  - explorers.md
+  - remix.md
+  - trufflebox.md
+  - hardhat.md
+  - thegraph.md
+  - pubsub.md
+  - debug-trace.md
+  - precompiles.md
+
