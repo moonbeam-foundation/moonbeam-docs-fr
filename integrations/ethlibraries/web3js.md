@@ -1,24 +1,24 @@
 ---
 title: Web3.js
-description: Follow this tutorial to learn how to use the Ethereum Web3 JavaScript Library to deploy Solidity smart contracts to Moonbeam.
+description: Suivez ce tutoriel pour apprendre à utiliser la bibliothèque JavaScript Ethereum Web3 pour déployer des contrats intelligents Solidity sur Moonbeam.
 ---
-# Web3.js JavaScript Library
+# Bibliothèque JavaScript Web3.js
 
 ![Intro diagram](/images/integrations/integrations-web3js-banner.png)
 
 ## Introduction
 
-[Web3.js](https://web3js.readthedocs.io/) is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with JavaScript. Moonbeam has an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the web3.js library to interact with a Moonbeam node as if they were doing so on Ethereum.
+[Web3.js](https://web3js.readthedocs.io/) est un ensemble de bibliothèques qui permettent aux développeurs d'interagir avec les nœuds Ethereum à l'aide des protocoles HTTP, IPC ou WebSocket avec JavaScript. Moonbeam dispose d'une API de type Ethereum entièrement compatible avec les invocations JSON RPC de style Ethereum. Par conséquent, les développeurs peuvent tirer parti de cette compatibilité et utiliser la bibliothèque web3.js pour interagir avec un nœud Moonbeam comme s'ils le faisaient sur Ethereum.
 
-## Setup Web3.js with Moonbeam
+## Configurer Web3.js avec Moonbeam
 
-To get started with the web3.js library, we first need to install it using the following command:
+Pour commencer avec la bibliothèque web3.js, nous devons d'abord l'installer à l'aide de la commande suivante:
 
 ```
 npm install web3
 ```
 
-Once done, the simplest setup to start using the library and its methods is the following:
+Une fois terminé, la configuration la plus simple pour commencer à utiliser la bibliothèque et ses méthodes est la suivante:
 
 ```js
 const Web3 = require('web3');
@@ -27,12 +27,12 @@ const Web3 = require('web3');
 const web3 = new Web3('RPC_URL');
 ```
 
-Depending on which network you want to connect to, you can set the `RPC_URL` to the following values:
+En fonction du réseau auquel vous souhaitez vous connecter, vous pouvez définir les valeurs  `RPC_URL` suivantes:
 
- - Moonbeam development node: `http://127.0.0.1:9933`
- - Moonbase Alpha TestNet: `https://rpc.testnet.moonbeam.network`
+ - Nœud de développement Moonbeam: `http://127.0.0.1:9933`
+ - TestNet Moonbase Alpha: `https://rpc.testnet.moonbeam.network`
 
-## Step-by-step Tutorials
+## Tutoriels étape par étape
 
-If you are interested in a more detailed step-by-step guide, go to our specific tutorials about using web3.js on Moonbeam to [send a transaction](/getting-started/local-node/send-transaction/) or [deploy a contract](/getting-started/local-node/deploy-contract/).
+Si vous êtes intéressé par un guide étape par étape plus détaillé, consultez nos tutoriels spécifiques sur l'utilisation de web3.js sur Moonbeam pour [envoyer une transaction](/getting-started/local-node/send-transaction/) ou [deployer un contrat](/getting-started/local-node/deploy-contract/).
 
