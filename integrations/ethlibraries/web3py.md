@@ -1,24 +1,23 @@
 ---
 title: Web3.py
-description: Follow this tutorial to learn how to use the Ethereum Web3 Python Library to deploy Solidity smart contracts to Moonbeam.
+description: Suivez ce tutoriel pour apprendre à utiliser la bibliothèque Python Ethereum Web3 pour déployer des contrats intelligents Solidity sur Moonbeam.
 ---
-# Web3.py Python Library
-
+# Bibliothèque Python Web3.py
 ![Intro diagram](/images/integrations/integrations-web3py-banner.png)
 
 ## Introduction
 
-[Web3.py](https://web3py.readthedocs.io/) is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with Python. Moonbeam has an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the web3.py library to interact with a Moonbeam node as if they were doing so on Ethereum.
+[Web3.py](https://web3py.readthedocs.io/) est un ensemble de bibliothèques qui permettent aux développeurs d'interagir avec les nœuds Ethereum à l'aide des protocoles HTTP, IPC ou WebSocket avec Python. Moonbeam dispose d'une API de type Ethereum entièrement compatible avec les invocations JSON RPC de style Ethereum. Par conséquent, les développeurs peuvent tirer parti de cette compatibilité et utiliser la bibliothèque web3.py pour interagir avec un nœud Moonbeam comme s'ils le faisaient sur Ethereum.
 
-## Setup Web3.py with Moonbeam
+## Configurer Web3.py avec Moonbeam
 
-To get started with the web3.py library, install it using the following command:
+Pour démarrer avec la bibliothèque web3.py, installez-la à l'aide de la commande suivante:
 
 ```
 pip3 install web3
 ```
 
-Once done, the simplest setup to start using the library and its methods is the following:
+Une fois terminé, la configuration la plus simple pour commencer à utiliser la bibliothèque et ses méthodes est la suivante:
 
 ```py
 from web3 import Web3
@@ -26,12 +25,12 @@ from web3 import Web3
 web3 = Web3(Web3.HTTPProvider('RPC_URL'))
 ```
 
-Depending on which network you want to connect to, you can set the `RPC_URL` to the following values:
+En fonction du réseau auquel vous souhaitez vous connecter, vous pouvez définir les valeurs `RPC_URL` suivantes:
 
- - Moonbeam development node: `http://127.0.0.1:9933`
- - Moonbase Alpha TestNet: `https://rpc.testnet.moonbeam.network`
+ - Nœud de développement Moonbeam: `http://127.0.0.1:9933`
+ - TestNet Moonbase Alpha: `https://rpc.testnet.moonbeam.network`
 
-## Step-by-step Tutorials
+## Tutoriels étape par étape
 
-If you are interested in a more detailed step-by-step guide, go to our specific tutorials about using web3.py on Moonbeam to [send a transaction](/getting-started/local-node/send-transaction/) or [deploy a contract](/getting-started/local-node/deploy-contract/).
+Si vous êtes intéressé par un guide étape par étape plus détaillé, consultez nos tutoriels spécifiques sur l'utilisation de web3.py sur Moonbeam pour  [envoyer une transaction](/getting-started/local-node/send-transaction/) ou [deployer un contrat](/getting-started/local-node/deploy-contract/).
 
