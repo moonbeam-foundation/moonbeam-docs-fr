@@ -1,13 +1,13 @@
 ---
-title: Important Links
-description: If you're new to Moonbeam or the Polkadot network, here are some important links to review, including compatible Ethereum tools.
+title: Liens importants
+description: Si vous êtes nouveau sur Moonbeam ou sur le réseau Polkadot, voici quelques liens importants à consulter, y compris des outils Ethereum compatibles.
 ---
 
-# Links
+# Liens
 
- - [Substrate.dev](https://substrate.dev/) - Starting point for learning about [Substrate](/resources/glossary/#substrate), a Rust-based framework for developing blockchains.  Moonbeam is developed using Substrate and uses many of the modules that come with it.
- - [Polkadot.network](https://polkadot.network/) - Learn about Polkadot, including the vision behind the network and how the system works, i.e., staking, governance, etc.
- - [Polkadot-JS Apps](https://polkadot.js.org/apps) - A web-based interface for interacting with Substrate based nodes, including Moonbeam.
- - [Solidity Docs](https://solidity.readthedocs.io/) - Solidity is the main smart contract programming language supported by Ethereum and Moonbeam.  The Solidity docs site is very comprehensive.
- - [Remix](https://remix.ethereum.org/) - Web-based IDE for Solidity smart contract development that is compatible with Moonbeam.
- - [Truffle](https://www.trufflesuite.com/) - Development tools for Solidity, including debugging, testing, and automated deployment that is compatible with Moonbeam.
+ - [Substrate.dev](https://substrate.dev/) - Point de départ pour découvrir [Substrate](/resources/glossary/#substrate), un framework basé sur Rust pour le développement de blockchains. Moonbeam est développé à l'aide de Substrate et utilise de nombreux modules qui l'accompagnent.
+ - [Polkadot.network](https://polkadot.network/) - Découvrez Polkadot, y compris la vision derrière le réseau et le fonctionnement du système, c'est-à-dire le staking, la gouvernance, etc.
+ - [Polkadot-JS Apps](https://polkadot.js.org/apps) -  Une interface Web pour interagir avec les nœuds basés sur Substrate, y compris Moonbeam.
+ - [Solidity Docs](https://solidity.readthedocs.io/) - Solidity est le principal langage de programmation de contrat intelligent pris en charge par Ethereum et Moonbeam. Le site de documentation Solidity est très complet.
+ - [Remix](https://remix.ethereum.org/) - IDE Web pour le développement de contrats intelligents Solidity compatible avec Moonbeam.
+ - [Truffle](https://www.trufflesuite.com/) - Outils de développement pour Solidity, y compris le débogage, les tests et le déploiement automatisé compatibles avec Moonbeam.
