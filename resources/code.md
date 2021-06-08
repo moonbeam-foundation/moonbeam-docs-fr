@@ -1,20 +1,20 @@
 ---
-title: Source Code
-description: Moonbeam is an open source project in the Polkadot ecosystem, with publicly available and auditable source code.
+title: Code source
+description: Moonbeam est un projet open source de l'écosystème Polkadot, avec un code source accessible au public et vérifiable.
 ---
 
-# Moonbeam Source Code
+# Code source Moonbeam
 
-Moonbeam is an open source project.  The main Moonbeam repo can be found here:
+Moonbeam est un projet open source. Le repo principal de Moonbeam peut être trouvé ici:
 
 [:fontawesome-brands-github: https://github.com/PureStake/moonbeam](https://github.com/PureStake/moonbeam)
 
-Moonbeam is implemented using the Substrate framework.  The source code for Substrate can be found here:
+Moonbeam est implémenté en utilisant le framework Substrate. Le code source de Substrate peut être trouvé ici:
 
 [:fontawesome-brands-github: https://github.com/paritytech/substrate](https://github.com/paritytech/substrate)
 
-We also work on Ethereum compatibility features along with engineers from Parity as part of the Frontier project.  Source code for Frontier can be found here:
+Nous travaillons également sur les fonctionnalités de compatibilité Ethereum avec les ingénieurs de Parity dans le cadre du projet Frontier. Le code source de Frontier peut être trouvé ici:
 
 [:fontawesome-brands-github: https://github.com/paritytech/frontier](https://github.com/paritytech/frontier)
 
-If you are interested in contributing code to Moonbeam, reach out to us on [:moonbeam-element: Element](https://matrix.to/#/!dzULkAiPePEaverEEP:matrix.org?via=matrix.org).
+Si vous souhaitez contribuer au code de Moonbeam, contactez-nous sur [:moonbeam-element: Element](https://matrix.to/#/!dzULkAiPePEaverEEP:matrix.org?via=matrix.org).
