@@ -1,60 +1,60 @@
 ---
-title: Code Snippets
-description: In order to make it easier to get started with Moonbeam, here are code snippets for each of the tutorials we’ve created.
+title: Extraits de code
+description: Afin de faciliter la prise en main de Moonbeam, voici des extraits de code pour chacun des tutoriels que nous avons créés.
 ---
 
-# Code Snippets
+# Extraits de code
 
-## Setting up a Local Moonbeam Node
+## Configuration d'un nœud Moonbeam local
 
-**Clone moonbeam-tutorials repo:**
+**Cloner le repo moonbeam-tutorials:**
 
 ```
 git clone -b {{ networks.development.build_tag }} https://github.com/PureStake/moonbeam
 cd moonbeam
 ```
 
-**Install substrate and its pre-requisites:**
+**Installez substrate et ses pré-requis:**
 
 ```
 --8<-- 'code/setting-up-node/substrate.md'
 ```
 
-**Add Rust to system path:**
+**Ajoutez Rust au chemin du système:**
 
 ```
 --8<-- 'code/setting-up-node/cargoerror.md'
 ```
 
-**Build the development node:**
+**Créez le nœud de développement:**
 
 ```
 --8<-- 'code/setting-up-node/build.md'
 ```
 
-**Run node in dev mode:**
+**Exécutez le nœud en mode développement:**
 
 ```
 --8<-- 'code/setting-up-node/runnode.md'
 ```
 
-**Purge chain, clean up any old data from running a ‘dev’ node in the past:**
+**Purgez la chaîne, nettoyez toutes les anciennes données de l'exécution d'un nœud 'dev' dans le passé:**
 
 ```
 ./target/release/moonbeam-development purge-chain --dev
 ```
 
-**Run node in dev mode suppressing block information but prints errors in console:**
+**Exécutez le nœud en mode développement et en supprimant les informations de bloc mais en imprimant les erreurs dans la console:**
 
 ```
 ./target/release/moonbeam-development --dev -lerror
 ```
 
-## Genesis Account
+## Compte Genèse
 
 --8<-- 'text/metamask-local/dev-account.md'
 
-## Development Accounts
+## Comptes de développement
 
 --8<-- 'code/setting-up-node/dev-accounts.md'
 
@@ -62,10 +62,10 @@ cd moonbeam
 
 ## MetaMask
 
-**Moonbeam Development node details:**
+**Détails du nœud de développement Moonbeam:**
 
 --8<-- 'text/metamask-local/development-node-details.md'
 
-**Moonbase Alpha TestNet:**
+**TestNet Moonbase Alpha:**
 
 --8<-- 'text/testnet/testnet-details.md'
