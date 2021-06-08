@@ -1,21 +1,21 @@
 ---
-title: Why Polkadot
-description: Moonbeam is built on the Substrate framework and connected to the Polkadot network, adding speed and security to the platform.
+title: Pourquoi Polkadot
+description: Moonbeam est construit sur le framework Substrate et connecté au réseau Polkadot, ajoutant vitesse et sécurité à la plate-forme.
 ---
-# Why We're Building on Polkadot
+# Pourquoi nous construisons sur Polkadot
 
-After extensive research, we decided to build Moonbeam using the [Substrate development framework](/resources/glossary/#substrate) and to deploy Moonbeam as a [parachain](/resources/glossary/#parachains) on the [Polkadot network](/resources/glossary/#polkadot). 
+Après des recherches approfondies, nous avons décidé de construire Moonbeam en utilisant le [framework de développement Substrate](/resources/glossary/#substrate) et de déployer Moonbeam en tant que [parachain](/resources/glossary/#parachains) sur le [réseau Polkadot](/resources/glossary/#polkadot). 
 
-## Substrate Blockchain Framework
+## Substrate, le framework pour blockchain
 
-Substrate is a good technical fit for Moonbeam. By building on top of this framework, we can leverage the extensive functionality that Substrate includes out-of-the-box, rather than building it ourselves. This includes peer-to-peer networking, consensus mechanisms, governance functionality, an EVM implementation, and more.
+Substrate convient bien à Moonbeam. En s'appuyant sur ce framework, nous pouvons tirer parti des fonctionnalités étendues prêtes à l'emploi qu’il inclut, plutôt que de les construire nous-mêmes. Cela inclut la mise en réseau peer-to-peer, les mécanismes de consensus, les fonctionnalités de gouvernance, la mise en œuvre EVM, etc.
 
-Overall, using Substrate will dramatically reduce the time and implementation effort needed to implement Moonbeam.  Substrate allows a great degree of customization, which is necessary in order to achieve our Ethereum compatibility goals.  And, by using Rust, we benefit from both safety guarantees and performance gains. 
+Dans l'ensemble, l'utilisation de Substrate réduira considérablement le temps et les efforts de mise en œuvre nécessaires pour mettre en œuvre Moonbeam. Substrate permet un grand degré de personnalisation, nécessaire pour atteindre nos objectifs de compatibilité Ethereum. Et, en utilisant Rust, nous bénéficions à la fois de garanties de sécurité et de gains de performances.
 
-## Polkadot Network and Ecosystem
+## Réseau et écosystème de Polkadot
 
-The Polkadot network is also a good fit for Moonbeam.  As a parachain on Polkadot, Moonbeam will be able to directly integrate with — and move tokens between — any other parachains and parathreads on the network.
+Le réseau Polkadot convient également parfaitement à Moonbeam. En tant que parachaine sur Polkadot, Moonbeam pourra s'intégrer directement à - et déplacer des jetons entre - toutes les autres parachaines et parathreads du réseau.
 
-We can also leverage any of the bridges that are independently built to connect non-Polkadot chains to Polkadot, including bridges to Ethereum. Polkadot’s interoperability model uniquely supports Moonbeam’s cross-chain integration goals and is a key enabling technology to support the Moonbeam vision.
+Nous pouvons également tirer parti de l'un des ponts construits indépendamment pour connecter des chaînes non Polkadot à Polkadot, y compris des ponts vers Ethereum. Le modèle d'interopérabilité de Polkadot soutient de manière unique les objectifs d'intégration inter-chaînes de Moonbeam et est une technologie clé permettant de soutenir la vision de Moonbeam.
 
-But perhaps just as important as the technical criteria above, we are impressed with the people in the Polkadot ecosystem.  This includes individuals at Parity, the Web3 Foundation, and other projects in the ecosystem.  We have built many valuable relationships and find the people to be both extremely talented and the kind of people we want to be around.
+Mais peut-être tout aussi important que les critères techniques ci-dessus, nous sommes impressionnés par les gens de l'écosystème de Polkadot. Cela inclut les individus de Parity, de la Fondation Web3 et d'autres projets de l'écosystème. Nous avons construit de nombreuses relations précieuses et trouvons que les gens sont à la fois extrêmement talentueux et sont le genre de personnes avec lesquelles nous voulons travailler.
