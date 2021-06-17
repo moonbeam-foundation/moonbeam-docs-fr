@@ -1,78 +1,78 @@
 ---
 title: TestNet
-description: An overview of the current configuration of the Moonbeam TestNet, Moonbase Alpha, and information on how to start building on it using Solidity.
+description: Un aperçu de la configuration actuelle du Testnet Moonbeam, Moonbase Alpha et des informations sur la façon de commencer à l'utiliser à l'aide de Solidity.
 ---
 
-# The Moonbase Alpha TestNet
+# Le TestNet Moonbase Alpha
 
 _Updated April 5, 2021_
 
-## Goal
+## Objectif
 
-The first Moonbeam TestNet, named Moonbase Alpha, aims to provide developers with a place to start experimenting and building on Moonbeam in a shared environment. Since Moonbeam will be deployed as a parachain on Kusama and Polkadot, we want our TestNet to reflect our production configuration. For this reason, we decided that it needed to be a parachain-based configuration rather than a Substrate development setup.
+Le premier TestNet Moonbeam, nommé Moonbase Alpha, vise à fournir aux développeurs un endroit pour commencer à expérimenter et à construire sur Moonbeam dans un environnement partagé. Puisque Moonbeam sera déployé en tant que parachain sur Kusama et Polkadot, nous voulons que notre TestNet reflète notre configuration de production. Pour cette raison, nous avons décidé qu'il devait s'agir d'une configuration basée sur la parachain plutôt que d'une configuration de développement substrate.
 
-In order to collect as much feedback as possible and provide fast issue resolution, we have set up a [Discord with a dedicated Moonbase AlphaNet channel](https://discord.gg/PfpUATX).
+Afin de collecter autant de commentaires que possible et de fournir une résolution rapide des problèmes, nous avons mis en place un [Discord avec un canal Moonbase AlphaNet dédié](https://discord.gg/PfpUATX).
 
-## Initial Configuration
+## Configuration initiale
 
-Moonbase Alpha has the following configuration:
+Moonbase Alpha a la configuration suivante:
 
- - Moonbeam runs as a parachain connected to a relay chain
- - The parachain has two collators (hosted by PureStake) that are collating blocks. External collators can join the network. Only the top {{ networks.moonbase.staking.max_collators }} collator nodes by stake are chosen in the active set
- - The relay chain hosts three validators (hosted by PureStake) to finalize relay chain blocks. One of them is selected to finalize each block collated by Moonbeam's collators. This setup provides room to expand to a two-parachain configuration in the future
- - There are two RPC endpoints (hosted by PureStake). People can run full nodes to access their own private RPC endpoints
+ - Moonbeam fonctionne comme une parachain connectée à une chaîne de relais
+ - La parachain a deux assembleurs (hébergés par PureStake) qui assemblent des blocs. Les assembleurs externes peuvent rejoindre le réseau. Seuls les nœuds supérieurs de l'assembleur {{ networks.moonbase.staking.max_collators }} par enjeu sont choisis dans l'ensemble actif
+ - La chaîne de relais héberge trois validateurs (hébergés par PureStake) pour finaliser les blocs de chaîne de relais. L'un d'eux est sélectionné pour finaliser chaque bloc assemblé par les assembleurs de Moonbeam. Cette configuration permet de passer à une configuration à deux parachaïnes à l'avenir
+ - Il existe deux points de terminaison RPC (hébergés par PureStake). Les utilisateurs peuvent exécuter des nœuds complets pour accéder à leurs propres points de terminaison RPC privés
 
-![TestNet Diagram](/images/testnet/Moonbase-Alpha-v7.png)
+![TestNet Diagramme](/images/testnet/Moonbase-Alpha-v7.png)
 
-## Features
+## Caractéristiques
 
-The following features are available:
+Les fonctionnalités suivantes sont disponibles:
 
-??? release v1 "_September 2020_"
-    - Fully-emulated Ethereum block production in Substrate (Ethereum pallet)
-    - Dispatchable functions to interact with the Rust EVM implementation ([EVM pallet](https://docs.rs/pallet-evm/2.0.1/pallet_evm/))
-    - Native Ethereum RPC support (Web3) in Substrate ([Frontier](https://github.com/paritytech/frontier)). This provides compatibility with Ethereum developer tools such as MetaMask, Remix, and Truffle 
+??? Sortie de la v1 "_Septembre 2020_"
+    - Production de blocs Ethereum entièrement émulés dans le substrate (palette Ethereum)
+    - Fonctions distribuables pour interagir avec l'implémentation Rust EVM ([Palette EVM](https://docs.rs/pallet-evm/2.0.1/pallet_evm/))
+    - Prise en charge native d'Ethereum RPC (Web3) dans Substrate ([Frontier](https://github.com/paritytech/frontier)). Cela offre une compatibilité avec les outils de développement Ethereum tels que MetaMask, Remix et Truffle 
 
-??? release v2 "_October 2020_"
-    - Event subscription support (pub/sub), which is a missing component on the Web3 RPC side and commonly used by DApp developers. You can find a tutorial on how to subscribe to events [here](/integrations/pubsub/)
-    - Support for the following precompile contracts: [ecrecover](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x-01-ecrecover-hash-v-r-s), [sha256](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x-02-sha-256-data), [ripemd160](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x-03-ripemd-160-data) and the [identity function](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x-04-datacopy-data) (or datacopy)
+??? Sortie de la v2 "_Octobre 2020_"
+    - Prise en charge de l'abonnement aux événements (pub / sub), qui est un composant manquant du côté RPC Web3 et couramment utilisé par les développeurs de DApp. Vous pouvez trouver un tutoriel sur la façon de vous abonner à des événements [ici](/integrations/pubsub/)
+    - Prise en charge des contrats de précompilation suivants: [ecrecover](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x-01-ecrecover-hash-v-r-s), [sha256](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x-02-sha-256-data), [ripemd160](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x-03-ripemd-160-data) et la [fonction d'identité](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x-04-datacopy-data) (ou datacopy)
 
-??? release v3 "_November 2020_"
-    - Unification of Substrate and Ethereum accounts under the H160 format, an effort we are calling [Unified Accounts](https://medium.com/moonbeam-network/moonbase-alpha-v3-introducing-unified-accounts-88fae3564cda). Consequently, there will be only one kind of account in the system represented by a single address
-    - Upgrades to the event subscription support, adding the possibility of using wildcards and conditional formatting for topics. You can find more information [here](https://docs.moonbeam.network/integrations/pubsub/#using-wildcards-and-conditional-formatting)
-    - Polkadot JS Apps now natively supports H160 addresses and ECDSA keys. You can use your Ethereum-style address for Substrate functions (when available) like staking, balances, and governance. You can find more information [here](/integrations/wallets/polkadotjs/)
+??? Sortie de la v3 "_Novembre 2020_"
+    - Unification des comptes Substrate et Ethereum sous le format H160, un effort que nous appelons [Comptes Unifiés](https://medium.com/moonbeam-network/moonbase-alpha-v3-introducing-unified-accounts-88fae3564cda). Par conséquent, il n'y aura qu'un seul type de compte dans le système représenté par une seule adresse
+    - Mise à niveau de la prise en charge de l'abonnement aux événements, ajoutant la possibilité d'utiliser des caractères génériques et une mise en forme conditionnelle pour les sujets. Vous pouvez trouver plus d'informations [ici](https://docs.moonbeam.network/integrations/pubsub/#using-wildcards-and-conditional-formatting)
+    - Polkadot JS Apps prend désormais en charge nativement les adresses H160 et les clés ECDSA. Vous pouvez utiliser votre adresse de style Ethereum pour les fonctions de substrate (le cas échéant) telles que le jalonnement, les équilibres et la gouvernance. Vous pouvez trouver plus d'informations [ici](/integrations/wallets/polkadotjs/)
 
-??? release v4 "_December 2020_"
-    - Updated to the newest version of the Polkadot parachain protocol ([Parachains V1](https://w3f.github.io/parachain-implementers-guide/)), which fixed several issues with node syncing, paving the way to have multiple collators to sync in the same parachain
-    - Multiple improvements to our Etheruem Compatibility features:
-        * Event subscription ID now returns an Ethereum-styled subscription ID
-        * Fixed gas estimation issues for specific usecases
-        * Added support for revert reason message
-        * Support for Ethereum transactions without ChainId
+??? Sortie de la v4 "_Decembre 2020_"
+    - Mise à jour vers la dernière version du protocole Polkadot parachain ([Parachains V1](https://w3f.github.io/parachain-implementers-guide/)), qui a corrigé plusieurs problèmes de synchronisation des nœuds, ouvrant la voie à la synchronisation de plusieurs collators dans la même parachain
+    - Plusieurs améliorations apportées à nos fonctionnalités de compatibilité Ethereum:
+        * L'ID d'abonnement à l'événement renvoie désormais un ID d'abonnement de style Ethereum
+        * Correction de problèmes d'estimation de gaz pour des cas d'utilisation spécifiques
+        * Ajout de la prise en charge du message de motif de retour
+        * Prise en charge des transactions Ethereum sans ChainId
 
-??? release v5 "_January 2021_"      
-    - Added a custom version of the [Staking pallet](https://wiki.polkadot.network/docs/en/learn-staking) (for testing and development purposes only)
-    - Added support for querying pending transactions while they are in the pool 
-    - Fixed some issues when retrieving past events and other minor fixes related to smart contract events
-    - Multiple under-the-hood improvements that include an optimization of the EVM execution time, making it 15-50 times faster
-    - Support for the [modexp](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x05-bigmodexp-base-exp-mod) precompile contracts
+??? Sortie de la v5 "_Janvier 2021_"      
+    - Ajout d'une version personnalisée du [Staking pallet](https://wiki.polkadot.network/docs/en/learn-staking) (à des fins de test et de développement uniquement)
+    - Ajout de la prise en charge de l'interrogation des transactions en attente lorsqu'elles sont dans le pool 
+    - Correction de certains problèmes lors de la récupération d'événements passés et d'autres correctifs mineurs liés aux événements de contrat intelligent
+    - Plusieurs améliorations sous le capot qui incluent une optimisation du temps d'exécution EVM, le rendant 15 à 50 fois plus rapide
+    - Prise en charge des contrats de précompilation [modexp](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x05-bigmodexp-base-exp-mod)
 
-??? release v6 "_February 2021_"      
-    - Public release of the custom [Staking pallet](https://wiki.polkadot.network/docs/en/learn-staking). Now token holders can nominate collators and earn rewards
-    - Added the [Democracy pallet](https://github.com/paritytech/substrate/tree/HEAD/frame/democracy). Token holders can now [submit proposals](/governance/proposals/) and [vote on them](/governance/voting/)
-    - Updated to the latest version of [Frontier RPC](https://github.com/paritytech/frontier), which increases EVM execution efficiency by a factor of 5
-    - The gas limit has been bump to 15M per block, with a 13M per transaction limit
+??? Sortie de la v6 "_Fevrier 2021_"      
+    - Publication publique du [Staking pallet](https://wiki.polkadot.network/docs/en/learn-staking) personnalisée. Désormais, les détenteurs de jetons peuvent nommer des assembleurs et gagner des récompenses
+    - Ajout du [Democracy pallet](https://github.com/paritytech/substrate/tree/HEAD/frame/democracy). Les détenteurs de jetons peuvent désormais [soumettre des propositions](/governance/proposals/) et [voter dessus](/governance/voting/)
+    - Mise à jour vers la dernière version du [RPC Frontier](https://github.com/paritytech/frontier), ce qui augmente l'efficacité d'exécution de l’EVM d'un facteur 5
+    - La limite de gaz a été augmentée à 15M par bloc, avec une limite de 13M par transaction
 
-??? release v7 "_April 2021_"      
-    - Added support for Ethereum debug/tracing modules. These are turned off by default, to use them you need to spin up a full-node and turn on the feature
-    - Fixed block propagation issues so that is not longer limited to collators, improving network stability
-    - Added Councils and Technical Committee, expanding governance features
-    - Staking module has been refactored, with new names to improve the end-user experience
-    - Added three new precompiles: [Bn128Add](https://eips.ethereum.org/EIPS/eip-196), [Bn128Mul](https://eips.ethereum.org/EIPS/eip-196) and [Bn128Pairing](https://eips.ethereum.org/EIPS/eip-197)
+??? Sortie de la v7 "_Avril 2021_"      
+    - Ajout de la prise en charge des modules de débogage / traçage Ethereum. Ceux-ci sont désactivés par défaut, pour les utiliser, vous devez faire tourner un nœud complet et activer la fonctionnalité
+    - Correction des problèmes de propagation de bloc afin que ce ne soit plus limité aux collators, améliorant la stabilité du réseau
+    - Ajout de conseils et d'un comité technique, élargissement des fonctionnalités de gouvernance
+    - Le module de jalonnement a été remanié, avec de nouveaux noms pour améliorer l'expérience de l'utilisateur final
+    - Ajout de trois nouvelles précompilations: [Bn128Add](https://eips.ethereum.org/EIPS/eip-196), [Bn128Mul](https://eips.ethereum.org/EIPS/eip-196) et [Bn128Pairing](https://eips.ethereum.org/EIPS/eip-197)
 
-### Release Notes
+### Notes de version
 
-For more details regarding the updates of Moonbase Alpha, please refer to the following release notes:
+Pour plus de détails sur les mises à jour de Moonbase Alpha, veuillez consulter les notes suivantes:
 
  - [Moonbase Alpha v2](https://github.com/PureStake/moonbeam/releases/tag/v0.2.0)
  - [Moonbase Alpha v3](https://github.com/PureStake/moonbeam/releases/tag/v0.3.0)
@@ -81,43 +81,43 @@ For more details regarding the updates of Moonbase Alpha, please refer to the fo
  - [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/releases/tag/v0.6.0)
  - [Moonbase Alpha v7](https://github.com/PureStake/moonbeam/releases/tag/v0.7.0)
 
-### Future Releases
+### Versions futures
 
-Features that may be implemented in the future:
+Fonctionnalités susceptibles d'être implémentées à l'avenir:
 
- - Treasury features ([Treasury pallet](https://github.com/paritytech/substrate/tree/master/frame/treasury))
+ - Fonctions de trésorerie ([Treasury pallet](https://github.com/paritytech/substrate/tree/master/frame/treasury))
 
-## Get Started
+## Commencer
 
 --8<-- 'text/testnet/connect.md'
 
-## Telemetry
+## Télémétrie
 
-You can see current Moonbase Alpha telemetry information visiting [this link](https://telemetry.polkadot.io/#list/Moonbase%20Alpha).
+Vous pouvez voir les informations de télémétrie actuelles de Moonbase Alpha en visitant [ce lien](https://telemetry.polkadot.io/#list/Moonbase%20Alpha).
 
-## Tokens
+## Jetons
 
 --8<-- 'text/testnet/faucet.md'
 
-## Early Stage Proof of Stake
+## Stade précoce du Proof of Stake
 
-With the release of Moonbase Alpha v6, the TestNet is now running with an early stage Proof of Stake system. This means that, for testing purposes, Moonbeam partners will be encouraged to be the first collators in the network.
+Avec la sortie de Moonbase Alpha v6, Le TestNet fonctionne désormais avec un système précoce de Proof of Stake. Cela signifie qu'à des fins de test, les partenaires de Moonbeam seront encouragés à être les premiers assembleurs du réseau.
 
-As Moonbase Alpha progresses, we expect to evolve into a fully decentralized Proof of Stake network.
+Au fur et à mesure que Moonbase Alpha progresse, nous prévoyons d'évoluer vers un réseau de preuve d'enjeu entièrement décentralisé.
 
-## Limitations
+## Limites
 
-This is the first TestNet for Moonbeam, so there are some limitations.
+C'est le premier TestNet pour Moonbeam, il y a donc quelques limites.
 
-Some [precompiles](https://docs.klaytn.com/smart-contract/precompiled-contracts) are yet to be included in this release. You can check a list of supported precompiles [here](/integrations/precompiles/). However, all built-in functions are available.
+Certaines [precompilations](https://docs.klaytn.com/smart-contract/precompiled-contracts) ne sont pas encore incluses dans cette version. Vous pouvez consulter une liste des précompilations prises en charge [ici](/integrations/precompiles/). Cependant, toutes les fonctions intégrées sont disponibles.
 
-Since the release of Moonbase Alpha v6, the maximum gas limit per block has been set to 15M, with a maximum gas limit per transaction of 13M.
+Depuis la sortie de Moonbase Alpha v6, la limite maximale de gaz par bloc a été fixée à 15M, avec une limite de gaz maximale par transaction de 13M.
 
-Users only have access to the Moonbeam parachain. In future networks, we will add access to the relay chain so users can test transferring tokens.
+Les utilisateurs n'ont accès qu'à la parachaine Moonbeam. Dans les futurs réseaux, nous ajouterons un accès à la chaîne de relais afin que les utilisateurs puissent tester le transfert de jetons.
 
-## Chain Purge
+## Purge de la chaîne
 
-This network is under active development. Occasionally, chain purges may be needed in order to reset the blockchain to its initial state. This is necessary when doing major TestNet upgrades or maintenance. We will announce when a chain purge will take place via our [Discord channel](https://discord.gg/PfpUATX) at least 24 hours in advance.
+Ce réseau est en cours de développement actif. Parfois, des purges de chaîne peuvent être nécessaires pour réinitialiser la blockchain à son état initial. Ceci est nécessaire lors des mises à niveau ou de la maintenance majeures de TestNet. Nous annoncerons quand une purge de chaîne aura lieu via notre [Chaine Discord](https://discord.gg/PfpUATX) au moins 24 heures à l'avance.
 
-Please take note that PureStake will not be migrating the chain state. Thus, all data stored in the blockchain will be lost when a chain purge is carried out. However, as there is no gas limit, users can easily recreate their pre-purge state.
+Veuillez noter que PureStake ne migrera pas l'état de la chaîne. Ainsi, toutes les données stockées dans la blockchain seront perdues lors d'une purge de chaîne. Cependant, comme il n'y a pas de limite de gaz, les utilisateurs peuvent facilement recréer leur état de pré-purge.
 
