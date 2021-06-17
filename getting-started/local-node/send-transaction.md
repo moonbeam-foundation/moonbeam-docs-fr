@@ -1,15 +1,15 @@
 ---
-title: Send a Transaction
-description: Learn how to create and send transactions on Moonbeam’s Ethereum-compatible network with a simple script using web3.js, ethers.js, or web3.py.
+title: Envoyer une transaction
+description: Apprenez à créer et envoyer des transactions sur le réseau compatible Ethereum de Moonbeam avec un script simple utilisant web3.js, ethers.js ou web3.py.
 ---
 
-# Using Ethereum Libraries to Send Transactions on Moonbeam
+# Utilisation des bibliothèques Ethereum pour envoyer des transactions sur Moonbeam
 
-![Ethereum Libraries Integrations Moonbeam](/images/sendtx/web3-libraries-banner.png)
+![Intégrations des bibliothèques Ethereum Moonbeam](/images/sendtx/web3-libraries-banner.png)
 
 ## Introduction
 
-This guide walks through using three different Ethereum libraries to manually sign and send a transaction on Moonbeam. The three libraries covered in this tutorial are:
+Ce guide décrit l'utilisation de trois bibliothèques Ethereum différentes pour signer et envoyer manuellement une transaction sur Moonbeam. Les trois bibliothèques couvertes dans ce didacticiel sont:
 
  - [Web3.js](https://web3js.readthedocs.io/)
  - [Ethers.js](https://docs.ethers.io/)
@@ -18,28 +18,28 @@ This guide walks through using three different Ethereum libraries to manually si
 !!! note
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
-## Checking Prerequisites
+## Vérification des prérequis
 
-The examples using both web3.js and ethers.js require previous installation of Node.js and NPM. The example using web3.py requires Python and PIP. As of the writing of this guide, the versions used were:
+Les exemples utilisant à la fois web3.js et ethers.js nécessitent une installation préalable de Node.js et NPM. L'exemple utilisant web3.py nécessite Python et PIP. Au moment de la rédaction de ce guide, les versions utilisées étaient:
 
  - Node.js v15.10.0
  - NPM v7.5.3
  - Python v3.6.9 (web3 requires Python >= 3.5.3 and < 4)
  - PIP3 v9.0.1
 
-Next, create a directory to store all of the relevant files:
+Ensuite, vous devez créer un répertoire pour stocker tous les fichiers pertinents:
 
 ```
 mkdir transaction && cd transaction/
 ```
 
-For the JavaScript libraries, you can first create a simple `package.json` file (not required):
+Pour les bibliothèques JavaScript, vous pouvez d'abord créer un fichier simple `package.json` (non obligatoire):
 
 ```
 npm init --yes
 ```
 
-In the directory, install the library to be used (web3.py is installed in the default directory of PIP3):
+Dans le répertoire, installez la bibliothèque à utiliser (web3.py est installé dans le répertoire par défaut de PIP3):
 
 === "Web3.js"
     ```
@@ -56,23 +56,23 @@ In the directory, install the library to be used (web3.py is installed in the de
     pip3 install web3
     ```
 
-The versions used as of publishing this guide were:
+Les versions utilisées au moment de la publication de ce guide étaient:
 
  - Web3.js v1.33 (`npm ls web3`)
  - Ethers.js v5.0.31 (`npm ls ethers`)
  - Web3.py v5.17.0 (`pip3 show web3`)
 
-## The Transaction File
+## Le fichier de transaction
 
-Only one file is needed to execute a transaction between accounts. The script shown in this section will transfer 1 Token from an origin address (from which you hold the private key), to another address. You can find the code snippet for each library here (they were arbitrarily named `transaction.*`):
+Un seul fichier est nécessaire pour exécuter une transaction entre comptes. Le script présenté dans cette section transférera 1 jeton d'une adresse d'origine (à partir de laquelle vous détenez la clé privée), vers une autre adresse. Vous pouvez trouver l'extrait de code de chaque bibliothèque ici (ils ont été nommés de manière arbitraire `transaction.*`):
 
  - Web3.js: [_transaction.js_](/snippets/code/web3-tx-local/transaction.js)
  - Ethers.js: [_transaction.js_](/snippets/code/ethers-tx-local/transaction.js)
  - Web3.py: [_transaction.py_](/snippets/code/web3py-tx/transaction.py)
 
-Each of the files, regardless of the library used, has been divided into three sections. In the first section ("Define Provider & Variables"), the library to use is imported, and the provider and other variables are defined (variables depend on the library). Note that `providerRPC` has both the standard development node RPC endpoint and the one for [Moonbase Alpha](/networks/testnet/).
+Chacun des fichiers, quelle que soit la bibliothèque utilisée, a été divisé en trois sections. Dans la première section ("Définir le fournisseur et les variables"), la bibliothèque à utiliser est importée, et le fournisseur et les autres variables sont définis (les variables dépendent de la bibliothèque). Notez que `providerRPC` contient à la fois le point de terminaison RPC du nœud de développement standard et celui de [Moonbase Alpha](/networks/testnet/).
 
-The second section ("Create and Deploy Transaction") outlines the functions needed to send the transaction itself. Some of the key takeaways are discussed next.
+La deuxième section ("Créer et déployer une transaction") décrit les fonctions nécessaires pour envoyer la transaction elle-même. Certains des principaux points à retenir sont abordés ci-après.
 
 === "Web3.js"
     ```
@@ -91,57 +91,57 @@ The second section ("Create and Deploy Transaction") outlines the functions need
 
 ### Web3.js
 
-In the first section of [the script](/snippets/code/web3-tx-local/transaction.js), the `web3` instance (or provider) is created using the `Web3` constructor with the provider RPC. By changing the provider RPC given to the constructor, you can choose which network you want to send the transaction to.
+Dans la première section [du script](/snippets/code/web3-tx-local/transaction.js), l'instance `web3` (ou le fournisseur) est créée à l'aide du constructeur `Web3` avec le fournisseur RPC. En modifiant le fournisseur RPC donné au constructeur, vous pouvez choisir le réseau auquel vous souhaitez envoyer la transaction.
 
-The private key, and the public address associated with it, are defined for signing the transaction and logging purposes, respectively. Only the private key is required.
+La clé privée et l'adresse publique qui lui est associée sont définies pour la signature de la transaction et la journalisation, respectivement. Seule la clé privée est requise.
 
-The `addressTo`, where the transaction will be sent, is also defined here, and it is required.
+L' `addressTo`, où la transaction sera envoyée, est également défini ici, et elle est obligatoire.
 
-In the second section, the transaction object is created with the `to`, `value`, and `gas` fields. These describe the recipient, the amount to send, and the gas consumed by the transaction (21000 in this case). You can use the `web3.utils.toWei()` function to input the value in ETH (for example) and get the output in WEI. The transaction is signed with the private key using the `web3.eth.accounts.signTransaction()` method. Note that this returns a promise that needs to be resolved.
+Dans la deuxième section, l'objet de transaction est créé avec les champs `to`, `value`, et `gas`. Ceux-ci décrivent le destinataire, le montant à envoyer et le gaz consommé par la transaction (21 000 dans ce cas). Vous pouvez utiliser la fonction `web3.utils.toWei()` pour saisir la valeur dans ETH (par exemple) et obtenir la sortie dans WEI. La transaction est signée avec la clé privée à l'aide de la méthode `web3.eth.accounts.signTransaction()` .  Notez que cela renvoie une promesse qui doit être résolue.
 
-Next, with the transaction signed (you can `console.log(createTransaction)` to see the v-r-s values), you can send it using the `web3.eth.sendSignedTransaction()` method, providing the signed transaction located in `createTransaction.rawTransaction`.
+Ensuite, avec la transaction signée (vous pouvez `console.log(createTransaction)` pour voir les valeurs v-r-s), vous pouvez l'envoyer en utilisant la méthode `web3.eth.sendSignedTransaction()` , en fournissant la transaction signée située dans `createTransaction.rawTransaction`.
 
-Lastly, run the asynchronous deploy function.
+Enfin, exécutez la fonction de déploiement asynchrone.
 
 ### Ethers.js
 
-In the first section of [the script](/snippets/code/ethers-tx-local/transaction.js), different networks can be specified with a name, RPC URL (required), and chain ID. The provider (similar to the `web3` instance) is created with the `ethers.providers.StaticJsonRpcProvider` method. An alternative is to use the `ethers.providers.JsonRpcProvide(providerRPC)` method, which only requires the provider RPC endpoint address. But this might created compatibility issues with individual project specifications.
+Dans la première section [du script](/snippets/code/ethers-tx-local/transaction.js), différents réseaux peuvent être spécifiés avec un nom, une URL RPC (obligatoire) et un ID de chaîne. Le fournisseur (similaire à l'instance `web3`) est créé avec la méthode `ethers.providers.StaticJsonRpcProvider` . Une alternative consiste à utiliser la méthode `ethers.providers.JsonRpcProvide(providerRPC)` , qui ne nécessite que l'adresse du point de terminaison RPC du fournisseur. Mais cela pourrait créer des problèmes de compatibilité avec les spécifications de projet individuelles.
 
-The private key is defined to create a wallet instance, which also requires the provider from the previous step. The wallet instance is used to sign transactions.
+La clé privée est définie pour créer une instance de portefeuille, ce qui nécessite également le fournisseur de l'étape précédente. L'instance de portefeuille est utilisée pour signer des transactions.
 
-The `addressTo`, where the transaction will be sent, is also defined here, and it is required.
+L `addressTo`, où la transaction sera envoyée, est également défini ici, et elle est obligatoire.
 
-In the second section, an asynchronous function wraps the `wallet.sendTransaction(txObject)` method. The transaction object is quite simple. It only requires the recipient's address and the amount to send. Note that `ethers.utils.parseEther()` can be used, which handles the necessary unit conversions from ETH to WEI - similar to using `ethers.utils.parseUnits(value,'ether')`.
+Dans la deuxième section, une fonction asynchrone encapsule la méthode `wallet.sendTransaction(txObject)` . L'objet de transaction est assez simple. Il ne nécessite que l'adresse du destinataire et le montant à envoyer. Notez que `ethers.utils.parseEther()` qui gère les conversions d'unités nécessaires de ETH à WEI peut être utilisé, - similaire à l'utilisation de `ethers.utils.parseUnits(value,'ether')`.
 
-Once the transaction is sent, you can get the transaction response (named `createReceipt` in this example), which has a few properties. For instance, you can call the `createReceipt.wait()` method to wait until the transaction is processed (receipt status is OK).
+Une fois la transaction envoyée, vous pouvez obtenir la réponse de la transaction (nommée `createReceipt` dans cet exemple), qui a quelques propriétés. Par exemple, vous pouvez appeler la méthode `createReceipt.wait()`  pour attendre que la transaction soit traitée (l'état de réception est OK).
 
-Lastly, run the asynchronous deploy function.
+Enfin, exécutez la fonction de déploiement asynchrone.
 
 ### Web3.py
 
-In the first section of [the script](/snippets/code/web3py-tx/transaction.py), the `web3` instance (or provider) is created using the `Web3(Web3.HTTPProvider(provider_rpc))` method with the provider RPC. By changing the provider RPC, you can choose which network you want to send the transaction to.
+Dans la première section [du script](/snippets/code/web3py-tx/transaction.py), l'instance `web3` (ou le fournisseur) est créée à l'aide de la méthode `Web3(Web3.HTTPProvider(provider_rpc))` avec le fournisseur RPC. En modifiant le fournisseur RPC, vous pouvez choisir le réseau auquel vous souhaitez envoyer la transaction.
 
-The private key and the public address associated with it are defined for signing the transaction and logging purposes. The public address is not required.
+La clé privée et l'adresse publique qui lui sont associées sont définies pour la signature de la transaction et à des fins de journalisation. L'adresse publique n'est pas requise.
 
-The `addressTo`, where the transaction will be sent, is also defined here, and it is required.
+L' `addressTo`, où la transaction sera envoyée, est également défini ici, et il est obligatoire.
 
-In the second section, the transaction object is created with the `nonce`, `gasPrice`, `gas`, `to`, and `value` fields. These describe the transaction count, gas price (0 for development and Moonbase Alpha), gas (21000 in this case), the recipient, and the amount to send. Note that the transaction count can be obtained with the `web3.eth.getTransactionCount(address)` method. Also, you can use the `web3.toWei()` function to input the value in ETH (for example) and get the output in WEI. The transaction is signed with the private key using the `web3.eth.account.signTransaction()` method.
+Dans la deuxième section, l'objet de transaction est créé avec les champs `nonce`, `gasPrice`, `gas`, `to`, et `value` . Ceux-ci décrivent le nombre de transactions, le prix du gaz (0 pour le développement et Moonbase Alpha), le gaz (21 000 dans ce cas), le destinataire et le montant à envoyer. Notez que le nombre de transactions peut être obtenu avec la méthode `web3.eth.getTransactionCount(address)` . Aussi, vous pouvez utiliser la fonction `web3.toWei()` pour saisir la valeur dans ETH (par exemple) et obtenir la sortie dans WEI. La transaction est signée avec la clé privée à l'aide de la méthode `web3.eth.account.signTransaction()` .
 
-Next, with the transaction signed, you can send it by using the `web3.eth.sendSignedTransaction()` method, providing the signed transaction located in `createTransaction.rawTransaction`.
+Ensuite, une fois la transaction signée, vous pouvez l'envoyer en utilisant la méthode `web3.eth.sendSignedTransaction()` , en fournissant la transaction signée située dans `createTransaction.rawTransaction`.
 
-## The Balance File
+## Le fichier de solde
 
-Before running the script, another file checks the balances of both addresses before and after the transaction is needed. This can be easily done by a simple query of an account balance.
+Avant d'exécuter le script, un autre fichier qui est nécessaire vérifie les soldes des deux adresses avant et après la transaction. Cela peut être facilement fait par une simple requête sur le solde d'un compte.
 
-You can find the code snippet for each library here (files were arbitrarily named `balances.*`):
+Vous pouvez trouver l'extrait de code pour chaque bibliothèque ici (les fichiers ont été nommés arbitrairement `balances.*`):
 
  - Web3.js: [_balances.js_](/snippets/code/web3-tx-local/balances.js)
  - Ethers.js: [_balances.js_](/snippets/code/ethers-tx-local/balances.js)
  - Web3.py: [_balances.py_](/snippets/code/web3py-tx/balances.py)
 
-For simplicity, the balance file is composed of two sections. As before, in the first section ("Define Provider & Variables"), the library to use is imported, and the provider and address from/to (to check the balances) are defined.
+Pour plus de simplicité, le fichier de solde est composé en deux sections. Comme précédemment, dans la première section ("Définir le fournisseur et les variables"), la bibliothèque à utiliser est importée, et le fournisseur et l'adresse de / à (pour vérifier les soldes) sont définis.
 
-The second section ("Balance Call Function") outlines the functions needed to fetch the balances of the accounts previously defined. Note that `providerRPC` has both the standard development node RPC endpoint and the one for [Moonbase Alpha](/networks/testnet/). Some of the key takeaways are discussed next.
+La deuxième section ("Fonction d'appel de solde") décrit les fonctions nécessaires pour récupérer les soldes des comptes précédemment définis. Notez qu'il contient à la fois le point de terminaison RPC du nœud de développement standard `providerRPC` et celui de [Moonbase Alpha](/networks/testnet/). Certains des principaux points à retenir sont abordés ci-après.
 
 === "Web3.js"
     ```
@@ -160,29 +160,29 @@ The second section ("Balance Call Function") outlines the functions needed to fe
 
 ### Web3.js
 
-The first section of [the script](/snippets/code/web3-tx-local/balances.js) is very similar to the one in [transaction file](/getting-started/local-node/send-transaction/#web3js). The main difference is that no private key is needed because there is no need to send a transaction.
+La première section [du script](/snippets/code/web3-tx-local/balances.js) est très similaire à celle du [fichier de transaction](/getting-started/local-node/send-transaction/#web3js). La principale différence est qu'aucune clé privée n'est nécessaire car il n'est pas nécessaire d'envoyer une transaction.
 
-In the second section, an asynchronous function wraps the web3 method used to fetch the balance of an address, `web3.eth.getBalance(address)`. Once again, you can leverage the `web3.utils.fromWei()` function to transform the balance into a more readable number in ETH.
+Dans la deuxième section, une fonction asynchrone enveloppe la méthode de web3 utilisée pour récupérer le solde d'une adresse, `web3.eth.getBalance(address)`. Une fois de plus, vous pouvez utiliser la fonction `web3.utils.fromWei()` pour transformer la balance en un nombre plus lisible dans ETH.
 
 ### Ethers.js
 
-The first section of [the script](/snippets/code/ethers-tx-local/balances.js) is very similar to the one in [transaction file](/getting-started/local-node/send-transaction/#ethersjs). The main difference is that no private key is needed because there is no need to send a transaction. On the contrary, the `addressFrom` needs to be defined.
+La première section [du script](/snippets/code/ethers-tx-local/balances.js) est très similaire à celle du [fichier de transaction](/getting-started/local-node/send-transaction/#ethersjs). La principale différence est qu'aucune clé privée n'est nécessaire car il n'est pas nécessaire d'envoyer une transaction. Au contraire, les besoins `addressFrom` doivent être définis.
 
-In the second section, an asynchronous function wraps the provider method used to fetch the balance of an address, which is `provider.getBalance(address)`. Once again, you can leverage the `ethers.utils.formatEther()` function to transform the balance into a more readable number in ETH.
+Dans la deuxième section, une fonction asynchrone encapsule la méthode de fournisseur utilisée pour récupérer le solde d'une adresse, qui est `provider.getBalance(address)`. Une fois de plus, vous pouvez utiliser la fonction `ethers.utils.formatEther()` pour transformer la balance en un nombre plus lisible dans ETH.
 
 ### Web3.py
 
-The first section of [the script](/snippets/code/web3py-tx/balances.py) is very similar to the one in [transaction file](/getting-started/local-node/send-transaction/#web3py). The main difference is that no private key is needed because there is no need to send a transaction.
+La première section [du script](/snippets/code/web3py-tx/balances.py) est très similaire à celle du [fichier de transaction](/getting-started/local-node/send-transaction/#web3py). La principale différence est qu'aucune clé privée n'est nécessaire car il n'est pas nécessaire d'envoyer une transaction.
 
-In the second section, the `web3.eth.getBalance(address)` method is used to fetch a target address's balance. Once again, you can leverage the `eb3.fromWei()` function to transform the balance into a more readable number in ETH.
+Dans la deuxième section, la méthode `web3.eth.getBalance(address)` est utilisée pour récupérer le solde d'une adresse cible. Une fois de plus, vous pouvez utiliser la fonction `eb3.fromWei()` pour transformer la balance en un nombre plus lisible dans ETH.
 
-## Running the Scripts
+## Exécution des scripts
 
-For this section, the code shown before was adapted to target a development node, which you can run by following [this tutorial](/getting-started/local-node/setting-up-a-node/). Also, each transaction was sent from the pre-funded account that comes with the node:
+Pour cette section, le code ci-dessus a été adapté pour cibler un nœud de développement, que vous pouvez exécuter en suivant [ce tutoriel](/getting-started/local-node/setting-up-a-node/). De plus, chaque transaction a été envoyée à partir du compte préfinancé fourni avec le nœud:
 
 --8<-- 'text/metamask-local/dev-account.md'
 
-First, check the balances of both of the addresses before the transaction by running (note that the directory was renamed for each library):
+Tout d'abord, vérifiez les soldes des deux adresses avant la transaction en exécutant (notez que le répertoire a été renommé pour chaque bibliothèque):
 
 === "Web3.js"
     ```
@@ -216,7 +216,7 @@ Next, run the _transaction.\*_ script to execute the transaction:
     python3 transaction.py
     ```
 
-And lastly, recheck the balance to make sure the transfer was successful. The entire execution should look like this:
+Et enfin, revérifiez le solde pour vous assurer que le transfert a réussi. L'exécution entière devrait ressembler à ceci:
 
 === "Web3.js"
     ![Send Tx Web3js](/images/sendtx/sendtx-web3js.png)
