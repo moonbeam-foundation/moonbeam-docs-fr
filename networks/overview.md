@@ -1,39 +1,39 @@
 ---
-title: Overview
-description: An overview of the networks planned for Moonbeam, an Ethereum-compatible smart contract parachain on Polkadot.
+title: Aperçu
+description: Un aperçu des réseaux prévus pour Moonbeam, une parachain contrat intelligent compatible Ethereum sur Polkadot.
 ---
 
-# Networks
+# Réseaux
 
-We plan to create multiple long-lived, Moonbeam-based networks. Significantly, Moonbeam will be deployed to Kusama in addition to Polkadot.
+Nous prévoyons de créer plusieurs réseaux à longue durée de vie basés sur Moonbeam. De manière significative, Moonbeam sera déployé sur Kusama en plus de Polkadot.
 
-Our roadmap in regards to deployments as a parachain is the following:
+Notre feuille de route en ce qui concerne les déploiements en tant que parachain est la suivante:
 
- - Moonbase Alpha: PureStake hosted parachain TestNet (_September 2020_) 
- - Moonrock: deployment on the Rococo TestNet (_tbd_)
- - Moonriver: deployment on Kusama (_end of Q2 2021_)
- - Moonbeam: deployment on Polkadot (_end of Q3 2021_)
+ - Moonbase Alpha: Parachain TestNet hébergé par PureStake (_Septembre 2020_) 
+ - Moonrock: déploiement sur le Testnet Rococo  (_à déterminer_)
+ - Moonriver: déploiement sur Kusama (_fin T2 2021_)
+ - Moonbeam: déploiement sur Polkadot (_fin T3 2021_)
  
-This strategy allows us to de-risk software upgrades to Moonbeam on the Polkadot MainNet while still maintaining a reasonable update velocity. We will add details on how to access different Moonbeam-based networks as the networks become available.
+Cette stratégie nous permet de réduire les risques liés aux mises à niveau logicielles de Moonbeam sur le MainNet Polkadot tout en maintenant une vitesse de mise à jour raisonnable. Nous ajouterons des détails sur la façon d'accéder aux différents réseaux basés sur Moonbeam au fur et à mesure que les réseaux seront disponibles.
 
 ## Moonbase Alpha
 
-This TestNet is a network hosted by PureStake. It features a parachain/relay chain scheme. The goal is to allow developers to test the Ethereum compatibility features of Moonbeam in a shared parachain environment without needing to run their own nodes or network.
+Ce TestNet est un réseau hébergé par PureStake. Il comporte un schéma de chaîne parachain / relais. L'objectif est de permettre aux développeurs de tester les fonctionnalités de compatibilité Ethereum de Moonbeam dans un environnement de parachaine partagé sans avoir besoin d'exécuter leurs propres nœuds ou réseau
 
-[Learn more about Moonbase Alpha](/networks/testnet/).
+[En savoir plus sur Moonbase Alpha](/networks/testnet/).
 
 ## Moonrock  
 
-We have decided not to participate in the first parachain deployments to Rococo. We have been running our own parachain/relay chain setup since we launched our TestNet in September 2020.
+Nous avons décidé de ne pas participer aux premiers déploiements de parachaine/Relais au Rococo. Nous exécutons notre propre configuration de chaîne relais depuis le lancement de notre TestNet en septembre 2020.
 
-However, we expect to deploy Moonbeam as a parachain on the Rococo TestNet once interoperability features become available. This will provide a place to test these features with other chains.
+Cependant, nous prévoyons de déployer Moonbeam en tant que parachaine sur le TestNet Rococo une fois que les fonctionnalités d'interopérabilité seront disponibles. Cela fournira un endroit pour tester ces fonctionnalités avec d'autres chaînes.
 
 ## Moonriver
 
-Moonbeam will launch as a parachain on the Kusama network, in advance of deploying to the Polkadot MainNet ([more details here](https://www.purestake.com/news/moonbeam-on-kusama/)). This requires parachain functionality to be live on Kusama. 
+Moonbeam sera lancé en tant que parachaine sur le réseau Kusama, avant le déploiement sur le MainNet Polkadot ([plus de détails ici](https://www.purestake.com/news/moonbeam-on-kusama/)). Cela nécessite que la fonctionnalité de parachaine soit en direct sur Kusama. 
 
-We plan to exercise parachain-related functionality such as [Crowdloan](https://wiki.polkadot.network/docs/en/learn-crowdloans), [XCMP](https://wiki.polkadot.network/docs/en/learn-crosschain), and [SPREE](https://wiki.polkadot.network/docs/en/learn-spree) on Moonriver as those features become available.
+Nous prévoyons d'exercer des fonctionnalités liées à la parachain comme telles que [Crowdloan](https://wiki.polkadot.network/docs/en/learn-crowdloans), [XCMP](https://wiki.polkadot.network/docs/en/learn-crosschain), et [SPREE](https://wiki.polkadot.network/docs/en/learn-spree) sur Moonriver à mesure que ces fonctionnalités seront disponibles.
 
-## Moonbeam Polkadot MainNet
+## Moonbeam MainNet sur Polkadot
 
-The Moonbeam production MainNet will be deployed as a parachain on Polkadot. This Moonbeam network will feature the highest levels of security and availability. Code running on the MainNet will generally have been vetted through one or more of the other networks listed above.
+Le MainNet de production Moonbeam sera déployé en tant que parachain sur Polkadot. Ce réseau Moonbeam offrira les plus hauts niveaux de sécurité et de disponibilité. Le code en cours d'exécution sur MainNet aura généralement été vérifié par un ou plusieurs des autres réseaux énumérés ci-dessus.
