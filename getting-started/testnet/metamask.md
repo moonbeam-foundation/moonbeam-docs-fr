@@ -1,46 +1,46 @@
 ---
-title: Integrate MetaMask
-description: Learn how to use MetaMask with the Moonbeam TestNet. This tutorial shows you how to connect a default installation of MetaMask to Moonbase Alpha.
+title: Intégrer MetaMask
+description: Apprenez à utiliser MetaMask avec le Testnet Moonbeam. Ce tutoriel vous montre comment connecter une installation par défaut de MetaMask à Moonbase Alpha.
 ---
 
-# Connect MetaMask to Moonbase Alpha
+# Connectez MetaMask à Moonbase Alpha
 
 ## Introduction
 
-This guide outlines the steps needed to connect MetaMask to Moonbase Alpha. In contrast to our previous MetaMask guide, this is much simpler because you don't need to connect to a local running Moonbeam node. Let's jump right into it.
+Ce guide décrit les étapes nécessaires pour connecter MetaMask à Moonbase Alpha. Contrairement à notre précédent guide MetaMask, c'est beaucoup plus simple car vous n'avez pas besoin de vous connecter à un nœud Moonbeam en cours d'exécution local. Allons-y.
 
-If you already have MetaMask installed, you can easily connect MetaMask to the Moonbase Alpha test network:
+Si vous avez déjà installé MetaMask, vous pouvez facilement connecter MetaMask au réseau de test Moonbase Alpha :
 
 <div class="button-wrapper">
     <a href="#" class="md-button connectMetaMask">Connect MetaMask</a>
 </div>
 
 !!! note
-    MetaMask will popup asking for permission to add Moonbase Alpha as a custom network. Once you approve permissions, MetaMask will switch your current network to Moonbase Alpha.
-## Creating a Wallet
+    MetaMask apparaîtra pour demander la permission d'ajouter Moonbase Alpha en tant que réseau personnalisé. Une fois que vous avez approuvé les autorisations, MetaMask basculera votre réseau actuel vers Moonbase Alpha.
+## Création d'un portefeuille
 
-After installing [MetaMask](https://metamask.io), the setup will automatically open a new task with a welcome screen. Click "Get Started" to begin the setup process.
+Après avoir installé [MetaMask](https://metamask.io), la configuration ouvrira automatiquement une nouvelle tâche avec un écran de bienvenue. Cliquez sur "Commencer" pour commencer le processus de configuration.
 
 ![MetaMask1](/images/testnet/testnet-metamask1.png)
 
-When prompted, you are given the option to import a wallet using a recovery seed phrase. For this exercise, set up a new wallet.
+Lorsque vous y êtes invité, vous avez la possibilité d'importer un portefeuille à l'aide de votre phrase de récupération. Pour cet exercice, nous allons configurer un nouveau portefeuille.
 
 ![MetaMask2](/images/testnet/testnet-metamask2.png)
 
-## Connecting to Moonbase Alpha
+## Connexion à Moonbase Alpha
 
-Once you finish creating or importing a wallet, you will see the main MetaMask interface. In here, click in the top right logo and go to Settings.
+Une fois que vous avez terminé de créer ou d'importer un portefeuille, vous verrez l'interface principale de MetaMask. Cliquez sur le logo en haut à droite et allez dans Paramètres.
 
 ![MetaMask3](/images/testnet/testnet-metamask3.png)
 
-Navigate to the Networks tab and click the "Add Network" button.
+Accédez à l'onglet Réseaux et cliquez sur le bouton "Ajouter un réseau" .
 
 ![MetaMask4](/images/testnet/testnet-metamask4.png)
 
-In here, fill out the following information and then click Save:
+Remplissez les informations suivantes, puis cliquez sur Enregistrer:
 
 --8<-- 'text/testnet/testnet-details.md'
 
 ![MetaMask5](/images/testnet/testnet-metamask5.png)
 
-That's it! You have succesfully connected MetaMask to the Moonbeam TestNet, Moonbase.
+C'est tout! Vous avez connecté avec succès MetaMask au Testnet Moonbeam, Moonbase.
