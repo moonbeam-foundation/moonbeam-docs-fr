@@ -1,84 +1,84 @@
 ---
-title: Overview
-description: As a Polkadot parachain, Moonbeam will use an on-chain governance system, allowing for a stake-weighted vote on public referenda.
+title: Aperçu
+description: En tant que parachain Polkadot, Moonbeam utilisera un système de gouvernance en chaîne, permettant un vote pondéré en fonction des enjeux lors des référendums publics.
 ---
 
-# Governance in Moonbeam
+# La Gouvernance dans Moonbeam
 
 ![Governance Moonbeam Banner](/images/governance/governance-overview-banner.png)
 
 ## Introduction
 
-Moonbeam is a decentralized network that will be governed by a community of token holders, including core developers, application developers, collators, users, and other contributors. 
+Moonbeam est un réseau décentralisé qui sera régi par une communauté de détenteurs de jetons, comprenant les développeurs principaux, les développeurs d'applications, les assembleurs, les utilisateurs et d'autres contributeurs. 
 
-We aim to facilitate the engagement of token holders from each of these categories as part of launching the network.
+Nous visons à faciliter l'engagement des détenteurs de jetons de chacune de ces catégories dans le cadre du lancement du réseau.
 
-## General Definitions
+## Définitions générales
 
-With great power comes great responsibility. Some important parameters to understand before engaging with Moonbeam's governance include:
+Un grand pouvoir implique de grandes responsabilités. Certains paramètres importants à comprendre avant de s'engager dans la gouvernance de Moonbeam comprennent:
 
- - **Proposals** — actions or items being proposed by token holders. This need to be seconded by other users in order to move to referendum
- - **Referendum** — when the most seconded proposal is voted on by the community. There can be a maximum of five active referenda at a time unless there is an emergency referendum in progress
- - **Launch period** — how often new public referenda are launched
- - **Voting period** — time token holders have to vote for a referendum (duration of a referendum)
- - **Fast-Track Voting period** — duration for voting for emergency proposals that address critical issues
-- **Voting** — referenda are voted on by token holders on a stake and conviction weighted basis. Convictions refer to the time that token holders wish to lock their tokens when voting: the longer they are locked, the more weight their vote has. Referenda that pass are subject to delayed enactment so that people who disagree with the direction of the decision have time to exit the network
- - **Enactment period** — time between a proposal being approved and enacted (make law). It is also the minimum period necessary to lock funds to propose an action
- - **Lock period** — time (after the proposal enactment) that the tokens of the winning voters are locked. Users can still use this tokens for staking or voting
- - **Cool-off period** - The duration a veto from the technical committee lasts before the proposal may be submitted again 
- - **Delegation** — act of transferring your voting power to another account for up to a certain conviction
+ - **Propositions** — actions ou éléments proposés par les détenteurs de jetons. Ces propositions doivent être appuyées par d'autres utilisateurs afin de passer au référendum
+ - **Referendum** — lorsque la proposition la plus appuyée est votée par la communauté. Il peut y avoir un maximum de cinq référendums actifs à la fois, à moins qu'il y ai un référendum d'urgence en cours
+ - **Période de lancement** — à quelle fréquence de nouveaux référendums publics sont lancés
+ - **Période de vote** — les détenteurs de jetons doivent voter pour un référendum (durée d'un référendum)
+ - **Période de vote accéléré** — durée du vote pour les propositions d'urgence qui abordent des questions critiques
+- **Vote** — Les référendums sont votés par les détenteurs de jetons en fonction des enjeux et des convictions de chacun. Les convictions font référence au temps pendant lequel les détenteurs de jetons souhaitent verrouiller leurs jetons lors du vote: plus ils sont verrouillés dans le temps, plus leur vote a du poids. Les référendums qui réussissent sont sujets à une promulgation retardée afin que les personnes qui ne sont pas d'accord avec la direction de la décision aient le temps de quitter le réseau
+ - **Période de promulgation** — temps entre l'approbation et la promulgation d'une proposition (faire la loi). C'est aussi le délai minimum nécessaire pour bloquer les fonds pour proposer une action
+ - **Période de verrouillage** — durée (après la promulgation de la proposition) pendant laquelle les jetons des électeurs gagnants sont verrouillés. Les utilisateurs peuvent toujours utiliser ces jetons pour le jalonnement ou le vote
+ - **Periode calme** - La durée d'un veto du comité technique avant que la proposition puisse être soumise à nouveau 
+ - **Delegation** — acte de transfert de votre droit de vote sur un autre compte jusqu'à une certaine conviction
 
-## Principles
+## Principes
 
-Guiding "soft" principles for engagement with Moonbeam's governance process include:
+Les principes directeurs "souples" pour l'engagement avec le processus de gouvernance de Moonbeam comprennent:
 
- - Being inclusive to token holders that want to engage with Moonbeam and that are affected by governance decisions.
- - Favoring token holder engagement, even with views contrary to our own, versus a lack of engagement.
- - A commitment to openness and transparency in the decision-making process.
- - Working to keep the greater good of the network ahead of any personal gain.  
- - Acting at all times as a moral agent that considers the consequences of action (or inaction) from a moral standpoint.
- - Being patient and generous in our interactions with other token holders, but not tolerating abusive or destructive language, actions, and behavior.
+ - Être inclusif envers les détenteurs de jetons qui souhaitent s'engager avec Moonbeam et qui sont affectés par les décisions de gouvernance.
+ - Favoriser l'engagement des détenteurs de jetons, même avec des opinions contraires aux nôtres, par rapport à un manque d'engagement.
+ - Un engagement d'ouverture et de transparence dans le processus décisionnel.
+ - Travailler pour garder le plus grand bien du réseau avant tout gain personnel.  
+ - Agir à tout moment comme un agent moral qui considère les conséquences de l'action (ou de l'inaction) d'un point de vue moral.
+ - Être patient et généreux dans nos interactions avec d'autres détenteurs de jetons, mais ne pas tolérer un langage, des actions et des comportements abusifs ou destructeurs.
 
-These points were heavily inspired by Vlad Zamfir’s writings on governance. Refer to his articles, [especially this one](https://medium.com/@Vlad_Zamfir/how-to-participate-in-blockchain-governance-in-good-faith-and-with-good-manners-bd4e16846434).
+Ces points ont été fortement inspirés par les écrits de Vlad Zamfir sur la gouvernance. Reportez-vous à ses articles,  [en particulier celui-ci](https://medium.com/@Vlad_Zamfir/how-to-participate-in-blockchain-governance-in-good-faith-and-with-good-manners-bd4e16846434).
 
-## On-Chain Governance Mechanics
+## Mécanique de gouvernance en chaîne
 
-The "hard" governance process for Moonbeam will be driven by an on-chain process and will leverage the Democracy, Council, and Treasury [Substrate frame pallets](/resources/glossary/#substrate-frame-pallets), similar to how Kusama and the Polkadot Relay Chain are governed. The overall intent of these modules are to allow the majority of tokens on the network to determine the outcomes of key decisions around the network. These decision points come in the form of stake-weighted voting on proposed referenda.
+Le processus de gouvernance "dur" pour Moonbeam sera piloté par un processus en chaîne et tirera parti de la démocratie, du Conseil et de la Trésorerie [Substrate frame pallets](/resources/glossary/#substrate-frame-pallets), de la même manière que Kusama et la chaîne de relais Polkadot sont gouvernées. L'intention générale de ces modules est de permettre à la majorité des jetons sur le réseau de déterminer les résultats des décisions clés autour du réseau. Ces points de décision prennent la forme d'un vote pondéré par les enjeux des référendums proposés.
 
-Some of the main components of this governance model include:
+Certaines des principales composantes de ce modèle de gouvernance comprennent:
 
- - **Referendum** — a proposal for a change to the Moonbeam system including values for key parameters, code upgrades, or changes to the governance system itself
- - **Voting** — referenda will be voted on by token holders on a stake-weighted basis. Referenda which pass are subject to delayed enactment such that people that disagree with the direction of the decision have time to exit the network
- - **Council** — a group of elected individuals who have special voting rights within the system. Council members are expected to propose referenda for voting and have an ability to veto publicly-sourced referenda. There are rolling elections for council members where GLMR holders will vote on new or existing council members. The Council is also responsible for electing the technical committee
- - **Technical Committee** — a group of individuals elected by the Council who have special voting rights. As in Polkadot and Kusama, the Technical Committee has the ability to (along with the Council) fast-track emergency referenda voting and implementation in urgent circumstances. A fast-tracked referendum can be created alongside existing active referenda. That is to say, an emergency referendum does not replace currently active referenda
- - **Treasury** — A collection of funds that can be spent by submitting a proposal along with a deposit. Spending proposals must be approved by the council. Rejected proposals will result in the proposer losing their deposit
+ - **Referendum** — une proposition de modification du système Moonbeam comprenant des valeurs pour les paramètres clés, des mises à niveau de code ou des modifications du système de gouvernance lui-même
+ - **Vote** — Les référendums sont votés par les détenteurs de jetons sur une base pondérée par les enjeux. Les référendums qui réussissent sont sujets à une promulgation retardée, de sorte que les personnes qui ne sont pas d'accord avec la direction de la décision aient le temps de quitter le réseau
+ - **Conseil** — un groupe d'individus élus qui ont des droits de vote spéciaux au sein du système. Les membres du Conseil sont censés proposer des référendums pour le vote et ont la possibilité d'opposer leur veto aux référendums publics. Il y a des élections tournantes pour les membres du conseil où les titulaires de GLMR voteront sur les nouveaux membres ou existants du conseil. Le Conseil est également chargé d'élire le comité technique
+ - **Comité technique** — un groupe d'individus élus par le Conseil qui ont des droits de vote spéciaux. De même que pour Polkadot et Kusama, le Comité technique a la capacité (avec le Conseil) d'accélérer le vote et la mise en œuvre des référendums d'urgence dans des circonstances urgentes. Un référendum accéléré peut être créé parallèlement aux référendums actifs existants. C'est-à-dire qu'un référendum d'urgence ne remplace pas les référendums actuellement en cours
+ - **Trésorerie** — Une collection de fonds qui peut être dépensée en soumettant une proposition avec un dépôt. Les propositions de dépenses doivent être approuvées par le conseil. Les propositions rejetées entraîneront la perte du dépôt par le proposant
 
-See [this overview on the Polkadot website](https://polkadot.network/a-walkthrough-of-polkadots-governance/) and [this wiki post](https://wiki.polkadot.network/docs/en/learn-governance) for more details on how these Substrate frame pallets implement on-chain governance.
+Voir [cet aperçu sur le site Web de Polkadot](https://polkadot.network/a-walkthrough-of-polkadots-governance/) et [cet article wiki](https://wiki.polkadot.network/docs/en/learn-governance) pour plus de détails sur la façon dont ces palettes Substrate implémentent la gouvernance en chaîne.
 
-## Voting Rights of the Council and the Technical Committee
+## Droits de vote du Conseil et du Comité technique
 
-This section covers some background information on voting and outlines voting parameters of the protocol as they are set currently. There is a limit to the amount of time in blocks that the technical committee and the council have to vote on motions. Motions may end in fewer blocks if there are already enough votes submitted to determine the outcome. A maximum of {{ networks.moonbase.democracy.max_proposals}} proposals can be open each in the technical committee and in the council.
+Cette section couvre quelques informations de base sur le vote et décrit les paramètres de vote du protocole tels qu'ils sont définis actuellement. Il y a une limite au temps en blocs dont disposent le comité technique et le conseil pour voter sur les motions. Les motions peuvent se terminer en moins de blocs s'il y a déjà suffisamment de votes soumis pour déterminer le résultat. Un maximum de {{ networks.moonbase.democracy.max_proposals}} propositions peuvent être ouvertes chacune en comité technique et en conseil.
 
-Voting parameters are currently set as follows:
+Les paramètres de vote sont actuellement définis comme suit :
 
-|             Variable             |     |                         Value                         |
+|             Variable             |     |                         Valeur                         |
 | :------------------------------: | :-: | :---------------------------------------------------: |
-|     Voting Period     |     |     {{ networks.moonbase.democracy.vote_period.blocks}} blocks ({{ networks.moonbase.democracy.vote_period.days}} days)     |
-|        Fast-Track Voting Period        |     |     {{ networks.moonbase.democracy.fast_vote_period.blocks}} blocks ({{ networks.moonbase.democracy.fast_vote_period.days}} day)     | | 
-|          Enactment Period           |     |     {{ networks.moonbase.democracy.enact_period.blocks}} blocks ({{ networks.moonbase.democracy.enact_period.days}} day)  |
-| Cool-off Period |     |     {{ networks.moonbase.democracy.cool_period.blocks}} blocks ({{ networks.moonbase.democracy.cool_period.days}} days)  |
-|              Minimum Deposit               |     | {{ networks.moonbase.democracy.min_deposit }} GLMR |
+|     Période de vote     |     |     {{ networks.moonbase.democracy.vote_period.blocks}} blocks ({{ networks.moonbase.democracy.vote_period.days}} days)     |
+|        Période de vote accéléré        |     |     {{ networks.moonbase.democracy.fast_vote_period.blocks}} blocks ({{ networks.moonbase.democracy.fast_vote_period.days}} day)     | | 
+|          Periode de promulgation           |     |     {{ networks.moonbase.democracy.enact_period.blocks}} blocks ({{ networks.moonbase.democracy.enact_period.days}} day)  |
+| Periode calme |     |     {{ networks.moonbase.democracy.cool_period.blocks}} blocks ({{ networks.moonbase.democracy.cool_period.days}} days)  |
+|              Dépôt minimum               |     | {{ networks.moonbase.democracy.min_deposit }} GLMR |
 
-**Voting Rights to Cancel:**
+**Droits de vote à annuler:**
 
- * The technical committee may cancel a proposal before it has been passed only by unanimous vote
- * A single technical committee member may veto an inbound council proposal, however, they can only veto it once, and it only lasts for the cool-off period ({{ networks.moonbase.democracy.cool_period.days}} days)
+ * Le comité technique ne peut annuler une proposition avant qu'elle n'ait été adoptée qu'à l'unanimité
+ * Un seul membre du comité technique peut opposer son veto à une proposition de conseil entrante, cependant, il ne peut y opposer son veto qu'une seule fois, et cela ne dure que le temps de la periode calme ({{ networks.moonbase.democracy.cool_period.days}} days)
 
-## Try it on Moonbase Alpha
+## Essayez-le sur Moonbase Alpha
 
-Currently, in our Moonbase Alpha TestNet, token holders can submit proposals and vote on referenda. To do so, check the following guides:
+Actuellement, dans notre Testnet Moonbase Alpha , les détenteurs de jetons peuvent soumettre des propositions et voter sur des référendums. Pour ce faire, consultez les guides suivants :
 
- - [Submit a proposal](/governance/proposals/)
- - [Vote on a proposal](/governance/voting/)
+ - [Soumettre une proposition](/governance/proposals/)
+ - [Voter sur une proposition](/governance/voting/)
 
-The Treasury component has yet to be implemented.
+La composante Trésorerie n'a pas encore été mise en œuvre.
