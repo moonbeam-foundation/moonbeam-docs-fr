@@ -1,156 +1,156 @@
 ---
-title: How to Stake
-description: A guide that shows how you can stake your tokens in Moonbeam by nominating collators
+title: Comment staker
+description: Un guide qui montre comment vous pouvez staker vos jetons dans Moonbeam en nommant des collators
 ---
 
-# How to Stake your Tokens
+# Comment staker vos jetons
 
 ![Staking Moonbeam Banner](/images/staking/staking-stake-banner.png)
 
 ## Introduction
 
-Collators (block producers) with the highest stake in the network join the active pool of collators, from which they are selected to offer a block to the Relay Chain.
+Les Collators (producteurs de blocs) avec la participation la plus élevée dans le réseau rejoignent le pool actif de collators, à partir duquel ils sont sélectionnés pour offrir un bloc à la chaîne de relais.
 
-Token holders can add to the collators' stake using their tokens, a process called nomination (also referred to as staking). When they do so, they are vouching for that specific collator, and their nomination is a signal of trust.
+Les détenteurs de jetons peuvent augmenter la mise des collators en utilisant leurs jetons, un processus appelé nomination (également appelé staking). Quand ils le font, ils se portent garant de ce collator spécifique, et leur nomination est un signe de confiance.
 
-When a collator does not behave appropriately, its stake in the network is slashed, affecting the tokens nominated by users as well (feature currently not available in Moonbase Alpha). If collators act accordingly, they'll receive block rewards as part of the inflationary model. They can share these as staking rewards with their nominators.
+Lorsqu'un collator ne se comporte pas correctement, sa participation dans le réseau est réduite, affectant également les jetons nommés par les utilisateurs (fonctionnalité actuellement non disponible dans Moonbase Alpha). Si les collators agissent en conséquence, ils recevront des récompenses en bloc dans le cadre du modèle inflationniste. Ils peuvent les partager en tant que récompenses de staking avec leurs nominateurs.
 
-With the release of [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/releases/tag/v0.6.0), users of the network can now stake their tokens to nominate collators. This guide outlines all the steps to do so.
+Avec la sortie de [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/releases/tag/v0.6.0), les utilisateurs du réseau peuvent désormais miser leurs jetons pour désigner des collators. Ce guide décrit toutes les étapes pour y parvenir.
 
-## General Definitions
+## Définitions générales
 
 --8<-- 'text/staking/staking-definitions.md'
 
-Currently, for Moonbase Alpha:
+Actuellement, pour Moonbase Alpha:
 
-|             Variable             |     |                         Value                         |
+|             Variable             |     |                         Valeur                         |
 | :------------------------------: | :-: | :---------------------------------------------------: |
-|     Minimum nomination stake     |     |     {{ networks.moonbase.staking.min_nom_stake }}     |
-|        Minimum nomination        |     |     {{ networks.moonbase.staking.min_nom_amount}}     | | Maximum nominators per collators |     |     {{ networks.moonbase.staking.max_nom_per_col }}   |
-| Maximum collators per nominator  |     |     {{ networks.moonbase.staking.max_col_per_nom }}   |
-|              Round               |     | {{ networks.moonbase.staking.round_blocks }} blocks ({{ networks.moonbase.staking.round_hours }} hours) |
-|          Bond duration           |     |     {{ networks.moonbase.staking.bond_lock }} rounds  |
+|     Enjeu minimum de nomination     |     |     {{ networks.moonbase.staking.min_nom_stake }}     |
+|        Nomination minimale        |     |     {{ networks.moonbase.staking.min_nom_amount}}     | | Maximum nominators per collators |     |     {{ networks.moonbase.staking.max_nom_per_col }}   |
+| Collators maximum par nominateur  |     |     {{ networks.moonbase.staking.max_col_per_nom }}   |
+|              Tour               |     | {{ networks.moonbase.staking.round_blocks }} blocks ({{ networks.moonbase.staking.round_hours }} hours) |
+|          Durée de l'obligation           |     |     {{ networks.moonbase.staking.bond_lock }} rounds  |
 
-## Extrinsics Definitions
+## Définitions extrinsèques
 
-There are many extrinsics related to the staking pallet, so all of them are not covered in this guide. However, this list defines all of the extrinsics associated with the nomination process:
+Il existe de nombreux extrinsèques liés à la palette de staking, ils ne sont donc pas tous couverts dans ce guide. Cependant, cette liste définit tous les extrinsèques associés au processus de nomination :
 
 !!! note
-    Extrinsics might change in the future as the staking pallet is updated.
+    Les extrinsèques pourraient changer à l'avenir à mesure que la palette de staking est mise à jour.
 
- - **nominate** — two inputs: address of collator to nominate and amount. Extrinsic to nominate a collator. The amount must be at least {{ networks.moonbase.staking.min_nom_amount }} tokens
- - **leaveNominators** — no inputs. Extrinsic to leave the set of nominators. Consequently, all ongoing nominations will be revoked
- - **nominatorBondLess** — two inputs: address of a nominated collator and amount. Extrinsic to reduce the amount of staked tokens for an already nominated collator. The amount must not decrease your overall total staked below {{ networks.moonbase.staking.min_nom_stake }} tokens
- - **nominatorBondMore** — two inputs: address of a nominated collator and amount. Extrinsic to increase the amount of staked tokens for an already nominated collator
- - **revokeNomination** — one input: address of a nominated collator. Extrinsic to remove an existing nomination
+ - **nominate** — deux entrées: adresse du collator à désigner et montant. Extrinsèque pour désigner un collator. Le montant doit être d'au moins {{ networks.moonbase.staking.min_nom_amount }} jetons
+ - **leaveNominators** — pas d'entrées. Extrinsèque pour quitter l'ensemble des nominateurs. Par conséquent, toutes les nominations en cours seront révoquées
+ - **nominatorBondLess** — deux entrées: l'adresse d'un collator désigné et le montant. Extrinsèque pour réduire la quantité de jetons stakés pour un collator déjà désigné. Le montant ne doit pas diminuer votre solde total staké en dessous de {{ networks.moonbase.staking.min_nom_stake }} jetons
+ - **nominatorBondMore** — deux entrées: l'adresse d'un collator désigné et le montant. Extrinsèque pour augmenter la quantité de jetons jalonnés pour un collator déjà désigné
+ - **revokeNomination** — une entrée: adresse d'un collator désigné. Extrinsèque pour supprimer une nomination existante
 
-## Retrieving the List of Collators
+## Récupération de la liste des collators
 
-Before starting to stake tokens, it is important to retrieve the list of collators available in the network. To do so, navigate to "Chain state" under the "Developer" tab.
+Avant de commencer à staker des jetons, il est important de récupérer la liste des collators disponibles dans le réseau. Pour ce faire, accédez à "État de la chaîne" sous l'onglet "Developpeur" .
 
-![Staking Account](/images/staking/staking-stake-10.png)
+![Compte de staking](/images/staking/staking-stake-10.png)
 
-Here, provide the following information:
+Ici, fournissez alors les informations suivantes:
 
- 1. Choose the pallet to interact with. In this case, it is the `parachainStaking` pallet
- 2. Choose the state to query. In this case, it is the `selectedCandidates` or `candidatePool` state
- 3. Send the state query by clicking on the "+" button
+ 1. Choisissez la palette avec laquelle interagir. Dans ce cas, c'est la palette `parachainStaking`
+ 2. Choisissez l'état à interroger. Dans ce cas, il s'agit de l' état `selectedCandidates` ou `candidatePool`
+ 3. Envoyez la requête d'état en cliquant sur le bouton "+"
 
-Each extrinsic provides a different response:
+Chaque extrinsèque fournit une réponse différente:
 
- - **selectedCandidates** — returns the current active set of collators, that is, the top {{ networks.moonbase.staking.max_collators }} collators by total tokens staked (including nominations)
- - **candidatePool** — returns the current list of all the collators, including those that are not in the active set
+ - **selectedCandidates** — renvoie l'ensemble des collators actifs actuel, c'est-à-dire les {{ networks.moonbase.staking.max_collators }} meilleurs collators par total de jetons stakés (y compris les nominations)
+ - **candidatePool** — renvoie la liste actuelle de tous les collators, y compris ceux qui ne sont pas dans l'ensemble actif
 
-![Staking Account](/images/staking/staking-stake-11.png)
+![Compte de staking](/images/staking/staking-stake-11.png)
 
-## How to Nominate a Collator
+## Comment nommer un Collator
 
-This section goes over the process of nominating collators. The tutorial will use the following collators as reference:
+Cette section décrit le processus de nomination des collators. Le tutoriel utilisera les collators suivants comme référence:
 
-|  Variable  |     |                      Address                       |
+|  Variable  |     |                      Addresse                       |
 | :--------: | :-: | :------------------------------------------------: |
 | Collator 1 |     | {{ networks.moonbase.staking.collators.address1 }} |
 | Collator 2 |     | {{ networks.moonbase.staking.collators.address2 }} |
 
-To access staking features, you need to use the PolkadotJS Apps interface. To do so, you need to import/create an Ethereum-style account first (H160 address), which you can do by following [this guide](/integrations/wallets/polkadotjs/#creating-or-importing-an-h160-account).
+Pour accéder aux fonctionnalités de staking, vous devez utiliser l'interface PolkadotJS Apps. Pour ce faire, vous devez d'abord importer / créer un compte de style Ethereum (adresse H160), chose que vous pouvez faire en suivant [ce guide](/integrations/wallets/polkadotjs/#creating-or-importing-an-h160-account).
 
-For this example, an account was imported and named with a super original name: Alice.
+Pour cet exemple, un compte a été importé et nommé avec un nom super original: Alice.
 
-Currently, everything related to staking needs to be accessed via the "Extrinsics" menu, under the "Developer" tab:
+Actuellement, tout ce qui concerne le staking doit être accessible via le menu "Extrinsics" , sous l'onglet "Developer":
 
-![Staking Account](/images/staking/staking-stake-1.png)
+![Compte de staking](/images/staking/staking-stake-1.png)
 
-To nominate a collator, provide the following information:
+Pour désigner un collator, fournissez les informations suivantes:
 
- 1. Select the account from which you want to stake your tokens
- 2. Choose the pallet you want to interact with. In this case, it is the `parachainStaking` pallet
- 3. Choose the extrinsic method to use for the transaction. This will determine the fields that need to fill in the following steps. In this case, it is the `nominate` extrinsic
- 4. Set the collator's address you want to nominate. In this case, it is set to `{{ networks.moonbase.staking.collators.address1 }}`
- 5. Set the number of tokens you want to stake
- 6. Click the "Submit Transaction" button and sign the transaction
+ 1. Sélectionnez le compte à partir duquel vous souhaitez miser vos jetons
+ 2. Choisissez la palette avec laquelle vous souhaitez interagir. Dans ce cas, c'est la palette `parachainStaking`
+ 3. Choisissez la méthode extrinsèque à utiliser pour la transaction. Cela déterminera les champs qui doivent remplir les étapes suivantes. Dans ce cas, c'est l'extrinsèque `nominate`
+ 4. Désignez l'adresse du collator que vous souhaitez nommer. Dans ce cas, il est défini sur `{{ networks.moonbase.staking.collators.address1 }}`
+ 5. Désignez le nombre de jetons que vous souhaitez miser
+ 6. Cliquez sur le bouton "Soumettre la transaction" et signez la transaction
 
 ![Staking Join Nominators Extrinsics](/images/staking/staking-stake-2.png)
 
-Once the transaction is confirmed, you can head back to the "Accounts" tab to verify that you have a reserved balance (equal to the number of tokens staked).
+Une fois la transaction confirmée, vous pouvez retourner dans l'onglet "Comptes" pour vérifier que vous disposez d'un solde réservé (égal au nombre de jetons mis en jeu).
 
-To verify a nomination, you can navigate to "Chain state" under the "Developer" tab.
+Pour vérifier une nomination, vous pouvez accéder à "État de la chaîne" sous l'onglet "Developpeur" .
 
 ![Staking Account and Chain State](/images/staking/staking-stake-3.png)
 
-Here, provide the following information:
+Ici fournissez alors les informations suivantes:
 
- 1. Choose the pallet you want to interact with. In this case, it is the `parachainStaking` pallet
- 2. Choose the state to query. In this case, it is the `nominators` state
- 3. Make sure to disable the "include option" slider
- 4. Send the state query by clicking on the "+" button
+ 1. Choisissez la palette avec laquelle vous souhaitez interagir. Dans ce cas, c'est la palette `parachainStaking`
+ 2. Choisissez l'état à interroger. Dans ce cas, c'est l'état `nominators`
+ 3. Assurez-vous de désactiver le curseur "option d'inclusion"
+ 4. Envoyez la requête d'état en cliquant sur le bouton "+"
 
 ![Staking Chain State Query](/images/staking/staking-stake-4.png)
 
-In the response, you should see your account (in this case, Alice's account) with a list of the nominations. Each nomination contains the target address of the collator and the amount.
+Dans la réponse, vous devriez voir votre compte (dans ce cas, le compte d'Alice) avec une liste des nominations. Chaque nomination contient l'adresse cible du collator et le montant.
 
-You can follow the same steps as described to nominate other collators in the network. For example, Alice nominated `{{ networks.moonbase.staking.collators.address2 }}` as well.
+Vous pouvez suivre les mêmes étapes que celles décrites pour désigner d'autres assembleurs dans le réseau. Par exemple, Alice a également été nominée `{{ networks.moonbase.staking.collators.address2 }}` .
 
-## How to Stop Nominations
+## Comment révoquer les nominations
 
-If you are already a nominator, you have two options to stop your nominations: using the `revokeNomination` extrinsic to unstake your tokens from a specific collator, or using the `leaveNominators` extrinsic to revoke all ongoing nominations.
+Si vous êtes déjà un nominateur, vous avez deux options pour révoquer vos nominations: utiliser l'extrinsèque `revokeNomination` pour retirer vos jetons d'un collator spécifique, ou utiliser l'extrinsèque `leaveNominators` pour révoquer toutes les nominations en cours.
 
-This example is a continuation of the previous section, and assumes that you have at least two active nominations.
+Cet exemple est une continuation de la section précédente et suppose que vous avez au moins deux nominations actives.
 
-You can remove your nomination from a specific collator by navigating to the "Extrinsics" menu under the "Developer" tab. Here, provide the following information:
+Vous pouvez supprimer votre nomination d'un collator spécifique en accédant au menu "Extrinsics" en dessous de l'onglet "Developer" . Fournissez alors les informations suivantes:
 
- 1. Select the account from which you want to remove your nomination
- 2. Choose the pallet you want to interact with. In this case, it is the `parachainStaking` pallet
- 3. Choose the extrinsic method to use for the transaction. This will determine the fields that need to fill in the following steps. In this case, it is the `revokeNomination` extrinsic
- 4. Set the collator's address you want to remove your nomination from. In this case, it is set to `{{ networks.moonbase.staking.collators.address2 }}`
- 5. Click the "Submit Transaction" button and sign the transaction
+ 1. Sélectionnez le compte dont vous souhaitez supprimer votre nomination
+ 2. Choisissez la palette avec laquelle vous souhaitez interagir. Dans ce cas, c'est la palette `parachainStaking`
+ 3. Choisissez la méthode extrinsèque à utiliser pour la transaction. Cela déterminera les champs qui doivent remplir les étapes suivantes. Dans ce cas, c'est l'extrinsèque `revokeNomination`
+ 4. Désignez l'adresse du collecteur pour lequel vous souhaitez supprimer votre nomination. Dans ce cas, il est défini sur `{{ networks.moonbase.staking.collators.address2 }}`
+ 5. Cliquez sur le bouton "Soumettre la transaction" et signez la transaction
 
 ![Staking Revoke Nomination Extrinsic](/images/staking/staking-stake-7.png)
 
-Once the transaction is confirmed, you can verify that your nomination was removed in the "Chain state" option under the "Developer" tab.
+Une fois la transaction confirmée, vous pouvez vérifier que votre nomination a été supprimée dans l'option "État de la chaîne" sous l'onglet "Developpeur" .
 
-Here, provide the following information:
+Fournissez alors les informations suivantes:
 
- 1. Choose the pallet you want to interact with. In this case, it is the `parachainStaking` pallet
- 2. Choose the state to query. In this case, it is the `nominatorState` state
- 3. Make sure to disable the "include options" slider
- 4. Send the state query by clicking on the "+" button
+ 1. Choisissez la palette avec laquelle vous souhaitez interagir. Dans ce cas, c'est la palette `parachainStaking`
+ 2. Choisissez l'état à interroger. Dans ce cas, c'est l'état `nominatorState`
+ 3. Assurez-vous de désactiver le curseur "include options"
+ 4. Envoyez la requête d'état en cliquant sur le bouton "+"
 
 ![Staking Revoke Nomination Cain State](/images/staking/staking-stake-8.png)
 
-In the response, you should see your account (in this case, Alice's account) with a list of the nominations. Each nomination contains the target address of the collator, and the amount.
+Dans la réponse, vous devriez voir votre compte (dans ce cas, le compte d'Alice) avec une liste des nominations. Chaque nomination contient l'adresse cible du collator et le montant.
 
-As mentioned before, you can also remove all ongoing nominations with the `leaveNominators` extrinsic (in step 3 of the "Extrinsics" instructions). This extrinsic requires no input:
+Comme mentionné précédemment, vous pouvez également supprimer toutes les nominations en cours avec l'extrinsèque `leaveNominators` (à l'étape 3 des instructions "Extrinsics"). Cet extrinsèque ne nécessite aucune entrée:
 
 ![Staking Leave Nominatiors Extrinsic](/images/staking/staking-stake-9.png)
 
-Once the transaction is confirmed, your account should not be listed in the `nominatorState` state when queried, and you should have no reserved balance (related to staking).
+Une fois la transaction confirmée, votre compte ne doit pas être répertorié dans l'état `nominatorState` lors de la requête et vous ne devez pas avoir de solde réservé (lié au staking).
 
-## Staking Rewards
+## Récompenses de staking
 
-As collators receive rewards from block production, nominators get rewards as well. A brief overview on how the rewards are calculated can be found in [this page](/staking/overview/#reward-distribution).
+À mesure que les collators reçoivent les récompenses de la production de blocs, les nominateurs reçoivent également des récompenses. Un bref aperçu de la façon dont les récompenses sont calculées se trouve sur [cette page](/staking/overview/#reward-distribution).
 
-In summary, nominators will earn rewards based on their stake of the total nominations for the collator being rewarded (including the collator's stake as well).
+En résumé, les nominateurs gagneront des récompenses au prorata de leur mise par rapport au total des nominations pour le collator récompensé (y compris la mise de collator lui même).
 
-From the previous example, Alice was rewarded with `0.0044` tokens after two payout rounds:
+Dans l'exemple précédent, Alice a été récompensée avec `0.0044` jetons après deux tours de paiement:
 
 ![Staking Reward Example](/images/staking/staking-stake-10.png)
