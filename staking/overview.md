@@ -1,59 +1,59 @@
 ---
-title: Overview
-description: Moonbeam provides staking features where token holders nominate collators with their tokens and earn rewards
+title: Aperçu
+description: Moonbeam fournit des fonctionnalités de staking où les détenteurs de jetons nomment des collators avec leurs jetons et gagnent des récompenses
 ---
 
-# Staking in Moonbeam
+# Staking dans Moonbeam
 
 ![Staking Moonbeam Banner](/images/staking/staking-overview-banner.png)
 
 ## Introduction
 
-Moonbeam uses a block production mechanism based on [Polkadot's Proof-of-Stake model](https://wiki.polkadot.network/docs/en/learn-consensus) where there are collators and validators. [Collators](https://wiki.polkadot.network/docs/en/learn-collator) maintain parachains (in this case, Moonbeam) by collecting transactions from users and producing state transition proofs for the Relay Chain [validators](https://wiki.polkadot.network/docs/en/learn-validator).
+Moonbeam utilise un mécanisme de production de blocs basé sur [le modèle Proof-of-Stake de Polkadot ](https://wiki.polkadot.network/docs/en/learn-consensus) où il y a des collators et des validateurs. [Les collators](https://wiki.polkadot.network/docs/en/learn-collator) maintiennent les parachains (dans ce cas, Moonbeam) en collectant les transactions des utilisateurs et en produisant des preuves de transition d'état pour les [validateurs](https://wiki.polkadot.network/docs/en/learn-validator)de la chaine de relais.
 
-The collators' set (nodes that produce blocks) are selected based on their stake in the network. And here is where staking comes in.
+L'ensemble des collators (nœuds qui produisent des blocs) est sélectionné en fonction de leur participation dans le réseau. Et c'est là que le staking entre en jeu.
 
-Collators (and token holders if they nominate) have a stake in the network from which they get slashed if they misbehave. Therefore, the higher the stake, the higher the network security. The higher the stake, the more likely the collator will get selected to produce a block and earn rewards, which they share with their nominators. In such a way, network members are incentivized to stake tokens to improve the overall security.
+Les collators (et les détenteurs de jetons s'ils les nomment) ont un intérêt dans le réseau dans lequel ils sont pénalisés s'ils se comportent mal. Par conséquent, plus l'enjeu est élevé, plus la sécurité du réseau est élevée. Plus l'enjeu est élevé, plus il est probable que le collator soit sélectionné pour produire un bloc et gagner des récompenses, qu'il partage avec ses nominateurs. De cette manière, les membres du réseau sont incités à staker des jetons pour améliorer la sécurité globale.
 
-## General Definitions
+## Définitions générales
 
 --8<-- 'text/staking/staking-definitions.md'
 
-Currently, for Moonbase Alpha:
+Actuellement, pour Moonbase Alpha:
 
-|             Variable             |     |                                                  Value                                                  |
-| :------------------------------: | :-: | :-----------------------------------------------------------------------------------------------------: |
-|     Minimum nomination stake     |     |                          {{ networks.moonbase.staking.min_nom_stake }} tokens                           |
-|        Minimum nomination        |     |                          {{ networks.moonbase.staking.min_nom_amount}} tokens                           |
-| Maximum nominators per collators |     |                             {{ networks.moonbase.staking.max_nom_per_col }}                             |
-| Maximum collators per nominator  |     |                             {{ networks.moonbase.staking.max_col_per_nom }}                             |
-|              Round               |     | {{ networks.moonbase.staking.round_blocks }} blocks ({{ networks.moonbase.staking.round_hours }} hours) |
-|          Bond duration           |     |                            {{ networks.moonbase.staking.bond_lock }} rounds                             |
+|             Variable                          |     |                                                  Valeur                                                 |
+| :------------------------------:              | :-: | :-----------------------------------------------------------------------------------------------------: |
+|   Mise de nomination minimale                 |     |                          {{ networks.moonbase.staking.min_nom_stake }} tokens                           |
+|   Nomination minimale                         |     |                          {{ networks.moonbase.staking.min_nom_amount}} tokens                           |
+| Nominateurs maximum par collator            |     |                             {{ networks.moonbase.staking.max_nom_per_col }}                             |
+| Nombre maximal de collators par nominateur  |     |                             {{ networks.moonbase.staking.max_col_per_nom }}                             |
+|              Tour                             |     | {{ networks.moonbase.staking.round_blocks }} blocks ({{ networks.moonbase.staking.round_hours }} hours) |
+| Durée de l'obligation                         |     |                            {{ networks.moonbase.staking.bond_lock }} rounds                             |
 
-## Reward Distribution
+## Distribution des récompenses
 
-At the end of every round ({{ networks.moonbase.staking.round_blocks }} blocks), collators are rewarded for their work from {{ networks.moonbase.staking.bond_lock }} rounds ago.
+A la fin de chaque tour ({{ networks.moonbase.staking.round_blocks }} blocks), les collators sont récompensés pour les 2 tours précédents. {{ networks.moonbase.staking.bond_lock }} .
 
-When collators join the set of collators, they establish a commission to charge their nominators for the service they provide. Therefore, the reward distribution goes as follows:
+Lorsque les collators se joignent à l'ensemble des collators, ils établissent une commission pour facturer leurs nominateurs pour le service qu'ils fournissent. Par conséquent, la distribution des récompenses se déroule comme suit:
 
- - The commission is taken out of the reward to be distributed
- - The collator gets the rewards corresponding to their stake in the network, plus the commission
- - The rest of the rewards are distributed among nominators by stake
+ - La commission est prélevée sur la récompense à distribuer
+ - Le collator reçoit les récompenses correspondant à sa participation dans le réseau, plus la commission
+ - Le reste des récompenses est réparti entre les nominateurs par stake
 
-Mathematically speaking, for collators, the reward would look like this:
+Mathématiquement parlant, pour les collators, la récompense ressemblerait à ceci:
 
 ![Staking Collator Reward](/images/staking/staking-overview-1.png)
 
-Where the stake corresponds to the amount of tokens bonded by the collator in respect to the total stake of that collator (accounting nominations).
+Où la mise correspond au montant de jetons cautionnés par le collator par rapport à la mise totale de ce collator (nominations comptables).
 
-For each nominator, the reward would look like this:
+Pour chaque nominateur, la récompense ressemblerait à ceci :
 
 ![Staking Nominator Reward](/images/staking/staking-overview-2.png)
 
-Where the stake corresponds to the amount of tokens bonded by each nominator in respect to the total stake of that collator.
+Où la mise correspond au montant de jetons cautionnés par chaque nominateur par rapport à la mise totale de ce collator.
 
-## Try it on Moonbase Alpha
+## Essayez-le sur Moonbase Alpha
 
-In the Moonbase Alpha TestNet, token holders can stake and earn rewards (to get familiar with the system as the token doesn't have any actual value).
+Dans Moonbase Alpha TestNet, les détenteurs de jetons peuvent miser et gagner des récompenses (pour se familiariser avec le système car le jeton n'a aucune valeur réelle).
 
-To do so, you can check [this guide](/staking/stake/).
+Pour ce faire, vous pouvez consulter [ce guide](/staking/stake/).
