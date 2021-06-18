@@ -1,72 +1,72 @@
 ---
 title: ChainBridge
-description: How to use ChainBridge to connect assets between Ethereum and Moonbeam using smart contracts
+description: Comment utiliser ChainBridge pour connecter des actifs entre Ethereum et Moonbeam à l'aide de contrats intelligents
 ---
-# ChainBridge's Ethereum Moonbeam Bridge
+# Pont Ethereum Moonbeam de ChainBridge
 
 ![ChainBridge Moonbeam banner](/images/chainbridge/chainbridge-banner.png)
 
 ## Introduction
 
-A bridge allows two economically sovereign and technologically different chains to communicate with each other. They can range from centralized and trusted, to decentralized and trust minimized. One of the currently available solutions is [ChainBridge](https://github.com/ChainSafe/ChainBridge#installation), a modular multi-directional blockchain bridge built by [ChainSafe](https://chainsafe.io/). A ChainBridge implementation is now available in Moonbeam, which connects our Moonbase Alpha TestNet and Ethereum's Kovan/Rinkeby TestNets.
+Un pont permet à deux chaînes économiquement souveraines et technologiquement différentes de communiquer entre elles. Ils peuvent aller de centralisés et fiables à décentralisés et de confiance limitée. L'une des solutions actuellement disponibles est [ChainBridge](https://github.com/ChainSafe/ChainBridge#installation), un pont blockchain multidirectionnel modulaire construit par [ChainSafe](https://chainsafe.io/). Une implémentation ChainBridge est maintenant disponible dans Moonbeam, qui connecte notre Moonbase Alpha TestNet et les Kovan / Rinkeby TestNets d'Ethereum.
 
-This guide is broken down into two main sections. In the first part, we'll explain the general workflow of the bridge. In the second part, we'll go through a couple of examples using the bridge to transfer ERC-20 and ERC-721 assets between Moonbase Alpha and Kovan/Rinkeby. 
+Ce guide est divisé en deux sections principales. Dans la première partie, nous expliquerons le flux de travail général du pont. Dans la deuxième partie, nous allons passer en revue quelques exemples utilisant le pont pour transférer les actifs ERC-20 et ERC-721 entre Moonbase Alpha et Kovan / Rinkeby. 
 
- - [How the bridge works](/integrations/bridges/ethereum/chainbridge/#how-the-bridge-works)
-    - [General definitions](/integrations/bridges/ethereum/chainbridge/#general-definitions)
- - [Using the bridge in Moonbase Alpha](/integrations/bridges/ethereum/chainbridge/#try-it-on-moonbase-alpha)
-    - [Transfer ERC-20 tokens](/integrations/bridges/ethereum/chainbridge/#erc-20-token-transfer)
-    - [Transfer ERC-721 tokens](/integrations/bridges/ethereum/chainbridge/#erc-721-token-transfer)
-    - [Generic handler](/integrations/bridges/ethereum/chainbridge/#generic-handler)
+ - [Comment fonctionne le pont](/integrations/bridges/ethereum/chainbridge/#how-the-bridge-works)
+    - [Définitions générales](/integrations/bridges/ethereum/chainbridge/#general-definitions)
+ - [Utilisation du pont dans Moonbase Alpha](/integrations/bridges/ethereum/chainbridge/#try-it-on-moonbase-alpha)
+    - [Transférer des jetons ERC-20](/integrations/bridges/ethereum/chainbridge/#erc-20-token-transfer)
+    - [Transférer des jetons ERC-721](/integrations/bridges/ethereum/chainbridge/#erc-721-token-transfer)
+    - [Gestionnaire générique](/integrations/bridges/ethereum/chainbridge/#generic-handler)
     
-## How the Bridge Works
+## Comment fonctionne le pont
 
-ChainBridge is, at its core, a message-passing protocol. Events on a source chain are used to send a message that is routed to the destination chain. There are three main roles:
+ChainBridge est, à la base, un protocole de transmission de messages. Les événements sur une chaîne source sont utilisés pour envoyer un message qui est acheminé vers la chaîne de destination. Il y a trois rôles principaux:
 
- - Listener: extract events from a source chain and construct a message
- - Router: passes the message from the Listener to the Writer
- - Writer: interpret messages and submit transactions to the destination chain
+ - Listener: extraire des événements d'une chaîne source et construire un message
+ - Router: transmet le message du Listener au Writer
+ - Writer: interpréter les messages et soumettre les transactions à la chaîne de destination
  
-ChainBridge currently relies on trusted relayers to perform these roles. However, it features a mechanism that prevents any individual relayer from abusing their power and mishandling funds. At a high-level, relayers create proposals in the target chain that are submitted for approval by other relayers. Approval voting happens also in the target chain, and each proposal is only executed after it meets a certain voting threshold. 
+ChainBridge s'appuie actuellement sur des relais de confiance pour exécuter ces rôles. Cependant, il dispose d'un mécanisme qui empêche tout relais individuel d'abuser de son pouvoir et de mal gérer les fonds. À un niveau élevé, les relais créent des propositions dans la chaîne cible qui sont soumises à l'approbation d'autres relais. Le vote d'approbation se produit également dans la chaîne cible, et chaque proposition n'est exécutée qu'après avoir atteint un certain seuil de vote. 
 
-On both sides of the bridge, there are a set of smart contracts, where each has a specific function:
+Des deux côtés du pont, il y a un ensemble de contrats intelligents, où chacun a une fonction spécifique:
 
- - **Bridge contract** — users and relayers interact with this contract. It delegates calls to the handler contracts for deposits, starts a transaction on the source chain, and for executions of the proposals on the target chain
- - **Handler contracts** — validates the parameters provided by the user, creating a deposit/execution record
- - **Target contract** — as the name suggests, this is the contract we are going to interact with on each side of the bridge
+ - **Contrat de pont** — les utilisateurs et les relais interagissent avec ce contrat. Il délègue les appels au gestionnaire de contrats pour les dépôts, démarre une transaction sur la chaîne source et pour les exécutions des propositions sur la chaîne cible
+ - **Contrats du gestionnaire** — valide les paramètres fournis par l'utilisateur, créant un enregistrement de dépôt / exécution
+ - **Contrat cible** — comme son nom l'indique, c'est le contrat avec lequel nous allons interagir de chaque côté du pont
 
-### General Workflow
+### Flux de travail général
 
 
-The general workflow is the following (from Chain A to Chain B):
+Le flux de travail général est le suivant (de la chaîne A à la chaîne B):
  
-  - A user initiates a transaction with the _deposit()_ function in the bridge contract of Chain A. Here, the user needs to input the target chain, the resource ID, and the _calldata_ (definitions after the diagram). After a few checks, the _deposit()_  function of the handler contract is called, which executes the corresponding call of the target contract.
-  - After the function of the target contract in Chain A is executed, a _Deposit_ event is emitted by the bridge contract, which holds the necessary data to be executed on Chain B. This is called a proposal. Each proposal can have five status (inactive, active, passed, executed and cancelled). 
-  - Relayers are always listening on both sides of the chain.  Once a relayer picks up the event, he initiates a voting on the proposal, which happens on the bridge contract on Chain B. This sets the state of the proposal from inactive to active.
-  - Relayers must vote on the proposal. Every time a relayer votes, an event is emitted by the bridge contract that updates its status. Once a threshold is met, the status changes from active to passed. A relayer then executes the proposal on Chain B via the bridge contract.
-  - After a few checks, the bridge executes the proposal in the target contract via the handler contract on Chain B. Another event is emitted, which updates the proposal status from passed to executed.
+  - Un utilisateur lance une transaction avec la fonction _deposit()_ dans le contrat de pont de la chaîne A. Ici, l'utilisateur doit saisir la chaîne cible, l'ID de ressource et les données d'appel _calldata_ (définitions après le diagramme). Après quelques vérifications, la fonction _deposit()_  du contrat handler est appelée, qui exécute l'appel correspondant du contrat cible.
+  - Une fois la fonction du contrat cible dans la chaîne A exécutée, un événement de  _Depot_ est émis par le contrat de pont, qui contient les données nécessaires à exécuter sur la chaîne B. C'est ce qu'on appelle une proposition. Chaque proposition peut avoir cinq statuts (inactif, actif, accepté, exécuté et annulé) 
+  - Les relais écoutent toujours des deux côtés de la chaîne. Une fois qu'un relais a détecté l'événement, il lance un vote sur la proposition, qui se produit sur le contrat de pont sur la chaîne B. Cela définit l'état de la proposition de inactif à actif.
+  - Les relais doivent voter sur la proposition. Chaque fois qu'un relais vote, un événement est émis par le contrat de pont qui met à jour son statut. Une fois qu'un seuil est atteint, l'état passe d'actif à accepté. Un relais exécute alors la proposition sur la chaîne B via le contrat de pont.
+  - Après quelques vérifications, le pont exécute la proposition dans le contrat cible via le contrat gestionnaire sur la chaîne B. Un autre événement est émis, qui met à jour le statut de la proposition de accepté à exécuté.
 
-This workflow is summarized in the following diagram:
+Ce flux de travail est résumé dans le diagramme suivant:
 
 ![ChainBridge Moonbeam diagram](/images/chainbridge/chainbridge-diagram.png)
 
-The two target contracts on each side of the bridge are linked by doing a series of registrations in the corresponding handler contract via the bridge contract. These registrations currently can only be done by the bridge contract admin.
+Les deux contrats cibles de chaque côté du pont sont liés en effectuant une série d'enregistrements dans le gestionnaire de contrat correspondant via le contrat de pont. Ces enregistrements ne peuvent actuellement être effectués que par l'administrateur du contrat de pont.
 
-### General Definitions
+### Définitions générales
 
-Here we have put together a list of concepts applicable to the ChainBridge implementation (from Chain A to Chain B):
+Ici, nous avons rassemblé une liste de concepts applicables à l'implémentation ChainBridge (de la chaîne A à la chaîne B):
 
- - **ChainBridge Chain ID** — this is not to be confused with the chain ID of the network. It is a unique network identifier used by the protocol for each chain. It can be different from the actual chain ID of the network itself. For example, for Moonbase Alpha and Rinkeby, we've set the ChainBridge chain ID to 43 and 4 respectively (Kovan was set to 42)
- - **Resource ID** — is a 32 bytes word that is intended to uniquely identify an asset in a cross-chain environment. Note that the least significant byte is reserved for the chainId, so we would have 31 bytes in total to represent an asset of a chain in our bridge. For example, this may express tokenX on Chain A is equivalent to tokenY on Chain B
- - **Calldata** — is the parameter required for the handler that includes the information necessary to execute the proposal on Chain B. The exact serialization is defined for each handler. You can find more information [here](https://chainbridge.chainsafe.io/chains/ethereum/#erc20-erc721-handlers)
+ - **ChainBridge Chain ID** — il ne doit pas être confondu avec l'ID de chaîne du réseau. Il s'agit d'un identifiant de réseau unique utilisé par le protocole pour chaque chaîne. Il peut être différent de l'ID de chaîne réel du réseau lui-même. Par exemple, pour Moonbase Alpha et Rinkeby, nous avons défini l'ID de chaîne ChainBridge sur 43 et 4 respectivement (Kovan a été défini sur 42)
+ - **ID de ressource** — est un mot de 32 octets destiné à identifier de manière unique un actif dans un environnement inter-chaînes. Notez que l'octet le moins significatif est réservé à chainId, donc nous aurions 31 octets au total pour représenter un actif d'une chaîne dans notre pont. Par exemple, cela peut exprimer tokenX sur la chaîne A est équivalent à tokenY sur la chaîne B
+ - **Calldata** — est le paramètre requis pour le gestionnaire qui inclut les informations nécessaires pour exécuter la proposition sur la chaîne B. La sérialisation exacte est définie pour chaque gestionnaire. Vous pouvez trouver plus d'informations [ici](https://chainbridge.chainsafe.io/chains/ethereum/#erc20-erc721-handlers)
 
-## Try it on Moonbase Alpha
+## Essayez-le sur Moonbase Alpha
 
-We have set up a relayer with the ChainBridge implementation, which is connected to our Moonbase Alpha TestNet and both Ethereum's Rinkeby and Kovan TestNets.
+Nous avons mis en place un relais avec l'implémentation ChainBridge, qui est connecté à notre Moonbase Alpha TestNet et aux testnets Rinkeby et Kovan d'Ethereum.
 
-ChainSafe has [pre-programmed handlers](https://chainbridge.chainsafe.io/chains/ethereum/#handler-contracts) specific to ERC-20 and ERC-721 interfaces, and these handlers are used to transfer ERC-20 and ERC-721 tokens between chains. In general terms, this is just narrowing down the general-purpose diagram that we've described before, so the handler works only with the specific token functions such as _lock/burn_, and _mint/unlock_. 
+ChainSafe a [des gestionnaires préprogrammés](https://chainbridge.chainsafe.io/chains/ethereum/#handler-contracts) spécifiques aux interfaces ERC-20 et ERC-721, et ces gestionnaires sont utilisés pour transférer les jetons ERC-20 et ERC-721 entre les chaînes. En termes généraux, cela ne fait que réduire le diagramme à usage général que nous avons décrit précédemment, de sorte que le gestionnaire ne fonctionne qu'avec les fonctions de jeton spécifiques telles que _lock/burn_, et _mint/unlock_. 
 
-This guide will go over two different examples of using the bridge to transfer tokens between chains. You will mint ERC-20S and ERC-721 Moon tokens and transfer them over the bridge from Moonbase Alpha to Kovan. The same steps can be followed and applied to Rinkeby. To interact with Moonbase Alpha and Kovan/Rinkeby, you will need the following information:
+Ce guide passera en revue deux exemples différents d'utilisation du pont pour transférer des jetons entre les chaînes. Vous frapperez les jetons Moon ERC-20S et ERC-721 et les transférerez sur le pont de Moonbase Alpha à Kovan. Les mêmes étapes peuvent être suivies et appliquées à Rinkeby. Pour interagir avec Moonbase Alpha et Kovan / Rinkeby, vous aurez besoin des informations suivantes:
 
 ```
 # Kovan/Rinkeby - Moonbase Alpha bridge contract address:
@@ -80,18 +80,18 @@ This guide will go over two different examples of using the bridge to transfer t
 ```
 
 !!! note
-    The bridge contract, ERC-20 handler contract, and ERC-721 handler contract addresses listed above are applicable for both Kovan and Rinkeby.
+    Le contrat de pont, le contrat ERC-20 et les adresses de contrat ERC-721 énumérées ci-dessus sont applicables pour Kovan et Rinkeby.
 
-### ERC-20 Token Transfer
+### Transfert de jetons ERC-20
 
-ERC-20 tokens that want to be moved through the bridge need to be registered by the relayers in the handler contract. Therefore, to test the bridge, we've deployed an ERC-20 token (ERC20S) where any user can mint 5 tokens:
+Les jetons ERC-20 qui veulent être déplacés à travers le pont doivent être enregistrés par les relais dans le contrat du gestionnaire. Par conséquent, pour tester le pont, nous avons déployé un jeton ERC-20 (ERC20S) où n'importe quel utilisateur peut minter 5 jetons:
 
 ```
 # Kovan/Rinkeby - Moonbase Alpha custom ERC-20 sample token:
     {{ networks.moonbase.chainbridge.ERC20S }}
 ```
 
-In similar fashion, interacting directly with the Bridge contract and calling the function `deposit()` with the correct parameters can be intimidating. To ease the process of using the bridge, we've created a modified bridge contract, which builds the necessary inputs to the `deposit()` function:
+De la même manière, interagir directement avec le contrat Bridge et appeler la fonction `deposit()` avec les paramètres corrects peut paraitre compliqué. Pour faciliter le processus d'utilisation du pont, nous avons créé un contrat de pont modifié, qui construit les entrées nécessaires à la fonction `deposit()` :
 
 ```
 # Kovan/Rinkeby - Moonbase Alpha custom bridge contract:
@@ -99,24 +99,24 @@ In similar fashion, interacting directly with the Bridge contract and calling th
 ```
 
 
-In simple terms, the modified contract used to initiate the transfer has the _chainID_ and _resourceID_ predefined for this example. Therefore, it builds the _calldata_ object from the user's input, which is only the recipient address and the value to be sent.
+En termes simples, le contrat modifié utilisé pour lancer le transfert a l' _IDdeChaine_ et _IDRessources_ prédéfinis pour cet exemple. Par conséquent, il crée l' objet _calldata_ à partir de l'entrée de l'utilisateur, qui est uniquement l'adresse du destinataire et la valeur à envoyer.
 
-The general workflow for this example can be seen in this diagram:
+Le flux de travail général pour cet exemple peut être vu dans ce diagramme:
 
 ![ChainBridge ERC20 workflow](/images/chainbridge/chainbridge-erc20.png)
 
-To try the bridge with this sample ERC-20 token, we must do the following steps (regardless of the direction of the transfer):
+Pour essayer le pont avec cet exemple de jeton ERC-20, nous devons suivre les étapes suivantes (quelle que soit la direction du transfert):
  
- - Mint tokens in source Chain (this approves the source handler contract as a spender for the amount minted)
- - Use the modified bridge contract to send tokens from source Chain to target Chain
- - Wait until the process is completed
- - Approve the handler contract as a spender to send the tokens back
- - Use the modified bridge contract to send tokens from the target Chain to the source Chain
+ - Jetons Minter dans la chaîne source (cela approuve le contrat du gestionnaire source en tant que dépensier pour le montant frappé)
+ - Utilisez le contrat de pont modifié pour envoyer des jetons de la chaîne source à la chaîne cible
+ - Attendez que le processus soit terminé
+ - Approuver le contrat du gestionnaire en tant que dépensier pour renvoyer les jetons
+ - Utilisez le contrat de pont modifié pour envoyer des jetons de la chaîne cible à la chaîne source
 
 !!! note
-    Remember that tokens will be transferred only if the handler contract has enough allowance to spend tokens on behalf of the owner. If the process fails, check the allowance.
+    N'oubliez pas que les jetons ne seront transférés que si le contrat du gestionnaire dispose d'une allocation suffisante pour dépenser des jetons au nom du propriétaire. Si le processus échoue, vérifiez l'allocation.
 
-Let's send some ERC20S tokens from **Moonbase Alpha** to **Kovan**. If you wanted to try it out with Rinkeby, the steps and addresses are the same. For this, we'll use [Remix](/integrations/remix/). First, we can use the following interface to interact with this contract and mint the tokens:
+Envoyons des jetons ERC20S de Moonbase Alpha à Kovan . Si vous vouliez l'essayer avec Rinkeby, les étapes et les adresses sont les mêmes. Pour cela, nous utiliserons [Remix](/integrations/remix/). Tout d'abord, nous pouvons utiliser l'interface suivante pour interagir avec ce contrat et minter les jetons:
 
 ```solidity
 pragma solidity ^0.8.1;
@@ -147,19 +147,19 @@ interface ICustomERC20 {
 }
 ```
 
-Note that the ERC-20 token contract's mint function was also modified to approve the corresponding handler contract as a spender when minting tokens.
+Notez que la fonction mint du contrat de jeton ERC-20 a également été modifiée pour approuver le contrat de gestionnaire correspondant en tant que dépensier lors de la frappe de jetons.
 
-After adding the Custom ERC20 contract to Remix and compiling it, the next steps are to mint ERC20S tokens:
+Après avoir ajouté le contrat ERC20 personnalisé à Remix et l'avoir compilé, les étapes suivantes consistent à fabriquer les jetons ERC20S:
 
-1. Navigate to the **Deploy & Run Transactions** page on Remix
-2. Select Injected Web3 from the **Environment** dropdown
-3. Load the custom ERC-20 token contract address and click **At Address**
-4. Call the `mintTokens()` function and sign the transaction. 
-5. Once the transaction is confirmed, you should have received 5 ERC20S tokens. You can check your balance by adding the token to [MetaMask](/integrations/wallets/metamask/).
+1. Accédez à la page **Deploy & Run Transactions** sur Remix
+2. Sélectionnez Injected Web3 dans la liste déroulante **Environment**
+3. Chargez l'adresse de contrat de jeton ERC-20 personnalisée et cliquez sur **At Address**
+4. Appelez la fonction `mintTokens()` et signez la transaction. 
+5. Une fois la transaction confirmée, vous devriez avoir reçu 5 jetons ERC20S. Vous pouvez vérifier votre solde en ajoutant le jeton à [MetaMask](/integrations/wallets/metamask/).
 
 ![ChainBridge ERC20 mint Tokens](/images/chainbridge/chainbridge-image1.png)
 
-Once we have the tokens, we can proceed to send them over the bridge to the target chain. In this case, remember that we do it from **Moonbase Alpha** to **Kovan**. There is a single interface that will allow you to transfer ERC20S and ERC721M tokens. For this example you will use the `sendERC20SToken()` function to initiate the transfer of your minted ERC20S tokens:
+Une fois que nous avons les jetons, nous pouvons procéder à leur envoi par le pont vers la chaîne cible. Dans ce cas, rappelez-vous que nous le faisons à partir depuis **Moonbase Alpha** vers **Kovan**. Il existe une interface unique qui vous permettra de transférer les jetons ERC20S et ERC721M. Pour cet exemple, vous utiliserez la fonction `sendERC20SToken()` pour initier le transfert de vos jetons ERC20S mintés:
 
 ```solidity
 pragma solidity 0.8.1;
@@ -190,34 +190,34 @@ interface IBridge {
 }
 ```
 
-After adding the Bridge contract to Remix and compiling it, in order to send ERC20s tokens over the bridge you'll need to:
+Après avoir ajouté le contrat Bridge à Remix et l'avoir compilé, pour envoyer des jetons ERC20 sur le pont, vous devrez:
 
-1. Load the bridge contract address and click **At Address**
-2. To call the `sendERC20SToken()` function, enter the destination chain ID (For this example we are using Kovan: `42`)
-3. Enter the recipient address on the other side of the bridge
-4. Add the amount to transfer in WEI
-5. Click **transact** and then MetaMask should pop-up asking you to sign the transaction. 
+1. Chargez l'adresse du contrat de pont et cliquez sur **At Address**
+2. Pour appeler la fonction `sendERC20SToken()` entrez l'ID de la chaîne de destination (Pour cet exemple , nous utilisons Kovan: `42`)
+3. Entrez l'adresse du destinataire de l'autre côté du pont
+4. Ajouter le montant à transférer en WEI
+5. Cliquez sur **transact** puis MetaMask devrait apparaître pour vous demander de signer la transaction. 
 
-Once the transaction is confirmed, the process can take around 3 minutes to complete, after which you should have received the tokens in Kovan!
+Une fois la transaction confirmée, le processus peut prendre environ 3 minutes, après quoi vous devriez avoir reçu les jetons à Kovan!
 
 ![ChainBridge ERC20 send Tokens](/images/chainbridge/chainbridge-image2.png)
 
-You can check your balance by adding the token to [MetaMask](/integrations/wallets/metamask/) and connecting it to the target network - in our case Kovan.
+Vous pouvez vérifier votre solde en ajoutant le jeton à [MetaMask](/integrations/wallets/metamask/) et en le connectant au réseau cible - dans notre cas Kovan.
 
 ![ChainBridge ERC20 balance](/images/chainbridge/chainbridge-image3.png)
 
-Remember that you can also mint ERC20S tokens in Kovan and send them to Moonbase Alpha. To approve a spender or increase its allowance, you can use the `increaseAllowance()` function of the interface provided. To check the allowance of the handler contract in the ERC20 token contract, you can use the `allowance()` function of the interface.
+N'oubliez pas que vous pouvez également créer des jetons ERC20S dans Kovan et les envoyer à Moonbase Alpha. Pour approuver un dépenseur ou augmenter son allocation, vous pouvez utiliser la fonction `increaseAllowance()` de l'interface fournie. Pour vérifier l'allocation du contrat de gestionnaire dans le contrat de jeton ERC20, vous pouvez utiliser la fonction `allowance()` de l'interface.
 
 !!! note
-    Tokens will be transferred only if the handler contract has enough allowance to spend tokens on behalf of the owner. If the process fails, check the allowance.
+    Les jetons ne seront transférés que si le contrat du gestionnaire dispose d'une allocation suffisante pour dépenser des jetons au nom du propriétaire. Si le processus échoue, vérifiez l'allocation.
 
-### ERC-721 Token Transfer
+### Transfert de jeton ERC-721
 
-Similar to our previous example, ERC-721 tokens contracts need to be registered by the relayers to enable transfer through the bridge. Therefore, we've customized an ERC-721 token contract so that any user can mint a token to test the bridge out. However, as each token is non-fungible, and consequently unique, the mint function is only available in the Source chain token contract and not in the Target contract. In other words, ERC-721M tokens can only be minted on Moonbase Alpha and then transfered to Rinkeby or Kovan. The following diagram explains the workflow for this example, where it is important to highlight that the token ID and metadata is maintained.
+Semblable à notre exemple précédent, les contrats de jetons ERC-721 doivent être enregistrés par les relais pour permettre le transfert via le pont. Par conséquent, nous avons personnalisé un contrat de jeton ERC-721 afin que tout utilisateur puisse créer un jeton pour tester le pont. Cependant, comme chaque jeton est non fongible, et par conséquent unique, la fonction mint n'est disponible que dans le contrat de jeton de chaîne source et non dans le contrat cible. En d'autres termes, les jetons ERC-721M ne peuvent être mintés que sur Moonbase Alpha, puis transférés à Rinkeby ou Kovan. Le diagramme suivant explique le flux de travail pour cet exemple, où il est important de souligner que l'ID de jeton et les métadonnées sont conservés.
 
 ![ChainBridge ERC721 workflow](/images/chainbridge/chainbridge-erc721.png)
 
-To mint tokens in Moonbase Alpha (named ERC721Moon with symbol ERC721M) and send them back-and-forth to Kovan/Rinkeby, you need the following address:
+Pour minter des jetons dans Moonbase Alpha (nommés ERC721Moon avec le symbole ERC721M) et les envoyer dans les deux sens à Kovan / Rinkeby, vous avez besoin de l'adresse suivante:
 
 ```
 # Kovan/Rinkeby - Moonbase Alpha ERC-721 Moon tokens (ERC721M),
@@ -225,16 +225,16 @@ To mint tokens in Moonbase Alpha (named ERC721Moon with symbol ERC721M) and send
     {{ networks.moonbase.chainbridge.ERC721M }}
 ```
 
-Instead of interacting with the Bridge contract and calling the function `deposit()`, we've modified the bridge contract to ease the process of using the bridge (same address as in the previous example):
+Au lieu d'interagir avec le contrat de pont et d'appeler la fonction `deposit()`, nous avons modifié le contrat de pont pour faciliter le processus d'utilisation du pont (même adresse que dans l'exemple précédent):
 
 ```
 # Kovan/Rinkeby - Moonbase Alpha custom bridge contract:
     {{ networks.moonbase.chainbridge.bridge_address }}
 ```
 
-In simple terms, the modified bridge contract used to initiate the transfer will create the _chainID_ and _resourceID_ for this example based on the destination chain ID that you provide. Therefore, it builds the _calldata_ object from the user's input, which is only the recipient address and the token ID to be sent.
+En termes simples, le contrat de pont modifié utilisé pour lancer le transfert va créer l _IDchaine_ and _IDressource_ pour cet exemple basé sur l'ID de la chaîne de destination que vous fournissez. Par conséquent, il crée l' objet _calldata_ à partir de l'entrée de l'utilisateur, qui est uniquement l'adresse du destinataire et l'ID de jeton à envoyer.
 
-Let's send an ERC721M token from **Moonbase Alpha** to **Kovan**. For that, we'll use [Remix](/integrations/remix/). The following interface can be used to interact with the source ERC721M contract and mint the tokens. The `tokenOfOwnerByIndex()` function also can be used to check the token IDs owned by a specific address, passing the address and the index to query (each token ID is stored as an array element associated to the address):
+Envoyons un jeton ERC721M depuis **Moonbase Alpha** vers **Kovan**.  Pour cela, nous utiliserons [Remix](/integrations/remix/). L'interface suivante peut être utilisée pour interagir avec le contrat source ERC721M et minter les jetons. La fonction `tokenOfOwnerByIndex()` peut également être utilisée pour vérifier les ID de jeton appartenant à une adresse spécifique, en passant l'adresse et l'index à interroger (chaque ID de jeton est stocké en tant qu'élément de tableau associé à l'adresse):
 
 ```solidity
 pragma solidity ^0.8.1;
@@ -273,19 +273,19 @@ interface ICustomERC721 {
 }
 ```
 
-Note that the ERC-721 token contract's mint function was also modified to approve the corresponding handler contract as a spender when minting tokens.
+Notez que la fonction mint du contrat de jeton ERC-721 a également été modifiée pour approuver le contrat de gestionnaire correspondant en tant que dépensier lors de la fonction mint de jetons.
 
-After adding the contract to Remix and compiling it, next we'll want to mint an ERC721M token:
+Après avoir ajouté le contrat à Remix et l'avoir compilé, nous voudrons ensuite créer un jeton ERC721M:
 
-1. Navigate to the **Deploy & Run Transactions** page on Remix
-2. Select Injected Web3 from the **Environment** dropdown
-3. Load the custom ERC721M token contract address and click **At Address**
-4. Call the `mintTokens()` function and sign the transaction. 
-5. Once the transaction is confirmed, you should have received an ERC721M token. You can check your balance by adding the token to [MetaMask](/integrations/wallets/metamask/).
+1. Accédez à la page **Deploy & Run Transactions** sur Remix
+2. Sélectionnez Injected Web3 dans la liste déroulante **Environment**
+3. Chargez l'adresse de contrat de jeton ERC721M personnalisée et cliquez sur **At Address**
+4. Appelez la fonction `mintTokens()` et signez la transaction. 
+5. Une fois la transaction confirmée, vous devriez avoir reçu un jeton ERC721M. Vous pouvez vérifier votre solde en ajoutant le jeton à [MetaMask](/integrations/wallets/metamask/).
 
 ![ChainBridge ERC721 mint Tokens](/images/chainbridge/chainbridge-image4.png) 
 
-The following interface allows you to use the `sendERC721MoonToken()` function to initiate the transfer of tokens originally minted in Moonbase Alpha (ERC721M).
+L'interface suivante vous permet d'utiliser la fonction `sendERC721MoonToken()` pour lancer le transfert de jetons mintés à l'origine dans Moonbase Alpha (ERC721M).
 
 ```solidity
 pragma solidity 0.8.1;
@@ -316,39 +316,39 @@ interface IBridge {
 }
 ```
 
-Now you can proceed to send the ERC721M token over the bridge to the target chain. In this case, remember that we'll do it from Moonbase Alpha to Kovan. To transfer the ERC721M token over the bridge:
+Vous pouvez maintenant envoyer le jeton ERC721M via le pont vers la chaîne cible. Dans ce cas, rappelez-vous que nous le ferons de Moonbase Alpha à Kovan. Pour transférer le jeton ERC721M sur le pont:
 
-1. Load the bridge contract address and click **At Address**
-2. Call the `sendERC721MoonToken()` function to initiate the transfer of ERC721M tokens originally minted in Moonbase Alpha by providing the destination chain ID (For this example we're using Kovan: `42`)
-3. Enter the recipient address on the other side of the bridge
-4. Add the token ID to transfer
-5. Click **transact** and then MetaMask should pop-up asking you to sign the transaction.
+1. Chargez l'adresse du contrat de pont et cliquez sur **At Address**
+2. Appelez la fonction `sendERC721MoonToken()` pour lancer le transfert de ERC721M jetons à l' origine dans Moonbase Alpha frappé en fournissant l'ID de la chaîne de destination (Pour cet exemple , nous utilisons Kovan: `42`)
+3. Entrez l'adresse du destinataire de l'autre côté du pont
+4. Ajoutez l'ID de jeton à transférer
+5. Cliquez sur **transact** puis MetaMask devrait apparaître pour vous demander de signer la transaction.
 
-Once the transaction is confirmed, the process can take around 3 minute to complete, after which you should have received the same token ID in Kovan!
+Une fois la transaction confirmée, le processus peut prendre environ 3 minutes, après quoi vous devriez avoir reçu le même identifiant de jeton dans Kovan!
 
 ![ChainBridge ERC721 send Token](/images/chainbridge/chainbridge-image5.png)
 
-You can check your balance by adding the token to [MetaMask](/integrations/wallets/metamask/) and connecting it to the target network, in our case Kovan.
+Vous pouvez vérifier votre solde en ajoutant le jeton à [MetaMask](/integrations/wallets/metamask/) et en le connectant au réseau cible, dans notre cas Kovan.
 
 ![ChainBridge ERC721 balance](/images/chainbridge/chainbridge-image6.png)
 
-Remember that ERC721M tokens are only mintable in Moonbase Alpha and then they will be available to send back and forth to Kovan or Rinkeby. It is important to always check the allowance provided to the handler contract in the corresponding ERC721 token contract. You can approve the handler contract to send tokens on your behalf using the `approve()` function provided in the interface. You can check the approval of each of your token IDs with the `getApproved()` function.
+N'oubliez pas que les jetons ERC721M ne peuvent être mintés que dans Moonbase Alpha et qu'ils seront ensuite disponibles pour être envoyés dans les deux sens vers Kovan ou Rinkeby. Il est important de toujours vérifier l'allocation fournie au contrat de gestionnaire dans le contrat de jeton ERC721 correspondant. Vous pouvez approuver le contrat du gestionnaire pour envoyer des jetons en votre nom à l'aide de la fonction `approve()` fournie dans l'interface. Vous pouvez vérifier l'approbation de chacun de vos identifiants de jeton avec la fonction `getApproved()` .
 
 !!! note
-    Tokens will be transferred only if the handler contract is approved to transfer tokens on behalf of the owner. If the process fails, check the approval.
+    Les jetons ne seront transférés que si le contrat du gestionnaire est approuvé pour transférer les jetons au propriétaire. Si le processus échoue, vérifiez l'approbation.
 
-### Generic Handler
+### Gestionnaire générique
 
-The Generic Handler offers the possibility of executing a function in chain A and creating a proposal to execute another function in chain B (similar to the general workflow diagram). This provides a compelling way of connecting two independent blockchains.
+Le Gestionnaire générique offre la possibilité d'exécuter une fonction dans la chaîne A et de créer une proposition pour exécuter une autre fonction dans la chaîne B (similaire au diagramme de workflow général). Cela fournit un moyen convaincant de connecter deux blockchains indépendantes.
 
-The generic handler address is:
+L'adresse du Gestionnaire générique est:
 ```
 {{ networks.moonbase.chainbridge.generic_handler }}
 ```
 
-If you are interested in implementing this functionality, you can reach out directly to us via our [Discord server](https://discord.com/invite/PfpUATX). We'll be happy to discuss this implementation.
+Si vous souhaitez implémenter cette fonctionnalité, vous pouvez nous contacter directement via notre [Serveur Discord](https://discord.com/invite/PfpUATX).  Nous serons heureux de discuter de cette implémentation.
 
 ### Moonbase Alpha ChainBridge UI
 
-If you want to play around with transferring ERC20S tokens from Moonbase Alpha to Kovan or Rinkeby without having to set up the contracts in Remix, you can checkout our [Moonbase Alpha ChainBridge UI](https://moonbase-chainbridge.netlify.app/transfer).
+Si vous voulez jouer avec le transfert de jetons ERC20S de Moonbase Alpha vers Kovan ou Rinkeby sans avoir à configurer les contrats dans Remix, vous pouvez consulter notre interface utilisateur [Moonbase Alpha ChainBridge UI](https://moonbase-chainbridge.netlify.app/transfer).
 
