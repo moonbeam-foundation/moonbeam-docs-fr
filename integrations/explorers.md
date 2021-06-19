@@ -1,66 +1,66 @@
 ---
-title: Block Explorers
-description: An overview of the currently available block explorers that may be used to navigate the Substrate and Ethereum layers of the Moonbeam TestNet.
+title: Explorateurs de blocs
+description: Un aperçu des explorateurs de blocs actuellement disponibles qui peuvent être utilisés pour naviguer dans les couches Substrate et Ethereum du TestNet Moonbeam .
 ---
-# Block Explorers
+# Explorateurs de blocs
 
 ![Explorer Banner](/images/explorers/explorers-banner.png)
 
 ## Introduction 
 
-Block explorers can be thought of as search engines for the blockchain. They allow users to search information such as balances, contracts, and transactions. More advanced block explorers even offer indexing capabilities, which enable them to provide a complete set of information, such as ERC20 tokens in the network. They might even offer API services to access it via external services.
+Les explorateurs de blocs peuvent être considérés comme des moteurs de recherche pour la blockchain. Ils permettent aux utilisateurs de rechercher des informations telles que les soldes, les contrats et les transactions. Les explorateurs de blocs plus avancés offrent même des capacités d'indexation, qui leur permettent de fournir un ensemble complet d'informations, telles que les jetons ERC20 dans le réseau. Ils pourraient même proposer des services API pour y accéder via des services externes
 
-Moonbeam provides two different sets of explorers: one to query the Ethereum API, and one for the Substrate API.
+Moonbeam fournit deux ensembles d'explorateurs différents: l'un pour interroger l'API Ethereum et l'autre pour l'API Substrate.
 
 !!! note
-    If you are using Brave Browser and your explorer is not connecting to the Moonbeam instance you are pointing it to, try disabling Brave Shield.
+    Si vous utilisez le navigateur Brave et que votre explorateur ne se connecte pas à l'instance Moonbeam vers laquelle vous le pointez, essayez de désactiver Brave Shield.
 
-## Ethereum API
+## API Ethereum
 
-### Expedition (Dev Node - TestNet)
+### Expedition (nœud de développement - TestNet)
 
-A Moonbeam-themed version of the [Expedition](https://github.com/etclabscore/expedition) explorer can be found in [this link](https://moonbeam-explorer.netlify.app/).
+Une version sur le thème de Moonbeam de l' explorateur d' [Expedition](https://github.com/etclabscore/expedition) peut être trouvée dans [ce lien](https://moonbeam-explorer.netlify.app/).
 
-By default, the explorer is connected to the Moonbase Alpha TestNet. However, you can connect it following the next steps:
+Par défaut, l'explorateur est connecté au Moonbase Alpha TestNet. Cependant, vous pouvez le connecter en suivant les étapes suivantes:
 
- 1. Click on the gear icon in the top right corner
- 2. Select "Development" if you have a node running on `http://localhost:9933` (default RPC location of a Moonbeam node running with `--dev`flag). You can also switch back to "Moonbase Alpha"
- 3. In the case you want to connect to a specific RPC URL, select "Custom RPC" and enter the URL. For example, `http://localhost:9937`
+ 1. Cliquez sur l'icône d'engrenage dans le coin supérieur droit
+ 2. Sélectionnez "Developpement" si vous avez un nœud en cours d'exécution sur `http://localhost:9933` (emplacement RPC par défaut d'un nœud Moonbeam fonctionnant avec l’indicateur `--dev`). Vous pouvez également revenir à "Moonbase Alpha"
+ 3. Dans le cas où vous souhaitez vous connecter à une URL RPC spécifique, sélectionnez "RPC personnalisé" et saisissez l'URL. Par exemple, `http://localhost:9937`
 
 ![Expedition Explorer](/images/explorers/explorers-images-1.png)
 
 ### Blockscout (TestNet)
 
-Blockscout provides an easy-to-use interface for users to inspect and confirm transactions on EVM blockchains, including Moonbeam. It allows you to search transactions, view accounts, and balances, and verify smart contracts. More information can be found in their [documentation site](https://docs.blockscout.com/).
+Blockscout fournit une interface facile à utiliser permettant aux utilisateurs d'inspecter et de confirmer les transactions sur les blockchains EVM, y compris Moonbeam. Il vous permet de rechercher des transactions, d'afficher les comptes et les soldes, et de vérifier les contrats intelligents. Plus d'informations peuvent être trouvées sur leur [site de documentation](https://docs.blockscout.com/).
 
-As main features, Blockscout offers:
+Comme fonctionnalités principales, Blockscout propose:
 
- - Open source development, meaning all code is open to the community to explore and improve. You can find the code [here](https://github.com/blockscout/blockscout)
- - Real-time transaction tracking
- - Smart contract interaction
- - ERC20 and ERC721 token support, listing all available token contract in a friendly interface
- - Full-featured API with GraphQL, where users can test API calls directly from a web interface
+ - Développement open source, ce qui signifie que tout le code est ouvert à la communauté pour l'explorer et l'améliorer. Vous pouvez trouver le code [ici](https://github.com/blockscout/blockscout)
+ - Suivi des transactions en temps réel
+ - Interaction de contrat intelligent
+ - Prise en charge des jetons ERC20 et ERC721, répertoriant tous les contrats de jetons disponibles dans une interface conviviale
+ -API complète avec GraphQL, où les utilisateurs peuvent tester les appels d'API directement à partir d'une interface Web
 
-An instance of Blockscout running against the Moonbase Alpha TestNet can be found in [this link](https://moonbase-blockscout.testnet.moonbeam.network/).
+Une instance de Blockscout fonctionnant sur Moonbase Alpha TestNet peut être trouvée dans [ce lien](https://moonbase-blockscout.testnet.moonbeam.network/).
 
 ![Blockscout Explorer](/images/explorers/explorers-images-2.png)
 
-## Substrate API
+## API Substrate 
 
-### PolkadotJS (Dev Node - TestNet)
+### PolkadotJS (nœud de développement - TestNet)
 
-Polkadot JS Apps uses the WebSocket endpoint to interact with the Network. To connect it to a Moonbeam development node, you can follow the steps in [this tutorial](/getting-started/local-node/setting-up-a-node/#connecting-polkadot-js-apps-to-a-local-moonbeam-node). The default port for this is `9944`.
+Polkadot JS Apps utilise le point de terminaison WebSocket pour interagir avec le réseau. Pour le connecter à un nœud de développement Moonbeam, vous pouvez suivre les étapes de [ce tutoriel](/getting-started/local-node/setting-up-a-node/#connecting-polkadot-js-apps-to-a-local-moonbeam-node). Le port par défaut pour cela est `9944`.
 
 ![Polkadot JS Local Node](/images/explorers/explorers-images-3.png)
 
-To view and interact with Moonbase Alpha's substrate layer, go to [this URL](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/explorer). This is the Polkadot JS Apps pointing to the TestNet. You can find more information in [this page](/integrations/wallets/polkadotjs/).
+Pour afficher et interagir avec la couche substrate de Moonbase Alpha, accédez à [cette URL](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/explorer). Il s'agit de Polkadot JS Apps pointant vers le TestNet. Vous pouvez trouver plus d'informations sur [cette page](/integrations/wallets/polkadotjs/).
 
 ![Polkadot JS Moonbase Alpha](/images/explorers/explorers-images-4.png)
 
 ### Subscan
 
-Subscan provides blockchain explorer capabilities for Substrate-based chains. It is capable of parsing standard or custom modules. For example, this is useful to display information regarding the Staking, Governance, and EVM pallets (or modules). Code is all open-source and can be found [here](https://github.com/itering/subscan-essentials).
+Subscan fournit des capacités d'explorateur de chaînes de blocs pour les chaînes basées sur substrate. Il est capable d'analyser les modules standards ou personnalisés. Par exemple, cela est utile pour afficher des informations concernant les palettes (ou modules) de Staking, Governance et EVM. Le code est entièrement open-source et peut être trouvé [ici](https://github.com/itering/subscan-essentials).
 
-An instance of Subscan running against the Moonbase Alpha TestNet can be found in [this link](https://moonbase.subscan.io/).
+Une instance de Subscan fonctionnant sur Moonbase Alpha TestNet peut être trouvée dans [ce lien](https://moonbase.subscan.io/).
 
 ![Subscan Moonbase Alpha](/images/explorers/explorers-images-5.png)
