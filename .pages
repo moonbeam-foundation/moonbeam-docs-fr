@@ -1,12 +1,12 @@
-organiser:
-  - LISEZ-MOI.md
-  - Aperçu
-  - commencer
-  - réseaux
-  - gouvernance
+arrange:
+  - README.md
+  - overview
+  - getting-started
+  - networks
+  - governance
   - staking
   - integrations
   - dapps-list
-  - opérateurs-de-nœuds
-  - apprendre
+  - node-operators
+  - learn
   - resources
