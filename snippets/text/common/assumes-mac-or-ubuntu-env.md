@@ -1,1 +1,1 @@
-The examples in this guide assumes you have a MacOS or Ubuntu 18.04-based environment and will need to be adapted accordingly for Windows.
+Les exemples de ce guide supposent que vous disposez d'un environnement MacOS ou Ubuntu 18.04 et devront être adaptés en conséquence pour Windows.
