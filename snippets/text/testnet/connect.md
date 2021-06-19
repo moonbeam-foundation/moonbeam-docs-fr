@@ -40,6 +40,6 @@ Pour les connexions WebSocket, vous pouvez utiliser le DNS suivant:
 wss://wss.testnet.moonbeam.network
 ```
 
-### ID de la Chaine
+### ID de Chaine
 
 Pour le TestNet Moonbase Alpha , l'ID de la chaîne est: `1287`.
