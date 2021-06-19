@@ -1,15 +1,15 @@
-Tokens on Moonbase Alpha, named DEV, will be issued on demand. Currently, there are two ways you can get access to this token: through a Discord bot, or manually.
+Les tokens sur Moonbase Alpha, nommés DEV, seront émis à la demande. Actuellement, il existe deux manières d'accéder à ce jeton : via un bot Discord ou manuellement.
 
 ### Discord - Mission Control
 
-To request tokens automatically, we've created a Discord bot (named Mission Control :sunglasses:) that will automatically send a maximum of 10 DEV tokens every 24 hours (per Discord user) when you enter your address. You can check it out on our [Discord channel](https://discord.gg/PfpUATX). For more information, please visit [this site](/getting-started/testnet/faucet/).
+Pour demander des jetons automatiquement, nous avons créé un bot Discord (nommé Mission Control :sunglasses:) qui enverra automatiquement un maximum de 10 jetons DEV toutes les 24 heures (par utilisateur Discord) lorsque vous entrez votre adresse. Vous pouvez le consulter sur notre [Chaine Discord](https://discord.gg/PfpUATX). Pour plus d'informations, s'il vous plaît visitez [ce site](/getting-started/testnet/faucet/).
  
-Under the category "Miscellaneous", you will find our AlphaNet bot channel. Enter the following message, replacing `<enter-address-here->` with your H160 address:
+Sous la catégorie "Miscellaneous", vous trouverez notre canal de bot AlphaNet. Entrez le message suivant, en remplaçant `<enter-address-here->` par votre adresse H160:
  
 ```
 !faucet send <enter-address-here->
 ```
 
-### Manual Procedure
+### Procédure manuelle
 
-For token requests of more than the limited account allowed by our Discord bot, contact a moderator directly via our [Discord channel](https://discord.gg/PfpUATX). We are happy to provide the tokens needed to test your applications.
+Pour les demandes de token dépassant le nombre limité autorisé par notre bot Discord, contactez directement un modérateur via notre [canal Discord](https://discord.gg/PfpUATX). Nous serons heureux de vous fournir les jetons nécessaires pour tester vos applications.
