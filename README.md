@@ -1,47 +1,47 @@
 ---
-title: Home
-description: Welcome to the documentation website for the Moonbeam smart contract platform, a parachain on Polkadot that is fully Ethereum compatible.
+title: Accueil
+description: Bienvenue sur le site de documentation de la plateforme de contrat intelligent Moonbeam, une parachain sur Polkadot entièrement compatible avec Ethereum.
 ---
 
-# Welcome to Moonbeam
+# Bienvenue sur Moonbeam
 
 ![Main Page Banner](/images/main-banner.png)
 
-This site provides documentation for Moonbeam, a smart contract parachain on the Polkadot network that is fully Ethereum Compatible.  Here, you'll find both high-level and technical information for developers, collators, end-users, and other Moonbeam network participants.
+Ce site fournit de la documentation pour Moonbeam, une parachaine de contrat intelligent sur le réseau Polkadot qui est entièrement compatible avec Ethereum. Ici, vous trouverez à la fois des informations techniques et de haut niveau pour les développeurs, les collators, les utilisateurs finaux et les autres participants au réseau Moonbeam.
 
-This site will grow and be refined over time as Moonbeam is developed.  We welcome you to join the Moonbeam community and contribute to this site and to the project.
-
----
-
-## What is Moonbeam? 
-
-Moonbeam is a developer-oriented blockchain that strives to provide compatibility with the existing Ethereum developer toolchain and network.  It does this by providing a full EVM implementation, a Web3-compatible API, and bridges that connect Moonbeam to existing Ethereum networks.  This allows developers to deploy existing Solidity smart contracts and DApp frontends to Moonbeam with minimal changes.
-
-Moonbeam will also be a parachain on the Polkadot network. That means it will get shared security from the Polkadot relay chain and will be able to integrate with other chains that are connected to Polkadot (once that functionality is available on Polkadot).
+Ce site grandira et s'affinera au fil du temps au fur et à mesure du développement de Moonbeam. Nous vous invitons à rejoindre la communauté Moonbeam et à contribuer à ce site et au projet.
 
 ---
 
-## How to Get Started with Moonbeam
+## Qu'est-ce que Moonbeam ? 
 
-### Networks
+Moonbeam est une blockchain orientée développeur qui s'efforce d'assurer la compatibilité avec la chaîne d'outils et le réseau de développement Ethereum existants. Pour ce faire, il fournit une implémentation EVM complète, une API compatible Web3 et des ponts qui connectent Moonbeam aux réseaux Ethereum existants. Cela permet aux développeurs de déployer des contrats intelligents Solidity existants et des interfaces DApp sur Moonbeam avec un minimum de modifications.
 
-Currently, there are two ways you can start building on Moonbeam: 
+Moonbeam sera également une parachain sur le réseau Polkadot. Cela signifie qu'il bénéficiera d'une sécurité partagée de la chaîne de relais Polkadot et pourra s'intégrer à d'autres chaînes connectées à Polkadot (une fois que cette fonctionnalité sera disponible sur Polkadot).
 
- - Build your own Moonbeam instance as a [development node](/getting-started/local-node/setting-up-a-node/)
- - [Connect](/getting-started/testnet/connect/) to the [Moonbase Alpha TestNet](/networks/testnet/)
+---
 
-### Wallets
+## Comment démarrer avec Moonbeam
 
-Currently, we have tested Moonbeam with the following wallets:
+### Réseaux
+
+Actuellement, il existe deux manières de commencer à construire sur Moonbeam: 
+
+ - Construisez votre propre instance Moonbeam en tant que [noeud de developpement](/getting-started/local-node/setting-up-a-node/)
+ - [se connecter](/getting-started/testnet/connect/) au [TestNet Moonbase Alpha](/networks/testnet/)
+
+### Portefeuilles
+
+Actuellement, nous avons testé Moonbeam avec les portefeuilles suivants:
 
  - [MetaMask](/integrations/wallets/metamask/)
  - [MathWallet](/integrations/wallets/mathwallet/)
 
-However, any wallet that works with an Ethereum custom network should work with Moonbeam as well!
+Cependant, tout portefeuille qui fonctionne avec un réseau personnalisé Ethereum devrait également fonctionner avec Moonbeam!
 
-### Tools
+### Outils
 
-Because of Moonbeam's Ethereum compatibility features, you can use the development tools you know and love:
+Grâce aux fonctionnalités de compatibilité Ethereum de Moonbeam, vous pouvez utiliser les outils de développement que vous connaissez et que vous aimez:
 
  - [Remix](/integrations/remix/)
  - [Truffle](/integrations/trufflebox/)
@@ -52,43 +52,43 @@ Because of Moonbeam's Ethereum compatibility features, you can use the developme
  - [The Graph](/integrations/thegraph/)
  - [Debug API & Trace Module](/integrations/debug-trace/)
 
- Want another Ethereum tool listed here? [Let us know!](https://discord.gg/PfpUATX)
+ Vous voulez qu'un autre outil Ethereum soit répertorié ici? [Faites le nous savoir!](https://discord.gg/PfpUATX)
 
 ### Oracles
 
- We also have a number of Oracles that can serve as data feed to your smart contracts:
+ Nous avons également un certain nombre d'Oracles qui peuvent servir de flux de données à vos contrats intelligents:
 
  - [Chainlink](/integrations/oracles/chainlink/)
  - [Band Protocol](/integrations/oracles/band-protocol/)
  - [Razor Network](/integrations/oracles/razor-network/)
 
-### Bridges
+###  Ponts
 
-Currently, we have a fully functioning bridge implementation that connects Ethereum's Rinkeby/Kovan TestNets and Moonbase Alpha:
+Actuellement, nous avons une implémentation de pont entièrement fonctionnelle qui relie les Testnets Rinkeby/Kovan d'Ethereum et Moonbase Alpha:
 
  - [ChainBridge](/integrations/bridges/ethereum/chainbridge/)
 
 ---
 
-## How to Engage With the Moonbeam Community  
+## Comment s'engager avec la communauté Moonbeam  
 
 ### :fontawesome-brands-discord:  Discord  
-Instructions for our TestNet and other development-focused conversation is found on our [Discord channel](https://discord.gg/PfpUATX).
+Les instructions pour notre TestNet et d'autres conversations axées sur le développement se trouvent sur notre [Chaine Discord](https://discord.gg/PfpUATX).
 
 ### :moonbeam-element:  Element  
-Technical discussions and support are encouraged in our Element (formerly Riot) room that can be found [here](https://app.element.io/#/room/#moonbeam:matrix.org).
+Les discussions techniques et le support sont encouragés dans notre salle Element (anciennement Riot) qui peut être trouvée [ici](https://app.element.io/#/room/#moonbeam:matrix.org).
 
 ### :fontawesome-brands-telegram-plane:  Telegram  
-General information and other non-technical topics can be discussed in our Telegram group [here](https://t.me/Moonbeam_Official).
+Des informations générales et d'autres sujets non techniques peuvent être abordés dans notre groupe Telegram [ici](https://t.me/Moonbeam_Official).
 
 ### :fontawesome-brands-twitter:  Twitter  
-Follow us on Twitter for regular updates: [@MoonbeamNetwork](https://twitter.com/MoonbeamNetwork).
+Suivez-nous sur Twitter pour des mises à jour régulières: [@MoonbeamNetwork](https://twitter.com/MoonbeamNetwork).
 
 ### :fontawesome-brands-youtube:  YouTube  
-For video-tutorials and related content, subscribe to our YouTube channel [here](https://www.youtube.com/c/MoonbeamNetwork).
+Pour des tutoriels vidéo et du contenu connexe, abonnez-vous à notre chaîne YouTube [ici](https://www.youtube.com/c/MoonbeamNetwork).
 
 ### :fontawesome-solid-envelope:  Newsletter  
-We send a monthly newsletter with project updates that you can sign up for [here](https://moonbeam.network/newsletter/).
+Nous envoyons une newsletter mensuelle avec des mises à jour du projet auxquelles vous pouvez vous inscrire [ici](https://moonbeam.network/newsletter/).
 
-## About This Site
-This site is generated using [mkdocs](https://www.mkdocs.org/) and is based on content in the moonbeam-docs repo, which can be found [on :fontawesome-brands-github: GitHub](https://github.com/PureStake/moonbeam-docs).
+## À propos de ce site
+Ce site est généré en utilisant [mkdocs](https://www.mkdocs.org/) et est basé sur le contenu du repo moonbeam-docs, qui peut être trouvé [sur :fontawesome-brands-github: GitHub](https://github.com/PureStake/moonbeam-docs).
