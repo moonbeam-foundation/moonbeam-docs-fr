@@ -3,7 +3,7 @@ title: Collators
 description: Instructions pour devenir un Collator dans le réseau Moonbeam une fois que vous exécutez un nœud
 ---
 
-# Exécuter Collator sur Moonbeam
+# Exécuter un Collator sur Moonbeam
 
 ![Collator Moonbeam Banner](/images/fullnode/collator-banner.png)
 
