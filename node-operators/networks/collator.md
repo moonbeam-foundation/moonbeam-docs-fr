@@ -13,7 +13,7 @@ Les collators sont des membres du réseau qui maintiennent les parachains auxque
 
 Avec la sortie de Moonbase Alpha v6, les utilisateurs peuvent non seulement créer des nœuds complets, mais ils peuvent également activer la fonctionnalité `collate` et participer à l'écosystème en tant que collators.
 
-Ce guide vous guidera à travers les étapes de création de votre nœud d'assemblage, qui est une extension d'un nœud complet.
+Ce guide vous guidera à travers les étapes de création de votre nœud de collator, qui est une extension d'un nœud complet.
 
 ## Exigences techniques
 
@@ -24,7 +24,7 @@ D'un point de vue technique, les collators doivent répondre aux exigences suiva
 
 ## Exigences relatives au compte et au Staking
 
-Semblable aux validateurs Polkadot, vous devez créer un compte (bien que dans ce cas, il s'agisse d'un compte H160) et avoir une mise nommée (jetons DEV) afin de procéder à l'assemblage. Les créneaux horaires sont actuellement limités à {{ networks.moonbase.collators_slots }}, mais peuvent être augmentés au fil du temps.  
+Semblable aux validateurs Polkadot, vous devez créer un compte (bien que dans ce cas, il s'agisse d'un compte H160) et avoir une mise nommée (jetons DEV) afin de procéder à la production de blocs. Les créneaux horaires sont actuellement limités à {{ networks.moonbase.collators_slots }}, mais peuvent être augmentés au fil du temps.  
 
 Les collators doivent avoir un minimum de {{ networks.moonbase.staking.collator_min_stake }} DEV pour être considérés comme éligibles (devenir un candidat). Seuls les {{ networks.moonbase.staking.max_collators }} meilleurs collators par enjeu désigné feront partie de l'ensemble actif.    
 
@@ -63,7 +63,7 @@ Une fois que votre nœud est en cours d'exécution et synchronisé avec le rése
 
 Comme mentionné précédemment, seuls les {{ networks.moonbase.staking.max_collators }} meilleurs collators par enjeu désigné feront partie de l'ensemble actif. 
 
-## Arrêter le collating(assemblage)
+## Arrêter le collating(production de blocs)
 
 Similaire à la fonction `chill()` de Polkadot , pour quitter le pool de candidats de collator, suivez les mêmes étapes que précédemment, mais sélectionnez la fonction `leaveCandidates()` à l'étape 5.
 
