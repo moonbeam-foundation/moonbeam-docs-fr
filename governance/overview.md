@@ -9,7 +9,7 @@ description: En tant que parachain Polkadot, Moonbeam utilisera un système de g
 
 ## Introduction
 
-Moonbeam est un réseau décentralisé qui sera régi par une communauté de détenteurs de jetons, comprenant les développeurs principaux, les développeurs d'applications, les assembleurs, les utilisateurs et d'autres contributeurs. 
+Moonbeam est un réseau décentralisé qui sera régi par une communauté de détenteurs de jetons, comprenant les développeurs principaux, les développeurs d'applications, les collators, les utilisateurs et d'autres contributeurs. 
 
 Nous visons à faciliter l'engagement des détenteurs de jetons de chacune de ces catégories dans le cadre du lancement du réseau.
 
