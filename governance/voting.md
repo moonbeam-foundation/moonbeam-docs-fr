@@ -1,6 +1,6 @@
 ---
-title: Vote on a Proposal
-description: How to vote on a proposal so that it is enacted or rejected on Moonbeam via governance features
+title: Voter sur une proposition
+description: Comment voter sur une proposition pour qu'elle soit adoptée ou rejetée sur Moonbeam via des fonctionnalités de gouvernance
 ---
 
 # Proposals
@@ -9,67 +9,67 @@ description: How to vote on a proposal so that it is enacted or rejected on Moon
 
 ## Introduction
 
-Once a proposal reaches public referenda, token holders can vote on it using their own tokens. Two factors defined the weight a vote has: the number of tokens locked and lock duration (called conviction). This is to ensure that there is an economic buy-in to the result to prevent vote-selling. Consequently, the longer you are willing to lock your tokens, the stronger your vote will be weighted. You also have the option of not locking tokens at all, but vote weight is drastically reduced.
+Une fois qu'une proposition atteint les référendums publics, les détenteurs de jetons peuvent voter dessus en utilisant leurs propres jetons. Deux facteurs définissent le poids d'un vote : le nombre de tokens verrouillés et la durée de verrouillage (appelée condamnation). Il s'agit de s'assurer qu'il y a une adhésion économique au résultat pour empêcher la vente de votes. Par conséquent, plus vous êtes prêt à verrouiller vos jetons longtemps, plus votre vote sera pondéré. Vous avez également la possibilité de ne pas verrouiller du tout les jetons, mais le poids des votes est considérablement réduit.
 
-Referenda are simple, inclusive, and stake-based voting schemes. Each referendum has a proposal associated with it that suggests an action to take place. They have a fixed duration, after which votes are tallied, and the action is enacted if the vote is approved.
+Les référendums sont des schémas de vote simples, inclusifs et basés sur les enjeux. Chaque référendum est associé à une proposition qui suggère une action à prendre. Ils ont une durée fixe, après laquelle les votes sont comptés, et l'action est décrétée si le vote est approuvé.
 
-In Moonbeam, users will be able to create, second, and vote on proposals using their H160 address and private key, that is, their regular Ethereum account!
+Dans Moonbeam, les utilisateurs pourront créer, seconder et voter sur des propositions en utilisant leur adresse H160 et leur clé privée, c'est-à-dire leur compte Ethereum habituel!
 
-With the release of [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/releases/tag/v0.6.0), users of the network can now submit proposals for public referenda and vote on them. This guide outlines how to vote on a proposal that has reached a public referendum. You can find a guide on how to submit a proposal [here](/governance/proposals/).
+Avec la sortie de [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/releases/tag/v0.6.0), les utilisateurs du réseau peuvent désormais soumettre des propositions de référendums publics et voter. Ce guide explique comment voter sur une proposition qui a fait l'objet d'un référendum public. Vous pouvez trouver un guide sur la façon de soumettre une proposition [ici](/governance/proposals/).
 
-More information related to [Governance](https://wiki.polkadot.network/docs/en/learn-governance) and [Participate in Democracy](https://wiki.polkadot.network/docs/en/maintain-guides-democracy) can be found in Polkadot's Wiki pages.
+Plus d'informations concernant la [Gouvernance](https://wiki.polkadot.network/docs/en/learn-governance) et [Participer à la démocratie](https://wiki.polkadot.network/docs/en/maintain-guides-democracy) peut être trouvé dans les pages Wiki de Polkadot.
 
 !!! note
-    This guide was done with a customized version of Moonbeam with short Launch/Enactment periods for demonstration purposes only.
+    Ce guide a été réalisé avec une version personnalisée de Moonbeam avec de courtes périodes de lancement/adoption à des fins de démonstration uniquement.
 
 ## Definitions
 
-Some of the key parameters for this guide are the following:
+Certains des paramètres clés de ce guide sont les suivants :
 
- - **Voting period** — the time token holders have to vote for a referendum (duration of a referendum)
- - **Vote** — a tool used by token holders to either approve or reject a proposal. The weight a vote has is defined by two factors: the number of tokens locked, and lock duration (called conviction)
- - **Turnout** — the total number of voting tokens
- - **Electorate** — the total number of tokens issued in the network
- - **Maximum number of votes** — the maximum number of votes per account
- - **Enactment period** — the time between a proposal being approved and enacted (make law). It is also the minimum locking period when voting
- - **Lock period** — the time (after the proposal's enactment) that tokens of the winning voters are locked. Users can still use these tokens for staking or voting
- - **Delegation** — the act of transferring your voting power to another account for up to a certain conviction
+ - **Période de vote** — the time token holders have to vote for a referendum (duration of a referendum)
+ - **Vote** — un outil utilisé par les détenteurs de jetons pour approuver ou rejeter une proposition. Le poids d'un vote est défini par deux facteurs : le nombre de jetons verrouillés et la durée du verrouillage (appelée condamnation)
+ - **Taux de participation** — le nombre total de jetons de vote
+ - **Électorat** — le nombre total de jetons émis dans le réseau
+ - **Nombre maximum de votes** — le nombre maximum de votes par compte
+ - **Période d'adoption** — le temps entre l'approbation d'une proposition et son adoption (faire une loi). C'est aussi la période minimale de blocage lors du vote
+ - **Période de verrouillage** — le temps (après la promulgation de la proposition) que les jetons des électeurs gagnants sont verrouillés. Les utilisateurs peuvent toujours utiliser ces jetons pour le staking ou le vote
+ - **Delegation** — le fait de transférer votre droit de vote sur un autre compte jusqu'à une certaine condamnation
 
-Currently, for Moonbase Alpha:
+Actuellement, pour Moonbase Alpha:
 
-|        Variable         |     |                                                         Value                                                         |
+|        Variable         |     |                                                         Valeur                                                         |
 | :---------------------: | :-: | :-------------------------------------------------------------------------------------------------------------------: |
-|       Vote Period       |     |  {{ networks.moonbase.democracy.vote_period.blocks}} blocks ({{ networks.moonbase.democracy.vote_period.days}} days)  |
-|      Enact Period       |     | {{ networks.moonbase.democracy.enact_period.blocks}} blocks ({{ networks.moonbase.democracy.enact_period.days}} days) |
-| Maximum Number of Votes |     |                                      {{ networks.moonbase.democracy.max_votes}}                                       |
+|       Période de vote       |     |  {{ networks.moonbase.democracy.vote_period.blocks}} blocks ({{ networks.moonbase.democracy.vote_period.days}} days)  |
+|      Période d'adoption       |     | {{ networks.moonbase.democracy.enact_period.blocks}} blocks ({{ networks.moonbase.democracy.enact_period.days}} days) |
+| Nombre maximal de votes |     |                                      {{ networks.moonbase.democracy.max_votes}}                                       |
 
-## Roadmap of a Proposal
+## Feuille de route d'une proposition
 
 --8<-- 'text/governance/roadmap.md'
 
-## Voting on a Referendum
+## Voter sur un référendum
 
-This section goes over the process of voting on a referendum. The guide assumes that there is one already taking place, in this case, the one created in [this guide](/governance/proposals/).
+Cette section passe en revue le processus de vote lors d'un référendum. Le guide suppose qu'il y en a déjà un, en l'occurrence celui créé dans [ce guide](/governance/proposals/).
 
-To vote on a proposal in the network, you need to use the PolkadotJS Apps interface. To do so, you need to import an Ethereum-style account first (H160 address), which you can do by following [this guide](/integrations/wallets/polkadotjs/#creating-or-importing-an-h160-account). For this example, three accounts were imported and named with super original names: Alice, Bob, and Charley.
+Pour voter sur une proposition dans le réseau, vous devez utiliser l'interface PolkadotJS Apps. Pour ce faire, vous devez d'abord importer un compte de style Ethereum (adresse H160), ce que vous pouvez faire en suivant [ce guide](/integrations/wallets/polkadotjs/#creating-or-importing-an-h160-account). Pour cet exemple, trois comptes ont été importés et nommés avec des noms super originaux : Alice, Bob et Charley.
 
 ![Accounts in PolkadotJS](/images/governance/governance-proposal-1.png)
 
-The proposal being voted on will set Bob's balance to `1500` via governance!
+La proposition soumise au vote fixera le solde de Bob à `1500` via gouvernance!
 
-### How to Vote
+### Comment voter
 
-Voting on Moonbeam is pretty straightforward. Everything related to governance lives under the "Democracy" tab, where (in the image) you can note that there is a `1`, indicating there is one democracy item pending (either proposals or referenda). Once there, you can view the details of the referendum you want to vote by clicking on the arrow next to the description. The number next to the action and description it is called the referendum index (in this case, it is 0). When ready, click on the "Vote" button.
+Voter sur Moonbeam est assez simple. Tout ce qui touche à la gouvernance vit sous l'onglet "Democracy" , ou (dans l'image) vous pouvez noter qu'il y a un `1`, indiquant qu'il y a un point sur la démocratie en attente (soit des propositions, soit des référendums). Une fois là-bas, vous pouvez visualiser les détails du référendum que vous souhaitez voter en cliquant sur la flèche à côté de la description. Le numéro à côté de l'action et de sa description s'appelle l'indice référendaire (dans ce cas, c'est 0). Lorsque vous êtes prêt, cliquez sur le bouton "Vote".
 
 ![Vote Button](/images/governance/governance-vote-1.png)
 
-Here, you need to provide the following information:
+Ici, vous devez fournir les informations suivantes:
 
- 1. Select the account with which you want to vote
- 2. Enter the number of tokens that you want to vote with. These will be locked for the amount of time specified in the next step
- 3. Set the vote conviction, which determines its weight (`vote_weight = tokens * conviction_multiplier`). The conviction multiplier is related to the number of enactment periods the tokens will be locked for. Consequently, the longer you are willing to lock your tokens, the stronger your vote will be weighted. You also have the option of not locking tokens at all, but vote weight is drastically reduced (tokens are still locked during the duration of the referendum)
+ 1. Sélectionnez le compte avec lequel vous souhaitez voter
+ 2. Entrez le nombre de jetons avec lesquels vous souhaitez voter. Ceux-ci seront verrouillés pour la durée spécifiée à l'étape suivante
+ 3. Fixer la condamnation du vote, qui détermine son poids (`vote_weight = tokens * conviction_multiplier`). Le multiplicateur de condamnation est lié au nombre de périodes d'adoptions pendant lesquelles les jetons seront verrouillés. Par conséquent, plus vous êtes prêt à verrouiller vos jetons longtemps, plus votre vote sera pondéré. Vous avez également la possibilité de ne pas verrouiller les jetons du tout, mais le poids du vote est considérablement réduit (les jetons sont toujours verrouillés pendant la durée du référendum)
 
-   | Lock Periods |     | Conviction Multiplier |
+   | Périodes de verrouillage |     | Multiplicateur de condamnation |
    | :----------: | :-: | :-------------------: |
    |      0       |     |          0.1          |
    |      1       |     |           1           |
@@ -79,133 +79,133 @@ Here, you need to provide the following information:
    |      16      |     |           5           |
    |      32      |     |           6           |
 
- 4. Click on "Vote Aye" to approve the proposal or "Vote Nay" to disapprove the proposal, and then sign the transaction
+ 4. Cliquer sur "Vote Aye" pour approuver la proposition ou sur "Vote Nay" pour désapprouver la proposition, puis signer la transaction
 
 ![Vote Submission](/images/governance/governance-vote-2.png)
 
 !!! note
-    The lockup periods shown in the previous image are not to be taken as reference. This guide was done with a customized version of Moonbeam with short Launch/Enactment periods for demonstration purposes only.
+    Les périodes de blocage indiquées dans l'image précédente ne sont pas à prendre comme référence. Ce guide a été réalisé avec une version personnalisée de Moonbeam avec de courtes périodes de lancement/adoption à des fins de démonstration uniquement.
 
-In this case, Alice has decided to "Vote Aye" on the proposal with a conviction of `6x`. On the other hand, Charley has decided to "Vote Nay" on the proposal but chose not to lock any tokens (his tokens are only locked during the duration of the referendum), so his conviction was `0.1x`. With such vote distributions, the partial results can be seen in the main "Democracy" tab.
+Dans ce cas, Alice a décidé de "Vote Aye" sur la proposition avec une condamnation de `6x`. D'autre part, Charley a décidé de "Vote Nay" sur la proposition mais a choisi de ne verrouiller aucun jeton (ses jetons ne sont verrouillés que pendant la durée du référendum), sa condamnation a donc été `0.1x`. Avec de telles distributions de voix, les résultats partiels peuvent être vus dans l'onglet principal "Democracy".
 
 ![Vote Information](/images/governance/governance-vote-3.png)
 
-From voting, there are some key takeaways:
+Il y a quelques points clés à retenir du vote:
 
- - Alice's weighted vote is 10800 units. That is, her 1800 locked tokens multiplied her conviction by x6
- - Charley's weighted vote is 80 units. That is, his 800 tokens with no locking period (only during referendum) made his conviction factor x0.1
- - Both the remaining voting period and time before the proposal is enacted (if passed) are shown on the screen
- - The overall turnout (in percentage) is just 0.21%. This is calculated as the total number of voting tokens (2600) divided by the total amount of tokens in the network (1.22M in this case)
- - Even though the turnout is quite low, the proposal is tentatively approved because of the super-majority approval. More information can be found in [this section](/governance/voting/#positive-turnout-bias)
- - It is important to write down the referendum index, as this is needed to unlock the tokens later when the locking period expires. Currently there is no way to retrieve the referendum index once it has been enacted
+ - Le vote pondéré d'Alice est de 10800 unités. C'est-à-dire que ses 1800 jetons verrouillés ont multiplié sa conviction par x6
+ - Le vote pondéré de Charley est de 80 unités. C'est-à-dire que ses 800 jetons sans période de verrouillage (uniquement pendant le référendum) ont rendu son facteur de conviction x0,1
+ - La période de vote restante et le temps avant l'adoption de la proposition (si elle est adoptée) sont affichés à l'écran
+ - Le taux de participation global (en pourcentage) n'est que de 0,21 %. Ceci est calculé comme le nombre total de jetons de vote (2600) divisé par le nombre total de jetons dans le réseau (1,22M dans ce cas)
+ - Même si le taux de participation est assez faible, la proposition est provisoirement approuvée en raison de l'approbation de la super-majorité. Plus d'informations peuvent être trouvées dans [cette section](/governance/voting/#positive-turnout-bias)
+ - Il est important de noter l'index référendaire, car cela est nécessaire pour déverrouiller les jetons plus tard lorsque la période de verrouillage expire. Actuellement, il n'y a aucun moyen de récupérer l'index référendaire une fois qu'il a été adopté.
 
-After the voting period has expired, the proposal will be visible under the "Dispatch" tab if approved. In here, you can also see the time remaining until the proposal is enacted.
+Après l'expiration de la période de vote, la proposition sera visible sous l'onglet "Dispatch" si approuvéé. Ici, vous pouvez également voir le temps restant jusqu'à ce que la proposition soit adoptée.
 
 ![Proposal Enactment](/images/governance/governance-vote-4.png)
 
-Remember that, for this example, the `setBalance` function was used to set Bob's balance to 1500 tokens. Once the enactment period has passed, you can go back to the "Accounts" tab to verify that the proposal was made law.
+Rappelez-vous que, pour cet exemple, la fonction `setBalance` a été utilisé pour régler le solde de Bob à 1500 jetons. Une fois la période d'adoption passée, vous pouvez revenir à l'onglet "Accounts" pour vérifier que la proposition et devenu loi.
 
 ![Proposal Result](/images/governance/governance-vote-5.png)
 
-### Delegate Voting
+### Déleguer ses votes
 
-Token holders have the option to delegate their vote to another account whose opinion they trust. The account being delegated does not need to make any particular action. When they vote, the vote weight (that is, tokens times the conviction multiplier chose by the delegator) is added to its vote.
+Les détenteurs de tokens ont la possibilité de déléguer leur vote à un autre compte dont ils ont confiance en l'opinion. Le compte en cours de délégation n'a pas besoin d'effectuer d'action particulière. Lorsqu'ils votent, le poids du vote (c'est-à-dire le nombre de jetons multiplié par le multiplicateur de conviction choisi par le délégant) est ajouté à son vote.
 
-To delegate your vote, first, navigate to the "Extrinsics" menu under the "Developers" tab.
+Pour déléguer votre vote, accédez d'abord au menu "Extrinsics" en dessous de l'onglet "Developers".
 
 ![Extrinsics Menu](/images/governance/governance-vote-6.png)
 
-Here, you need to provide the following information:
+Ici, vous devez fournir les informations suivantes:
 
- 1. Select the account from which you want to delegate your vote
- 2. Choose the pallet you want to interact with. In this case, it is the `democracy` pallet
- 3. Choose the extrinsic method to use for the transaction. This will determine the fields that need to fill in the following steps. In this case, it is `delegate` extrinsic
- 4. Select the account to which you want to delegate your vote
- 5. Set the vote conviction, which determines its weight (`vote_weight = tokens * conviction_multiplier`). The conviction multiplier is related to the number of enactment periods the tokens will be locked for. Consequently, the longer you are willing to lock your tokens, the stronger your vote will be weighted. You also have the option of not locking tokens at all, but vote weight is drastically reduced
- 6. Set the number of tokens you want to delegate to the account provided before
- 7. Click the "Submit Transaction" button and sign the transaction
+ 1. Sélectionnez le compte à partir duquel vous souhaitez déléguer votre vote
+ 2. Choisissez la palette avec laquelle vous souhaitez interagir. Dans ce cas, c'est la palette `democracy`
+ 3. Choisissez l'extrinsic à utiliser pour la transaction. Cela déterminera les champs qui doivent remplir les étapes suivantes. Dans ce cas c'est l'extrinsic `delegate`
+ 4. Sélectionnez le compte auquel vous souhaitez déléguer votre vote
+ 5. Fixer la condamnation du vote, qui détermine son poids (`vote_weight = tokens * conviction_multiplier`). Le multiplicateur de condamnation est lié au nombre de périodes d'adoptions pendant lesquelles les jetons seront verrouillés. Par conséquent, plus vous êtes prêt à verrouiller vos jetons longtemps, plus votre vote sera pondéré. Vous avez également la possibilité de ne pas verrouiller les jetons du tout, mais le poids du vote est considérablement réduit
+ 6. Définissez le nombre de jetons que vous souhaitez déléguer au compte fourni auparavant
+ 7. Cliquez sur le bouton "Submit Transaction" et signez la transaction
 
 ![Extrinsics Transaction for Delegation](/images/governance/governance-vote-7.png)
 
-In this example, Alice delegated a total weight of 1000 (1000 tokens with an x1 conviction factor) to Charley.
+Dans cet exemple, Alice a délégué un poids total de 1000 (1000 jetons avec un facteur de conviction x1) à Charley.
 
 !!! note
-    Another way to delegate votes is under the "Accounts" tab. Click on the three dots of the account from which you want to delegate your vote and fill in the information as before.
+    Une autre façon de déléguer des votes est sous l'onglet "Accounts". Cliquez sur les trois points du compte à partir duquel vous souhaitez déléguer votre vote et renseignez les informations comme précédemment.
 
-Once the account you have delegated your vote to votes, the total vote weight delegated will be allocated to the option that the account selected. For this example, Charley has decided to vote in favor of a proposal that is in public referendum. He voted with a total weight of 800 (800 tokens with an x1 conviction factor). But because Alice delegated 1000 vote weight to him, "Aye" votes total 1800 units.
+Une fois le compte auquel vous avez délégué votre vote vote, le poids total du vote délégué sera attribué à l'option que le compte a sélectionnée. Pour cet exemple, Charley a décidé de voter en faveur d'une proposition qui est en référendum public. Il a voté avec un poids total de 800 (800 jetons avec un facteur de conviction x1). Mais parce qu'Alice lui a délégué 1000 votes, les votes "Aye" totalisent 1800 unités.
 
 ![Total Votes with Delegation](/images/governance/governance-vote-8.png)
 
-To remove delegation, repeat the process described before, but select the `undelegate` extrinsic in step 3.
+Pour supprimer la délégation, répétez le processus décrit précédemment, mais sélectionnez l'extrinsic `undelegate` à l'étape 3.
 
-From vote delegation, there are some key takeaways:
+Il y a quelques points clés à retenir pour la délégation:
 
- - If a token holder were to remove the vote delegation during a public referendum where the delegated votes were used, these would be removed from the tally
- - A token holder that delegated votes still has an economic buy-in. This means that if the option the delegator selected were to win, the tokens delegated are locked for the number of lock periods
- - The tokens delegated for voting are no longer part of the token holder's free balance. To read more about the types of balances, you can visit [this site](https://wiki.polkadot.network/docs/en/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)
- - A token holder that delegated tokens can't participate in public referendum. First, the token holder must undelegate his vote
- - A token holder that delegated tokens needs to manually unlock his locked tokens after the locking period has expired. For this, it is necessary to know the referendum index
+ - Si un détenteur de jetons supprimait la délégation de vote lors d'un référendum public où les votes délégués étaient utilisés, ceux-ci seraient supprimés du décompte
+ - Un détenteur de jetons qui a délégué des votes a toujours une adhésion économique. Cela signifie que si l'option sélectionnée par le délégant était gagnante, les jetons délégués sont verrouillés pour le nombre de périodes de verrouillage
+ - Les jetons délégués pour le vote ne font plus partie du solde disponible du détenteur du jeton. Pour en savoir plus sur les types de soldes, vous pouvez visiter [ce site](https://wiki.polkadot.network/docs/en/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)
+ - Un détenteur de jetons qui a délégué des jetons ne peut pas participer à un référendum public. Premièrement, le détenteur du jeton doit annuler sa délégation de vote
+ - Un détenteur de jetons qui a délégué des jetons doit déverrouiller manuellement ses jetons verrouillés une fois la période de verrouillage expirée. Pour cela, il faut connaître l'indice référendaire
 
-### Unlocking Locked Tokens
+### Déverrouillage des jetons verrouillés
 
-When token holders vote, the tokens used are locked and cannot be transferred. You can verify if you have any locked tokens in the "Accounts" tab, expanding the address's account details to query. There, you will see different types of balances (you can read more information about each type [here](https://wiki.polkadot.network/docs/en/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)). If you hover over the icon next to "democracy," an information panel will show telling you the current status of your lock. Different lock status includes:
+Lorsque les détenteurs de jetons votent, les jetons utilisés sont verrouillés et ne peuvent être transférés. Vous pouvez vérifier si vous avez des jetons verrouillés dans l'onglet "Accounts" , en développant les détails du compte de l'adresse à interroger. Là, vous verrez différents types de soldes (vous pouvez lire plus d'informations sur chaque type [ici](https://wiki.polkadot.network/docs/en/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)). Si vous passez la souris sur l'icône à côté de "democracy," un panneau d'information s'affichera pour vous indiquer l'état actuel de votre verouillage. Les différents états de verrouillage incluent:
 
- - Locked because of an ongoing referendum, meaning that you've used your tokens and have to wait until the referendum finishes, even if you've voted with a no-lock conviction factor
- - Locked because of the conviction multiplier selected, displaying the number of blocks and time left
- - Lock expired, meaning that you can now get your tokens back
+ - Verrouillé en raison d'un référendum en cours, ce qui signifie que vous avez utilisé vos jetons et que vous devez attendre la fin du référendum, même si vous avez voté avec un facteur de condamnation sans verrouillage
+ - Verrouillé en raison du multiplicateur de condamnation sélectionné, affichant le nombre de blocages et le temps restant
+ - Le verrouillage a expiré, ce qui signifie que vous pouvez maintenant récupérer vos jetons
 
 ![Account Lock Status](/images/governance/governance-vote-9.png)
 
-Once the lock is expired, you can request your tokens back. To do so, navigate to the "Extrinsics" menu under the "Developers" tab.
+Une fois le verrouillage expiré, vous pouvez demander à nouveau vos jetons. Pour ce faire, accédez au menu "Extrinsics" en dessous de l'onglet "Developers" .
 
 ![Extrinsics Menu](/images/governance/governance-vote-10.png)
 
-Here, two different extrinsics need to be sent. First, you need to provide the following information:
+Ici, deux extrinsics différents doivent être envoyés. Tout d'abord, vous devez fournir les informations suivantes:
 
- 1. Select the account from which you want to recover your tokens
- 2. Choose the pallet you want to interact with. In this case, it is the `democracy` pallet
- 3. Choose the extrinsic method to use for the transaction. This will determine the fields that need to fill in the following steps. In this case, it is `removeVote` extrinsic. This step is necessary to unlock the tokens. This extrinsic can be used as well to remove your vote from a referendum
- 4. Enter the referendum index. This is the number that appeared on the left-hand side in the "Democracy" tab. In this case, it is 0
- 5. Click the "Submit Transaction" button and sign the transaction
+ 1. Sélectionnez le compte à partir duquel vous souhaitez récupérer vos tokens
+ 2. Choisissez la palette avec laquelle vous souhaitez interagir. Dans ce cas, c'est la palette `democracy`
+ 3. Choisissez la méthode extrinsic à utiliser pour la transaction. Cela déterminera les champs qui doivent remplir les étapes suivantes. Dans ce cas, c'est l'extrinsic `removeVote` . Cette étape est nécessaire pour déverrouiller les jetons. Cet extrinsic peut également être utilisé pour retirer votre vote d'un référendum
+ 4. Entrez l'index référendaire. Il s'agit du numéro qui figurait à gauche dans l'onglet "Democracy". Dans ce cas, c'est 0
+ 5. Cliquez sur le bouton "Submit Transaction" et signez la transaction
 
 ![Remove Vote Extrinsics](/images/governance/governance-vote-11.png)
 
-For the next extrinsic, you need to provide the following information:
+Pour le prochain extrinsic, vous devez fournir les informations suivantes:
 
- 1. Select the account from which you want to recover your tokens
- 2. Choose the pallet you want to interact with. In this case, it is the `democracy` pallet
- 3. Choose the extrinsic method to use for the transaction. This will determine the fields that need to fill in the following steps. In this case, it is `unlock` extrinsic
- 4. Enter the target account that will receive the unlocked tokens. In this case, the tokens will be returned to Alice
- 5. Click the "Submit Transaction" button and sign the transaction
+ 1. Sélectionnez le compte à partir duquel vous souhaitez récupérer vos tokens
+ 2. Choisissez la palette avec laquelle vous souhaitez interagir. Dans ce cas, c'est la palette `democracy`
+ 3. Choisissez la méthode extrinsic à utiliser pour la transaction. Cela déterminera les champs qui doivent remplir les étapes suivantes. Dans ce cas, c'est l'extrinsic `unlock`
+ 4. Entrez le compte cible qui recevra les jetons débloqués. Dans ce cas, les jetons seront rendus à Alice
+ 5. Cliquez sur le bouton "Submit Transaction" et signez la transaction
 
 ![Unlock Extrinsics](/images/governance/governance-vote-12.png)
 
-Once the transaction goes through, the locked tokens should be unlocked. To double-check, you can go back to the "Accounts" tab and see that, for this example, Alice has her full balance as "transferable."
+Une fois la transaction terminée, les jetons verrouillés doivent être déverrouillés. Pour vérifier, vous pouvez revenir l'onglet "Accounts" , pour cet exemple, Alice a son solde complet comme "transferable."
 
 ![Check Balance](/images/governance/governance-vote-13.png)
 
-## Positive Turnout Bias
+## Biais de participation positif
 
-Public referenda use a positive turnout bias metric, that is, a super-majority approval formula. The equation is the following:
+Les référendums publics utilisent une métrique de biais de participation positive, c'est-à-dire une formule d'approbation à la majorité qualifiée. L'équation est la suivante:
 
 ![Positive Turnout Bias](/images/governance/governance-vote-bias.png)
 
-Where:
+Ou:
 
- - **Approve** — number of "Aye" votes (includes the conviction multiplier)
- - **Against** — number of "Nay" votes (includes the conviction multiplier)
- - **Turnout** — the total number of voting tokens (without including the conviction multiplier)
- - **Electorate** — the total number of tokens issued in the network
+ - **Approuver** — nombre de votes "Aye" (y compris le multiplicateur de condamnation)
+ - **Contre** — nombre de votes "Nay" (y compris le multiplicateur de condamnation)
+ - **Participation** — le nombre total de jetons de vote (sans inclure le multiplicateur de condamnation)
+ - **Électorat** — le nombre total de jetons émis dans le réseau
 
 In the previous example, these numbers were:
 
-|  Variable  |     |         Value         |
+|  Variable  |     |         Valeur         |
 | :--------: | :-: | :-------------------: |
-|  Approve   |     |   10800 (1800 x 6)    |
-|  Against   |     |    80 (800 x 0.1)     |
-|  Turnout   |     |   2600 (1800 + 800)   |
-| Electorate |     |         1.22M         |
-| **Result** |     | 1.5 < 9.8 (Aye wins!) |
+|  Approuver   |     |   10800 (1800 x 6)    |
+|  Contre   |     |    80 (800 x 0.1)     |
+|  Participation   |     |   2600 (1800 + 800)   |
+| Electorat |     |         1.22M         |
+| **Resultat** |     | 1.5 < 9.8 (Aye wins!) |
 
-In short, a heavy super-majority of aye votes is required to approve a proposal at low turnouts, but as turnout increases, it becomes a simple majority.
+En bref, une forte majorité de votes aye est requise pour approuver une proposition à faible taux de participation, mais à mesure que le taux de participation augmente, cela devient une majorité simple.
 
