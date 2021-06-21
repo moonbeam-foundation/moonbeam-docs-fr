@@ -1,62 +1,62 @@
 ---
-title: Graph Node
-description: Build APIs using The Graph indexing protocol on Moonbeam
+title: Nœud Graph
+description: Construire des API à l'aide du protocole d'indexation The Graph sur Moonbeam
 ---
 
-# Running a Graph Node on Moonbeam
+# Exécuter un nœud Graph sur Moonbeam
 
 ![The Graph Node on Moonbeam](/images/thegraph/thegraphnode-banner.png)
 
 ## Introduction
 
-A Graph Node sources events from a blockchain to deterministically update a data store that can be then queried via a GraphQL endpoint.
+Un nœud de Graph source des événements à partir d'une blockchain pour mettre à jour de manière déterministe un magasin de données qui peut ensuite être interrogé via un point de terminaison GraphQL.
 
-There are two ways you can set up a Graph Node: you can use Docker to run an all-in-one image, or you can run their [Rust implementation](https://github.com/graphprotocol/graph-node). The steps described in this guide will only cover the Docker alternative, as it is more convenient, and you can set up a Graph Node very quickly.
+Vous pouvez configurer un nœud Graph de deux manières : vous pouvez utiliser Docker pour exécuter une image tout-en-un, ou vous pouvez exécuter leur [implementation Rust](https://github.com/graphprotocol/graph-node). Les étapes décrites dans ce guide ne couvriront que l'alternative Docker, car elle est plus pratique et vous pourrez configurer un nœud de graph très rapidement.
 
 !!! note
-    The steps described in this guide have been tested in both Ubuntu 18.04-based and MacOs environments, and they will need to be adapted accordingly for other systems.
+    Les étapes décrites dans ce guide ont été testées dans les environnements Ubuntu 18.04 et MacOs, et elles devront être adaptées en conséquence pour d'autres systèmes.
 
-## Checking Prerequisites
+## Vérification des prérequis
 
-Before diving into setting up a Graph Node, you neeed to have the following installed on your system:
+Avant de plonger dans la configuration d'un nœud graph, vous devez avoir installé les éléments suivants sur votre système :
 
  - [Docker](https://docs.docker.com/get-docker/)
  - [Docker Compose](https://docs.docker.com/compose/install/)
  - [JQ](https://stedolan.github.io/jq/download/)
 
-In addition, you need to have a node running with the `--ethapi=trace` option enabled. Currently, you can spin up two different kinds of nodes:
+De plus, vous devez avoir un nœud fonctionnant avec l'option `--ethapi=trace` activée. Actuellement, vous pouvez créer deux types de nœuds différents :
 
- - **Moonbeam development node** — run your own Moonbeam instance in your private environment. To do so, you can follow [this guide](/getting-started/local-node/setting-up-a-node/). Make sure to check the [advanced flags section](/getting-started/local-node/setting-up-a-node/#advanced-flags-and-options)
- - **Moonbase Alpha node** — run a full node of the TestNet and access your own private endpoints. To do so, you can follow [this guide](/node-operators/networks/full-node/). Make sure to check the [advanced flags section](/node-operators/networks/full-node/#advanced-flags-and-options)
+ - **Noeud de développement Moonbeam** — exécutez votre propre instance Moonbeam dans votre environnement privé. Pour ce faire, vous pouvez suivre [ce guide](/getting-started/local-node/setting-up-a-node/). Assurez vous de consulter la [section des flags avancés](/getting-started/local-node/setting-up-a-node/#advanced-flags-and-options)
+ - **Nœud Moonbase Alpha** — exécutez un nœud complet du TestNet et accédez à vos propres points de terminaison privés. Pour ce faire, vous pouvez suivre [ce guide](/node-operators/networks/full-node/). Assurez vous de consulter la [section des flags avancés](/node-operators/networks/full-node/#advanced-flags-and-options)
 
-In this guide, a Graph Node runs against a Moonbase Alpha full node with the `--ethapi=trace` flag.
+Dans ce guide, un nœud graph s'exécute sur un nœud complet Moonbase Alpha avec le flag `--ethapi=trace` .
 
-## Running a Graph Node
+## Exécuter un nœud graph
 
-The first step is to clone the [Graph Node repository](https://github.com/graphprotocol/graph-node/):
+La première étape consiste à cloner le [repository du noeud Graph](https://github.com/graphprotocol/graph-node/):
 
 ```
 git clone https://github.com/graphprotocol/graph-node/ \
 && cd graph-node/docker
 ```
 
-Next, execute the `setup.sh` file. This will pull all the necessary Docker images and write the necessary information in the `docker-compose.yml` file.
+Ensuite, exécutez le fichier `setup.sh`. Cela extraira toutes les images Docker nécessaires et écrira les informations nécessaires dans le fichier `docker-compose.yml`.
 
 ```
 ./setup.sh
 ```
 
-The tail end from the logs of the previous command should look something similar to:
+La fin des journaux de la commande précédente devrait ressembler à :
 
 ![Graph Node setup](/images/thegraph/thegraphnode-images1.png)
 
-Once everything is set up, you need to modify the "Ethereum environment" inside the `docker-compose.yml` file, so that it points to the endpoint of the node you are running this Graph Node against. Note that the `setup.sh` file detects the `Host IP` and writes its value, so you'll need to modify it accordingly.
+Une fois que tout est configuré, vous devez modifier l "environnement Ethereum" à l'interieur du fichier `docker-compose.yml`, afin qu'il pointe vers le point de terminaison du nœud sur lequel vous exécutez ce nœud graph. Notez que le fichier `setup.sh` détectel' `Host IP` et écrit sa valeur, vous devrez donc la modifier en conséquence.
 
 ```
 ethereum: 'mbase:http://localhost:9933'
 ```
 
-The entire `docker-compose.yml` file should look something similar to:
+L'ensemble du fichier `docker-compose.yml` devrait ressembler à quelque chose comme:
 
 ```
 version: '3'
@@ -99,7 +99,7 @@ services:
       - ./data/postgres:/var/lib/postgresql/data
 ```
 
-Lastly, to run the Graph Node, just run the following command:
+Enfin, pour exécuter le nœud graph, exécutez simplement la commande suivante:
 
 ```
 docker-compose up
@@ -107,8 +107,8 @@ docker-compose up
 
 ![Graph Node compose up](/images/thegraph/thegraphnode-images2.png)
 
-After a while, you should see logs related to the Graph Node syncing with the latest available block in the network:
+Après un certain temps, vous devriez voir les journaux liés à la synchronisation du nœud graph avec le dernier bloc disponible sur le réseau :
 
 ![Graph Node logs](/images/thegraph/thegraphnode-images3.png)
 
-And that is it! You have a Graph Node running against the Moonbase Alpha TestNet. Feel free to adapt this example to a Moonbeam development node as well.
+Et c'est tout ! Vous avez un nœud graph exécuté sur le Moonbase Alpha TestNet. N'hésitez pas à adapter également cet exemple à un nœud de développement Moonbeam.
