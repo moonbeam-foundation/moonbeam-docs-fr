@@ -1,11 +1,11 @@
 Some important parameters to understand in relation to the staking system in Moonbeam include:
 
- - **Collators** — block producers. They collect transactions from users and produce state transition proofs for the Relay Chain to validate. Have a stake in the network that get slashed if they misbehave
- - **Nominators** — token holders who stake tokens, vouching for specific collators. Any user that holds a minimum amount of tokens as [free balance](https://wiki.polkadot.network/docs/en/learn-accounts#balance-types) can become a nominator
- - **Minimum nomination stake** — minimum amount of total tokens staked a user must have to be in the set of nominators
- - **Minimum nomination** — minimum amount of tokens to nominate other collators once a user is in the set of nominators
- - **Maximum nominators per collator** — maximum number of nominators a collator can have
- - **Maximum collators per nominator** — maximum number of collators a nominator can nominate
- - **Round** — number of blocks in a round. An important parameter for reward distribution
+ - **Collators(producteurs de blocs)** — producteurs de blocs. Ils collectent les transactions des utilisateurs et produisent des preuves de transition d'état pour la chaîne de relais à valider. Avoir une participation dans le réseau qui est sabrée s'ils se comportent mal
+ - **Nominators(nominateurs)** — les détenteurs de jetons qui stake des jetons, se portant garants pour des collators spécifiques. Tout utilisateur qui détient un nombre minimum de jetons en tant que [solde libre](https://wiki.polkadot.network/docs/en/learn-accounts#balance-types) peut devenir un nominateur
+ - **Mise de nomination minimale** — montant minimum de tokens staker qu'un utilisateur doit avoir pour faire partie de l'ensemble des nominateurs
+ - **Nomination minimale** — nombre minimum de jetons pour désigner d'autres collators une fois qu'un utilisateur fait partie de l'ensemble des nominateurs
+ - **Nominateurs maximum par collecteur** — nombre maximum de nominateurs qu'un collator peut avoir
+ - **Collators maximum par nominateur** — nombre maximum collators qu'un nominateur peut nommer
+ - **Tour** — nombre de blocs dans un tour. Un paramètre important pour la distribution des récompenses
 
- - **Bond duration** — number of rounds that the staking rewards are delayed
+ - **Durée de l'obligation** — nombre de tours pendant lesquels les récompenses de staking sont retardées
