@@ -3,7 +3,7 @@ title: Voter sur une proposition
 description: Comment voter sur une proposition pour qu'elle soit adoptée ou rejetée sur Moonbeam via des fonctionnalités de gouvernance
 ---
 
-# Proposals
+# Propositions
 
 ![Governance Moonbeam Banner](/images/governance/governance-voting-banner.png)
 
