@@ -1,4 +1,4 @@
-Some important parameters to understand in relation to the staking system in Moonbeam include:
+Certains paramètres importants à comprendre en relation avec le système de staking dans Moonbeam incluent:
 
  - **Collators(producteurs de blocs)** — producteurs de blocs. Ils collectent les transactions des utilisateurs et produisent des preuves de transition d'état pour la chaîne de relais à valider. Avoir une participation dans le réseau qui est sabrée s'ils se comportent mal
  - **Nominators(nominateurs)** — les détenteurs de jetons qui stake des jetons, se portant garants pour des collators spécifiques. Tout utilisateur qui détient un nombre minimum de jetons en tant que [solde libre](https://wiki.polkadot.network/docs/en/learn-accounts#balance-types) peut devenir un nominateur
