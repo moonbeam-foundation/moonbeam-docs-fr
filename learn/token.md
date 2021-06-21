@@ -1,5 +1,5 @@
 ---
-title: Tokens
+title: Jetons
 description: Comme toutes les plates-formes de contrats intelligents, le réseau Moonbeam nécessitera un jeton utilitaire pour fonctionner, appelé Glimmer (GLMR) pour Polkadot et River (MOVR) pour Kusama.
 ---
 
