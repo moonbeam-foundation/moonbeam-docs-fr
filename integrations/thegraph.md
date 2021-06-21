@@ -1,94 +1,94 @@
 ---
 title: The Graph
-description: Build APIs using The Graph indexing protocol on Moonbeam
+description: Construire des API à l'aide du protocole d'indexation The Graph sur Moonbeam
 ---
 
-# Using The Graph on Moonbeam
+# Utiliser The Graph sur Moonbeam
 
 ![The Graph on Moonbeam](/images/thegraph/thegraph-banner.png)
 
 ## Introduction
 
-Indexing protocols organize information in a way that applications can access it more efficiently. For example, Google indexes the entire internet to provide information rapidly when you search for something.
+Les protocoles d'indexation organisent les informations de manière à ce que les applications puissent y accéder plus efficacement. Par exemple, Google indexe l'intégralité d'Internet pour fournir des informations rapidement lorsque vous recherchez quelque chose.
 
-The Graph is a decentralized and open-source indexing protocol for querying networks like Ethereum. In short, it provides a way to efficiently store data emitted by events from smart contracts so that other projects or dApps can access it easily.
+The Graph est un protocole d'indexation décentralisé et open source pour interroger des réseaux comme Ethereum. En bref, il fournit un moyen de stocker efficacement les données émises par les événements des contrats intelligents afin que d'autres projets ou dApps puissent y accéder facilement.
 
-Furthermore, developers can build APIs, called Subgraphs. Users or other developers can use Subgraphs to query data specific to a set of smart contracts. Data is fetched with a standard GraphQL API. You can visit [their documentation](https://thegraph.com/docs/introduction#what-the-graph-is) to read more about The Graph protocol.
+De plus, les développeurs peuvent créer des API, appelées subgraphs. Les utilisateurs ou d'autres développeurs peuvent utiliser des subgraphs pour interroger des données spécifiques à un ensemble de contrats intelligents. Les données sont récupérées avec une API GraphQL standard. Vous pouvez visiter [leur documentation](https://thegraph.com/docs/introduction#what-the-graph-is) pour en savoir plus sur le protocole The Graph.
 
-With the introduction of Ethereum tracing modules in [Moonbase Alpha v7](https://github.com/PureStake/moonbeam/releases/tag/v0.7.0), The Graph is capable of indexing blockchain data in Moonbeam.
+Avec l'introduction des modules de traçage Ethereum dans [Moonbase Alpha v7](https://github.com/PureStake/moonbeam/releases/tag/v0.7.0), The Graph est capable d'indexer les données de la blockchain dans Moonbeam.
 
-This guide takes you through the creation of a simple subgraph for a Lottery contract on Moonbase Alpha.
+Ce guide vous guide à travers la création d'un subgraph simple pour un contrat de loterie sur Moonbase Alpha.
 
-## Checking Prerequisites
+## Vérification des prérequis
 
-To use The Graph on Moonbase Alpha you have two options:
+Pour utiliser The Graph sur Moonbase Alpha, vous avez deux options:
 
- - Run a Graph Node against Moonbase Alpha and point your Subgraph to it. To do so, you can follow [this tutorial](/node-operators/indexers/thegraph-node/)
- - Point your Subgraph to The Graph API via the [Graph Explorer website](https://thegraph.com/explorer/). To do so you need to create an account and have an access token
+ - Exécutez un nœud graph sur Moonbase Alpha et pointez votre sous-graphe dessus. Pour ce faire, vous pouvez suivre [ce tutoriel](/node-operators/indexers/thegraph-node/)
+ - Pointez votre subgraph vers l'API Graph via le [site Graph Explorer ](https://thegraph.com/explorer/). Pour ce faire, vous devez créer un compte et disposer d'un jeton d'accès
  
-## The Lottery Contract
+## Le contrat de loterie
 
-For this example, a simple Lottery contract is be used. You can find the Solidity file in [this link](https://github.com/PureStake/moonlotto-subgraph/blob/main/contracts/MoonLotto.sol). 
+Pour cet exemple, un simple contrat de loterie est utilisé. Vous pouvez trouver le fichier Solidity dans [ce lien](https://github.com/PureStake/moonlotto-subgraph/blob/main/contracts/MoonLotto.sol). 
 
-The contract hosts a lottery where players can buy ticket for themselves, or gift one to another user. When 1 hour has passed, if there are 10 participants, the next player that joins the lottery will execute a function that picks the winner. All the funds stored in the contract are sent to the winner, after which a new round starts.
+TLe contrat organise une loterie où les joueurs peuvent acheter un billet pour eux-mêmes ou en offrir un à un autre utilisateur. Lorsque 1 heure s'est écoulée, s'il y a 10 participants, le prochain joueur qui se joint à la loterie exécutera une fonction qui choisit le gagnant. Tous les fonds stockés dans le contrat sont envoyés au gagnant, après quoi un nouveau tour commence.
 
-The main functions of the contract are the following:
+Les principales fonctions du contrat sont les suivantes:
 
- - **joinLottery** — no inputs. Function to enter the lottery's current round, the value (amount of tokens) sent to the contract need to be equal to the ticket price
- - **giftTicket** —  one input: ticket's recipient address. Similar to `joinLottery` but the ticket's owner can be set to a different address
- - **enterLottery** — one input: ticket's owner address. An internal function that handles the lottery's tickets logic. If an hour has passed and there are at least 10 participants, it calls the `pickWinner` function
- - **pickWinner** — no inputs. An internal function that selects the lottery winner with a pseudo-random number generator (not safe, only for demonstration purposes). It handles the logic of transferring funds and resetting variable for the next lottery round
+ - **joinLottery** — pas d'entrées. Fonction pour entrer dans le tour en cours de la loterie, la valeur (quantité de jetons) envoyée au contrat doit être égale au prix du billet
+ - **giftTicket** —  une entrée : l'adresse du destinataire du ticket. Semblable à `joinLottery` mais le propriétaire du ticket peut être défini sur une adresse différente
+ - **enterLottery** — une entrée : l'adresse du propriétaire du ticket. Une fonction interne qui gère la logique des billets de loterie. Si une heure s'est écoulée et qu'il y a au moins 10 participants, il appelle la fonction `pickWinner`
+ - **pickWinner** — pas d'entrées. Une fonction interne qui sélectionne le gagnant de la loterie avec un générateur de nombres pseudo-aléatoires (pas sûr, uniquement à des fins de démonstration). Il gère la logique de transfert de fonds et de réinitialisation de la variable pour le prochain tour de loterie
 
-### Events of the Lottery Contract
+### Événements du contrat de loterie
 
-The Graph uses the events emitted by the contract to index data. The lottery contract emits only two events:
+The Graph utilise les événements émis par le contrat pour indexer les données. Le contrat de loterie n'émet que deux événements:
 
- - **PlayerJoined** — in the `enterLottery` function. It provides information related to the latest lottery entry, such as the address of the player, current lottery round, if the ticket was gifted, and the prize amount of the current round
- - **LotteryResult** — in the `pickWinner` function. It provides information to the draw of an ongoing round, such as the address of the winner, current lottery round, if the winning ticket was a gift, amount of the prize, and timestamp of the draw
+ - **PlayerJoined** — Dans la fonction `enterLottery` . Il fournit des informations relatives à la dernière entrée de loterie, telles que l'adresse du joueur, le tour de loterie en cours, si le billet a été offert et le montant du prix du tour en cours
+ - **LotteryResult** — Dans la fonction `pickWinner`. Il fournit des informations sur le tirage d'un tour en cours, telles que l'adresse du gagnant, le tour de loterie en cours, si le billet gagnant était un cadeau, le montant du prix et l'horodatage du tirage.
 
-## Creating a Subgraph
+## Créer un Subgraph
 
-This section goes through the process of creating a Subgraph. For the Lottery Subgraph, a [GitHub repository](https://github.com/PureStake/moonlotto-subgraph) was prepared with everything you need to help you get started. The repo also includes the Lottery contract, as well as a Hardhat configuration file and deployment script. If you are not familiar with it, you can check our [Hardhat integration guide](/integrations/hardhat/). 
+Cette section décrit le processus de création d'un subgraph. Pour le subgraph de loterie, un [repository GitHub](https://github.com/PureStake/moonlotto-subgraph) a été préparé avec tout ce dont vous avez besoin pour vous aider à démarrer. Le repo comprend également le contrat de loterie, ainsi qu'un fichier de configuration Hardhat et un script de déploiement. Si vous ne le connaissez pas, vous pouvez consulter notre [guide d'integration Hardhat ](/integrations/hardhat/). 
 
-To get started, first clone the repo and install the dependencies:
+Pour commencer, clonez d'abord le repo et installez les dépendances:
 
 ```
 git clone https://github.com/PureStake/moonlotto-subgraph \
 && cd moonlotto-subgraph && yarn
 ```
 
-Now, you can create the TypeScript types for The Graph by running:
+Maintenant, vous pouvez créer les types TypeScript pour The Graph en exécutant:
 
 ```
 npx graph codegen --output-dir src/types/
 ```
 
 !!! note
-    Creating the types requires you to have the ABI files specified in the `subgraph.yaml` file. This sample repository has the file already, but this is usually obtained after compiling the contract. Check the [Moonlotto repo](https://github.com/PureStake/moonlotto-subgraph) for more information.
+    La création des types nécessite que vous ayez les fichiers ABI spécifiés dans le fichier `subgraph.yaml` . Cet exemple de repo contient déjà le fichier, mais celui-ci est généralement obtenu après la compilation du contrat. Vérifier le [Moonlotto repo](https://github.com/PureStake/moonlotto-subgraph) pour plus d'informations.
 
-The `codegen` command can also be executed using `yarn codegen`.
+La commande `codegen` peut également être exécuté en utilisant `yarn codegen`.
 
-For this example, the contract was deployed to `{{ networks.moonbase.thegraph.lotto_contract }}`. You can find more information on how to deploy a contract with Hardhat in our [integrations tutorial](/integrations/hardhat/). Also, the "README" file in the [Moonloto repository](https://github.com/PureStake/moonlotto-subgraph) has the steps necessary to compile and deploy the contract if required.
+Pour cet exemple, le contrat a été déployé à `{{ networks.moonbase.thegraph.lotto_contract }}`. Vous pouvez trouver plus d'informations sur la façon de déployer un contrat avec Hardhat dans notre [tutoriel d'integrations](/integrations/hardhat/). De plus, le fichier "README" dans le [Moonloto repository](https://github.com/PureStake/moonlotto-subgraph) a les étapes nécessaires pour compiler et déployer le contrat si nécessaire.
 
-### Subgraphs Core Structure
+### Structure de base des Subgraphs
 
-In general terms, Subgraphs define the data that The Graph will index from the blockchain and the way it is stored. Subgraphs tend to have some of the following files:
+En termes généraux, les subgraphs définissent les données que The Graph indexera à partir de la blockchain et la façon dont elles sont stockées. Les subgraphs ont tendance à avoir certains des fichiers suivants:
 
- - **subgraph.yaml** — is a YAML file that contains the [Subgraph's manifest](https://thegraph.com/docs/define-a-subgraph#the-subgraph-manifest), that is, information related to the smart contracts being indexed by the Subgraph
- - **schema.graphql** — is a [GraphQL schema](https://thegraph.com/docs/define-a-subgraph#the-graphql-schema) file that defines the data store for the Subgraph being created and its structure. It is written using [GraphQL interface definition schema](https://graphql.org/learn/schema/#type-language)
- - **AssemblyScript mappings** — code in TypeScript (then compiled to [AssemblyScript](https://github.com/AssemblyScript/assemblyscript)) that is used to translate event data from the contract to the entities defined in the schema
+ - **subgraph.yaml** — est un fichier YAML qui contient le [manifeste du Subgraph](https://thegraph.com/docs/define-a-subgraph#the-subgraph-manifest), c'est-à-dire les informations relatives aux contrats intelligents indexés par le subraph
+ - **schema.graphql** — est un fichier [schema GraphQL](https://thegraph.com/docs/define-a-subgraph#the-graphql-schema) qui définit le magasin de données pour le sous-graphe en cours de création et sa structure. Il s'écrit en utilisant le [schema d'interface de définition GraphQL](https://graphql.org/learn/schema/#type-language)
+ - **AssemblyScript mappings** — coder en TypeScript (puis compilé en [AssemblyScript](https://github.com/AssemblyScript/assemblyscript)) qui est utilisé pour traduire les données d'événement du contrat vers les entités définies dans le schéma
 
-There is no particular order to follow when modifying the files to create a Subgraph.
+Il n'y a pas d'ordre particulier à suivre lors de la modification des fichiers pour créer un Subgraph.
 
 ### Schema.graphql
 
-It is important to outline what data needs to be extracted from the events of the contract before modifying the `schema.graphql`. Schemas need to be defined considering the requirements of the dApp itself. For this example, although there is no dApp associated with the lottery, four entities are defined:
+Il est important de préciser quelles données doivent être extraites des événements du contrat avant de modifier les `schema.graphql`. Les schémas doivent être définis en tenant compte des exigences de la dApp elle-même. Pour cet exemple, bien qu'il n'y ait pas de dApp associée à la loterie, quatre entités sont définies:
 
- - **Round** — refers to a lottery round. It stores an index of the round, the prize awarded, the timestamp of when the round started, the timestamp of when the winner was drawn, and information regarding the participating tickets, which is derived from the `Ticket` entity
- - **Player** — refers to a player that has participated in at least one round. It stores its address and information from all its participating tickets, which is derived from the `Ticket` entity
- - **Ticket** — refers to a ticket to enter a lottery round. It stores if the ticket was gifted, the owner's address, the round from which the ticket is valid, and if it was a winning ticket
+ - **Round** — fait référence à un tour de loterie. Il stocke un index du tour, le prix attribué, l'horodatage du début du tour, l'horodatage du tirage au sort du gagnant et des informations concernant les billets participants, qui sont dérivées de l'entité `Ticket`
+ - **Player** — désigne un joueur qui a participé à au moins un tour. Il stocke son adresse et les informations de tous ses billets participants, qui sont dérivées de l'entité `Ticket`
+ - **Ticket** — fait référence à un ticket pour participer à un tour de loterie. Il mémorise si le billet a été offert, l'adresse du propriétaire, la manche à partir de laquelle le billet est valable, et s'il s'agissait d'un billet gagnant
 
-In short, the `schema.graphql` should look like the following snippet:
+En bref, `schema.graphql` devrait ressembler à l'extrait suivant:
 
 ```
 type Round @entity {
@@ -115,28 +115,28 @@ type Ticket @entity {
 }
 ```
 
-### Subgraph Manifest
+### Manifeste Subgraph
 
-The `subgraph.yaml` file, or Subgraph's manifest, contains the information related to the smart contract being indexed, including the events which have the data needed to be mapped. That data is then stored by Graph nodes, allowing applications to query it.
+Le fichier `subgraph.yaml`, ou manifeste du subgraph, contient les informations relatives au contrat intelligent en cours d'indexation, y compris les événements pour lesquels les données doivent être mappées. Ces données sont ensuite stockées par les nœuds Graph, permettant aux applications de les interroger.
 
-Some of the most important parameters in the `subgraph.yaml` file are:
+Certains des paramètres les plus importants dans le fichier `subgraph.yaml` sont:
 
- - **repository** — refers to the Github repo of the subgraph
- - **schema/file** — refers to the location of the `schema.graphql` file
- - **dataSources/name** — refers to the name of the Subgraph
- - **network** — refers to the network name. This value **must** be set to `mbase` for any Subgraph being deployed to Moonbase Alpha
- - **dataSources/source/address** — refers to the address of the contract of interest
- - **dataSources/source/abi** — refers to where the interface of the contract is stored inside the `types` folder created with the `codegen` command
- - **dataSources/source/startBlock** — refers to the start block from which the indexing will start. Ideally, this value should be close to the block the contract was created in. You can use [Blockscout](https://moonbase-blockscout.testnet.moonbeam.network/) to get this information by providing the contract address. For this example, the contract was created at block `{{ networks.moonbase.thegraph.block_number }}`
- - **dataSources/mapping/file** — refers to the location of the mapping file
- - **dataSources/mapping/entities** — refers to the definitions of the entities in the `schema.graphql` file
- - **dataSources/abis/name** — refers to where the interface of the contract is stored inside the `types/dataSources/name`
- - **dataSources/abis/file** — refers to the location where the `.json` file with the contract's ABI is stored
- - **dataSources/eventHandlers** — no value needs to be defined here, but this section refers to all the events that The Graph will index
- - **dataSources/eventHandlers/event** — refers to the structure of an event to be tracked inside the contract. You need to provide the event name and its type of variables
- - **dataSources/eventHandlers/handler** — refers to the name of the function inside the `mapping.ts` file which handles the event data
+ - **repository** — fait référence au repo Github du subgraph
+ - **schema/file** — fait référence à l'emplacement du fichier `schema.graphql`
+ - **dataSources/name** — fait référence au nom du Subgraph
+ - **network** — fait référence au nom du réseau. Cette valeur **doit** être définie sur `mbase` pour tout subgraph déployé sur Moonbase Alpha
+ - **dataSources/source/address** — fait référence à l'adresse du contrat d'intérêt
+ - **dataSources/source/abi** — fait référence à l'endroit où l'interface du contrat est stockée dans le dossier `types` créé avec la commande `codegen`
+ - **dataSources/source/startBlock** — fait référence au bloc de départ à partir duquel l'indexation commencera. Idéalement, cette valeur devrait être proche du bloc où le contrat a été créé. Vous puvez utiliser [Blockscout](https://moonbase-blockscout.testnet.moonbeam.network/) pour obtenir ces informations en fournissant l'adresse du contrat. Pour cet exemple, le contrat a été créé au bloc `{{ networks.moonbase.thegraph.block_number }}`
+ - **dataSources/mapping/file** — fait référence à l'emplacement du fichier de mappage
+ - **dataSources/mapping/entities** — renvoie aux définitions des entités dans le fichier `schema.graphql`
+ - **dataSources/abis/name** — fait référence à l'endroit où l'interface du contrat est stockée à l'intérieur de `types/dataSources/name`
+ - **dataSources/abis/file** — fait référence à l'emplacement où le fichier `.json` avec l'ABI du contrat est stocké
+ - **dataSources/eventHandlers** — aucune valeur n'a besoin d'être définie ici, mais cette section fait référence à tous les événements que The Graph indexera
+ - **dataSources/eventHandlers/event** — fait référence à la structure d'un événement à suivre à l'intérieur du contrat. Vous devez fournir le nom de l'événement et son type de variables
+ - **dataSources/eventHandlers/handler** — fait référence au nom de la fonction à l'intérieur du fichier `mapping.ts` qui gère les données d'événement
  
-In short, the `subgraph.yaml` should look like the following snippet:
+En bref, le `subgraph.yaml` devrait ressembler à l'extrait suivant:
 
 ```
 specVersion: 0.0.2
@@ -172,13 +172,13 @@ dataSources:
           handler: handleLotteryResult
 ```
 
-### Mappings
+### Mappages
 
-Mappings files are what transform the blockchain data into entities defined in the schema file. Each event handler inside the `subgraph.yaml` file needs to have a subsequent function in the mapping.
+Les fichiers de mappages sont ce qui transforme les données de la blockchain en entités définies dans le fichier de schéma. Chaque gestionnaire d'événement à l'intérieur du fichier `subgraph.yaml` doit avoir une fonction ultérieure dans le mappage.
 
-The mapping file used for the Lottery example can be found in [this link](https://github.com/PureStake/moonlotto-subgraph/blob/main/src/mapping.ts).
+Le fichier de mappage utilisé pour l'exemple de loterie se trouve dans [ce lien](https://github.com/PureStake/moonlotto-subgraph/blob/main/src/mapping.ts).
 
-In general, the strategy of each handler function is to load the event data, check if an entry already exists, arrange the data as desired, and save the entry. For example, the handler function for the `PlayerJoined` event is as follows:
+En général, la stratégie de chaque fonction de gestionnaire consiste à charger les données d'événement, à vérifier si une entrée existe déjà, à organiser les données comme vous le souhaitez et à enregistrer l'entrée. Par exemple, la fonction de gestion de l'événement `PlayerJoined` est la suivante:
 
 ```
 export function handlePlayerJoined(event: PlayerJoined): void {
@@ -225,30 +225,30 @@ export function handlePlayerJoined(event: PlayerJoined): void {
 }
 ```
 
-## Deploying a Subgraph
+## Déployer un Subgraph
 
-If you are going to use The Graph API (hosted service), you need to:
+Si vous comptez utiliser The Graph API (service hébergé), vous devez:
 
- - Create a [Graph Explorer](https://thegraph.com/explorer/) account, you will need a Github account
+ - Créer un compte [Graph Explorer](https://thegraph.com/explorer/) , vous aurez besoin d'un compte Github
  - Go to your dashboard and write down the access token
- - Create your Subgraph via the "Add Subgraph" button in the Graph Explorer site. Write down the Subgraph name
+ - Créez votre subgraph via le bouton "Add Subgraph" dans le site Graph Explorer. Notez le nom du Subgraph
 
 !!! note
-    All steps can be found in [this link](https://thegraph.com/docs/deploy-a-subgraph).
+    Toutes les étapes se trouvent dans [ce lien](https://thegraph.com/docs/deploy-a-subgraph).
  
-If using a local Graph Node, you can create your Subgraph executing the following code:
+Si vous utilisez un nœud graph local, vous pouvez créer votre subgraph en exécutant le code suivant:
 
 ```
 npx graph create <username>/<subgraphName> --node <graph-node>
 ```
 
-Where:
+ou:
 
- - **username** — refers to the username related to the Subgraph being created
- - **subgraphName** — refers to the Subgraph name
- - **graph-node** — refers to the URL of the hosted service to use. Typically, for a local Graph Node is `http://127.0.0.1:8020`
+ - **username** — fait référence au nom d'utilisateur lié au subgraph en cours de création
+ - **subgraphName** — fait référence au nom du subgraph
+ - **graph-node** — fait référence à l'URL du service hébergé à utiliser. Qui Typiquement, pour un nœud graph local est `http://127.0.0.1:8020`
 
-Once created, you can deploy your Subgraph by running the following command with the same parameters as before:
+Une fois créé, vous pouvez déployer votre Subgraph en exécutant la commande suivante avec les mêmes paramètres qu'avant:
 
 ```
 npx graph deploy <username>/<subgraphName> \
@@ -257,16 +257,16 @@ npx graph deploy <username>/<subgraphName> \
 --access-token <access-token>
 ```
 
-Where:
+Ou:
 
- - **username** — refers to the username used when creating the Subgraph
- - **subraphName** — refers to the Subgraph name defined when creating the Subgraph
- - **ifps-url**  — refers to the URL for IFPS. If using The Graph API you can use `https://api.thegraph.com/ipfs/`. For your local Graph Node, the default value is `http://localhost:5001`
- - **graph-node** — refers to the URL of the hosted service to use. If using The Graph API you can use `https://api.thegraph.com/deploy/`. For your local Graph Node, the default value is `http://localhost:8020`
- - **access-token** — refers to the access token to use The Graph API. If you are using a local Graph Node this parameter is not necessary
+ - **username** — fait référence au nom d'utilisateur utilisé lors de la création du subgraph
+ - **subraphName** — fait référence au nom du subgraph défini lors de la création du subgraph
+ - **ifps-url**  — fait référence à l'URL de l'IFPS. Si vous utilisez l'API Graph, vous pouvez utiliser `https://api.thegraph.com/ipfs/`. Pour votre nœud graph local, la valeur par défaut est `http://localhost:5001`
+ - **graph-node** — fait référence à l'URL du service hébergé à utiliser. Si vous utilisez l'API Graph, vous pouvez utiliser `https://api.thegraph.com/deploy/`. Pour votre nœud graph local, la valeur par défaut est `http://localhost:8020`
+ - **access-token** — fait référence au jeton d'accès pour utiliser l'API Graph. Si vous utilisez un nœud graph local, ce paramètre n'est pas nécessaire
 
-The logs from the previous command should look similar to:
+Les journaux de la commande précédente devraient ressembler à:
 
 ![The Graph deployed](/images/thegraph/thegraph-images1.png)
 
-DApps can now use the Subgraph endpoints to fetch the data indexed by The Graph protocol.
+Les DApps peuvent désormais utiliser les points de terminaison Subgraph pour récupérer les données indexées par le protocole The Graph.
