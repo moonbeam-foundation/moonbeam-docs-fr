@@ -1,22 +1,22 @@
-With the release of Moonbase Alpha v7, nodes also provide access to some non-standard RPC methods, which allow developers to inspect and debug transactions during runtime. Currently, two features are available:
+Avec la sortie de Moonbase Alpha v7, les nœuds donnent également accès à certaines méthodes RPC non standard, qui permettent aux développeurs d'inspecter et de déboguer les transactions pendant l'exécution. Actuellement, deux fonctionnalités sont disponibles :
 
- - Geth debug API: more specifically, the `debug_traceTransaction` method. This will attempt to run the transaction in the same manner as it was executed. You can read more about this RPC method in [this link](https://geth.ethereum.org/docs/rpc/ns-debug#debug_tracetransaction)
- - OpenEthereum trace module: more specifically, the `trace_filter` method. This returns the trace matching a specific filter provided as input to the RPC call. You can read more about this RPC method in [this link](https://openethereum.github.io/JSONRPC-trace-module#trace_filter)
+ - API de débogage Geth : plus précisément, la méthode `debug_traceTransaction`. Cela tentera d'exécuter la transaction de la même manière qu'elle a été exécutée. Vous pouvez en savoir plus sur cette méthode RPC dans [ce lien](https://geth.ethereum.org/docs/rpc/ns-debug#debug_tracetransaction)
+ - Module de tracage OpenEthereum : plus précisément, la méthode `trace_filter`. Cela renvoie la trace correspondant à un filtre spécifique fourni en entrée de l'appel RPC. Vous pouvez en savoir plus sur cette méthode RPC dans [ce lien](https://openethereum.github.io/JSONRPC-trace-module#trace_filter)
 
-The features mentioned above can be activated using the following flags:
+Les fonctionnalités mentionnées ci-dessus peuvent être activées à l'aide des flags suivants:
 
- - `--ethapi=debug`: enables the Geth debug API for the `debug_traceTransaction` RPC call
- - `--ethapi=trace`: enables the OpenEthereum trace module for the `trace_filter` RPC call
+ - `--ethapi=debug`: active l'API de débogage Geth pour l'appel RPC `debug_traceTransaction` 
+ - `--ethapi=trace`: active le module de tracage OpenEthereum pour l'appel RPC `trace_filter`
 
 !!! note
-    Debug/Trace features are still being actively developed. Because these requests are very CPU-demanding, it is recommended to run the node with the `--execution=Native` flag. This will use the native runtime included as part of the node executable instead of the Wasm binary stored on-chain.
+    Les fonctionnalités de débogage/trace sont toujours activement développées. Comme ces requêtes sont très gourmandes en CPU, il est recommandé d'exécuter le nœud avec le flag `--execution=Native` . Cela utilisera le runtime natif inclus dans l'exécutable du nœud au lieu du binaire Wasm stocké en chaîne.
 
-You can combine both flags when running a node. 
+Vous pouvez combiner les deux flags lors de l'exécution d'un nœud. 
 
-By default, the maximum number of trace entries a single request of `trace_filter` is allowed to return is `500`. A request exceeding this limit will return an error. You can set a different maximum limit with the following flag:
+Par défaut, le nombre maximum d'entrées de tracage qu'une seule requête de `trace_filter` est autorisé à retourné est `500`. Une requête dépassant cette limite renverra une erreur. Vous pouvez définir une limite maximale différente avec le flag suivant:
 
- - `--ethapi-trace-max-count <uint>`: sets the maximum number of trace entries to be returned by the node
+ - `--ethapi-trace-max-count <uint>`: définit le nombre maximum d'entrées de tracage à renvoyer par le nœud
 
-Blocks processed by requests are temporarily stored on cache for a certain amount of time (default is `300` seconds), after which they are deleted. You can set a different time for deletion with the following flag:
+Les blocs traités par les requêtes sont temporairement stockés dans le cache pendant un certain temps (la valeur par défaut est `300` secondes), après quoi ils sont supprimés. Vous pouvez définir une heure différente pour la suppression avec le flag suivant:
 
- - `-ethapi-trace-cache-duration <uint>`: sets the duration (in seconds) after which the cache of `trace_filter,` for a given block, is discarded
+ - `-ethapi-trace-cache-duration <uint>`: définit la durée (en secondes) après laquelle le cache de `trace_filter,` pour un bloc donné, est supprimé
