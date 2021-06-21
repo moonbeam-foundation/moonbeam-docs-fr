@@ -1,56 +1,56 @@
 ---
-title: Glossary
-description: We've compiled a glossary of terms related to Polkadot that'll make it easier to learn more about the ecosystem.
+title: Glossaire
+description: Nous avons compilé un glossaire de termes liés à Polkadot qui vous permettra d'en savoir plus sur l'écosystème plus facilement.
 ---
 
-# Glossary
+# Glossaire
 
-There's a great deal of terminology that's specific to Polkadot, Substrate, and the emerging Parity/Web3 ecosystem. We've compiled a list of terms we think you'll want to know as you review the Moonbeam documentation, plans, and tutorials.
+Il existe une grande quantité de terminologie spécifique à Polkadot, Substrate et à l'écosystème émergent Parity/Web3. Nous avons compilé une liste de termes que nous pensons que vous voudrez connaître en examinant la documentation, les plans et les didacticiels de Moonbeam.
 
-### Collators
+### Collators(producteurs de blocs)
 
-One of the key network participants needed to support parachains within the Polkadot Network.  In Moonbeam, collators are the nodes that are responsible for block production and for submitting produced blocks up to the Polkadot Relay Chain for finalization.
+L'un des principaux participants au réseau nécessaire pour soutenir les parachaines au sein du réseau Polkadot.  Dans Moonbeam, les collators sont les nœuds responsables de la production des blocs et de la soumission des blocs produits jusqu'à la chaîne de relais Polkadot pour finalisation.
 
-### Nominators
+### Nominators(nominateurs)
 
-Token holders who select to "back" a validator. They can receive part of the validator's reward, but are subject to slashing of their staked tokens in case the validator misbehaves. A nominator can back up to 16 validators, and their bond is fully distributed between the backed validators that were selected for the validator set. If you want to nominate PureStake for both Polkadot and/or Kusama, please follow [this guide](https://www.purestake.com/technology/polkadot-validator/).
+Les détenteurs de jetons qui choisissent de "soutenir" un validateur. Ils peuvent recevoir une partie de la récompense du validateur, mais sont soumis à la réduction de leurs jetons staker au cas où le validateur se comporterait mal. Un nominateur peut soutenir jusqu'à 16 validateurs et leur engagement est entièrement répartie entre les validateurs soutenus sélectionnés pour le jeu de validateurs. Si vous souhaitez nommer PureStake pour Polkadot et/ou Kusama, veuillez suivre [ce guide](https://www.purestake.com/technology/polkadot-validator/).
 
-### Nomitated Proof of Stake
+### Preuve de participation nominée
 
-The mechanism used by Polkadot for selecting its block validator set to maximize chain security. At its core, it is a Proof-of-Stake system (PoS) in which nominators back validators. The latter with the highest backing are selected to be part of the validator set for a session. The stake of a validator is slashed in case of misbehavior. Thus, nominators are expected to do due diligence on the validators they nominate. If you want to nominate PureStake for both Polkadot and/or Kusama, please follow [this guide](https://www.purestake.com/technology/polkadot-validator/).
+Le mécanisme utilisé par Polkadot pour sélectionner son ensemble de validateurs de blocs pour maximiser la sécurité de la chaîne. À la base, il s'agit d'un système de preuve de participation (PoS) dans lequel les nominateurs soutiennent les validateurs. Ces derniers avec le soutien le plus élevé sont sélectionnés pour faire partie de l'ensemble de validateurs pour une session. La mise d'un validateur est réduite en cas de mauvaise conduite. Ainsi, les proposants sont tenus de faire preuve de diligence raisonnable sur les validateurs qu'ils nomment. Si vous souhaitez nommer PureStake pour Polkadot et/ou Kusama, veuillez suivre [ce guide](https://www.purestake.com/technology/polkadot-validator/).
 
 ### Parachains
 
-A blockchain which has a slot and is connected to Polkadot.  Parachains receive shared security from Polkadot and the ability to interact with other parachains on the Polkadot network. They must lock DOT, the native relay chain token, to secure a slot for a specific period (up two years).
+Une blockchain qui a un slot et qui est connectée à Polkadot. Les parachains reçoivent une sécurité partagée de Polkadot et la possibilité d'interagir avec d'autres parachains sur le réseau Polkadot. Ils doivent verrouiller DOT, le jeton de chaîne de relais natif, pour sécuriser un emplacement pendant une période spécifique (jusqu'à deux ans).
 
 ### Parathreads
 
-A blockchain which can connect to Polkadot.  Parathreads are able to interact with other members of the Polkadot network, but they bid for block finalization (in DOT) on a block-to-block basis. They compete with other parathreads for block finalization, meaning that the block with the highest bid is selected to be finalize in that round.
+Une blockchain qui peut se connecter à Polkadot. Les parathreads sont capables d'interagir avec d'autres membres du réseau Polkadot, mais ils soumissionnent pour la finalisation de bloc (en DOT) sur une base de bloc à bloc. Ils sont en concurrence avec d'autres parathreads pour la finalisation du bloc, ce qui signifie que le bloc avec l'enchère la plus élevée est sélectionné pour être finalisé lors de ce tour.
 
 ### Polkadot
 
-A network of connected blockchains that provides shared security and the ability to interact between chains.  Polkadot is built using the Substrate development framework.  Chains that connect to Polkadot are called parachains.
+Un réseau de blockchains connectées qui offre une sécurité partagée et la possibilité d'interagir entre les chaînes. Polkadot est construit en utilisant le framework de développement Substrate. Les chaînes qui se connectent à Polkadot sont appelées parachains.
 
-### Relay Chain
+### Chaîne relais
 
-The backbone blockchain supporting the Polkadot network.  Parachains connect to the Relay Chain and use it for shared security and message passing.  Validators on the Relay Chain help secure the parachains.
+La blockchain principale supportant le réseau Polkadot. Les parachains se connectent à la chaîne de relais et l'utilisent pour la sécurité partagée et la transmission de messages. Les validateurs sur la chaîne de relais aident à sécuriser les parachains.
 
-### Smart Contract
+### Contrat intelligent
 
-A smart contract is a computer program or a transaction protocol that is intended to automatically execute, control, or document legally relevant events and actions according to the terms of a contract or an agreement. Smart contracts intend to reduce the need for trusted intermediators, arbitrations, and enforcement costs, as well as reduce fraud losses and malicious and accidental exceptions. [Learn more](https://en.wikipedia.org/wiki/Smart_contract).
+Un contrat intelligent est un programme informatique ou un protocole de transaction destiné à exécuter, contrôler ou documenter automatiquement des événements et des actions juridiquement pertinents conformément aux termes d'un contrat ou d'un accord. Les contrats intelligents visent à réduire le besoin d'intermédiaires de confiance, les arbitrages et les coûts d'exécution, ainsi que de réduire les pertes dues à la fraude et les exceptions malveillantes et accidentelles. [Apprenez-en plus](https://en.wikipedia.org/wiki/Smart_contract).
 
 ### Substrate
 
-A Rust-based blockchain development framework created by Parity Technologies based on their experience implementing multiple blockchain clients.  Substrate comes with many modules and functionalities that are needed when building a blockchain, including P2P networking, consensus mechanisms, staking, cryptocurrency, on-chain governance modules, and more.  It dramatically reduces the time and engineering effort required to implement a blockchain. 
+Un cadre de développement de blockchain basé sur Rust créé par Parity Technologies sur la base de leur expérience dans la mise en œuvre de plusieurs clients blockchain.  Substrate est livré avec de nombreux modules et fonctionnalités nécessaires à la création d'une blockchain, notamment la mise en réseau P2P, les mécanismes de consensus, le staking, la crypto-monnaie, les modules de gouvernance en chaîne, etc.  Cela réduit considérablement le temps et les efforts d'ingénierie nécessaires pour mettre en œuvre une blockchain. 
 
-### Substrate Frame Pallets
+### Palettes cadres Substrate
 
-Substrate Frame Pallets are a collection of Rust-based modules, providing the functionality required for building a blockchain.  
+Les palettes cadre de substrate sont une collection de modules basés sur Rust, fournissant les fonctionnalités requises pour créer une blockchain.  
 
-### Validators
+### Validators(validateurs)
 
-A node that secures the Polkadot Relay Chain by staking DOT in the network, which is slashed if they misbehave. They finalize blocks from collators on parachains and also participate on consensus for the next Relay Chain block with other validators.
+Un nœud qui sécurise la chaîne de relais Polkadot en stakant DOT dans le réseau, qui est coupé s'ils se comportent mal. Ils finalisent les blocs des collators sur les parachains et participent également au consensus pour le prochain bloc de la chaîne de relais avec d'autres validateurs.
 
 ### WebAssembly/Wasm
 
-WebAssembly is an open standard that defines a portable binary code format. It is supported by different programming languages, compilers, and browsers.
+WebAssembly est un standard ouvert qui définit un format de code binaire portable. Il est pris en charge par différents langages de programmation, compilateurs et navigateurs.
