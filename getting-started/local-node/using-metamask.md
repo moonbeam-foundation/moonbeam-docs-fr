@@ -53,7 +53,7 @@ Moonbase Alpha TestNet:
 
 --8<-- 'text/testnet/testnet-details.md'
 
-Pour les besoins de ce didacticiel, connectons MetaMask à notre nœud de développement Moonbeam exécuté localement.
+Pour les besoins de ce tutoriel, connectons MetaMask à notre nœud de développement Moonbeam exécuté localement.
 
 ![Entrez vos nouvelles informations de réseau dans MetaMask](/images/metamask/using-metamask-4.png)
 
