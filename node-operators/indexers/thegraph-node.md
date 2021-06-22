@@ -9,7 +9,7 @@ description: Construire des API à l'aide du protocole d'indexation The Graph su
 
 ## Introduction
 
-Un nœud de Graph source des événements à partir d'une blockchain pour mettre à jour de manière déterministe un magasin de données qui peut ensuite être interrogé via un point de terminaison GraphQL.
+Un nœud Graph source des événements à partir d'une blockchain pour mettre à jour de manière déterministe un magasin de données qui peut ensuite être interrogé via un point de terminaison GraphQL.
 
 Vous pouvez configurer un nœud Graph de deux manières : vous pouvez utiliser Docker pour exécuter une image tout-en-un, ou vous pouvez exécuter leur [implementation Rust](https://github.com/graphprotocol/graph-node). Les étapes décrites dans ce guide ne couvriront que l'alternative Docker, car elle est plus pratique et vous pourrez configurer un nœud de graph très rapidement.
 
