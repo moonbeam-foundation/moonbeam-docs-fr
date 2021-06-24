@@ -1,121 +1,121 @@
 ---
 title: Ledger
-description: This guide walks you through how to use your Ledger hardware wallet to sign transactions in Moonbeam, leveraging its Ethereum compatibility features
+description: Ce guide vous explique comment utiliser votre portefeuille matériel Ledger pour signer des transactions dans Moonbeam, en tirant parti de ses fonctionnalités de compatibilité Ethereum
 ---
 
-# Ledger Hardware Wallet
+# Portefeuille materiel Ledger
 
 ![Intro diagram](/images/ledger/ledger-banner.png)
 
 ## Introduction
 
-Hardware wallets provide a safer way to store crypto funds because the private key (used for signing transactions) is stored offline. Ledger offers two hardware wallet solutions at the time of writing: Ledger Nano S and Ledger Nano X.
+Les portefeuilles matériels offrent un moyen plus sûr de stocker des fonds cryptographiques, car la clé privée (utilisée pour signer les transactions) est stockée hors ligne. Ledger propose deux solutions de portefeuille matériel au moment de la rédaction : Ledger Nano S et Ledger Nano X.
 
-Because Moonbeam is fully Ethereum compatible, and Ledger now supports signing in different Chain ID networks, you can use your Ledger device to sign transactions on Moonbeam!
+Étant donné que Moonbeam est entièrement compatible avec Ethereum et que Ledger prend désormais en charge la signature dans différents réseaux d'identification de chaîne, vous pouvez utiliser votre appareil Ledger pour signer des transactions sur Moonbeam !
 
-This tutorial shows you how to get started with your Ledger hardware wallet on Moonbase Alpha. The guide only illustrates the steps for a Ledger Nano X device, but you can follow along with a Ledger Nano S as well. The same process can be applied to the other networks of the Moonbeam ecosystem.
+Ce tutoriel vous montre comment démarrer avec votre portefeuille matériel Ledger sur Moonbase Alpha. Le guide illustre uniquement les étapes d'un appareil Ledger Nano X, mais vous pouvez également le suivre avec un Ledger Nano S. Le même processus peut être appliqué aux autres réseaux de l'écosystème Moonbeam.
 
-## Checking Prerequisites
+## Vérification des prérequis
 
-Before you get started, update [Ledger Live](https://www.ledger.com/ledger-live/download) to the latest version available. Also, make sure you've your Ledger hardware wallet device running the latest firmware. The Ledger support website offers tutorials on how to update the firmware of both [Ledger Nano S](https://support.ledger.com/hc/en-us/articles/360002731113-Update-Ledger-Nano-S-firmware) and [Ledger Nano X](https://support.ledger.com/hc/en-us/articles/360013349800-Update-Ledger-Nano-X-firmware) devices.
+Avant de commencer, mettez à jour [Ledger Live](https://www.ledger.com/ledger-live/download) à la dernière version disponible. Assurez-vous également que votre périphérique de portefeuille matériel Ledger exécute le dernier micrologiciel. Le site Web d'assistance de Ledger propose des tutoriels sur la mise à jour du micrologiciel des deux dispositifs [Ledger Nano S](https://support.ledger.com/hc/en-us/articles/360002731113-Update-Ledger-Nano-S-firmware) et [Ledger Nano X](https://support.ledger.com/hc/en-us/articles/360013349800-Update-Ledger-Nano-X-firmware) .
 
-Once you are running the latest firmware version, ensure you are running the newest Ethereum application. The Ledger support website offers a tutorial on [how to install the Ethereum app](https://support.ledger.com/hc/en-us/articles/360009576554-Ethereum-ETH-).
+Une fois que vous exécutez la dernière version du micrologiciel, assurez-vous que vous exécutez la dernière application Ethereum. Le site Web d'assistance de Ledger propose un didacticiel sur [comment installer l'app Ethereum](https://support.ledger.com/hc/en-us/articles/360009576554-Ethereum-ETH-).
 
-At the time of writing, the following versions were used:
+Au moment de la rédaction, les versions suivantes étaient utilisées:
 
  - Ledger Live 2.29
  - Ledger Nano S firmware v2.0.0
  - Ledger Nano X firmware v1.3.0
  - Ethereum app v1.8.5
 
-In addition, you'll need MetaMask as an intermediary between your Ledger device and Moonbase Alpha. Make sure that your MetaMask is [connected to Moonbase Alpha](/integrations/wallets/metamask/). Chrome users (version 91) need some additional steps, which [are detailed in this tutorial](#chrome-browser). Using Firefox will result in a much simpler/straightforward experience.
+De plus, vous aurez besoin de MetaMask comme intermédiaire entre votre appareil Ledger et Moonbase Alpha. Assurez-vous que votre MetaMask est [connecté à Moonbase Alpha](/integrations/wallets/metamask/). Les utilisateurs de Chrome (version 91) ont besoin de quelques étapes supplémentaires, qui [sont détaillées dans ce tutoriel](#chrome-browser). L'utilisation de Firefox se traduira par une expérience beaucoup plus simple/directe.
 
-Please note that your Ledger device will sign transactions in whichever MetaMask network is connected to.
+Veuillez noter que votre appareil Ledger signera les transactions dans n'importe quel réseau MetaMask auquel il est connecté.
 
-## Importing your Ledger Account to MetaMask
+## Importation de votre compte Ledger dans MetaMask
 
-To get started, you need to connect your Ledger device to the computer, unlock it, open the Ethereum application. Next, to import your Ethereum Ledger account to MetaMask, take the following steps:
+Pour commencer, vous devez connecter votre appareil Ledger à l'ordinateur, le déverrouiller, ouvrir l'application Ethereum. Ensuite, pour importer votre compte Ethereum Ledger dans MetaMask, procédez comme suit:
 
- 1. Click on the top-right logo to expand the menu
- 2. Select "Connect Hardware Wallet"
+ 1. Cliquez sur le logo en haut à droite pour développer le menu
+ 2. Sélectionnez "Connect Hardware Wallet"
 
 ![MetaMask Connect Hardware Wallet](/images/ledger/ledger-images1.png)
 
-In the next screen, you are prompted to select which hardware wallet you'll like to use in MetaMask. At the moment of writing, only Ledger and Trezor hardware wallets are supported. Here, take the following steps:
+Dans l'écran suivant, vous êtes invité à sélectionner le portefeuille matériel que vous souhaitez utiliser dans MetaMask. Au moment de la rédaction, seuls les portefeuilles matériels Ledger et Trezor sont pris en charge. Ici, suivez les étapes suivantes:
 
- 1. Select the Ledger logo
- 2. Click on "Continue"
+ 1. Sélectionnez le logo Ledger
+ 2. Cliquer sur "Continue"
 
 ![MetaMask Select Ledger Hardware Wallet](/images/ledger/ledger-images2.png)
 
-If MetaMask was able to connect successfully to your Ledger device, you should see a list of five Ethereum-styled accounts. On the contrary, double-check that Ledger Live is closed, you've connected your Ledger device to the computer, unlocked it, and that the Ethereum app is opened. If you are using Chrome, check these [additional steps](#chrome-browser).
+Si MetaMask a réussi à se connecter à votre appareil Ledger, vous devriez voir une liste de cinq comptes de style Ethereum. Si ca n'est pas le cas, vérifiez que Ledger Live est fermé, que vous avez connecté votre appareil Ledger à l'ordinateur, l'avez déverrouillé et que l'application Ethereum est ouverte. Si vous utiliser chrome vérifiez ces [étapes supplémentaires](#chrome-browser).
 
-From this list of five Ethereum accounts, take the following steps:
+À partir de cette liste de cinq comptes Ethereum, procédez comme suit:
 
- 1. Select the accounts you would like to import from your Ledger device
- 2. Click on "Unlock"
+ 1. Sélectionnez les comptes que vous souhaitez importer depuis votre appareil Ledger
+ 2. Cliquer sur "Unlock"
 
 ![MetaMask Select Ethereum Accounts to Import](/images/ledger/ledger-images3.png)
 
-If you've imported your Ledger Ethereum-styled account successfully, you should see it displayed in the main MetaMask screen like shown in the following image:
+Si vous avez importé avec succès votre compte de style Ledger Ethereum, vous devriez le voir s'afficher sur l'écran principal de MetaMask comme illustré dans l'image suivante:
 
 ![MetaMask Successfully Imported Ledger Account](/images/ledger/ledger-images4.png)
 
-You've now successfully imported a Moonbeam compatible account from your Ledger device and are now ready to start [signing transactions using your hardware wallet](#signing-a-transaction-using-your-ledger).
+Vous avez maintenant importé avec succès un compte compatible Moonbeam depuis votre appareil Ledger et êtes maintenant prêt à commencer à [signer des transactions à l'aide de votre portefeuille matériel](#signing-a-transaction-using-your-ledger).
 
-### Chrome Browser
+### Navigateur Chrome
 
-As of Chrome version 91, users that want to connect their Ledger device to MetaMask must be running the latest version of Ledger Live (v2.29 at the time of writing). 
+À partir de la version 91 de Chrome, les utilisateurs qui souhaitent connecter leur appareil Ledger à MetaMask doivent exécuter la dernière version de Ledger Live (v2.29 au moment de la rédaction). 
 
-In addition, in MetaMask, they must enable Ledger Live support. To do so, take the following steps:
+De plus, dans MetaMask, ils doivent activer le support Ledger Live. Pour ce faire, suivez les étapes suivantes:
 
- 1. Expand the top-right menu and go to "Settings"
- 2. Navigate to "Advanced"
- 3. Enable the "Use Ledger Live" feature
+ 1. Développez le menu en haut à droite et accédez à "Settings"
+ 2. Aller vers "Advanced"
+ 3. Activer la fonctionnalité "Use Ledger Live"
 
-With this feature enabled, MetaMask will open Ledger Live when trying to connect to your Ledger device. You can read more about it in this [MetaMask blog post](https://metamask.zendesk.com/hc/en-us/articles/360020394612-How-to-connect-a-Trezor-or-Ledger-Hardware-Wallet).
+Avec cette fonctionnalité activée, MetaMask ouvrira Ledger Live lors de la tentative de connexion à votre appareil Ledger. Vous pouvez en savoir plus à ce sujet dans ce [blog post MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360020394612-How-to-connect-a-Trezor-or-Ledger-Hardware-Wallet).
 
-## Signing a Transaction Using your Ledger
+## Signer une transaction à l'aide de votre Ledger
 
-If you've successfully [imported your Ledger account to MetaMask](#importing-your-ledger-account-to-metamask), you are ready to sign transactions on Moonbeam using your Ledger device. This tutorial will show you how to send a simple transaction on the Moonbase Alpha TestNet, but it applies to other Moonbeam ecosystem networks.
+Si vous avez réussi à [importé votre compte Ledger dans MetaMask](#importing-your-ledger-account-to-metamask), vous êtes prêt à signer des transactions sur Moonbeam à l'aide de votre appareil Ledger. Ce tutoriel va vous montrer comment envoyer une transaction simple sur le TestNet Moonbase Alpha , mais il s'applique aux autres réseaux de l'écosystème Moonbeam.
 
-First, make sure your Ledger account is [funded with DEV tokens](/getting-started/moonbase/faucet/). Next, click on the "Send" button.
+Tout d'abord, assurez-vous que votre compte Ledger soit [financé avec des jetons DEV](/getting-started/moonbase/faucet/). Cliquez ensuite sur le bouton "Send".
 
 ![MetaMask Ledger Account Funded](/images/ledger/ledger-images5.png)
 
-As you would in a standard transaction, set the recipient address, enter the number of tokens to send, review transaction details and confirm it. This will initiate the transaction signature wizard in your Ledger device. Here, take the following steps:
+Comme vous le feriez dans une transaction standard, définissez l'adresse du destinataire, entrez le nombre de jetons à envoyer, vérifiez les détails de la transaction et confirmez-la. Cela lancera l'assistant de signature de transaction dans votre appareil Ledger. Ici, suivez les étapes suivantes:
 
- 1. Click the button to proceed to the next screen. Your Ledger device is only warning you to review the transaction
- 2. Check the number of tokens being sent. Please note that the token corresponds to the network MetaMask is connected to. **In this case, it is DEV tokens and not ETH!** When ready, proceed to the next screen
- 3. Check the recipient's address and proceed to the next screen
- 4. Check the chain ID of the network. This information confirms which network MetaMask is connected to. For example, for Moonbase Alpha, the chain ID is 1287, Moonriver 1285 (not yet live), and Moonbeam 1284 (not yet live). When ready, proceed to the next screen
- 5. Check the max fees applicable to this transaction. This is the gas price multiplied by the gas limit you've set on MetaMask. When ready, proceed to the next screen
- 6. If you agree with all the transaction details, approve it. This will sign the transaction and will trigger MetaMask to send it. On the contrary, proceed to the next screen
- 7. If you don't agree with all the transaction details, reject it. This will cancel the transaction, and MetaMask will mark it as failed
+ 1. Cliquez sur le bouton pour passer à l'écran suivant. Votre appareil Ledger vous demande uniquement d'examiner la transaction
+ 2. Vérifiez le nombre de jetons envoyés. Veuillez noter que le token correspond au réseau auquel MetaMask est connecté. **Dans ce cas, il s'agit de jetons DEV et non d'ETH!** Lorsque vous êtes prêt, passez à l'écran suivant
+ 3. Vérifiez l'adresse du destinataire et passez à l'écran suivant
+ 4. Vérifiez l'ID de chaîne du réseau. Cette information confirme à quel réseau MetaMask est connecté. Par exemple, pour Moonbase Alpha, l'ID de chaîne est 1287, Moonriver 1285 (pas encore en ligne) et Moonbeam 1284 (pas encore en ligne). Lorsque vous êtes prêt, passez à l'écran suivant
+ 5. Vérifiez les frais max applicables à cette transaction. Il s'agit du prix du gaz multiplié par la limite de gaz que vous avez définie sur MetaMask. Lorsque vous êtes prêt, passez à l'écran suivant
+ 6. Si vous êtes d'accord avec tous les détails de la transaction, approuvez-la. Cela signera la transaction et demandera à Metamask de déclencher l'envoi. Si vous n'êtes pas d'accord, passez à l'écran suivant
+ 7. Si vous n'êtes pas d'accord avec tous les détails de la transaction, rejetez-la. Cela annulera la transaction et MetaMask la marquera comme ayant échoué
 
 !!! note
-    At the time of writing, the token name is always shown as `ETH`. Please note that the token being handled is the one corresponding to the network MetaMask is connected to.
+    Au moment de la rédaction, le nom du jeton est toujours affiché sous la forme `ETH`. Veuillez noter que le token manipulé est celui correspondant au réseau auquel MetaMask est connecté.
 
 ![MetaMask Ledger Transaction Wizard](/images/ledger/ledger-images6.png)
 
-Right after you've approved the transaction, MetaMask sends it to the network. Once the transaction is confirmed, it will be displayed as "Send" on MetaMask's main screen.
+Juste après avoir approuvé la transaction, MetaMask l'envoie au réseau. Une fois la transaction confirmée, elle sera affichée comme "Envoyer" sur l'écran principal de MetaMask.
 
 ![MetaMask Ledger Transaction Wizard](/images/ledger/ledger-images7.png)
 
-And that is it! You've signed a transaction on Moonbase Alpha using your Ledger hardware wallet!
+Et c'est tout ! Vous avez signé une transaction sur Moonbase Alpha en utilisant votre portefeuille matériel Ledger!
 
-## Interacting with Contracts Using your Ledger
+## Interagir avec les contrats à l'aide de votre Ledger
 
-By default, Ledger devices don't admit a `data` field in the transaction object. Consequently, users can't deploy or interact with smart contracts.
+Par défaut, les périphériques Ledger n'admettent pas de champ `data` dans l'objet de transaction. Par conséquent, les utilisateurs ne peuvent pas déployer ou interagir avec des contrats intelligents.
 
-However, if you want to use your Ledger hardware wallet for transactions related to smart contracts, you need to change a configuration parameter inside the Ethereum application. To do so, take the following steps:
+Cependant, si vous souhaitez utiliser votre portefeuille matériel Ledger pour les transactions liées aux contrats intelligents, vous devez modifier un paramètre de configuration dans l'application Ethereum. Pour ce faire, suivez les étapes suivantes:
 
- 1. Open the Ledger Ethereum app
- 2. Navigate to "Settings"
- 3. Find the "Contract data" page. It should state "NOT allowed" at the bottom
- 4. Select/validate the option to change its value to "Allowed"
+ 1. Ouvrez l'application Ledger Ethereum
+ 2. Aller vers "Settings"
+ 3. Trouvez la page "Contract data". Elle devrait indiquer "NOT allowed" en bas
+ 4. Sélectionnez/validez l'option pour changer sa valeur en "Allowed"
 
 !!! note
-    This option is necessary to use your Ledger device to interact with ERC20 token contracts that might live inside the Moonbeam ecosystem.
+    Cette option est nécessaire pour utiliser votre appareil Ledger pour interagir avec les contrats de jetons ERC20 qui pourraient vivre à l'intérieur de l'écosystème Moonbeam.
 
 ![MetaMask Ledger Allow Contracts Tx](/images/ledger/ledger-images8.png)
