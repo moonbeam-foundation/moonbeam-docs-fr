@@ -1,55 +1,54 @@
 ---
-title: Telemetry
-description: How to run telemetry for a full Parachain node for the Moonbeam Network
+title: Télémétrie
+description: Comment exécuter la télémétrie pour un nœud complet de Parachain pour le réseau Moonbeam
 ---
 
-# Telemetry for a Full Node
+# Télémétrie pour un Noeud Complet
 
 ![Telemetry Moonbeam Banner](/images/fullnode/telemetry-banner.png)
 
 ## Introduction
 
-With the release of Moonbase Alpha v6, you can spin up a node that connects to the Moonbase Alpha TestNet. You can check those steps in [this tutorial](/node-operators/networks/full-node/).
+Avec la sortie de Moonbase Alpha v6, vous pouvez créer un nœud qui se connecte au Moonbase Alpha TestNet. Vous pouvez vérifier ces étapes dans ce didacticiel.
 
-This guide will provide the necessary steps to enable the telemetry server for your Moonbase Alpha node.
+Ce guide fournira les étapes nécessaires pour activer le serveur de télémétrie pour votre nœud Moonbase Alpha.
 
 !!! note
-    The steps described in this guide are for a telemetry instance different than the standard Polkadot telemetry enabled by default (you can run nodes with no telemetry by using the `--no-telemetry` flag). The steps described in this guide are mandatory only for collator nodes.
+    Les étapes décrites dans ce guide concernent une instance de télémétrie différente de la télémétrie Polkadot standard activée par défaut (vous pouvez exécuter des nœuds sans télémétrie à l’aide de l’indicateur `—no-telemetry`). Les étapes décrites dans ce guide sont obligatoires uniquement pour les nœuds d’assembleur.
 
-## Telemetry Exporter Summary
+## Récapitulatif de l’Éxportateur de Télémétrie
 
-Moonbeam will run a telemetry server that collects Prometheus metrics from all the Moonbeam parachain nodes on the network. Running this will be a great help to us during our development phase.  
+Moonbeam exécutera un serveur de télémétrie qui collecte les métriques Prometheus de tous les nœuds de parachain Moonbeam sur le réseau. L’exécuter nous sera d’une grande aide pendant notre phase de développement.
 
-The metrics exporter can run either as a kubernetes sidecar, or as a local binary if you are running a VM. It will push data out to our servers, so you do not have to enable any incoming ports for this service.
+L’exportateur de métriques peut s’exécuter soit en tant que side-car Kubernetes, soit en tant que binaire local si vous exécutez une machine virtuelle. Il transmettra les données à nos serveurs, vous n’avez donc pas à activer de ports entrants pour ce service.
 
-We are using a service called [Gantree Node Watchdog](https://github.com/gantree-io/gantree-node-watchdog) to upload telemetry automatically.  Once you enable telemetry, you can also access a Prometheus/Grafana server from the [Gantree App](https://app.gantree.io/).  There are detailed instructions on the GitHub repository. If you need more info, here is a quick start. 
+Nous utilisons un service appelé [Gantree Node Watchdog](https://github.com/gantree-io/gantree-node-watchdog) pour télécharger automatiquement la télémétrie. Une fois que vous avez activé la télémétrie, vous pouvez également accéder à un serveur Prometheus / Grafana à partir de [l’ application Gantree App](https://app.gantree.io/) . Il existe des instructions détaillées sur le référentiel GitHub. Si vous avez besoin de plus d’informations, voici un démarrage rapide.
 
-For now, we need to run two node watchdogs, one for the parachain and one for the relay chain.  This will be updated in a future release. 
+Pour l’instant, nous devons exécuter deux chiens de garde de nœuds, un pour la parachain et un pour la chaîne de relais. Cela sera mis à jour dans une prochaine version.
 
-For help, contact our [Discord server](https://discord.gg/FQXm74UQ7V) or the [Gantree Discord](https://discord.gg/N95McPjHZ2). 
+Pour obtenir de l’aide, contactez notre [serveur Discord](https://discord.gg/FQXm74UQ7V) ou le Gantree Discord.
+
+## Vérification des prérequis
+
+Avant de suivre ce didacticiel, vous devez:
+
+1. Connectez-vous à [https://app.gantree.io](https://app.gantree.io) et créez un compte. Accédez aux clés API et copiez votre clé API.
+2. Demandez une clé PCK sur notre [serveur Discord](https://discord.gg/FQXm74UQ7V)
+
+## Exportateur de télémétrie avec Docker
+
+Nous exécuterons deux instances du chien de garde du nœud Gantree à l’aide de Docker: une pour la parachain et une pour la chaîne de relais.
+
+### Informations de configuration requises
+ - GANTREE_NODE_WATCHDOG_API_KEY
+ - GANTREE_NODE_WATCHDOG_PROJECT_ID
+ - GANTREE_NODE_WATCHDOG_CLIENT_ID
+ - GANTREE_NODE_WATCHDOG_PCKRC
+ - GANTREE_NODE_WATCHDOG_METRICS_HOST
  
-## Checking Prerequisites
-
-Before following this tutorial, you need to:
-
- 1. Log in to [https://app.gantree.io](https://app.gantree.io) and create an account.  Navigate to API keys and copy your API key. 
- 2. Request a PCK key in our [Discord server](https://discord.gg/FQXm74UQ7V)
-   
-## Telemetry Exporter with Docker
-
-We will run two instances of the Gantree node watchdog using Docker: one for the parachain and one for the relay chain.  
-
-### Required Configuration Information
-
-- GANTREE_NODE_WATCHDOG_API_KEY
-- GANTREE_NODE_WATCHDOG_PROJECT_ID
-- GANTREE_NODE_WATCHDOG_CLIENT_ID
-- GANTREE_NODE_WATCHDOG_PCKRC
-- GANTREE_NODE_WATCHDOG_METRICS_HOST
-
 ### Instructions
 
-First, clone the instance monitoring client repository and build the docker image:
+Tout d’abord, clonez le référentiel du client de surveillance de l’instance et créez l’image docker:
 
 ```
 git clone https://github.com/gantree-io/gantree-node-watchdog
@@ -61,12 +60,12 @@ docker build .
 docker images
 ```
 
-Next, let's run the docker container (parachain Gantree node watchdog). Note that you need to replace the following fields:
+Ensuite, exécutons le conteneur docker (parachain Gantree node watchdog). Notez que vous devez remplacer les champs suivants:
 
-  - `IMAGE-NAME` witch the one fetched in the previous step
-  - `YOUR-API-KEY` with the one provided by [https://app.gantree.io](https://app.gantree.io)
-  - `YOUR-SERVER-NAME`
-  - `YOUR-PCK-KEY` with the one requested in our Discord server
+ - `IMAGE-NAME` avec celle récupérée à l’étape précédente
+ - `YOUR-API-KEY` avec celui fourni par https://app.gantree.io
+ - `YOUR-SERVER-NAME`
+ - `YOUR-PCK-KEY` avec celui demandé sur notre serveur Discord
 
 ```
 docker run -it --network="host" \
@@ -78,7 +77,7 @@ docker run -it --network="host" \
 --name gantree_watchdog_parachain IMAGE-NAME
 ```
 
-Now, we need to run the relay Gantree node watchdog. Note that you need to replace the same information as in the previous step.
+Maintenant, nous devons exécuter le chien de garde du nœud de relais Gantree. Notez que vous devez remplacer les mêmes informations qu’à l’étape précédente.
 
 ```
 docker run -it --network="host" \
@@ -90,38 +89,41 @@ docker run -it --network="host" \
 --name gantree_watchdog_relay IMAGE-NAME
 ```
 
-You should see waiting for provisioning in the logs.  Once it's complete, you can log into the [https://app.gantree.io](https://app.gantree.io) and select networks. You will see a `View Monitoring Dashboard` link to your custom Prometheus / Grafana dashboard which you can customize to your needs.  
 
-Once things are working well, you can update the commands to run in daemon mode.  Remove `-it` and add `-d` to the command above.  
+Vous devriez voir l’attente de l’approvisionnement dans les journaux. Une fois terminé, vous pouvez vous connecter à [https://app.gantree.io](https://app.gantree.io) et sélectionner les réseaux. Vous verrez un lien `View Monitoring` Dashboard vers votre tableau de bord Prometheus / Grafana personnalisé que vous pouvez personnaliser selon vos besoins.
 
-## Telemetry Exporter with Systemd
+Une fois que tout fonctionne bien, vous pouvez mettre à jour les commandes pour qu’elles s’exécutent en mode démon. Supprimez `-it` et ajoutez `-d` à la commande ci-dessus.
 
-We will run two instances of the Gantree node watchdog: one for the parachain and one for the relay chain.  
+## Exportateur de télémétrie avec Systemd
 
-### Required Configuration Information
+Nous allons exécuter deux instances du chien de garde du nœud Gantree: une pour la parachain et une pour la chaîne de relais.
 
-- GANTREE_NODE_WATCHDOG_API_KEY
-- GANTREE_NODE_WATCHDOG_PROJECT_ID
-- GANTREE_NODE_WATCHDOG_CLIENT_ID
-- GANTREE_NODE_WATCHDOG_PCKRC
-- GANTREE_NODE_WATCHDOG_METRICS_HOST
+### Informations de configuration requises
+
+ - GANTREE_NODE_WATCHDOG_API_KEY
+ - GANTREE_NODE_WATCHDOG_PROJECT_ID
+ - GANTREE_NODE_WATCHDOG_CLIENT_ID
+ - GANTREE_NODE_WATCHDOG_PCKRC
+ - GANTREE_NODE_WATCHDOG_METRICS_HOST
+
 
 ### Instructions
 
-First, we need to download the Gantree node watchdog binary from the [release page](https://github.com/gantree-io/gantree-node-watchdog/releases), and extract it to a folder, for example, `/usr/local/bin`.
+Tout d’ abord, nous avons besoin de télécharger le fichier binaire de surveillance de nœud gantree de la [page de diffusion](https://github.com/gantree-io/gantree-node-watchdog/releases), et l’ extraire dans un dossier, par exemple, `/usr/local/bin`.
 
-Next, let's create two folders for the configuration files:
+Ensuite, créons deux dossiers pour les fichiers de configuration:
+
 
 ```
 mkdir -p /var/lib/gantree/parachain
 mkdir -p /var/lib/gantree/relay
 ```
 
-Now, we need to generate the configuration files, place each in the folders created in the previous step. Note that you need to replace the following fields:
+Maintenant, nous devons générer les fichiers de configuration, placer chacun dans les dossiers créés à l’étape précédente. Notez que vous devez remplacer les champs suivants:
 
-  - `YOUR-API-KEY` with the one provided by [https://app.gantree.io](https://app.gantree.io)
-  - `YOUR-SERVER-NAME`
-  - `YOUR-PCK-KEY` with the one requested in our Discord server
+ - `YOUR-API-KEY` avec celui fourni par [https://app.gantree.io](https://app.gantree.io)
+ - `YOUR-SERVER-NAME`
+ - `YOUR-PCK-KEY` avec celui demandé sur notre serveur Discord
 
 Parachain:
 
@@ -136,7 +138,7 @@ Parachain:
 }
 ```
 
-Embedded relay chain:
+Chaîne de relais intégrée:
 
 ```
 # Contents of /var/lib/gantree/relay/.gnw_config.json
@@ -149,7 +151,7 @@ Embedded relay chain:
 }
 ```
 
-The next step is to generate your systemd configuration file.
+L’étape suivante consiste à générer votre fichier de configuration systemd.
 
 Parachain:
 
@@ -170,7 +172,7 @@ ExecStart=/usr/local/bin/gantree_node_watchdog
 WantedBy=multi-user.target
 ```
 
-Embedded relay chain:
+Chaîne de relais intégrée:
 
 ```
 # Contents of /etc/systemd/system/gantree-relay.service
@@ -189,7 +191,7 @@ ExecStart=/usr/local/bin/gantree_node_watchdog
 WantedBy=multi-user.target
 ```
 
-We are almost there! Now, let's enable and start the systemd services, monitor logs for errors:
+Nous y sommes presque! Maintenant, activons et démarrons les services systemd, surveillons les journaux pour les erreurs:
 
 ```
 sudo systemctl enable gantree-parachain
@@ -199,8 +201,12 @@ sudo systemctl enable gantree-relay
 sudo systemctl start gantree-relay && journalctl -f -u gantree-relay
 ```
 
-You should see waiting for provisioning in the logs.  Once it's complete, you can log into the [https://app.gantree.io](https://app.gantree.io) and select networks. You will see a `View Monitoring Dashboard` link to your custom Prometheus / Grafana dashboard which you can customize to your needs.  
+Vous devriez voir l’attente de l’approvisionnement dans les journaux. Une fois terminé, vous pouvez vous connecter à [https://app.gantree.io](https://app.gantree.io) et sélectionner les réseaux. Vous verrez un lien `View Monitoring` Dashboard vers votre tableau de bord Prometheus / Grafana personnalisé que vous pouvez personnaliser selon vos besoins.
 
-## Contact Us
+## À propos de Moonbeam
 
-If you have any feedback regarding running a full node with telemetry, or any other Moonbeam related topic, feel free to reach out through our official development [Discord server](https://discord.com/invite/PfpUATX).
+Moonbeam est une plate-forme de contrat intelligent compatible Ethereum sur le réseau Polkadot qui facilite la création d’applications nativement interopérables. Cette compatibilité Ethereum permet aux développeurs de déployer des contrats intelligents Solidity existants et des frontends DApp sur Moonbeam avec des changements minimes. En tant que parachain sur le réseau Polkadot, Moonbeam bénéficiera de la sécurité partagée de la chaîne de relais Polkadot et des intégrations avec d’autres chaînes connectées à Polkadot. Actuellement, en développement actif par PureStake, Moonbeam devrait atteindre MainNet d’ici la mi-2021. En savoir plus: https://moonbeam.network/ .
+
+## Nous contacter
+
+Si vous avez des commentaires concernant l’exécution d’un nœud complet avec télémétrie, ou tout autre sujet lié à Moonbeam, n’hésitez pas à contacter notre serveur de développement officiel Discord .
