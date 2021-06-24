@@ -8,7 +8,7 @@ arrange:
   - remix.md
   - trufflebox.md
   - hardhat.md
-  - thegraph.md
+  - waffle-mars.md
   - pubsub.md
   - debug-trace.md
   - precompiles.md

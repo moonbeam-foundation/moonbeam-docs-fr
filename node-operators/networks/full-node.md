@@ -102,14 +102,11 @@ Maintenant, exécutez la commande docker run. Notez que vous devez:
     docker run --network="host" -v "{{ networks.moonbase.node_directory }}:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     purestake/moonbeam:{{ networks.moonbase.parachain_docker_tag }} \
-    --rpc-cors all \
     --base-path=/data \
     --chain alphanet \
     --name="YOUR-NODE-NAME" \
     --execution wasm \
     --wasm-execution compiled \
-    --in-peers 200 \
-    --out-peers 200 \
     --pruning archive \
     --state-cache-size 1 \
     -- \
@@ -122,22 +119,18 @@ Maintenant, exécutez la commande docker run. Notez que vous devez:
     docker run -p {{ networks.parachain.rpc }}:{{ networks.parachain.rpc }} -p {{ networks.parachain.ws }}:{{ networks.parachain.ws }} -v "{{ networks.moonbase.node_directory }}:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     purestake/moonbeam:{{ networks.moonbase.parachain_docker_tag }} \
-    --ws-external \
-    --rpc-external \
-    --rpc-cors all \
     --base-path=/data \
     --chain alphanet \
     --name="YOUR-NODE-NAME" \
     --execution wasm \
     --wasm-execution compiled \
-    --in-peers 200 \
-    --out-peers 200 \
     --pruning archive \
     --state-cache-size 1 \
     -- \
     --pruning archive \
     --name="YOUR-NODE-NAME (Embedded Relay)"
     ```
+
 ### Collator
 
 === "Ubuntu"
@@ -148,12 +141,9 @@ Maintenant, exécutez la commande docker run. Notez que vous devez:
     --base-path=/data \
     --chain alphanet \
     --name="YOUR-NODE-NAME" \
-    --collator \
-    --author-id PUBLIC_KEY \
+    --validator \
     --execution wasm \
     --wasm-execution compiled \
-    --in-peers 200 \
-    --out-peers 200 \
     --pruning archive \
     --state-cache-size 1 \
     -- \
@@ -166,17 +156,12 @@ Maintenant, exécutez la commande docker run. Notez que vous devez:
     docker run -p {{ networks.parachain.rpc }}:{{ networks.parachain.rpc }} -p {{ networks.parachain.ws }}:{{ networks.parachain.ws }} -v "{{ networks.moonbase.node_directory }}:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     purestake/moonbeam:{{ networks.moonbase.parachain_docker_tag }} \
-    --ws-external \
-    --rpc-external \
     --base-path=/data \
     --chain alphanet \
     --name="YOUR-NODE-NAME" \
-    --collator \
-    --author-id PUBLIC_KEY \
+    --validator \
     --execution wasm \
     --wasm-execution compiled \
-    --in-peers 200 \
-    --out-peers 200 \
     --pruning archive \
     --state-cache-size 1 \
     -- \
@@ -306,22 +291,14 @@ L'étape suivante consiste à créer le fichier de configuration systemd. Notez 
     SyslogFacility=local7
     KillSignal=SIGHUP
     ExecStart={{ networks.moonbase.node_directory }}/{{ networks.moonbase.binary_name }} \
-         --parachain-id 1000 \
          --port {{ networks.parachain.p2p }} \
          --rpc-port {{ networks.parachain.rpc }} \
          --ws-port {{ networks.parachain.ws }} \
          --pruning=archive \
          --state-cache-size 1 \
-         --unsafe-rpc-external \
-         --unsafe-ws-external \
-         --rpc-methods=Safe \
-         --rpc-cors all \
-         --log rpc=info \
          --base-path {{ networks.moonbase.node_directory }} \
          --chain alphanet \
          --name "YOUR-NODE-NAME" \
-        --in-peers 200 \
-        --out-peers 200 \
          -- \
          --port {{ networks.relay_chain.p2p }} \
          --rpc-port {{ networks.relay_chain.rpc }} \
@@ -349,23 +326,15 @@ L'étape suivante consiste à créer le fichier de configuration systemd. Notez 
     SyslogFacility=local7
     KillSignal=SIGHUP
     ExecStart={{ networks.moonbase.node_directory }}/{{ networks.moonbase.binary_name }} \
-         --parachain-id 1000 \
-         --collator \
-         --author-id PUBLIC_KEY \
+         --validator \
          --port {{ networks.parachain.p2p }} \
          --rpc-port {{ networks.parachain.rpc }} \
          --ws-port {{ networks.parachain.ws }} \
          --pruning=archive \
          --state-cache-size 1 \
-         --unsafe-rpc-external \
-         --unsafe-ws-external \
-         --rpc-methods=Safe \
-         --log rpc=info \
          --base-path {{ networks.moonbase.node_directory }} \
          --chain alphanet \
          --name "YOUR-NODE-NAME" \
-         --in-peers 200 \
-         --out-peers 200 \
          -- \
          --port {{ networks.relay_chain.p2p }} \
          --rpc-port {{ networks.relay_chain.rpc }} \
