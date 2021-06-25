@@ -1,84 +1,84 @@
-title: Covalent API
-description: Querying Blockchain Data with the Covalent API Moonbeam
+title: L'API Covalent
+description: Interrogation des données Blockchain Moonbeam avec l'API Covalent
 ---
 
-# Getting Started with the Covalent API
+# Premiers pas avec l'API Covalent
 
-![The Graph on Moonbeam](/images/covalent/covalentbannerimage.png)
+![The Graph sur Moonbeam](/images/covalent/covalentbannerimage.png)
 
 ## Introduction
 
-Covalent provides a unified API to bring full transparency and visibility to assets across all blockchain networks. Simply put, Covalent offers a single API that allows you to pull detailed, granular blockchain transaction data from multiple blockchains with no code. The unified Covalent API allows you to create entirely new applications or augment existing ones without configuring or maintaining infrastructure. Covalent supports Moonbase Alpha and plans to support Moonbeam and Moonriver.
+Covalent fournit une API unifiée pour apporter une transparence et une visibilité totales aux actifs sur tous les réseaux blockchain. En termes simples, Covalent propose une API unique qui vous permet d'extraire des données de transaction de blockchain détaillées et granulaires à partir de plusieurs blockchains sans code. L'API Covalent unifiée vous permet de créer des applications entièrement nouvelles ou d'augmenter celles existantes sans configurer ni entretenir l'infrastructure. Covalent prend en charge Moonbase Alpha et prévoit de prendre en charge Moonbeam et Moonriver.
 
-## Checking Prerequisites
+## Vérification des prérequis
 
-All requests require authentication; you will need [a free API Key](https://www.covalenthq.com/platform/#/auth/register/) to use the Covalent API. 
-Also, you will need the following:
+Toutes les demandes nécessitent une authentification ; vous aurez besoin d'[une clé API gratuite](https://www.covalenthq.com/platform/#/auth/register/) pour utiliser l'API Covalent.
+Vous aurez également besoin des éléments suivants :
 
- - Have MetaMask installed and [connected to Moonbase](/getting-started/moonbase/metamask/)
- - Have an account with funds, which you can get from [Mission Control](/getting-started/moonbase/faucet/)
+ - Avoir MetaMask installé et [connecté à Moonbase](/getting-started/moonbase/metamask/)
+ - Avoir un compte avec des fonds, que vous pouvez obtenir à partir de [Mission Control](/getting-started/moonbase/faucet/)
 
-## Types of Endpoints
+## Types de points de terminaison
 
-The Covalent API has two classes of endpoints:
+L'API Covalent a deux classes de points de terminaison :
 
- - **Class A** — endpoints that return enriched blockchain data applicable to all blockchain networks, eg: balances, transactions, log events, etc
- - **Class B** — endpoints that are for a specific protocol on a blockchain, e.g. Uniswap is Ethereum-only and is not applicable to other blockchain networks
+ - **Classe A** - points de terminaison qui renvoient des données de blockchain enrichies applicables à tous les réseaux de blockchain, par exemple : soldes, transactions, événements de journal, etc.
+ - **Classe B** — points de terminaison qui sont destinés à un protocole spécifique sur une blockchain, par ex. Uniswap est uniquement Ethereum et ne s'applique pas aux autres réseaux blockchain
 
-## Fundamentals of the Covalent API
- - The Covalent API is RESTful and it is designed around the main resources that are available through the web interface
- - The current version of the API is version 1 
- - The default return format for all endpoints is JSON 
- - All requests require authentication; you will need [a free API Key](https://www.covalenthq.com/platform/#/auth/register/) to use the Covalent API
- - The root URL of the API is https://api.covalenthq.com/v1/ 
- - All requests are done over HTTPS (calls over plain HTTP will fail)
- - The refresh rate of the APIs is real-time: 30s or 2 blocks, and batch 10m or 40 blocks  
+## Principes fondamentaux de l'API Covalent
+ - L'API Covalent est RESTful et elle est conçue autour des principales ressources disponibles via l'interface Web
+ - La version actuelle de l'API est la version 1
+ - Le format de retour par défaut pour tous les points de terminaison est JSON
+ - Toutes les demandes nécessitent une authentification ; vous aurez besoin d'[une clé API gratuite](https://www.covalenthq.com/platform/#/auth/register/) pour utiliser l'API Covalent
+ - L'URL racine de l'API est https://api.covalenthq.com/v1/
+ - Toutes les requêtes sont effectuées via HTTPS (les appels via HTTP simple échoueront)
+ - Le taux de rafraîchissement des APIs est en temps réel : 30s ou 2 blocs, et batch 10m ou 40 blocs  
 
-## Supported Endpoints
- - **Balances** — Get token balances for an address. Returns a list of all ERC20 and NFT token balances including ERC721 and ERC1155 along with their current spot prices (if available)
- - **Transactions** — Retrieves all transactions for an address including decoded log events. Does a deep-crawl of the blockchain to 
- retrieve all transactions that reference this address
- - **Transfers** — Get ERC20 token transfers for an address along with historical token prices (if available)
- - **Token Holders** — Return a paginated list of token holders
- - **Log Events (Smart Contract)** — Return a paginated list of decoded log events emitted by a particular smart contract
- - **Log Events (Topic Hash)** — Return a paginated list of decoded log events with one or more topic hashes separated by a comma
+## Points de terminaison pris en charge
+ - **Soldes** : obtenez des soldes de jetons pour une adresse. Renvoie une liste de tous les soldes de jetons ERC20 et NFT, y compris ERC721 et ERC1155, ainsi que leurs prix au comptant actuels (si disponibles)
+ - **Transactions** : récupère toutes les transactions pour une adresse, y compris les événements de journal décodés. Fait un crawl profond de la blockchain pour
+ récupérer toutes les transactions qui font référence à cette adresse
+ - **Transferts** — Obtenez des transferts de jetons ERC20 pour une adresse ainsi que les prix des jetons historiques (si disponibles)
+ - **Détenteurs de jetons** — Renvoie une liste paginée des détenteurs de jetons
+ - **Événements de journal (contrat intelligent)** : renvoie une liste paginée des événements de journal décodés émis par un contrat intelligent particulier
+ - **Événements de journal (Topic Hash)** — Renvoie une liste paginée d'événements de journal décodés avec un ou plusieurs hachages de sujet séparés par une virgule
 
 
-### Request Formatting
-   | Endpoint |     | Format |
+### Demande de formatage
+   | Point final | | Formater |
    | :---------- | :-: | :------------------- |
-   |      Balances       |     |          api.covalenthq.com/v1/1287/address/{address}/balances_v2/          |
-   |      Transactions       |     |           api.covalenthq.com/v1/1287/address/{address}/transactions_v2/|
-   |      Transfers       |     |           api.covalenthq.com/v1/1287/address/{address}/transfers_v2/           |
-   |      Token Holders       |     |           api.covalenthq.com/v1/1287/tokens/{contract_address}/token_holders/           |
-   |      Log Events (Smart Contract)       |     |           api.covalenthq.com/v1/1287/events/address/{contract_address}/           |
-   |      Log Events (Topic Hash)      |     |           api.covalenthq.com/v1/1287/events/topics/{topic}/           |
+   | Soldes | | api.covalenthq.com/v1/1287/address/{address}/balances_v2/ |
+   | Opérations | | api.covalenthq.com/v1/1287/address/{address}/transactions_v2/|
+   | Transferts | | api.covalenthq.com/v1/1287/address/{address}/transfers_v2/ |
+   | Détenteurs de jetons | | api.covalenthq.com/v1/1287/tokens/{contract_address}/token_holders/ |
+   | Enregistrer les événements (contrat intelligent) | | api.covalenthq.com/v1/1287/events/address/{contract_address}/ |
+   | Événements de journal (Hash de sujet) | | api.covalenthq.com/v1/1287/events/topics/{topic}/ |
 
-## Try it Out
-First, make sure you have [your API Key](https://www.covalenthq.com/platform/#/auth/register/) which begins with “ckey_”. The Token Holders Endpoint returns a list of all the token holders of a particular token. For this API call, you’re going to need the following: 
+## Essaye le
+Tout d'abord, assurez-vous d'avoir [votre clé API](https://www.covalenthq.com/platform/#/auth/register/) qui commence par "ckey_". Le point de terminaison des détenteurs de jetons renvoie une liste de tous les détenteurs de jetons d'un jeton particulier. Pour cet appel d'API, vous aurez besoin des éléments suivants :
 
- - Your API Key
- - Moonbase Alpha Chain ID: 1287
- - Contract Address (ERTH Token in this example): 0x08B40414525687731C23F430CEBb424b332b3d35
+ - Votre clé API
+ - ID de la chaîne Alpha de la base lunaire : 1287
+ - Adresse du contrat (jeton ERTH dans cet exemple) : 0x08B40414525687731C23F430CEBb424b332b3d35
 
-### Using Curl
-Try running the command below in a terminal window after replacing the placeholder with your API key.
+### Utilisation de Curl
+Essayez d'exécuter la commande ci-dessous dans une fenêtre de terminal après avoir remplacé l'espace réservé par votre clé API.
 
 ```
 curl https://api.covalenthq.com/v1/1287/tokens/\
 0x08B40414525687731C23F430CEBb424b332b3d35/token_holders/ \
 -u {YOUR API KEY HERE}:
 ```
-!!! note
-    The colon `:` after the API key is important because otherwise you will be prompted for a password (which is not needed).
+!!! Remarque
+     Les deux points `:` après la clé API sont importants car sinon vous serez invité à entrer un mot de passe (qui n'est pas nécessaire).
 
 
-The Covalent API will return a list of token holders for the ERTH token. Unless you already owned some ERTH tokens, your address will be missing from that list. Head over to the [Moonbase Alpha ERC-20 Faucet](https://moonbase-minterc20.netlify.app/) to generate some ERTH tokens for yourself. Now repeat the same Covalent API request as above. The Covalent API updates in real-time, so you should now see your address in the list of token holders for the ERTH token.
+L'API Covalent renverra une liste de détenteurs de jetons pour le jeton ERTH. À moins que vous ne possédiez déjà des jetons ERTH, votre adresse sera absente de cette liste. Rendez-vous sur le [Moonbase Alpha ERC-20 Faucet] (https://moonbase-minterc20.netlify.app/) pour générer vous-même des jetons ERTH. Répétez maintenant la même demande d'API Covalent que ci-dessus. L'API Covalent se met à jour en temps réel, vous devriez donc maintenant voir votre adresse dans la liste des détenteurs de jetons pour le jeton ERTH.
 
-## Javascript Examples
-Copy and paste the below code block into your preferred environment, or [JSFiddle](https://jsfiddle.net/). After setting the API key, set the address constant. Remember our chain ID is `1287` for Moonbase Alpha.
+## Exemples Javascript
+Copiez et collez le bloc de code ci-dessous dans votre environnement préféré, ou [JSFiddle](https://jsfiddle.net/). Après avoir défini la clé API, définissez la constante d'adresse. N'oubliez pas que notre ID de chaîne est « 1287 » pour Moonbase Alpha.
 
-=== "Using Fetch"
+=== "Utiliser Récupérer"
     ```js
     // set your API key
 	const APIKEY = 'YOUR API KEY HERE';
@@ -133,8 +133,8 @@ The output should resemble the below. The balances endpoint returns a list of al
 
 ![Javascript Console Output](/images/covalent/covalentjs.png)
 
-## Python Example
-Covalent doesn’t have an official API wrapper. To query the API directly you will have to use the Python [requests library](https://pypi.org/project/requests/). Install requests into your environment from the command line with `pip install requests`. Then import it and use it in your code. Use the HTTP verbs get methods to return the information from the API. Copy and paste the below code block into your preferred environment and run it. The output should look similiar to the screenshot above, however the formatting may vary depending on your environment.
+## Exemple Python
+Covalent n'a pas de wrapper API officiel. Pour interroger directement l'API, vous devrez utiliser la [bibliothèque de requêtes] Python (https://pypi.org/project/requests/). Installez les requêtes dans votre environnement à partir de la ligne de commande avec `pip install request`. Ensuite, importez-le et utilisez-le dans votre code. Utilisez les méthodes get des verbes HTTP pour renvoyer les informations de l'API. Copiez et collez le bloc de code ci-dessous dans votre environnement préféré et exécutez-le. La sortie devrait ressembler à la capture d'écran ci-dessus, mais le formatage peut varier en fonction de votre environnement.
 
 ```python
 import requests
@@ -152,11 +152,11 @@ fetch_wallet_balance('0xFEC4f9D5B322Aa834056E85946A32c35A3f5aDD8')
 
 ```
 
-!!! note
-    The 2nd parameter of `auth` is empty, because there is no password required - your API key is all that's needed.
+!!! Remarque
+     Le 2ème paramètre de `auth` est vide, car aucun mot de passe n'est requis - votre clé API est tout ce dont vous avez besoin.
 
-### Community Built Libraries
-Covalent currently has libraries in Python, Node, and Go, which are built and maintained by the community as part of the [Covalent Alchemists Program](https://www.covalenthq.com/ambassador/). The tools have been built by the community to provide value to users of the Covalent API and are [available here](https://www.covalenthq.com/docs/tools/community).
+### Bibliothèques communautaires
+Covalent possède actuellement des bibliothèques en Python, Node et Go, qui sont construites et maintenues par la communauté dans le cadre du [Covalent Alchemists Program] (https://www.covalenthq.com/ambassador/). Les outils ont été créés par la communauté pour apporter de la valeur aux utilisateurs de l'API Covalent et sont [disponibles ici] (https://www.covalenthq.com/docs/tools/community).
 
-!!! note
-    Note: These tools are NOT maintained by Covalent and users should do their due diligence in evaluating these tools before using them in their projects.
+!!! Remarque
+     Remarque : Ces outils ne sont PAS maintenus par Covalent et les utilisateurs doivent faire preuve de diligence raisonnable en évaluant ces outils avant de les utiliser dans leurs projets.
