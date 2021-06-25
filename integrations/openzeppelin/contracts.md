@@ -1,76 +1,76 @@
 ---
-title: Contracts & Libraries
-description:  Learn how to create common OpenZeppelin contracts with their Contracts Wizard easily and how to deploy them on Moonbeam thanks to its Ethereum compatibility features
+title: Contrats & Librairies
+description:  Apprenez à créer facilement des contrats OpenZeppelin communs avec leur assistant de contrats et à les déployer sur Moonbeam grâce à ses fonctionnalités de compatibilité Ethereum
 ---
 
-# OpenZeppelin Contracts & Libraries
+# OpenZeppelin Contrats & Librairies
 
 ![OpenZeppelin Contracts Banner](/images/openzeppelin/ozcontracts-banner.png)
 
 ## Introduction
 
-OpenZeppelin contracts and libraries have become a standard in the industry. They help developers minimize risk, as their open-source code templates are battle-tested for Ethereum and other blockchains. Their code includes the most used implementations of ERC standards and add-ons and often appears in guides and tutorials around the community.
+Les contrats et les bibliothèques OpenZeppelin sont devenus un standard dans l'industrie. Ils aident les développeurs à minimiser les risques, car leurs modèles de code open source sont testés rigoureusement pour Ethereum et d'autres blockchains. Leur code comprend les implémentations les plus utilisées des normes et des modules complémentaires ERC et apparaît souvent dans des guides et des tutoriels de la communauté.
 
-Because Moonbeam is fully Ethereum compatible, all of OpenZeppelin's contracts and libraries can be implemented without any changes.
+Étant donné que Moonbeam est entièrement compatible avec Ethereum, tous les contrats et bibliothèques d'OpenZeppelin peuvent être implémentés sans aucune modification.
 
-This guide is divided into two sections. The first part describes the OpenZeppelin Contracts Wizard, a great online tool to help you create smart contracts using OpenZeppelin code. The second section provides a step-by-step guide on how you can deploy these contracts on Moonbeam.
+Ce guide est divisé en deux sections. La première partie décrit l'assistant de contrats OpenZeppelin, un excellent outil en ligne pour vous aider à créer des contrats intelligents à l'aide du code OpenZeppelin. La deuxième section fournit un guide étape par étape sur la façon dont vous pouvez déployer ces contrats sur Moonbeam.
 
-## OpenZeppelin Contract Wizard
+## Assistant de Contrats OpenZeppelin
 
-OpenZeppelin has developed an online web-based interactive contract generator tool that is probably the easiest and fastest way to write your smart contract using OpenZeppelin code. The tool is called Contracts Wizard, and you can find it on their [documentation site](https://docs.openzeppelin.com/contracts/4.x/wizard).
+OpenZeppelin a développé un outil de génération de contrat interactif basé sur le Web qui est probablement le moyen le plus simple et le plus rapide d'écrire votre contrat intelligent à l'aide du code OpenZeppelin. L'outil s'appelle Contracts Wizard, et vous pouvez le trouver sur leur [site de documentation] (https://docs.openzeppelin.com/contracts/4.x/wizard).
 
-Currently, the Contracts Wizard support the following ERC standards:
+Actuellement, l'Assistant de Contrats prend en charge les normes ERC suivantes :
 
- - [**ERC20**](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) — a fungible token standard that follows [EIP-20](https://eips.ethereum.org/EIPS/eip-20). Fungible means that all tokens are equivalent and interchangeable that is, of equal value. One typical example of fungible tokens is fiat currencies, where each equal-denomination bill has the same value.
- - [**ERC721**](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/) — a non-fungible token contract that follows [EIP-721](https://eips.ethereum.org/EIPS/eip-721). Non-fungible means that each token is different, and therefore, unique. An ERC721 token can represent ownership of that unique item, whether it is a collectible item in a game, real state, and so on. 
- - [**ERC1155**](https://docs.openzeppelin.com/contracts/4.x/erc1155) — also known as the multi-token contract, because it can represent both fungible and non-fungible tokens in a single smart contract. It follows [EIP-1155](https://eips.ethereum.org/EIPS/eip-1155)
+ - [**ERC20**](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) — une norme de jeton fongible qui suit [EIP-20](https://eips.ethereum.org/EIPS/eip-20). Fongible signifie que tous les jetons sont équivalents et interchangeables, c'est-à-dire de valeur égale. Un exemple typique de jetons fongibles est la monnaie fiduciaire, où chaque billet de même valeur a la même valeur.
+ - [**ERC721**](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/) — un contrat de jeton non fongible qui suit [EIP-721](https://eips.ethereum.org/EIPS/eip-721). Non fongible signifie que chaque jeton est différent, et donc unique. Un jeton ERC721 peut représenter la propriété de cet objet unique, qu'il s'agisse d'un objet de collection dans un jeu, d'un état réel, etc. 
+ - [**ERC1155**](https://docs.openzeppelin.com/contracts/4.x/erc1155) — également connu sous le nom de contrat multi-jetonss, car il peut représenter à la fois des jetons fongibles et non fongibles dans un seul contrat intelligent. Çela suit [EIP-1155](https://eips.ethereum.org/EIPS/eip-1155)
 
-The wizard is comprised of the following sections:
+L'assistant comprend les sections suivantes :
 
- 1. **Token standard selection** — shows all the different standards supported by the wizard
- 2. **Settings** — provides the baseline settings for each token standard, such as token name, symbol, pre-mint (token supply when the contract is deployed), and URI (for non-fungible tokens)
- 3. **Features** — list of all features available for each token standard. You can find more information about the different features in the following links:
+  1. **Sélection de norme de jeton** : affiche toutes les différentes normes prises en charge par l'assistant
+  2. **Paramètres** : fournit les paramètres de base pour chaque norme de jeton, tels que le nom du jeton, le symbole, le pre-mint (fourniture du jeton lorsque le contrat est déployé) et l'URI (pour les jetons non fongibles)
+  3. **Fonctionnalités** — liste de toutes les fonctionnalités disponibles pour chaque norme de jeton. Vous pouvez trouver plus d'informations sur les différentes fonctionnalités dans les liens suivants :
      - [ERC20](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20)
      - [ERC721](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721)
      - [ERC1155](https://docs.openzeppelin.com/contracts/4.x/api/token/erc1155)
- 4. **Access Control** — list of all the available [access control mechanisms](https://docs.openzeppelin.com/contracts/4.x/access-control) for each token standard
- 5. **Interactive code display** — shows the smart contract code with the configuration as set by the user
+  4. **Contrôle d'accès** — liste de tous les [mécanismes de contrôle d'accès](https://docs.openzeppelin.com/contracts/4.x/access-control) disponibles pour chaque norme de jeton
+  5. **Affichage du code interactif** : affiche le code du contrat intelligent avec la configuration définie par l'utilisateur
 
-![OpenZeppelin Contracts Wizard](/images/openzeppelin/ozwizard-images1.png)
+![Assistant de Contrats OpenZeppelin](/images/openzeppelin/ozwizard-images1.png)
 
-Once you have set up your contract with all the settings and features, it is just as easy as copying and pasting the code into your contract file.
+Une fois que vous avez configuré votre contrat avec tous les paramètres et fonctionnalités, c'est aussi simple que de copier et coller le code dans votre fichier de contrat.
 
-## Deploying OpenZeppelin Contracts on Moonbeam
+## Déploiement des contrats OpenZeppelin sur Moonbeam
 
-This section goes through the steps for deploying OpenZeppelin contracts on Moonbeam. It covers the following contracts:
+Cette section passe en revue les étapes de déploiement des contrats OpenZeppelin sur Moonbeam. Il couvre les contrats suivants :
 
- - ERC20 (fungible tokens)
- - ERC721 (non-fungible tokens)
- - ERC1155 (multi-token standard)
+ - ERC20 (jetons fongibles)
+ - ERC721 (jetons non fongibles)
+ - ERC1155 (norme multi-jetons)
 
-All the code of the contracts was obtained using OpenZeppelin [Contract Wizard](https://docs.openzeppelin.com/contracts/4.x/wizard).
+Tout le code des contrats a été obtenu à l'aide d'OpenZeppelin [Assistant de Contrat](https://docs.openzeppelin.com/contracts/4.x/wizard).
  
-### Checking Prerequisites
+### Vérification des prérequis
 
-The steps described in this section assume you have [MetaMask](https://metamask.io/) installed and connected to the Moonbase Alpha TestNet. Contract deployment is done using the [Remix IDE](https://remix.ethereum.org/) via the "Injected Web3" environment. You can find corresponding tutorials in the following links:
+Les étapes décrites dans cette section supposent que [MetaMask](https://metamask.io/) est installé et connecté à Moonbase Alpha TestNet. Le déploiement du contrat se fait à l'aide du [Remix IDE](https://remix.ethereum.org/) via l'environnement "Injected Web3". Vous pouvez trouver les tutoriels correspondants dans les liens suivants :
 
- - [Interacting with Moonbeam using MetaMask](/integrations/wallets/metamask/)
- - [Interacting with Moonbeam using Remix](/integrations/remix/)
+ - [Interagir avec Moonbeam en utilisant MetaMask](/integrations/wallets/metamask/)
+ - [Interagir avec Moonbeam en utilisant Remix](/integrations/remix/)
 
-### Deploying an ERC20 Token
+### Déploiement d'un jeton ERC20
 
-For this example, an ERC20 token will be deployed to Moonbase Alpha. The final code used combines different contracts from OpenZeppelin:
+Pour cet exemple, un jeton ERC20 sera déployé sur Moonbase Alpha. Le code final utilisé combine différents contrats d'OpenZeppelin :
 
- - **ERC20.sol** — ERC20 token implementation with the optional features from the base interface. Includes the supply mechanism with a `mint` function but needs to be explicitly called from within the main contract
- - **Ownable.sol** — extension to restrict access to certain functions
+ - **ERC20.sol** — Implémentation du jeton ERC20 avec les fonctionnalités optionnelles de l'interface de base. Inclut le mécanisme d'approvisionnement avec une fonction `mint`, mais doit être explicitement appelé à partir du contrat principal
+ - **Ownable.sol** — extension pour restreindre l'accès à certaines fonctions
 
-The mintable ERC20 OpenZeppelin token contract provides a `mint` function that the owner of the contract can only call. By default, the owner is the contract's deployer address. There is also a premint of `1000` tokens sent to the contract's deployer configured in the `constructor` function.
+Le contrat de jeton ERC20 OpenZeppelin monnayable fournit une fonction `mint`que le propriétaire du contrat ne peut appeler que. Par défaut, le propriétaire est l'adresse du déployeur du contrat. Il y a aussi un nombre de jetons `1000` envoyés au déployeur du contrat configuré dans la fonction `constructeur`.
 
-The first step is to go to [Remix](https://remix.ethereum.org/) and take the following steps:
+La première étape consiste à aller sur [Remix](https://remix.ethereum.org/) et à suivre les étapes suivantes :
 
- 1. Click on the "Create New File" icon and set a file name. For this example, it was set to `ERC20.sol`
- 2. Make sure the file was created successfully. Click on the file to open it up in the text editor
- 3. Write your smart contract using the file editor. For this example, the following code was used:
+ 1. Cliquez sur l'icône "Créer un nouveau fichier" et définissez un nom de fichier. Pour cet exemple, il a été défini sur `ERC20.sol`
+ 2. Assurez-vous que le fichier a été créé avec succès. Cliquez sur le fichier pour l'ouvrir dans l'éditeur de texte
+ 3. Rédigez votre contrat intelligent à l'aide de l'éditeur de fichiers. Pour cet exemple, le code suivant a été utilisé :
 
 ```sol
 pragma solidity ^0.8.0;
@@ -89,44 +89,44 @@ contract MyToken is ERC20, Ownable {
 }
 ```
 
-This ERC20 token smart contract was extracted from the [Contract Wizard](#openzeppelin-contract-wizard), setting a premint of `1000` tokens and activating the `Mintable` feature.
+Ce contrat intelligent de jeton ERC20 a été extrait de l'[Assistant de contrat](#openzeppelin-contract-wizard), en définissant un préminage de `1000` jetons et en activant la fonction `Mintable`.
 
-![Getting Started with Remix](/images/openzeppelin/ozcontracts-images1.png)
+![Démarrer avec Remix](/images/openzeppelin/ozcontracts-images1.png)
 
-Once your smart contract is written, you can compile it by taking the following steps:
+Une fois votre contrat intelligent rédigé, vous pouvez le compiler en procédant comme suit :
 
- 1. Head to the "Solidity Compiler`
- 2. Click on the compile button
- 3. Alternatively, you can check the "Auto compile" feature
+ 1. Dirigez-vous vers le "Compilateur Solidity"
+ 2. Cliquez sur le bouton compiler
+ 3. Alternativement, vous pouvez vérifier la fonction "Compilation automatique"
 
-![Compile ERC20 Contract with Remix](/images/openzeppelin/ozcontracts-images2.png)
+![Compiler le contrat ERC20 avec Remix](/images/openzeppelin/ozcontracts-images2.png)
 
-With the contract compiled, you are ready to deploy it taking the following steps: 
+Une fois le contrat compilé, vous êtes prêt à le déployer en procédant comme suit :
 
- 1. Head to the "Deploy & Run Transactions" tab
- 2. Change the environment to "Injected Web3". This will use MetaMask's injected provider. Consequently, the contract will be deployed to whatever network MetaMask is connected to. MetaMask might show a pop-up outlining that Remix is trying to connect to your wallet
- 3. Select the proper contract to deploy. In this example, it is the `MyToken` contract inside the `ERC20.sol` file
- 4. If everything is ready, click on the "Deploy" button. Review the transaction information in MetaMask and confirm it
- 5. After a few seconds, the transaction should get confirmed, and you should see your contract under "Deployed Contracts"
+ 1. Dirigez-vous vers l'onglet "Déployer et exécuter des transactions"
+ 2. Changez l'environnement en "Injected Web3". Cela utilisera le fournisseur injecté de MetaMask. Par conséquent, le contrat sera déployé sur n'importe quel réseau auquel MetaMask est connecté. MetaMask peut afficher une fenêtre contextuelle indiquant que Remix essaie de se connecter à votre portefeuille
+ 3. Sélectionnez le contrat approprié à déployer. Dans cet exemple, il s'agit du contrat `MyToken` dans le fichier `ERC20.sol`
+ 4. Si tout est prêt, cliquez sur le bouton "Déployer". Vérifiez les informations de transaction dans MetaMask et confirmez-les
+ 5. Après quelques secondes, la transaction devrait être confirmée et vous devriez voir votre contrat sous « Contrats déployés »
 
-![Deploy ERC20 Contract with Remix](/images/openzeppelin/ozcontracts-images3.png)
+![Déployer le contrat ERC20 avec Remix](/images/openzeppelin/ozcontracts-images3.png)
 
-And that is it! You've deployed an ERC20 token contract using OpenZeppelin's contracts and libraries. Next, you can interact with your token contract via Remix, or add it to MetaMask.
+Et c'est tout ! Vous avez déployé un contrat de jeton ERC20 à l'aide des contrats et des bibliothèques d'OpenZeppelin. Ensuite, vous pouvez interagir avec votre contrat de jeton via Remix, ou l'ajouter à MetaMask.
 
-### Deploying an ERC721 Token
+### Déploiement d'un jeton ERC721
 
-For this example, an ERC721 token will be deployed to Moonbase Alpha. The final code used combines different contracts from OpenZeppelin:
+Pour cet exemple, un jeton ERC721 sera déployé sur Moonbase Alpha. Le code final utilisé combine différents contrats d'OpenZeppelin :
 
- - **ERC721** — ERC721 token implementation with the optional features from the base interface. Includes the supply mechanism with a `_mint` function but needs to be explicitly called from within the main contract
- - **Burnable** — extension to allow tokens to be destroyed by their owners (or approved addresses)
- - **Enumerable** — extension to allow on-chain enumeration of tokens
- - **Ownable.sol** — extension to restrict access to certain functions
+ - **ERC721** — Implémentation du jeton ERC721 avec les fonctionnalités optionnelles de l'interface de base. Inclut le mécanisme d'approvisionnement avec une fonction `_mint` mais doit être explicitement appelé depuis le contrat principal
+ - **Burnable** — extension permettant la destruction des tokens par leurs propriétaires (ou adresses approuvées)
+ - **Enumerable** — extension pour permettre l'énumération en chaîne des jetons
+ - **Ownable.sol** — extension pour restreindre l'accès à certaines fonctions
 
-The mintable ERC721 OpenZeppelin token contract provides a `mint` function that can only be called by the owner of the contract. By default, the owner is the contract's deployer address.
+Le contrat de jeton monnayable ERC721 OpenZeppelin fournit une fonction `mint` qui ne peut être appelée que par le propriétaire du contrat. Par défaut, le propriétaire est l'adresse du déployeur du contrat.
 
-As with the [ERC20 contract](#deploying-an-erc20-token), the first step is to go to [Remix](https://remix.ethereum.org/) and create a new file. For this example, the file name will be `ERC721.sol`.
+Comme pour le [contrat ERC20](#deploying-an-erc20-token), la première étape consiste à aller sur [Remix](https://remix.ethereum.org/) et à créer un nouveau fichier. Pour cet exemple, le nom du fichier sera `ERC721.sol`.
 
-Next, you'll need to write the smart contract and compile it. For this example, the following code is used:
+Ensuite, vous devrez écrire le contrat intelligent et le compiler. Pour cet exemple, le code suivant est utilisé :
 
 ```sol
 pragma solidity ^0.8.0;
@@ -165,32 +165,32 @@ contract MyToken is ERC721, ERC721Enumerable, ERC721Burnable, Ownable {
 }
 ```
 
-This ERC721 token smart contract was extracted from the [Contract Wizard](#openzeppelin-contract-wizard), setting the `Base URI` as `Test` and activating the `Mintable`, `Burnable`, and `Enumerable` features.
+Ce contrat intelligent de jeton ERC721 a été extrait de [Assistant de Contract] (#openzeppelin-contract-wizard), définissant l'`URI de base` comme `Test` et activant les fonctionnalités `Mintable`, `Burnable` et `Enumerable`.
 
-With the contract compiled, head to the "Deploy & Run Transactions" tab. In here, you need to:
+Une fois le contrat compilé, rendez-vous dans l'onglet "Déployer et exécuter des transactions". Ici, vous devez :
 
- 1. Change the environment to "Injected Web3". This will use MetaMask's injected provider. Consequently, the contract will be deployed to whatever network MetaMask is connected to. MetaMask might show a pop-up outlining that Remix is trying to connect to your wallet
- 2. Select the proper contract to deploy. In this example, it is the `MyToken` contract inside the `ERC721.sol` file
- 3. If everything is ready, click on the "Deploy" button. Review the transaction information in MetaMask and confirm it
- 4. After a few seconds, the transaction should get confirmed, and you should see your contract under "Deployed Contracts"
+ 1. Changez l'environnement en "Injected Web3". Cela utilisera le fournisseur injecté de MetaMask. Par conséquent, le contrat sera déployé sur n'importe quel réseau auquel MetaMask est connecté. MetaMask peut afficher une fenêtre contextuelle indiquant que Remix essaie de se connecter à votre portefeuille
+ 2. Sélectionnez le contrat approprié à déployer. Dans cet exemple, il s'agit du contrat `MyToken` dans le fichier `ERC721.sol`
+ 3. Si tout est prêt, cliquez sur le bouton "Déployer". Vérifiez les informations de transaction dans MetaMask et confirmez-les
+ 4. Après quelques secondes, la transaction devrait être confirmée et vous devriez voir votre contrat sous « Contrats déployés »
 
-![Deploy ERC721 Contract with Remix](/images/openzeppelin/ozcontracts-images4.png)
+![Déployer le contrat ERC721 avec Remix](/images/openzeppelin/ozcontracts-images4.png)
 
-And that is it! You've deployed an ERC721 token contract using OpenZeppelin's contracts and libraries. Next, you can interact with your token contract via Remix, or add it to MetaMask.
+Et c'est tout ! Vous avez déployé un contrat de jeton ERC721 à l'aide des contrats et des bibliothèques d'OpenZeppelin. Ensuite, vous pouvez interagir avec votre contrat de jeton via Remix, ou l'ajouter à MetaMask.
 
-### Deploying an ERC1155 Token
+### Déploiement d'un jeton ERC1155
 
-For this example, an ERC1155 token will be deployed to Moonbase Alpha. The final code used combines different contracts from OpenZeppelin:
+Pour cet exemple, un jeton ERC1155 sera déployé sur Moonbase Alpha. Le code final utilisé combine différents contrats d'OpenZeppelin :
 
- - **ERC1155** — ERC1155 token implementation with the optional features from the base interface. Includes the supply mechanism with a `_mint` function but needs to be explicitly called from within the main contract
- - **Pausable** — extension to allows pausing tokens transfer, mintings and burnings
- - **Ownable.sol** — extension to restrict access to certain functions
+ - **ERC1155** — Implémentation du jeton ERC1155 avec les fonctionnalités optionnelles de l'interface de base. Inclut le mécanisme d'approvisionnement avec une fonction `_mint` mais doit être explicitement appelé depuis le contrat principal
+ - **Pausable** — extension permettant de suspendre le transfert de jetons, les frappes et les gravures
+ - **Ownable.sol** — extension pour restreindre l'accès à certaines fonctions
 
-OpenZeppelin's ERC1155 token contract provides a `_mint` function that can only be called in the `constructor` function. Therefore, this example creates 1000 tokens with an ID of `0`, and 1 unique token with an ID of `1`.
+Le contrat de jeton ERC1155 d'OpenZeppelin fournit une fonction `_mint` qui ne peut être appelée que dans la fonction `constructor`. Par conséquent, cet exemple crée 1000 jetons avec un ID de `0` et 1 jeton unique avec un ID de `1`.
 
-The first step is to go to [Remix](https://remix.ethereum.org/) and create a new file. For this example, the file name will be `ERC1155.sol`.
+La première étape consiste à aller sur [Remix](https://remix.ethereum.org/) et à créer un nouveau fichier. Pour cet exemple, le nom de fichier sera `ERC1155.sol`.
 
-As shown for the [ERC20 token](#deploying-an-erc20-token), you'll need to write the smart contract and compile it. For this example, the following code is used:
+Comme indiqué pour le [jeton ERC20](#deploying-an-erc20-token), vous devrez écrire le contrat intelligent et le compiler. Pour cet exemple, le code suivant est utilisé :
 
 ```sol
 pragma solidity ^0.8.0;
@@ -227,15 +227,15 @@ contract MyToken is ERC1155, Ownable, Pausable {
 }
 ```
 
-This ERC1155 token smart contract was extracted from the [Contract Wizard](#openzeppelin-contract-wizard), setting no `Base URI` and activating `Pausable` feature. The constructor function was modified to include the minting of both a fungible and a non-fungible token.
+Ce contrat intelligent de jeton ERC1155 a été extrait de l'[Assistant de Contrat](#openzeppelin-contract-wizard), en ne définissant aucun `URI de base` et en activant la fonction `Pausable`. La fonction constructeur a été modifiée pour inclure la frappe d'un jeton fongible et non fongible.
 
-With the contract compiled, head to the "Deploy & Run Transactions" tab. In here, you need to:
+Une fois le contrat compilé, rendez-vous dans l'onglet "Déployer et exécuter des transactions". Ici, vous devez :
 
- 1. Change the environment to "Injected Web3". This will use MetaMask's injected provider. Consequently, the contract will be deployed to whatever network MetaMask is connected to. MetaMask might show a pop-up outlining that Remix is trying to connect to your wallet
- 2. Select the proper contract to deploy. In this example, it is the `MyToken` contract inside the `ERC1155.sol` file
- 3. If everything is ready, click on the "Deploy" button. Review the transaction information in MetaMask and confirm it
- 4. After a few seconds, the transaction should get confirmed, and you should see your contract under "Deployed Contracts"
+ 1. Changez l'environnement en "Injected Web3". Cela utilisera le fournisseur injecté de MetaMask. Par conséquent, le contrat sera déployé sur n'importe quel réseau auquel MetaMask est connecté. MetaMask peut afficher une fenêtre contextuelle indiquant que Remix essaie de se connecter à votre portefeuille
+ 2. Sélectionnez le contrat approprié à déployer. Dans cet exemple, il s'agit du contrat `MyToken` dans le fichier `ERC1155.sol`
+ 3. Si tout est prêt, cliquez sur le bouton "Déployer". Vérifiez les informations de transaction dans MetaMask et confirmez-les
+ 4. Après quelques secondes, la transaction devrait être confirmée et vous devriez voir votre contrat sous « Contrats déployés »
 
-![Deploy ERC1155 Contract with Remix](/images/openzeppelin/ozcontracts-images5.png)
+![Déployer le contrat ERC1155 avec Remix](/images/openzeppelin/ozcontracts-images5.png)
 
-And that is it! You've deployed an ERC1155 token contract using OpenZeppelin's contracts and libraries. Next, you can interact with your token contract via Remix.
+Et c'est tout ! Vous avez déployé un contrat de jeton ERC1155 à l'aide des contrats et des bibliothèques d'OpenZeppelin. Ensuite, vous pouvez interagir avec votre contrat de jeton via Remix.
