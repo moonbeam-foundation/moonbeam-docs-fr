@@ -177,7 +177,7 @@ Une fois que Docker extrait les images nécessaires, votre nœud complet Moonbas
     Si vous rencontrez des problèmes avec la télémétrie par défaut, vous pouvez ajouter l'indicateur `--no-telemetry` pour exécuter le nœud complet sans la télémétrie activée.
 
 !!! note
-    Vous pouvez spécifier un port Prometheus personnalisé avec l'indicateur  `--promethues-port XXXX` (en le remplaçant `XXXX` par le numéro de port réel). Ceci est possible à la fois pour la parachaine et la chaîne de relais intégrée.
+    Vous pouvez spécifier un port Prometheus personnalisé avec l'indicateur  `--prometheus-port XXXX` (en le remplaçant `XXXX` par le numéro de port réel). Ceci est possible à la fois pour la parachaine et la chaîne de relais intégrée.
 
 La commande ci-dessus activera tous les ports exposés, y compris les ports P2P, RPC et Prometheus (télémétrie). Cette commande est compatible avec la télémétrie Gantree Node Watchdog. Si vous souhaitez exposer des ports spécifiques, activez ceux de la ligne de commande d'exécution Docker comme indiqué ci-dessous. Cependant, cela empêchera le conteneur Gantree Node Watchdog (télémétrie) d'accéder au conteneur Moonbeam, alors ne le faites pas lorsque vous exécutez un assembleur à moins que vous ne compreniez la [mise en réseau du docker](https://docs.docker.com/network/).
 
@@ -350,7 +350,7 @@ L'étape suivante consiste à créer le fichier de configuration systemd. Notez 
     Si vous rencontrez des problèmes avec la télémétrie par défaut, vous pouvez ajouter l'indicateur `--no-telemetry` pour exécuter le nœud complet sans la télémétrie activée.
 
 !!! note
-Vous pouvez spécifier un port Prometheus personnalisé avec l’indicateur `--promethues-port XXXX` (en le remplaçant `XXXX` par le numéro de port réel). Ceci est possible à la fois pour la parachaine et la chaîne de relais intégrée.
+Vous pouvez spécifier un port Prometheus personnalisé avec l’indicateur `--prometheus-port XXXX` (en le remplaçant `XXXX` par le numéro de port réel). Ceci est possible à la fois pour la parachaine et la chaîne de relais intégrée.
 
 
 Presque là! Inscrivez-vous et démarrez le service en exécutant:
