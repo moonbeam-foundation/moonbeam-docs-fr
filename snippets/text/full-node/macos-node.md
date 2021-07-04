@@ -1,10 +1,10 @@
 ---
-title: Moonriver Full Node MacOS
+title: Noeud complet MacOS Moonriver
 ---
 
-# Code Snippets Collator/Full Node MacOS
+# Code Snippets Collecteur/Noeud complet MacOS
 
-## Moonbase Alpha Full Node
+## Noeud complet Moonbase Alpha
 
 ```
 docker run -p 9933:9933 -p 9944:9944 -v "{{ networks.moonbase.node_directory }}:/data" \
@@ -22,7 +22,7 @@ purestake/moonbeam:{{ networks.moonbase.parachain_release_tag }} \
 --name="YOUR-NODE-NAME (Embedded Relay)"
 ```
 
-## Moonbase Alpha Collator
+## Collecteur Moonbase Alpha
 
 ```
 docker run -p 9933:9933 -p 9944:9944 -v "{{ networks.moonbase.node_directory }}:/data" \
@@ -41,7 +41,7 @@ purestake/moonbeam:{{ networks.moonbase.parachain_release_tag }} \
 --name="YOUR-NODE-NAME (Embedded Relay)"
 ```
 
-## Moonriver Full Node
+## Noeud complet Moonriver
 
 ```
 docker run -p 9933:9933 -p 9944:9944 -v "{{ networks.moonriver.node_directory }}:/data" \
@@ -59,7 +59,7 @@ purestake/moonbeam:{{ networks.moonriver.parachain_release_tag }} \
 --name="YOUR-NODE-NAME (Embedded Relay)"
 ```
 
-## Moonriver Collator
+## Collecteur Moonriver
 
 ```
 docker run -p 9933:9933 -p 9944:9944 -v "{{ networks.moonriver.node_directory }}:/data" \
