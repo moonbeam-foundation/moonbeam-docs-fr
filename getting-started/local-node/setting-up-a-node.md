@@ -12,7 +12,7 @@ description: Suivez ce tutoriel pour apprendre à configurer votre premier nœud
 
 Ce guide décrit les étapes nécessaires pour créer un nœud de développement pour tester les fonctionnalités de compatibilité Ethereum de Moonbeam.
 
-!!! note
+!!! remarque
     Ce tutoriel a été créé à l'aide du tag tutorial-v7 de {{ networks.development.build_tag }}  de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/{{ networks.development.build_tag }}). La plate-forme Moonbeam et les composants [Frontier](https://github.com/paritytech/frontier) sur lesquels elle s'appuie pour la compatibilité Ethereum basée sur substrate sont toujours en cours de développement.
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
@@ -75,7 +75,7 @@ Pour continuer avec le didacticiel, la section suivante n'est pas nécessaire ca
 
 ## Premiers pas avec le fichier binaire
 
-!!! note
+!!! remarque
     Si vous savez ce que vous faites, vous pouvez directement télécharger les binaires précompilés attachés à chaque version sur la [page des sorties Moonbeam](https://github.com/PureStake/moonbeam/releases). Ceux-ci ne fonctionneront pas dans tous les systèmes. Par exemple, les binaires ne fonctionnent qu'avec Linux x86-64 avec des versions spécifiques de dépendances. Le moyen le plus sûr d'assurer la compatibilité est de compiler le binaire dans le système à partir duquel il sera exécuté.
 
 Premièrement, commençons par cloner une balise spécifique du repo Moonbeam que vous pouvez trouver ici:
@@ -105,7 +105,7 @@ Si une erreur _cargo not found error_ apparaît dans le terminal, ajoutez manuel
 --8<-- 'code/setting-up-node/cargoerror.md'
 ```
 
-!!! note
+!!! remarque
     La construction initiale prendra un certain temps. En fonction de votre matériel, vous devez vous attendre à environ 30 minutes pour que le processus de construction se termine.
 
 Voici à quoi devrait ressembler le build en fin de sortie:
@@ -118,7 +118,7 @@ Ensuite, vous voudrez exécuter le nœud en mode dev à l'aide de la commande su
 --8<-- 'code/setting-up-node/runnode.md'
 ```
 
-!!! note
+!!! remarque
     Pour les personnes qui ne sont pas familiarisées avec Substrate, le flag `--dev` est un moyen d'exécuter un nœud basé sur Substrate dans une configuration de développeur à nœud unique à des fins de test. Vous pouvez en savoir plus sur `--dev` dans [ce tutoriel Substrate](https://substrate.dev/docs/en/tutorials/create-your-first-substrate-chain/interact).
 
 Vous devriez voir en sortie ce qui suit, montrant un état inactif en attente de la production de blocs:

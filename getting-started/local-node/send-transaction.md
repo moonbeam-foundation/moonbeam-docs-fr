@@ -15,7 +15,7 @@ Ce guide décrit l'utilisation de trois bibliothèques Ethereum différentes pou
  - [Ethers.js](https://docs.ethers.io/)
  - [Web3.py](https://web3py.readthedocs.io/)
 
-!!! note
+!!! remarque
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
 ## Vérification des prérequis

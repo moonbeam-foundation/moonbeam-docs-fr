@@ -35,7 +35,7 @@ Actuellement, pour Moonbase Alpha:
 
 Il existe de nombreux extrinsèques liés à la palette de staking, ils ne sont donc pas tous couverts dans ce guide. Cependant, cette liste définit tous les extrinsèques associés au processus de nomination :
 
-!!! note
+!!! remarque
     Les extrinsèques pourraient changer à l'avenir à mesure que la palette de staking est mise à jour.
 
  - **nominate** — deux entrées: adresse du collator à désigner et montant. Extrinsèque pour désigner un collator. Le montant doit être d'au moins {{ networks.moonbase.staking.min_nom_amount }} jetons

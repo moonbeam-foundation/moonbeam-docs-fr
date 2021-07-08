@@ -23,7 +23,7 @@ Moonbeam s'appuie sur plusieurs palettes cadres de substrate existantes pour fou
 
 L'environnement d'exécution principal de Moonbeam spécifie la fonction de transition d'état et le comportement de la blockchain Moonbeam. Le runtime Moonbeam est construit à l'aide de [FRAME](/resources/glossary/#substrate-frame-pallets). Il comprend plusieurs palettes standard ainsi que plusieurs palettes personnalisées. Le runtime est compilé en binaire [WebAssembly (Wasm)](/resources/glossary/#webassemblywasm) et natif. Ces versions compilées seront exécutées dans les environnements de nœuds Polkadot Relay Chain et Moonbeam.  
 
-!!! note
+!!! remarque
     Les palettes cadre de substrate sont une collection de modules basés sur Rust fournissant les fonctionnalités requises lors de la création d'une blockchain. WebAssembly est une norme ouverte qui définit un format de code binaire portable. Il est pris en charge par différents langages de programmation, compilateurs et navigateurs. Trouvez plus de définitions [dans notre glossaire](/resources/glossary/).
 
 Certaines des palettes cadre clés de substrate utilisées dans le runtime Moonbeam comprennent:

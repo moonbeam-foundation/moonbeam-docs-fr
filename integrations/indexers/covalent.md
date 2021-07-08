@@ -69,7 +69,7 @@ curl https://api.covalenthq.com/v1/1287/tokens/\
 0x08B40414525687731C23F430CEBb424b332b3d35/token_holders/ \
 -u {YOUR API KEY HERE}:
 ```
-!!! Remarque
+!!! remarque
      Les deux points `:` après la clé API sont importants car sinon vous serez invité à entrer un mot de passe (qui n'est pas nécessaire).
 
 
@@ -152,11 +152,11 @@ fetch_wallet_balance('0xFEC4f9D5B322Aa834056E85946A32c35A3f5aDD8')
 
 ```
 
-!!! Remarque
+!!! remarque
      Le 2ème paramètre de `auth` est vide, car aucun mot de passe n'est requis - votre clé API est tout ce dont vous avez besoin.
 
 ### Bibliothèques communautaires
 Covalent possède actuellement des bibliothèques en Python, Node et Go, qui sont construites et maintenues par la communauté dans le cadre du [Covalent Alchemists Program] (https://www.covalenthq.com/ambassador/). Les outils ont été créés par la communauté pour apporter de la valeur aux utilisateurs de l'API Covalent et sont [disponibles ici] (https://www.covalenthq.com/docs/tools/community).
 
-!!! Remarque
+!!! remarque
      Remarque : Ces outils ne sont PAS maintenus par Covalent et les utilisateurs doivent faire preuve de diligence raisonnable en évaluant ces outils avant de les utiliser dans leurs projets.

@@ -12,7 +12,7 @@ description: Moonbeam facilite incroyablement le déploiement d'un contrat intel
 
 Ce guide décrit le processus de déploiement d'un contrat intelligent basé sur Solidity sur un nœud Moonbeam à l'aide de [Truffle](https://www.trufflesuite.com/), un outil de développement couramment utilisé pour les contrats intelligents sur Ethereum. Compte tenu des fonctionnalités de compatibilité Ethereum de Moonbeam, Truffle peut être utilisé directement avec un nœud Moonbeam.
 
-!!! note
+!!! remarque
     Ce tutoriel a été créé à l'aide du tag {{ networks.development.build_tag}} qui est basé sur la version {{ networks.moonbase.version }} de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/{{ networks.moonbase.version }}).  La plate-forme Moonbeam et les composants [Frontier](https://github.com/paritytech/frontier)  sur lesquels elle s'appuie pour la compatibilité Ethereum basée sur les substrats sont toujours en cours de développement.
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
@@ -31,7 +31,7 @@ npm install -g truffle
 
 A la date de publication de ce guide, les versions utilisées étaient respectivement 15.12.0, 7.6.3, et 5.2.4 .
 
-!!! note
+!!! remarque
     Pour les exemples suivants, vous n'avez pas besoin d'installer Truffle, car il est inclus en tant que dépendance de la box Moonbeam Truffle. Si vous préférez, vous pouvez exécuter  `npx truffle` ou `./node_modules/.bin/truffle` à la place de `truffle`.
 
 ## Premiers pas avec Truffle

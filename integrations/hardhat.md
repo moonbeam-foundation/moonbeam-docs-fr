@@ -56,7 +56,7 @@ npx hardhat
 
 Cela créera un fichier de configuration Hardhat (`hardhat.config.js`) dans notre répertoire de projet.
 
-!!! note
+!!! remarque
     `npx` est utilisé pour lancer des exécutables installés localement dans votre projet. Bien que Hardhat puisse être installé globalement, nous vous recommandons de l'installer localement dans chaque projet afin que vous puissiez contrôler la version projet par projet.
 
 Après avoir exécuté la commande, choisissez `Create an empty hardhat.config.js`:
@@ -112,7 +112,7 @@ npm install @nomiclabs/hardhat-ethers ethers
 
 Ensuite, nous importons la clé privée que nous avons récupérée de MetaMask et la stockons dans un fichier `.json` .
 
-!!! note
+!!! remarque
     Veuillez toujours gérer vos clés privées avec un gestionnaire de secrets désigné ou un service similaire. Ne sauvegardez ni ne validez jamais vos clés privées dans vos repositories.
 
 Dans le `module.exports`, nous devons fournir la version Solidity (`0.8.1` selon notre repertoire de contrat), et les détails du réseau:
@@ -215,7 +215,7 @@ En utilisant la commande `run`, nous pouvons maintenant déployer le contrat `Bo
   npx hardhat run --network moonbase scripts/deploy.js
 ```
 
-!!! note
+!!! remarque
     Pour déployer sur un nœud de développement Moonbeam, remplacez `moonbase` par `dev` dans la commande `run` .
 
 Après quelques secondes, le contrat est déployé et vous devriez voir l'adresse dans le terminal.
@@ -232,7 +232,7 @@ Utilisons Hardhat pour interagir avec notre nouveau contrat déployé dans Moonb
 npx hardhat console --network moonbase
 ```
 
-!!! note
+!!! remarque
     Pour déployer sur un nœud de développement Moonbeam, remplacez `moonbase` par `dev` dans la commande  `console` .
 
 Ensuite, ajoutez les lignes de code suivantes une ligne à la fois. Tout d'abord, nous créons à nouveau une instance locale du contrat `Box.sol`. Ne vous inquiétez pas de la sortie `undefined` que vous obtiendrez après l'exécution de chaque ligne:

@@ -19,7 +19,7 @@ Avec la sortie de [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/rele
 
 Plus d'informations concernant la [Gouvernance](https://wiki.polkadot.network/docs/en/learn-governance) et [Participer à la démocratie](https://wiki.polkadot.network/docs/en/maintain-guides-democracy) peut être trouvé dans les pages Wiki de Polkadot.
 
-!!! note
+!!! remarque
     Ce guide a été réalisé avec une version personnalisée de Moonbeam avec de courtes périodes de lancement/adoption à des fins de démonstration uniquement.
 
 ## Definitions
@@ -83,7 +83,7 @@ Ici, vous devez fournir les informations suivantes:
 
 ![Vote Submission](/images/governance/governance-vote-2.png)
 
-!!! note
+!!! remarque
     Les périodes de blocage indiquées dans l'image précédente ne sont pas à prendre comme référence. Ce guide a été réalisé avec une version personnalisée de Moonbeam avec de courtes périodes de lancement/adoption à des fins de démonstration uniquement.
 
 Dans ce cas, Alice a décidé de "Vote Aye" sur la proposition avec une condamnation de `6x`. D'autre part, Charley a décidé de "Vote Nay" sur la proposition mais a choisi de ne verrouiller aucun jeton (ses jetons ne sont verrouillés que pendant la durée du référendum), sa condamnation a donc été `0.1x`. Avec de telles distributions de voix, les résultats partiels peuvent être vus dans l'onglet principal "Democracy".
@@ -129,7 +129,7 @@ Ici, vous devez fournir les informations suivantes:
 
 Dans cet exemple, Alice a délégué un poids total de 1000 (1000 jetons avec un facteur de conviction x1) à Charley.
 
-!!! note
+!!! remarque
     Une autre façon de déléguer des votes est sous l'onglet "Accounts". Cliquez sur les trois points du compte à partir duquel vous souhaitez déléguer votre vote et renseignez les informations comme précédemment.
 
 Une fois le compte auquel vous avez délégué votre vote vote, le poids total du vote délégué sera attribué à l'option que le compte a sélectionnée. Pour cet exemple, Charley a décidé de voter en faveur d'une proposition qui est en référendum public. Il a voté avec un poids total de 800 (800 jetons avec un facteur de conviction x1). Mais parce qu'Alice lui a délégué 1000 votes, les votes "Aye" totalisent 1800 unités.

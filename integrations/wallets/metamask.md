@@ -19,7 +19,7 @@ Si vous avez déjà installé MetaMask, vous pouvez facilement connecter MetaMas
     <a href="#" class="md-button connectMetaMask">Connect MetaMask</a>
 </div>
 
-!!! note
+!!! remarque
     MetaMask apparaîtra pour demander la permission d'ajouter Moonbase Alpha en tant que réseau personnalisé. Une fois que vous avez approuvé les autorisations, MetaMask basculera votre réseau actuel vers Moonbase Alpha.
 
 Apprenez [comment intégrer un bouton Connecter MetaMask](#integrate-metamask-into-a-dapp) dans votre dapp, afin que les utilisateurs puissent se connecter à Moonbase Alpha d'un simple clic sur un bouton.

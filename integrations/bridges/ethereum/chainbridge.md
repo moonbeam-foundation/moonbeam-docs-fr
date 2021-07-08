@@ -79,7 +79,7 @@ Ce guide passera en revue deux exemples différents d'utilisation du pont pour t
     {{ networks.moonbase.chainbridge.ERC721_handler }}
 ```
 
-!!! note
+!!! remarque
     Le contrat de pont, le contrat ERC-20 et les adresses de contrat ERC-721 énumérées ci-dessus sont applicables pour Kovan et Rinkeby.
 
 ### Transfert de jetons ERC-20
@@ -113,7 +113,7 @@ Pour essayer le pont avec cet exemple de jeton ERC-20, nous devons suivre les é
  - Approuver le contrat du gestionnaire en tant que dépensier pour renvoyer les jetons
  - Utilisez le contrat de pont modifié pour envoyer des jetons de la chaîne cible à la chaîne source
 
-!!! note
+!!! remarque
     N'oubliez pas que les jetons ne seront transférés que si le contrat du gestionnaire dispose d'une allocation suffisante pour dépenser des jetons au nom du propriétaire. Si le processus échoue, vérifiez l'allocation.
 
 Envoyons des jetons ERC20S de Moonbase Alpha à Kovan . Si vous vouliez l'essayer avec Rinkeby, les étapes et les adresses sont les mêmes. Pour cela, nous utiliserons [Remix](/integrations/remix/). Tout d'abord, nous pouvons utiliser l'interface suivante pour interagir avec ce contrat et minter les jetons:
@@ -208,7 +208,7 @@ Vous pouvez vérifier votre solde en ajoutant le jeton à [MetaMask](/integratio
 
 N'oubliez pas que vous pouvez également créer des jetons ERC20S dans Kovan et les envoyer à Moonbase Alpha. Pour approuver un dépenseur ou augmenter son allocation, vous pouvez utiliser la fonction `increaseAllowance()` de l'interface fournie. Pour vérifier l'allocation du contrat de gestionnaire dans le contrat de jeton ERC20, vous pouvez utiliser la fonction `allowance()` de l'interface.
 
-!!! note
+!!! remarque
     Les jetons ne seront transférés que si le contrat du gestionnaire dispose d'une allocation suffisante pour dépenser des jetons au nom du propriétaire. Si le processus échoue, vérifiez l'allocation.
 
 ### Transfert de jeton ERC-721
@@ -334,7 +334,7 @@ Vous pouvez vérifier votre solde en ajoutant le jeton à [MetaMask](/integratio
 
 N'oubliez pas que les jetons ERC721M ne peuvent être mintés que dans Moonbase Alpha et qu'ils seront ensuite disponibles pour être envoyés dans les deux sens vers Kovan ou Rinkeby. Il est important de toujours vérifier l'allocation fournie au contrat de gestionnaire dans le contrat de jeton ERC721 correspondant. Vous pouvez approuver le contrat du gestionnaire pour envoyer des jetons en votre nom à l'aide de la fonction `approve()` fournie dans l'interface. Vous pouvez vérifier l'approbation de chacun de vos identifiants de jeton avec la fonction `getApproved()` .
 
-!!! note
+!!! remarque
     Les jetons ne seront transférés que si le contrat du gestionnaire est approuvé pour transférer les jetons au propriétaire. Si le processus échoue, vérifiez l'approbation.
 
 ### Gestionnaire générique

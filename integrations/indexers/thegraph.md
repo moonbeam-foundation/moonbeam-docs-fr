@@ -63,7 +63,7 @@ Maintenant, vous pouvez créer les types TypeScript pour The Graph en exécutant
 npx graph codegen --output-dir src/types/
 ```
 
-!!! note
+!!! remarque
     La création des types nécessite que vous ayez les fichiers ABI spécifiés dans le fichier `subgraph.yaml` . Cet exemple de repo contient déjà le fichier, mais celui-ci est généralement obtenu après la compilation du contrat. Vérifier le [Moonlotto repo](https://github.com/PureStake/moonlotto-subgraph) pour plus d'informations.
 
 La commande `codegen` peut également être exécuté en utilisant `yarn codegen`.
@@ -233,7 +233,7 @@ Si vous comptez utiliser The Graph API (service hébergé), vous devez:
  - Go to your dashboard and write down the access token
  - Créez votre subgraph via le bouton "Add Subgraph" dans le site Graph Explorer. Notez le nom du Subgraph
 
-!!! note
+!!! remarque
     Toutes les étapes se trouvent dans [ce lien](https://thegraph.com/docs/deploy-a-subgraph).
  
 Si vous utilisez un nœud graph local, vous pouvez créer votre subgraph en exécutant le code suivant:

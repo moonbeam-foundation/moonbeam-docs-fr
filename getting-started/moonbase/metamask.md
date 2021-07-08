@@ -15,7 +15,7 @@ Si vous avez déjà installé MetaMask, vous pouvez facilement connecter MetaMas
     <a href="#" class="md-button connectMetaMask">Connect MetaMask</a>
 </div>
 
-!!! note
+!!! remarque
     MetaMask apparaîtra pour demander la permission d'ajouter Moonbase Alpha en tant que réseau personnalisé. Une fois que vous avez approuvé les autorisations, MetaMask basculera votre réseau actuel vers Moonbase Alpha.
 ## Création d'un portefeuille
 

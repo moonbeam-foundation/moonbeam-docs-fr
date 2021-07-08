@@ -11,7 +11,7 @@ Dans le cadre d'un effort continu pour aider les développeurs qui souhaitent co
 
 Ce tutoriel vous guidera tout au long du processus de configuration de la box, à l'aide du plugin Moonbeam Truffle et au déploiement de contrats à la fois sur un nœud de développement Moonbeam et sur Moonbase Alpha en utilisant Truffle avec la configuration de base.
 
-!!! note
+!!! remarque
     Ce guide est basé sur une installation Ubuntu 18.04. Au moment de la rédaction de cet article, les versions Node.js et npm utilisées étaient respectivement 15.2.1 et 7.0.8. Les versions Node.js supérieures à 10.23.0 sont requises. Nous avons également remarqué une erreur lors de l'installation des packages avec la version 7.0.15 de npm. Vous pouvez rétrograder npm en exécutant `npm install -g npm@version`, en définissant la version sur celle souhaitée.
 
 ## Vérification des prérequis
@@ -51,7 +51,7 @@ Avec les fichiers de votre système local, l'étape suivante consiste à install
 npm install
 ```
 
-!!! note
+!!! remarque
     Nous avons remarqué une erreur lors de l'installation des packages avec la version 7.0.15 de npm. Vous pouvez rétrograder npm en exécutant `npm install -g npm@version` et en définissant la version sur celle souhaitée. Par exemple, 7.0.8 ou 6.14.9.
 
 Cela met fin à toutes les conditions préalables dont vous avez besoin pour utiliser la Truffle box Moonbeam.
@@ -119,7 +119,7 @@ truffle migrate --network network_name  #deploys to the specified network
 
 En fonction du réseau sur lequel vous souhaitez déployer les contrats, vous devez remplacer nom_réseau par dev (pour cibler le nœud de développement) ou moonbase (pour cibler le TestNet).
 
-!!! note
+!!! remarque
     Si vous n'avez pas installé Truffle en global, vous pouvez utiliser `npx truffle` ou `./node_modules/.bin/truffle` a la place de `truffle` .
 
 ## Le plugin Truffle Moonbeam

@@ -19,7 +19,7 @@ Avec la sortie de [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/rele
 
 Plus d'informations peuvent être trouvées dans les pages Wiki de Polkadot liées à la [Gouvernance](https://wiki.polkadot.network/docs/en/learn-governance#council) et a la [participation à la démocratie](https://wiki.polkadot.network/docs/en/maintain-guides-democracy).
 
-!!! note
+!!! remarque
     Ce guide a été réalisé avec une version personnalisée de Moonbeam avec de courtes périodes de lancement/mise en œuvre à des fins de démonstration uniquement.
 
 ## Definitions
@@ -76,7 +76,7 @@ Ici, vous devez fournir les informations suivantes :
 
 ![Remplissez les informations de pré-image](/images/governance/governance-proposal-3.png)
 
-!!! note
+!!! remarque
     Assurez-vous de copier le hachage de la préimage, car il est nécessaire pour soumettre la proposition.
 
 Notez que le coût de stockage de la pré-image est affiché dans le coin inférieur gauche de cette fenêtre. Une fois la transaction soumise, vous verrez des confirmations dans le coin supérieur droit de l'interface de PolkadotJS Apps, mais rien n'aura changé dans l'écran principal de democracy. Cependant, ne vous inquiétez pas. Si la transaction est confirmée, la préimage a été soumise.
@@ -96,7 +96,7 @@ Ici, vous devez fournir les informations suivantes :
 
 ![Remplissez les informations de la proposition](/images/governance/governance-proposal-5.png)
 
-!!! note
+!!! remarque
     Les jetons peuvent être verrouillés pendant une durée indéterminée car on ne sait pas quand une proposition peut devenir un référendum (le cas échéant).
 
 Une fois la transaction soumise, vous verrez des confirmations dans le coin supérieur droit de l'interface Polkadot JS Apps. Vous devriez également voir la proposition répertoriée dans la section "Propositions" , affichant le proposant et les montants de jetons verrouillés, et elle est maintenant prête à être secondée!
@@ -107,7 +107,7 @@ Une fois la transaction soumise, vous verrez des confirmations dans le coin sup�
 
 Soutenir une proposition signifie que vous êtes d'accord avec elle et que vous souhaitez la sauvegarder avec vos jetons pour l'aider à atteindre les référendums publics. Le nombre de jetons à verrouiller est égal au dépôt initial du proposant - ni plus, ni moins.
 
-!!! note
+!!! remarque
     Un seul compte peut soutenir une proposition plusieurs fois. C'est par conception, car un compte pourrait simplement envoyer des jetons à différentes adresses et les utiliser pour seconder la proposition. Ce qui compte, c'est le nombre de jetons qui soutiennent une proposition, et non le nombre de bons qu'elle a reçus.
 
 Cette section décrit les étapes à suivre pour soutenir la proposition faite dans la section précédente. Pour ce faire, cliquez sur le bouton "Second" disponible pour chaque proposition qui apparaît dans la liste des propositions.
@@ -122,7 +122,7 @@ Ici, vous devez fournir les informations suivantes:
 
 ![Fill in Second Information](/images/governance/governance-proposal-8.png)
 
-!!! note
+!!! remarque
     Les jetons peuvent être verrouillés pendant une durée indéterminée car on ne sait pas quand une proposition peut devenir un référendum (le cas échéant)
 
 Une fois la transaction soumise, vous verrez des confirmations dans le coin supérieur droit de l'interface Polkadot JS Apps. Vous devriez également voir la proposition répertoriée dans la section "Propositions" , affichant le proposant et les montants de jetons verrouillés et répertoriant les utilisateurs qui ont soutenu cette proposition!

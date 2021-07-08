@@ -97,7 +97,7 @@ Comme vous le feriez dans une transaction standard, définissez l'adresse du des
  1. Vérifiez tous les détails de la transaction. Veuillez noter que le token correspond au réseau auquel MetaMask est connecté. **Dans ce cas, il s'agit de jetons DEV et non UNKN!**
  2. Une fois tous les détails vérifiés, maintenez le bouton enfoncé pour confirmer
 
-!!! note
+!!! remarque
     Au moment de la rédaction, le nom du jeton pour tous les réseaux liés à Moonbeam est toujours affiché comme `UNKN`. Veuillez noter que le token manipulé est celui correspondant au réseau auquel MetaMask est connecté.
 
 ![Trezor Hardware Wallet Sign Transaction](/images/trezor/trezor-images11.png)

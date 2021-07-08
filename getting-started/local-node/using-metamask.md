@@ -14,7 +14,7 @@ MetaMask peut être utilisé pour se connecter à Moonbeam via le Moonbase Alpha
 
 Ce guide décrit les étapes nécessaires pour connecter MetaMask à un nœud de développement autonome Moonbeam afin d'envoyer des jetons entre les comptes. Si vous n'avez pas encore configuré votre propre nœud de développement local, reportez-vous à [ce tutoriel](/getting-started/local-node/setting-up-a-node/),  ou suivez les instructions du [Repo Github](https://github.com/PureStake/moonbeam/).
 
-!!! note
+!!! remarque
     Ce tutoriel a été créé à l'aide du tag {{ networks.development.build_tag}} qui est basé sur la version {{ networks.moonbase.version }} de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/{{ networks.moonbase.version }}). La plate-forme Moonbeam et les composants [Frontier](https://github.com/paritytech/frontier) sur lesquels elle s'appuie pour la compatibilité Ethereum basée sur substrate sont toujours en cours de développement. 
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
@@ -81,6 +81,6 @@ Si vous revenez à votre terminal sur lequel votre nœud Moonbeam est en cours d
 
 ![Nœud de développement Moonbeam](/images/metamask/using-metamask-9.png)
 
-!!! note
+!!! remarque
     Si vous finissez par réinitialiser votre nœud de développement à l'aide de la commande Substrate purge-chain, vous devrez réinitialiser votre compte genesis MetaMask en utilisant Paramètres -> Avancé -> Réinitialiser le compte. Cela effacera l'historique des transactions de vos comptes et réinitialisera le nonce. Assurez-vous de ne rien effacer de ce que vous souhaitez conserver!
  

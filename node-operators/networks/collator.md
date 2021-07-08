@@ -28,7 +28,7 @@ Semblable aux validateurs Polkadot, vous devez créer un compte (bien que dans c
 
 Les collators doivent avoir un minimum de {{ networks.moonbase.staking.collator_min_stake }} DEV pour être considérés comme éligibles (devenir un candidat). Seuls les {{ networks.moonbase.staking.max_collators }} meilleurs collators par enjeu désigné feront partie de l'ensemble actif.    
 
-!!! note
+!!! remarque
     Actuellement, la création ou l'importation d'un compte dans PolkadotJS via une graine mnémonique entraînera une adresse publique différente si vous essayez ultérieurement d'importer ce compte dans un portefeuille Ethereum tel que MetaMask. En effet, PolkadotJS utilise BIP39, tandis qu'Ethereum utilise BIP32 ou BIP44. 
 
 ## Compte dans PolkadotJS
@@ -58,7 +58,7 @@ Une fois que votre nœud est en cours d'exécution et synchronisé avec le rése
 
 ![Join Collators pool PolkadotJS](/images/fullnode/collator-polkadotjs2.png)
 
-!!! note
+!!! remarque
     Les noms de fonction et l'exigence de caution minimale sont susceptibles de changer dans les versions futures.
 
 Comme mentionné précédemment, seuls les {{ networks.moonbase.staking.max_collators }} meilleurs collators par enjeu désigné feront partie de l'ensemble actif. 
@@ -79,6 +79,6 @@ Le tableau suivant présente certains des délais concernant les différentes ac
 |Paiements de récompenses (après le tour en cours)|   |     2     |   |    4     |
 
 
-!!! note 
+!!! remarque 
     Les valeurs présentées dans le tableau précédent sont susceptibles d'être modifiées dans les versions futures.
 

@@ -30,7 +30,7 @@ Les deux sections suivantes décrivent la stratégie de filtrage actuellement ut
 
 Les assembleurs peuvent rejoindre le pool de candidats en liant simplement des jetons via un extrinsèque. Une fois dans le pool, les détenteurs de jetons peuvent ajouter à la mise de l'assembleur via une nomination (également appelée staking), c'est-à-dire au niveau de la parachaine.
 
-Le staking de la Parachaine est le premier des deux filtres Nimbus appliqués au pool de candidats assembleurs. Il sélectionne les meilleurs {{ network.moonbase.staking.max_collators }} assembleurs en termes de jetons mis en jeu dans le réseau, ce qui inclut le lien assembleur et les nominations des détenteurs de jetons. Ce pool filtré est appelé candidats sélectionnés, et les candidats sélectionnés sont renouvelés à chaque tour (qui dure {{ networks.moonbase.staking.round_blocks }} blocs). Pour un tour donné, le schéma suivant décrit le filtrage du staking de la parachaine :
+Le staking de la Parachaine est le premier des deux filtres Nimbus appliqués au pool de candidats assembleurs. Il sélectionne les meilleurs {{ networks.moonbase.staking.max_collators }} assembleurs en termes de jetons mis en jeu dans le réseau, ce qui inclut le lien assembleur et les nominations des détenteurs de jetons. Ce pool filtré est appelé candidats sélectionnés, et les candidats sélectionnés sont renouvelés à chaque tour (qui dure {{ networks.moonbase.staking.round_blocks }} blocs). Pour un tour donné, le schéma suivant décrit le filtrage du staking de la parachaine :
 
 ![Filtre de staking de la Parachaine Nimbus](/images/consensus/consensus-images1.png)
 

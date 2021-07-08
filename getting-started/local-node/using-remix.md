@@ -14,7 +14,7 @@ Remix est l'un des environnements de développement couramment utilisés pour le
 
 Ce guide décrit le processus de création et de déploiement d'un contrat intelligent basé sur Solidity sur un nœud de développement Moonbeam à l'aide de l' [IDE Remix](https://remix.ethereum.org/). 
 
-!!! note
+!!! remarque
    Ce tutoriel a été créé à l'aide du tag {{ networks.development.build_tag}} qui est basé sur la version {{ networks.moonbase.version }} de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/{{ networks.moonbase.version }}). La plate-forme Moonbeam et les composants [Frontier](https://github.com/paritytech/frontier) sur lesquels elle s'appuie pour la compatibilité Ethereum basée sur substrate sont toujours en cours de développement.
 
 Ce guide suppose que vous disposez d'un nœud Moonbeam local en mode `--dev` et que vous disposez d'une installation de [MetaMask](https://metamask.io/)  configurée pour utiliser ce nœud local. Vous pouvez trouver des instructions pour exécuter un nœud Moonbeam en local [ici](/getting-started/local-node/setting-up-a-node/) et des instructions pour y connecter MetaMask [ici](/getting-started/local-node/using-metamask/).
@@ -28,7 +28,7 @@ Et vous devriez avoir une installation MetaMask connectée à votre nœud de dé
 
 ![Installation de MetaMask avec un solde](/images/remix/using-remix-2.png)
 
-!!! note
+!!! remarque
     Assurez-vous que vous êtes connecté à votre nœud Moonbeam et non à un autre réseau !
 
 ## Premiers pas avec Remix
@@ -81,7 +81,7 @@ Une fois que vous avez entré cette valeur, sélectionnez "Déployer."
 
 ![Confirmez le message de transaction](/images/remix/using-remix-9.png)
 
-!!! note
+!!! remarque
     Si vous rencontrez des problèmes pour déployer un contrat spécifique, vous pouvez essayer d'augmenter manuellement la limite de gaz. Vous pouvez le faire sous Paramètres -> Avancé -> Contrôles de gaz avancés = ON.
 
 Après avoir appuyé sur Confirmer et que le déploiement est terminé, vous verrez la transaction répertoriée dans MetaMask. Le contrat apparaîtra sous Contrats déployés dans Remix.

@@ -21,7 +21,7 @@ Il existe plusieurs déploiements de Moonbeam, y compris Moonbase Alpha TestNet,
 
 Ce guide est destiné aux personnes ayant de l'expérience dans la compilation de nœuds blockchain basés sur [Substrate](https://substrate.dev/). Un nœud parachain est similaire à un nœud typique de substrate, mais il existe quelques différences. Un nœud parachain de substrat aura un plus grand build car il contient du code pour exécuter la parachain elle-même, ainsi que du code pour synchroniser la chaîne de relais et faciliter la communication entre les deux. En tant que tel, cette version est assez volumineuse et peut prendre plus de 30 minutes et nécessiter 32 Go de mémoire.
 
-!!! Remarque
+!!! remarque
     Moonbase Alpha est toujours considéré comme un Alphanet, et en tant que tel _n'aura pas_ une disponibilité de 100 %. La parachain sera purgée de temps en temps. Lors du développement de votre application, veillez à mettre en place une méthode pour redéployer rapidement vos contrats et vos comptes vers une nouvelle parachaine. Les purges en chaîne seront annoncées via notre [canal Discord](https://discord.gg/PfpUATX) au moins 24 heures à l'avance.
 
 ## Conditions
@@ -45,7 +45,7 @@ Les spécifications minimales recommandées pour exécuter un nœud sont indiqu�
     | **Firewall** |     | Port P2P doit être ouvert pour le trafic entrant:<br>&nbsp; &nbsp; - Source: Any<br>&nbsp; &nbsp; - Destination: 30333, 30334 TCP |
 
 
-!!! Remarque
+!!! remarque
     Si vous ne voyez pas de message `Importé` (sans la balise `[Relaychain]`) lors de l'exécution d'un nœud, vous devrez peut-être revérifier la configuration de votre port.
 
 ## Ports en cours d'exécution
@@ -190,10 +190,10 @@ Une fois que Docker a extrait les images nécessaires, votre nœud Moonbeam (ou 
 
 ![Démarrage du nœud complet](/images/fullnode/fullnode-docker1.png)
 
-!!! Remarque
+!!! remarque
     Si vous souhaitez exécuter un point de terminaison RPC, vous connecter à polkadot.js.org ou exécuter votre propre application, utilisez les indicateurs `--unsafe-rpc-external` et/ou `--unsafe-ws-external` pour exécuter le nœud complet avec accès externe aux ports RPC. Plus de détails sont disponibles en exécutant `moonbeam --help`.
 
-!!! Remarque
+!!! remarque
     Vous pouvez spécifier un port Prometheus personnalisé avec le drapeau `--prometheus-port XXXX` (en remplaçant `XXXX` par le numéro de port réel). Ceci est possible à la fois pour la parachain et la chaîne de relais embarquée.
 
 La commande ci-dessus activera tous les ports exposés requis pour le fonctionnement de base, y compris les ports P2P et Prometheus (télémétrie). Cette commande est compatible avec la télémétrie Gantree Node Watchdog. Si vous souhaitez exposer des ports spécifiques, activez-les sur la ligne de commande d'exécution de Docker, comme indiqué ci-dessous. Cependant, cela empêchera le conteneur Gantree Node Watchdog (télémétrie) d'accéder au conteneur moonbeam, alors ne le faites pas lors de l'exécution d'un assembleur à moins que vous ne compreniez [docker networking] (https://docs.docker.com/network/ ).
@@ -206,7 +206,7 @@ Pendant le processus de synchronisation, vous verrez des messages à la fois de 
 
 ![Démarrage du nœud complet](/images/fullnode/fullnode-docker2.png)
 
-!!! Remarque
+!!! remarque
     Il faudra quelques jours pour synchroniser complètement la chaîne de relais Kusama intégrée. Assurez-vous que votre système répond aux [exigences](#exigences).
 
 Si vous avez suivi les instructions d'installation de Moonbase Alpha, une fois synchronisé, vous aurez un nœud de Moonbase Alpha TestNet fonctionnant localement !
@@ -282,7 +282,7 @@ Ensuite, créez un répertoire pour stocker le binaire et les données. Assurez-
     chown moonriver_service {{ networks.moonriver.node_directory }}
     ```
 
-Maintenant, copiez le binaire construit dans la dernière section dans le dossier créé. Si vous [compilé le binaire](/node-operators/networks/compile-binary/) vous-même, vous devrez copier le binaire dans le répertoire cible (`./target/release/{{ networks.moonbase.binary_name } }`). Sinon, copiez le binaire Moonbeam à la racine :
+Maintenant, copiez le binaire construit dans la dernière section dans le dossier créé. Si vous [compilé le binaire](/node-operators/networks/compile-binary/) vous-même, vous devrez copier le binaire dans le répertoire cible (`./target/release/{{ networks.moonbase.binary_name }}`). Sinon, copiez le binaire Moonbeam à la racine :
 
 === "Moonbase Alpha"
     ```
@@ -446,7 +446,7 @@ L'étape suivante consiste à créer le fichier de configuration systemd. Si vou
     WantedBy=multi-user.target
     ```
 
-!!! Remarque
+!!! remarque
      Vous pouvez spécifier un port Prometheus personnalisé avec le drapeau `--prometheus-port XXXX` (en remplaçant `XXXX` par le numéro de port réel). Ceci est possible à la fois pour la parachain et la chaîne de relais embarquée.
 
 Vous y êtes presque! Enregistrez-vous et démarrez le service en exécutant :

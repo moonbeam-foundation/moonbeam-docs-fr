@@ -93,7 +93,7 @@ Comme vous le feriez dans une transaction standard, définissez l'adresse du des
  6. Si vous êtes d'accord avec tous les détails de la transaction, approuvez-la. Cela signera la transaction et demandera à Metamask de déclencher l'envoi. Si vous n'êtes pas d'accord, passez à l'écran suivant
  7. Si vous n'êtes pas d'accord avec tous les détails de la transaction, rejetez-la. Cela annulera la transaction et MetaMask la marquera comme ayant échoué
 
-!!! note
+!!! remarque
     Au moment de la rédaction, le nom du jeton est toujours affiché sous la forme `ETH`. Veuillez noter que le token manipulé est celui correspondant au réseau auquel MetaMask est connecté.
 
 ![MetaMask Ledger Transaction Wizard](/images/ledger/ledger-images6.png)
@@ -115,7 +115,7 @@ Cependant, si vous souhaitez utiliser votre portefeuille matériel Ledger pour l
  3. Trouvez la page "Contract data". Elle devrait indiquer "NOT allowed" en bas
  4. Sélectionnez/validez l'option pour changer sa valeur en "Allowed"
 
-!!! note
+!!! remarque
     Cette option est nécessaire pour utiliser votre appareil Ledger pour interagir avec les contrats de jetons ERC20 qui pourraient vivre à l'intérieur de l'écosystème Moonbeam.
 
 ![MetaMask Ledger Allow Contracts Tx](/images/ledger/ledger-images8.png)

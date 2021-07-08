@@ -13,7 +13,7 @@ Un nœud Graph source des événements à partir d'une blockchain pour mettre à
 
 Vous pouvez configurer un nœud Graph de deux manières : vous pouvez utiliser Docker pour exécuter une image tout-en-un, ou vous pouvez exécuter leur [implementation Rust](https://github.com/graphprotocol/graph-node). Les étapes décrites dans ce guide ne couvriront que l'alternative Docker, car elle est plus pratique et vous pourrez configurer un nœud de graph très rapidement.
 
-!!! note
+!!! remarque
     Les étapes décrites dans ce guide ont été testées dans les environnements Ubuntu 18.04 et MacOs, et elles devront être adaptées en conséquence pour d'autres systèmes.
 
 ## Vérification des prérequis

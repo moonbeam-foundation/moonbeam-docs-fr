@@ -30,7 +30,7 @@ Voyons comment nous pouvons créer un nouveau compte ou importer un compte MetaM
 
 Cela ouvrira une fenêtre contextuelle d'assistant qui vous guidera tout au long du processus d'ajout d'un compte à l'interface Polkadot JS Apps. Assurez-vous de cliquer sur le menu déroulant et de passer de Mnemonic à Raw seed, cela vous permet d'ajouter un compte via une clé privée.
 
-!!! note
+!!! remarque
     Actuellement, vous ne pouvez créer ou importer des comptes dans PolkadotJS que via une clé privée. Le faire avec le mnémonique entraînera une adresse publique différente si vous essayez ultérieurement d'importer ce compte dans un portefeuille Ethereum tel que MetaMask. En effet, PolkadotJS utilise BIP39, tandis qu'Ethereum utilise BIP32 ou BIP44.
 
 ![Connect to Moonbase Alpha](/images/polkadotjs/polkadotjs-app4.png)
@@ -40,7 +40,7 @@ Ensuite, si vous souhaitez créer un nouveau compte, assurez-vous de stocker la 
 - Clé privée:: `28194e8ddb4a2f2b110ee69eaba1ee1f35e88da2222b5a7d6e3afa14cf7a3347`
 - Adresse publique: `0x44236223aB4291b93EEd10E4B511B37a398DEE55` 
 
-!!! note
+!!! remarque
     Ne révélez jamais vos clés privées car elles donnent un accès direct à vos fonds. Les étapes de ce guide sont uniquement à des fins de démonstration. 
     
 Assurez-vous d'inclure le préfixe dans la clé privée, c'est-à-dire 0x. Si vous avez correctement saisi les informations, l'adresse publique correspondante doit apparaître dans le coin supérieur gauche de la fenêtre.

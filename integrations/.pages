@@ -1,7 +1,9 @@
 title: Integrations
-arrange:
+nav:
   - bridges
   - ethlibraries
+  - indexers
+  - openzeppelin
   - oracles
   - wallets
   - explorers.md

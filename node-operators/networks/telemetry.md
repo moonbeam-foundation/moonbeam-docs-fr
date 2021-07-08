@@ -13,7 +13,7 @@ Avec la sortie de Moonbase Alpha v6, vous pouvez créer un nœud qui se connecte
 
 Ce guide fournira les étapes nécessaires pour activer le serveur de télémétrie pour votre nœud Moonbase Alpha.
 
-!!! note
+!!! remarque
     Les étapes décrites dans ce guide concernent une instance de télémétrie différente de la télémétrie Polkadot standard activée par défaut (vous pouvez exécuter des nœuds sans télémétrie à l’aide de l’indicateur `—no-telemetry`). Les étapes décrites dans ce guide sont obligatoires uniquement pour les nœuds d’assembleur.
 
 ## Récapitulatif de l’Éxportateur de Télémétrie

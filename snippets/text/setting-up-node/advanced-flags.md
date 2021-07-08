@@ -8,7 +8,7 @@ Les fonctionnalités mentionnées ci-dessus peuvent être activées à l'aide de
  - `--ethapi=debug`: active l'API de débogage Geth pour l'appel RPC `debug_traceTransaction` 
  - `--ethapi=trace`: active le module de tracage OpenEthereum pour l'appel RPC `trace_filter`
 
-!!! note
+!!! remarque
     Les fonctionnalités de débogage/trace sont toujours activement développées. Comme ces requêtes sont très gourmandes en CPU, il est recommandé d'exécuter le nœud avec le flag `--execution=Native` . Cela utilisera le runtime natif inclus dans l'exécutable du nœud au lieu du binaire Wasm stocké en chaîne.
 
 Vous pouvez combiner les deux flags lors de l'exécution d'un nœud. 
