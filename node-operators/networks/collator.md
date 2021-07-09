@@ -15,7 +15,7 @@ Avec la sortie de Moonbase Alpha v6, les utilisateurs peuvent non seulement cré
 
 Moonbeam utilise le [Nimbus Parachain Consensus Framework](/learn/consensus/). Cela fournit un filtre en deux étapes pour allouer aux collators un créneau de production de bloc :
 
-  - Le filtre de staking de la parachain sélectionne les meilleurs {{ network.moonbase.staking.max_collators }} collators en termes de tokens stakés dans le réseau. Ce pool filtré est appelé candidats sélectionnés, et les candidats sélectionnés sont soumis à une rotation à chaque tour
+  - Le filtre de staking de la parachain sélectionne les meilleurs {{ networks.moonbase.staking.max_collators }} collators en termes de tokens stakés dans le réseau. Ce pool filtré est appelé candidats sélectionnés, et les candidats sélectionnés sont soumis à une rotation à chaque tour
   - Le filtre de sous-ensemble de taille fixe sélectionne un sous-ensemble pseudo-aléatoire des candidats précédemment sélectionnés pour chaque créneau de production de blocs
 
 Ce guide vous guidera à travers les étapes suivantes :
@@ -78,10 +78,10 @@ Une fois que votre nœud est en cours d'exécution et synchronisé avec le rése
 
  1. Accédez à l'onglet "Développeurs" et cliquez sur "Extrinsèques"
  2. Sélectionnez le compte que vous souhaitez associer à vos activités de classement
- 3. Confirmez que votre compte collator est financé avec au moins {{ network.moonbase.staking.collator_min_stake }} jetons DEV plus quelques extras pour les frais de transaction
+ 3. Confirmez que votre compte collator est financé avec au moins {{ networks.moonbase.staking.collator_min_stake }} jetons DEV plus quelques extras pour les frais de transaction
  4. Sélectionnez la palette « parachainStaking » dans le menu « soumettre les éléments extrinsèques suivants »
  5. Ouvrez le menu déroulant, qui répertorie toutes les extrinsèques possibles liées au staking, et sélectionnez la fonction `joinCandidates()`
- 6. Définissez le lien sur au moins {{ network.moonbase.staking.collator_min_stake }} jetons DEV, ce qui est le montant minimum pour être considéré comme un candidat assembleur sur Moonbase Alpha. Seul le cautionnement compte pour ce chèque. Les nominations supplémentaires ne comptent pas
+ 6. Définissez le lien sur au moins {{ networks.moonbase.staking.collator_min_stake }} jetons DEV, ce qui est le montant minimum pour être considéré comme un candidat assembleur sur Moonbase Alpha. Seul le cautionnement compte pour ce chèque. Les nominations supplémentaires ne comptent pas
  7. Définissez le nombre de candidats comme taille du pool de candidats. Pour savoir comment récupérer cette valeur, consultez [cette section](#get-the-size-of-the-candidate-pool)
  8. Soumettez la transaction. Suivez l'assistant et signez la transaction en utilisant le mot de passe que vous avez défini pour le compte
 
@@ -90,7 +90,7 @@ Une fois que votre nœud est en cours d'exécution et synchronisé avec le rése
 !!! Remarque
      Les noms de fonction et l'exigence de caution minimale sont susceptibles de changer dans les versions futures.
 
-Comme mentionné précédemment, seuls les meilleurs {{ network.moonbase.staking.max_collators }} collators par mise nominée seront dans l'ensemble actif.
+Comme mentionné précédemment, seuls les meilleurs {{ networks.moonbase.staking.max_collators }} collators par mise nominée seront dans l'ensemble actif.
 
 ### Arrêter l'assemblage
 
@@ -148,7 +148,7 @@ Il existe un lien de jetons DEV {{ networks.moonbase.staking.collator_map_bond }
 Le module `authorMapping` a les éléments extrinsèques suivants programmés :
 
  - **addAssociation**(*address* authorID) — mappe votre ID d'auteur sur le compte H160 à partir duquel la transaction est envoyée, garantissant qu'il est le véritable propriétaire de ses clés privées. Il nécessite un lien de jetons DEV {{ networks.moonbase.staking.collator_map_bond }}
- - **clearAssociation**(*address* authorID) — efface l'association d'un ID d'auteur au compte H160 à partir duquel la transaction est envoyée, qui doit être le propriétaire de cet ID d'auteur. Rembourse également la {{ network.moonbase.staking.collator_map_bond }} obligation de jetons DEV
+ - **clearAssociation**(*address* authorID) — efface l'association d'un ID d'auteur au compte H160 à partir duquel la transaction est envoyée, qui doit être le propriétaire de cet ID d'auteur. Rembourse également la {{ networks.moonbase.staking.collator_map_bond }} obligation de jetons DEV
  - **updateAssociation**(*address* oldAuthorID, *address* newAuthorID) — met à jour le mappage d'un ancien ID d'auteur vers un nouveau. Utile après une rotation de clé ou une migration. Il exécute à la fois les extrinsèques d'association « ajouter » et « effacer » de manière atomique, permettant la rotation des clés sans avoir besoin d'une deuxième liaison
 
 Le module ajoute également les appels RPC suivants (état de la chaîne) :
@@ -157,7 +157,7 @@ Le module ajoute également les appels RPC suivants (état de la chaîne) :
 
 ### Cartographie extrinsèque
 
-Pour mapper votre ID d'auteur à votre compte, vous devez être dans le [pool de candidats](#become-a-collator-candidate). Une fois que vous êtes candidat assembleur, vous devez envoyer une cartographie extrinsèque (transaction). Notez que cela liera {{ network.moonbase.staking.collator_map_bond }} jetons DEV, et cela par ID d'auteur enregistré. Pour ce faire, procédez comme suit :
+Pour mapper votre ID d'auteur à votre compte, vous devez être dans le [pool de candidats](#become-a-collator-candidate). Une fois que vous êtes candidat assembleur, vous devez envoyer une cartographie extrinsèque (transaction). Notez que cela liera {{ networks.moonbase.staking.collator_map_bond }} jetons DEV, et cela par ID d'auteur enregistré. Pour ce faire, procédez comme suit :
 
  1. Dirigez-vous vers l'onglet "Développeur"
  2. Sélectionnez l'option "Extrinsèques"

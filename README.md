@@ -7,7 +7,7 @@ description: Bienvenue sur le site de documentation de la plateforme de contrat 
 
 ![Main Page Banner](/images/main-banner.png)
 
-**Note: this website was translated by members of the Ambassadors program and is part of a community-led effort. The team would like to express his gratitude towards these great Ambassadors that translated all the content: Redallica, Ary and Khtsn. If you want to contribute to this translation, please visit the following [Github repository](https://github.com/PureStake/moonbeam-docs-fr).**
+**Note: this website was translated by members of the Ambassadors program and is part of a community-led effort. The team would like to express his gratitude towards these great Ambassadors that translated all the content: Redallica, Ary and Khtsn. If you want to contribute to this translation, please visit the following [GitHub repository](https://github.com/PureStake/moonbeam-docs-fr).**
 
 Ce site fournit de la documentation pour Moonbeam, une parachaine de contrat intelligent sur le réseau Polkadot qui est entièrement compatible avec Ethereum. Ici, vous trouverez à la fois des informations techniques et de haut niveau pour les développeurs, les collators, les utilisateurs finaux et les autres participants au réseau Moonbeam.
 
