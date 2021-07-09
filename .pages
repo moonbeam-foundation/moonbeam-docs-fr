@@ -5,8 +5,10 @@ arrange:
   - networks
   - governance
   - staking
+  - treasury
   - integrations
   - dapps-list
   - node-operators
   - learn
   - resources
+
