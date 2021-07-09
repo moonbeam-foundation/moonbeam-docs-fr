@@ -3,7 +3,7 @@ title: Trésorerie
 description: En tant que parachain Polkadot, Moonbeam utilisera une trésorerie en chaîne contrôlée par les membres du conseil, qui permet aux parties prenantes de soumettre des propositions pour faire avancer le réseau.
 ---
 
-# Trésorerie dans Moonbeam
+# La Trésorerie dans Moonbeam
 
 ![Treasury Moonbeam Banner](/images/treasury/treasury-overview-banner.png)
 
