@@ -28,7 +28,7 @@ Pour vérifier la version installée de Web3, vous pouvez utiliser la commande `
 ```
 npm ls web3
 ```
-Au moment de la rédaction de ce guide, la version utilisée était la 1.3.0. Nous utiliserons également [Remix](/integrations/remix/), en le connectant au Testnet Moonbase Alpha via [MetaMask](/integrations/wallets/metamask/).
+Au moment de la rédaction de ce guide, la version utilisée était la 1.3.0. Nous utiliserons également [Remix](/integrations/remix/), en le connectant au TestNet Moonbase Alpha via [MetaMask](/integrations/wallets/metamask/).
 
 ## Vérifier les signatures avec ECRECOVER
 

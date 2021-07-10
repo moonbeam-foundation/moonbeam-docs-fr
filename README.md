@@ -68,7 +68,7 @@ Grâce aux fonctionnalités de compatibilité Ethereum de Moonbeam, vous pouvez 
 
 ###  Ponts
 
-Actuellement, nous avons une implémentation de pont entièrement fonctionnelle qui relie les Testnets Rinkeby/Kovan d'Ethereum et Moonbase Alpha:
+Actuellement, nous avons une implémentation de pont entièrement fonctionnelle qui relie les TestNets Rinkeby/Kovan d'Ethereum et Moonbase Alpha:
 
  - [ChainBridge](/integrations/bridges/ethereum/chainbridge/)
 

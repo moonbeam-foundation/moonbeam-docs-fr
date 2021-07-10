@@ -11,7 +11,7 @@ description: Utilisez Hardhat pour compiler, déployer et déboguer les contrats
 
 Hardhat est un environnement de développement Ethereum qui aide les développeurs à gérer et à automatiser les tâches récurrentes inhérentes à la création de contrats intelligents et de DApps. Hardhat peut interagir directement avec l'API Ethereum de Moonbeam afin qu'il puisse également être utilisé pour déployer des contrats intelligents dans Moonbeam.
 
-Ce guide expliquera comment utiliser Hardhat pour compiler, déployer et déboguer des contrats intelligents Ethereum sur le Testnet Moonbase Alpha .
+Ce guide expliquera comment utiliser Hardhat pour compiler, déployer et déboguer des contrats intelligents Ethereum sur le TestNet Moonbase Alpha .
 
 ## Vérification des prérequis
 

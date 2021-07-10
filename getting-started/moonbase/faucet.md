@@ -1,6 +1,6 @@
 ---
 title: Faucet
-description: Apprenez à utiliser le robot faucet automatisé sur Discord pour obtenir des jetons de test pour le Testnet Moonbeam, surnommé Moonbase Alpha.
+description: Apprenez à utiliser le robot faucet automatisé sur Discord pour obtenir des jetons de test pour le TestNet Moonbeam, surnommé Moonbase Alpha.
 ---
 
 # Faucet Moonbase Alpha 

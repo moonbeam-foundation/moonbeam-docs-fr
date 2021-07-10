@@ -10,7 +10,7 @@ Nous prévoyons de créer plusieurs réseaux à longue durée de vie basés sur 
 Notre feuille de route en ce qui concerne les déploiements en tant que parachain est la suivante:
 
  - Moonbase Alpha: Parachain TestNet hébergé par PureStake (_Septembre 2020_) 
- - Moonrock: déploiement sur le Testnet Rococo  (_à déterminer_)
+ - Moonrock: déploiement sur le TestNet Rococo  (_à déterminer_)
  - Moonriver: déploiement sur Kusama (_fin T2 2021_)
  - Moonbeam: déploiement sur Polkadot (_fin T3 2021_)
  

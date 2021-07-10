@@ -1,6 +1,6 @@
 ---
 title: Intégrer MetaMask
-description: Apprenez à utiliser MetaMask avec le Testnet Moonbeam. Ce tutoriel vous montre comment connecter une installation par défaut de MetaMask à Moonbase Alpha.
+description: Apprenez à utiliser MetaMask avec le TestNet Moonbeam. Ce tutoriel vous montre comment connecter une installation par défaut de MetaMask à Moonbase Alpha.
 ---
 
 # Connectez MetaMask à Moonbase Alpha
@@ -43,4 +43,4 @@ Remplissez les informations suivantes, puis cliquez sur Enregistrer:
 
 ![MetaMask5](/images/testnet/testnet-metamask5.png)
 
-C'est tout! Vous avez connecté avec succès MetaMask au Testnet Moonbeam, Moonbase.
+C'est tout! Vous avez connecté avec succès MetaMask au TestNet Moonbeam, Moonbase.

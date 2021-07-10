@@ -85,7 +85,7 @@ Copiez et collez le bloc de code ci-dessous dans votre environnement préféré,
 
 	function getData() {
     const address = '0xFEC4f9D5B322Aa834056E85946A32c35A3f5aDD8'; //example
-    const chainId = '1287'; //Moonbeam Testnet (Moonbase Alpha Chain ID)
+    const chainId = '1287'; //Moonbeam TestNet (Moonbase Alpha Chain ID)
     const url = new URL(`https://api.covalenthq.com/v1/${chainId}/address/${address}/balances_v2/`);
     
     url.search = new URLSearchParams({
@@ -111,7 +111,7 @@ Copiez et collez le bloc de code ci-dessous dans votre environnement préféré,
     // set your API key
     const APIKEY = 'YOUR API KEY HERE';
 	const address = '0xFEC4f9D5B322Aa834056E85946A32c35A3f5aDD8'; //example
-	const chainId = '1287'; //Moonbeam Testnet (Moonbase Alpha Chain ID)
+	const chainId = '1287'; //Moonbeam TestNet (Moonbase Alpha Chain ID)
 	const url = new URL(`https://api.covalenthq.com/v1/${chainId}/address/${address}/balances_v2/`);
 
     url.search = new URLSearchParams({

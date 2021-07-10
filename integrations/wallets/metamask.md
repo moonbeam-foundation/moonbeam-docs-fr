@@ -11,7 +11,7 @@ description: Ce guide vous explique comment connecter MetaMask, un portefeuille 
 
 Les développeurs peuvent tirer parti des fonctionnalités de compatibilité Ethereum de Moonbeam pour intégrer des outils, tels que [MetaMask](https://metamask.io/), dans leurs DApp. Ce faisant, ils peuvent utiliser la bibliothèque injectée fournie par MetaMask pour interagir avec la blockchain.
 
-Actuellement, MetaMask peut être configuré pour se connecter à deux réseaux: un nœud de développement Moonbeam ou le Testnet Moonbase Alpha.
+Actuellement, MetaMask peut être configuré pour se connecter à deux réseaux: un nœud de développement Moonbeam ou le TestNet Moonbase Alpha.
 
 Si vous avez déjà installé MetaMask, vous pouvez facilement connecter MetaMask au TestNet Moonbase Alpha :
 

@@ -24,7 +24,7 @@ Avant de nous plonger dans la façon de commencer, il est important de comprendr
 
 ## Utilisateurs avancés
 
-Si vous êtes habitué à exécuter des nœuds Oracle Chainlink, ces informations vous permettront de démarrer rapidement sur le Testnet Moonbase Alpha:
+Si vous êtes habitué à exécuter des nœuds Oracle Chainlink, ces informations vous permettront de démarrer rapidement sur le TestNet Moonbase Alpha:
 
  - Documentation Chainlink, qui peut être trouvée [ici](https://docs.chain.link/docs/running-a-chainlink-node)
  - Point de terminaison WSS Moonbase alpha: `wss://wss.testnet.moonbeam.network`

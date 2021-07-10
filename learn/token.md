@@ -28,6 +28,6 @@ Vous pouvez trouver plus d'informations sur MOVR [ici](https://moonbeam.network/
 
 ## Jeton DEV
 
-Dans notre Testnet Moonbeam (appelé Moonbase Alpha), le jeton est appelé DEV. Ce jeton peut être acquis librement, car son seul objectif est de piloter le développement et les tests sur Moonbase Alpha.
+Dans notre TestNet Moonbeam (appelé Moonbase Alpha), le jeton est appelé DEV. Ce jeton peut être acquis librement, car son seul objectif est de piloter le développement et les tests sur Moonbase Alpha.
 
 Vous pouvez accéder aux jetons DEV gratuitement à partir de notre [faucet](https://docs.moonbeam.network/getting-started/testnet/faucet/).

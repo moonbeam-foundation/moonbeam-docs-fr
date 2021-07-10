@@ -76,7 +76,7 @@ Les paramètres de vote sont actuellement définis comme suit :
 
 ## Essayez-le sur Moonbase Alpha
 
-Actuellement, dans notre Testnet Moonbase Alpha , les détenteurs de jetons peuvent soumettre des propositions et voter sur des référendums. Pour ce faire, consultez les guides suivants :
+Actuellement, dans notre TestNet Moonbase Alpha , les détenteurs de jetons peuvent soumettre des propositions et voter sur des référendums. Pour ce faire, consultez les guides suivants :
 
  - [Soumettre une proposition](/governance/proposals/)
  - [Voter sur une proposition](/governance/voting/)

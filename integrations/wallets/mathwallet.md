@@ -9,7 +9,7 @@ description: Ce guide vous explique comment connecter Mathwallet, un portefeuill
 
 ## Introduction
 
-MathWallet à [announcé](https://mathwallet.org/moonbeam-wallet/en/) qu'il supporte désormais nativement le [Testnet Moonbase Alpha](/networks/testnet/). Cela signifie que vous pouvez désormais interagir avec Moonbase Alpha en utilisant un autre portefeuille en plus de MetaMask.
+MathWallet à [announcé](https://mathwallet.org/moonbeam-wallet/en/) qu'il supporte désormais nativement le [TestNet Moonbase Alpha](/networks/testnet/). Cela signifie que vous pouvez désormais interagir avec Moonbase Alpha en utilisant un autre portefeuille en plus de MetaMask.
 
 Dans ce tutoriel, nous verrons comment configurer MathWallet pour se connecter à notre TestNet. Nous présenterons également un bref exemple d'utilisation de MathWallet en tant que fournisseur Web3 pour d'autres outils tels que [Remix](/integrations/remix/).
 

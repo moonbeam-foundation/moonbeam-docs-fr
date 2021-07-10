@@ -1,6 +1,6 @@
 ---
 title: Moonbase Alpha
-description: Un aperçu de la configuration actuelle du Testnet Moonbeam, Moonbase Alpha et des informations sur la façon de commencer à l'utiliser à l'aide de Solidity.
+description: Un aperçu de la configuration actuelle du TestNet Moonbeam, Moonbase Alpha et des informations sur la façon de commencer à l'utiliser à l'aide de Solidity.
 ---
 
 # Le TestNet Moonbase Alpha
