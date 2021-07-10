@@ -16,6 +16,7 @@ Waffle utilise des dépendances minimales, a une syntaxe facile à apprendre et 
 Mars fournit un cadre simple et compatible TypeScript pour créer des scripts de déploiement avancés et rester en phase avec les changements d'état. Mars se concentre sur l'infrastructure en tant que code, permettant aux développeurs de spécifier comment leurs contrats intelligents doivent être déployés, puis d'utiliser ces spécifications pour gérer automatiquement les changements d'état et les déploiements.
 
 Dans ce guide, vous allez créer un projet TypeScript pour écrire, compiler et tester un contrat intelligent à l'aide de Waffle, puis le déployer sur Moonbase Alpha TestNet à l'aide de Mars.
+
 ## Vérification des prérequis
 
 --8<-- 'text/common/install-nodejs.md'
