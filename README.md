@@ -38,6 +38,8 @@ Actuellement, nous avons testé Moonbeam avec les portefeuilles suivants:
 
  - [MetaMask](/integrations/wallets/metamask/)
  - [MathWallet](/integrations/wallets/mathwallet/)
+ - [Ledger](/integrations/wallets/ledger/)
+ - [Trezor](/integrations/wallets/trezor/)
 
 Cependant, tout portefeuille qui fonctionne avec un réseau personnalisé Ethereum devrait également fonctionner avec Moonbeam!
 
