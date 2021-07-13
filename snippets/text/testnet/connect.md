@@ -43,3 +43,11 @@ wss://wss.testnet.moonbeam.network
 ### ID de Chaine
 
 Pour le TestNet Moonbase Alpha , l'ID de la chaîne est: `1287`.
+
+### Relay Chain
+
+To connect to the Moonbase Alpha relay chain, managed by PureStake, you can use the following WS Endpoint:
+
+```
+wss://wss-relay.testnet.moonbeam.network
+```
