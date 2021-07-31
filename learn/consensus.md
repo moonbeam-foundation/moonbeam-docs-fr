@@ -52,7 +52,7 @@ Une fois la taille du sous-ensemble définie, les assembleurs sont sélectionné
 
 ![Filtre de jalonnement Nimbus Parachain](/images/consensus/consensus-images2.png)
 
-## Pourquoi Nimbus? {: #why-nimbus? } 
+## Pourquoi Nimbus? {: #why-nimbus } 
 
 Vous vous demandez peut-être : mais pourquoi Nimbus ? Initialement, cela n'était pas envisagé lors du développement de Moonbeam. Au fur et à mesure que Moonbeam progressait, la nécessité d'un mécanisme de consensus de la parachaine plus personnalisable mais simple est devenue claire, car les méthodes disponibles présentaient certains inconvénients ou limitations techniques.
 
