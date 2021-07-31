@@ -8,7 +8,7 @@ description: Apprenez à utiliser l'un des outils de développement Ethereum les
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed//RT_f1-ga_n4' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>Vous pouvez trouver tout le code pertinent pour ce tutoriel sur <a href="{{ config.site_url }}resources/code-snippets/">code snippets page</a></div>
 
-## Introduction
+## Introduction {: #introduction } 
 
 Remix est l'un des environnements de développement couramment utilisés pour les contrats intelligents sur Ethereum. Compte tenu des fonctionnalités de compatibilité Ethereum de Moonbeam, Remix peut être utilisé directement avec un nœud de développement Moonbeam ou le Moonbase Alpha TestNet.
 
@@ -18,7 +18,7 @@ Ce guide décrit le processus de création et de déploiement d'un contrat intel
    Ce tutoriel a été créé à l'aide du tag {{ networks.development.build_tag}} qui est basé sur la version {{ networks.moonbase.version }} de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/{{ networks.moonbase.version }}). La plate-forme Moonbeam et les composants [Frontier](https://github.com/paritytech/frontier) sur lesquels elle s'appuie pour la compatibilité Ethereum basée sur substrate sont toujours en cours de développement.
 
 Ce guide suppose que vous disposez d'un nœud Moonbeam local en mode `--dev` et que vous disposez d'une installation de [MetaMask](https://metamask.io/)  configurée pour utiliser ce nœud local. Vous pouvez trouver des instructions pour exécuter un nœud Moonbeam en local [ici](/getting-started/local-node/setting-up-a-node/) et des instructions pour y connecter MetaMask [ici](/getting-started/local-node/using-metamask/).
-## Vérification des prérequis
+## Vérification des prérequis {: #checking-prerequisites } 
 
 Si vous avez suivi les guides ci-dessus, vous devriez avoir un nœud local Moonbeam qui commencera à créer des blocs au fur et à mesure que les transactions arriveront:
 
@@ -31,7 +31,7 @@ Et vous devriez avoir une installation MetaMask connectée à votre nœud de dé
 !!! remarque
     Assurez-vous que vous êtes connecté à votre nœud Moonbeam et non à un autre réseau !
 
-## Premiers pas avec Remix
+## Premiers pas avec Remix {: #getting-started-with-remix } 
 
 Maintenant, lançons Remix pour exercer des fonctionnalités plus avancées dans Moonbeam.
 
@@ -61,7 +61,7 @@ Maintenant, accédez à l'option de la barre latérale de compilation pour appuy
 
 Vous verrez Remix télécharger toutes les dépendances d'Open Zeppelin et compiler le contrat.
 
-## Déployer un contrat sur Moonbeam à l'aide de Remix
+## Déployer un contrat sur Moonbeam à l'aide de Remix {: #deploying-a-contract-to-moonbeam-using-remix } 
 
 Nous pouvons maintenant déployer le contrat en accédant à l'option Déploiement de la barre latérale. Vous devez modifier la liste déroulante “Environnement” la plus élevée de “JavaScript VM” à “Injected Web3.” Cela indique à Remix d'utiliser le fournisseur injecté MetaMask, qui le dirigera vers votre nœud de développement Moonbeam. Si vous voulez essayer ceci en utilisant le Moonbase Alpha TestNet, vous devrez connecter MetaMask au TestNet au lieu de votre nœud de développement local.
 
@@ -94,7 +94,7 @@ Explorez le contrat sous “Contrats déployés.” Cliquez sur le nom, le symbo
 
 ![Interagir avec le contrat depuis Remix](/images/remix/using-remix-11.png)
 
-## Interagir avec un jeton ERC-20 basé sur Moonbeam depuis MetaMask
+## Interagir avec un jeton ERC-20 basé sur Moonbeam depuis MetaMask {: #interacting-with-a-moonbeambased-erc20-from-metamask } 
 
 Maintenant, ouvrez MetaMask pour ajouter les jetons ERC-20 nouvellement déployés. Avant de le faire, assurez-vous d'avoir copié l'adresse du contrat à partir de Remix. De retour dans MetaMask, cliquez sur “Ajouter un Jeton” comme indiqué ci-dessous. Assurez-vous que vous êtes dans le compte qui a déployé le contrat de jeton.
 

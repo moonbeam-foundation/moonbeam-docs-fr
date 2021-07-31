@@ -5,10 +5,10 @@ description: Utilisez la fonctionnalité de publication-abonnement de type Ether
 
 # Abonnez-vous aux événements dans Moonbase Alpha
 
-## Introduction
+## Introduction {: #introduction } 
 La possibilité de s'abonner à des événements de style Ethereum a été ajoutée avec la [sortie de Moonbase Alpha v2](https://moonbeam.network/announcements/testnet-upgrade-moonbase-alpha-v2/). Dans ce guide, nous décrirons les types d'abonnement disponibles et les limitations actuelles.
 
-## Vérification des prérequis
+## Vérification des prérequis {: #checking-prerequisites } 
 Les exemples de ce guide sont basés sur un environnement Ubuntu 18.04. Vous aurez également besoin des éléments suivants:
 
  - Avoir MetaMask installé et [connecté à Moonbase](/getting-started/testnet/metamask/)
@@ -31,7 +31,7 @@ npm ls web3
 
 Au moment de la rédaction de ce guide, la version utilisée était la 1.3.0. 
 
-## Abonnement aux journaux d'événements dans Moonbase Alpha
+## Abonnement aux journaux d'événements dans Moonbase Alpha {: #subscribing-to-event-logs-in-moonbase-alpha } 
 Tout contrat qui suit le standard de jeton ERC-20 émet un événement lié à un transfert de jetons, c'est-à-dire, `event Transfer(address indexed from, address indexed to, uint256 value)`. Pour cet exemple, nous nous abonnerons aux journaux de tels événements. En utilisant la bibliothèque web3.js, nous avons besoin du morceau de code suivant:
 
 ```js
@@ -83,7 +83,7 @@ Les données non indexées sont renvoyées dans le champ `data` des journaux, ma
 
 Si l'événement renvoie plusieurs valeurs non indexées, elles seront ajoutées l'une après l'autre dans le même ordre que l'événement les émet. Par conséquent, chaque valeur est ensuite obtenue en déconstruisant les données en morceaux séparés de 32 octets (ou 64 caractères hexadécimaux).
 
-### Utilisation de caractères génériques et de mise en forme conditionnelle
+### Utilisation de caractères génériques et de mise en forme conditionnelle {: #using-wildcards-and-conditional-formatting } 
 Dans la version v2 qui a introduit la fonctionnalité d'abonnement aux journaux, il y avait certaines limitations concernant l'utilisation de caractères génériques et la mise en forme conditionnelle pour les rubriques. Néanmoins, avec la sortie de [Moonbase Alpha v3](https://www.purestake.com/news/moonbeam-network-upgrades-account-structure-to-match-ethereum/), c'est désormais possible.
 
 En utilisant le même exemple que dans la section précédente, abonnons-nous aux événements du contrat de jeton avec le code suivant:
@@ -125,26 +125,26 @@ Comme indiqué, après avoir fourni les deux adresses avec un formatage conditio
 
 Cet exemple a montré comment nous pourrions nous abonner uniquement aux journaux d'événements d'un contrat spécifique, mais la bibliothèque web3.js fournit d'autres types d'abonnement que nous examinerons dans les sections suivantes.
 
-## Abonnez-vous aux transactions entrantes en attente 
+## Abonnez-vous aux transactions entrantes en attente {: #subscribe-to-incoming-pending-transactions } 
 Afin de souscrire aux transactions en attente, nous pouvons utiliser la méthode `web3.eth.subscribe(‘pendingTransactions’, [, callback])` , implémentant la même fonction de rappel pour vérifier la réponse. Ceci est beaucoup plus simple que notre exemple précédent et renvoie le hachage de transaction des transactions en attente.
 
 ![Subscribe pending transactions response](/images/testnet/testnet-pubsub4.png)
 
 Nous pouvons vérifier que ce hachage de transaction est le même que celui affiché dans MetaMask (ou Remix).
 
-## Abonnez-vous aux en-têtes de bloc entrants
+## Abonnez-vous aux en-têtes de bloc entrants {: #subscribe-to-incoming-block-headers } 
 Un autre type disponible dans la bibliothèque Web3.js consiste à s'abonner à de nouveaux en-têtes de bloc. Pour ce faire, nous utilisons la méthode `web3.eth.subscribe('newBlockHeaders' [, callback])` , implémentant la même fonction de rappel pour vérifier la réponse. Cet abonnement fournit des en-têtes de bloc entrants et peut être utilisé pour suivre les changements dans la blockchain.
 
 ![Subscribe to block headers response](/images/testnet/testnet-pubsub5.png)
 
 Notez qu'un seul en-tête de bloc est affiché dans l'image. Ces messages sont affichés pour chaque bloc produit afin qu'ils puissent remplir le terminal assez rapidement.
 
-## Vérifiez si un nœud est synchronisé avec le réseau
+## Vérifiez si un nœud est synchronisé avec le réseau {: #check-if-a-node-is-synchronized-with-the-network } 
 Avec pub / sub, il est également possible de vérifier si un nœud particulier auquel vous êtes abonné est actuellement synchronisé avec le réseau. Pour cela, nous pouvons tirer parti de la méthode `web3.eth.subscribe(‘syncing' [, callback])` , en implémentant la même fonction de rappel pour vérifier la réponse. Cet abonnement renverra un objet lorsque le nœud est synchronisé avec le réseau.
 
 ![Subscribe to syncing response](/images/testnet/testnet-pubsub6.png)
 
-## Limitations actuelles
+## Limitations actuelles {: #current-limitations } 
 L'implémentation pub / sub dans [Frontier](https://github.com/paritytech/frontier) est toujours en développement actif. Cette première version permet aux développeurs DApp (ou aux utilisateurs en général) de s'abonner à des types d'événements spécifiques, mais il existe encore quelques limitations. Vous avez peut-être remarqué dans les exemples précédents que certains des champs n'affichent pas les informations appropriées avec la version actuelle publiée, et c'est parce que certaines propriétés ne sont pas encore prises en charge par Frontier.
 
 

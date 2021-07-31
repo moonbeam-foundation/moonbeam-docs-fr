@@ -6,7 +6,7 @@ description: Comment utiliser les données de requètes d'un Oracle Band Protoco
 
 ![Band Protocol Moonbeam Diagram](/images/band/band-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 Les développeurs ont deux manières différentes d'obtenir les prix à partir de l'infrastructure oracle du protocole Band. D'une part, ils peuvent utiliser les contrats intelligents de Band sur Moonbeam. Ce faisant, ils accèdent aux données qui sont en chaîne et sont mises à jour à intervalles réguliers ou lorsque le glissement de prix est supérieur à un montant cible (différent pour chaque jeton). D'autre part, les développeurs peuvent utiliser la bibliothèque d'assistance Javascript, qui utilise un point de terminaison d'API pour récupérer les données en utilisant des fonctions similaires à celles des contrats intelligents, mais cette implémentation contourne complètement la blockchain. Cela peut être utile si votre DApp a besoin d'un accès direct aux données.
 
 L'adresse du contrat d'agrégation se trouve dans le tableau suivant:
@@ -15,7 +15,7 @@ L'adresse du contrat d'agrégation se trouve dans le tableau suivant:
 |:--------------:|-|:------------------------------------------:|
 | Moonbase Alpha | | 0xDA7a001b254CD22e46d3eAB04d937489c93174C3 |
 
-## Jeton pris en charge
+## Jeton pris en charge  {: #supported-token } 
 Les demandes de prix avec n'importe quelle dénomination sont disponibles tant que les symboles de base et de cotation sont pris en charge (_base_/_quote_). Par exemple
 
  - `BTC/USD`
@@ -24,13 +24,13 @@ Les demandes de prix avec n'importe quelle dénomination sont disponibles tant q
 
 Au moment de la rédaction de cet article, la liste des symboles pris en charge peut être trouvée en suivant [ce lien](https://data.bandprotocol.com). Il y a plus de 146 paires de prix disponibles.
 
-## Interroger les prix
+## Interroger les prix {: #querying-prices } 
 Comme indiqué précédemment, les développeurs peuvent utiliser deux méthodes pour interroger les prix depuis l'oracle de Band protocole: 
 
  - Contrat intelligent de Band sur Moonbeam (déployé sur Moonbase Alpha TestNet pour le moment)
  - Bibliothèque d'aide Javascript
 
-## Obtenir des données à l'aide de contrats intelligents
+## Obtenir des données à l'aide de contrats intelligents {: #get-data-using-smart-contracts } 
 Les contrats peuvent interroger des données en chaîne, telles que les prix des jetons, à partir de l'oracle de Band en implémentant l'interface du contrat `StdReference` qui expose les fonctions `getReferenceData` et `getReferenceDataBulk` .
 
 La première fonction, `getReferenceData`, prend deux chaînes (la base et le symbole des guillemets) comme entrées. La fonction interroge le contrat `StdReference`  pour connaître les derniers tarifs disponibles pour ces deux jetons. Il renvoie une structure `ReferenceData` .
@@ -55,7 +55,7 @@ La deuxième fonction, `getReferenceDataBulk`, prend les informations sous forme
  - `BTC/ETH`
  - `ETH/EUR`
 
-### Exemple de contrat
+### Exemple de contrat {: #example-contract } 
 
 Le code de contrat intelligent suivant fournit quelques exemples simples du contrat `StdReference` et de la fonction `getReferenceData` -  ceux-ci ne sont pas destinés à la production. L'interface `IStdReference.sol` définit la structure ReferenceData et les fonctions disponibles pour effectuer les requêtes.
 
@@ -149,7 +149,7 @@ contract DemoOracle {
 }
 ```
 
-### Essayez-le dans Moonbase Alpha
+### Essayez-le dans Moonbase Alpha {: #try-it-in-moonbase alpha } 
 
 Nous avons déployé un contrat disponible dans Moonbase Alpha TestNet (à l'adresse `0xf15c870344c1c02f5939a5C4926b7cDb90dEc655`) afin que vous puissiez facilement vérifier les informations fournies par l'oracle de Band Protocol. Pour ce faire, vous avez besoin du contrat d'interface suivant:
 
@@ -179,7 +179,7 @@ Cela créera une instance du contrat de démonstration avec laquelle vous pourre
 
 ![Band Protocol Remix check price](/images/band/band-demo2.png)
 
-## Bibliothèque JavaScript d'aide BandChain.js
+## Bibliothèque JavaScript d'aide BandChain.js {: #bandchainjs-javascript-helper-library } 
 
 La bibliothèque d'assistance prend également en charge une fonction similaire `getReferenceData` . Pour commencer, la bibliothèque doit être installée:
 
@@ -216,7 +216,7 @@ Ensuite, il renvoie un objet tableau avec la structure suivante:
 ```
 Ou `lastUpdatedBase` et `lastUpdatedQuote` sont la dernière fois où les prix de base et de cotation ont été mis à jour respectivement (depuis l'époque UNIX).
 
-### Exemple d'utilisation
+### Exemple d'utilisation {: #example-usage } 
 
 Le script Javascript suivant fournit un exemple simple de la fonction `getReferenceData` .
 

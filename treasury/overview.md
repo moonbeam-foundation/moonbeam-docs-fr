@@ -7,13 +7,13 @@ description: En tant que parachain Polkadot, Moonbeam utilisera une trésorerie 
 
 ![Treasury Moonbeam Banner](/images/treasury/treasury-overview-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Une trésorerie est une collection de fonds gérée en chaîne. Moonbeam disposera d'une trésorerie communautaire pour soutenir les initiatives du réseau afin de faire avancer le réseau. Cette trésorerie sera alimentée par un pourcentage des frais de transaction du réseau et sera gérée par le Conseil.
 
 Chaque réseau basé sur Moonbeam aura sa propre trésorerie. En d'autres termes, Moonbase Alpha TestNet, Moonshadow sur Westend, Moonriver sur Kusama et Moonbeam sur Polkadot auront chacun leur propre trésorerie respective. 
 
-## Définitions générales
+## Définitions générales {: #general-definitions } 
 
 Quelques termes importants à comprendre en ce qui concerne les trésoreries:
 
@@ -44,7 +44,7 @@ Currently, the Treasury values are as follows:
     |     Nombre maximal de propositions approuvées   |     |                                  {{ networks.moonriver.treasury.max_approved_proposals }}                               |
      |     % des frais de transaction alloués   |     |                                  {{ networks.moonriver.treasury.tx_fees_allocated }}                               |
 
-## Trésorerie de la Communauté
+## Trésorerie de la Communauté {: #community-treasury } 
 
 Pour financer la Trésorerie, un pourcentage des frais de transaction de chaque bloc lui sera alloué. Le pourcentage restant des frais est brûlé (consultez le tableau ci-dessus). La Trésorerie permet aux parties prenantes de soumettre des propositions de dépenses pour examen et voté par le Conseil. Ces propositions de dépenses devraient inclure des initiatives pour faire avancer le réseau ou stimuler l'engagement du réseau. Certaines initiatives de réseau pourraient inclure des intégrations ou des collaborations de financement, des événements communautaires, la sensibilisation du réseau, etc. 
 

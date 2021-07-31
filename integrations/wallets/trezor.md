@@ -7,7 +7,7 @@ description: Ce guide vous explique comment utiliser votre portefeuille matérie
 
 ![Intro diagram](/images/trezor/trezor-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Les portefeuilles matériels offrent un moyen plus sûr de stocker des fonds cryptographiques, car la clé privée (utilisée pour signer les transactions) est stockée hors ligne. Trezor propose deux solutions de portefeuille matériel au moment de la rédaction : Trezor One et Trezor Model T.
 
@@ -17,7 +17,7 @@ Ce tutoriel vous montre comment démarrer avec votre portefeuille matériel Trez
 
 Veuillez noter que votre appareil Trezor signera les transactions dans n'importe quel réseau MetaMask auquel il est connecté.
 
-## Vérification des prérequis
+## Vérification des prérequis {: #checking-prerequisites } 
 
 Avant de commencer, mettez à jour [Trezor Suite](https://suite.trezor.io/) à la dernière version disponible. Assurez-vous également que votre périphérique de portefeuille matériel Trezor exécute le dernier micrologiciel. Le wiki Trezor propose des tutoriels sur la façon de mettre à jour le firmware des deux appareils [Trezor One](https://wiki.trezor.io/User_manual:Updating_the_Trezor_device_firmware__T1) et [Trezor Model T](https://wiki.trezor.io/User_manual:Updating_the_Trezor_device_firmware) .
 
@@ -29,7 +29,7 @@ Au moment de la rédaction, les versions suivantes étaient utilisées:
 
 De plus, vous aurez besoin de MetaMask comme intermédiaire entre votre appareil Trezor et Moonbase Alpha. Assurez-vous que votre MetaMask est [connecté à Moonbase Alpha](/integrations/wallets/metamask/). Veuillez noter que votre appareil Trezor signera les transactions dans n'importe quel réseau MetaMask auquel il est connecté.
 
-## Importer votre compte Trezor dans MetaMask
+## Importer votre compte Trezor dans MetaMask {: #importing-your-trezor-account-to-metamask } 
 
 Pour commencer, vous devez avoir configuré un portefeuille (soit standard, soit un portefeuille caché). Une fois que vous avez connecté votre appareil Trezor, l'avez déverrouillé et configurez un portefeuille dans Trezor Suite. Ensuite, pour importer votre compte Trezor Ethereum dans MetaMask, procédez comme suit:
 
@@ -80,7 +80,7 @@ Si vous avez importé avec succès votre compte de style Trezor Ethereum, vous d
 
 Vous avez maintenant importé avec succès un compte compatible Moonbeam depuis votre appareil Trezor et êtes maintenant prêt à commencer [signer des transactions à l'aide de votre portefeuille matériel](#signing-a-transaction-using-your-trezor).
 
-## Signer une transaction à l'aide de votre Trezor
+## Signer une transaction à l'aide de votre Trezor {: #signing-a-transaction-using-your-trezor } 
 
 Si vous avez réussi à [importer votre compte Trezor dans MetaMask](#importing-your-trezor-account-to-metamask), vous êtes prêt à signer des transactions sur Moonbeam à l'aide de votre appareil Trezor. Ce tutoriel va vous montrer comment envoyer une transaction simple sur le Moonbase Alpha TestNet, mais il s'applique aux autres réseaux de l'écosystème Moonbeam.
 

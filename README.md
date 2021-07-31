@@ -15,7 +15,7 @@ Ce site grandira et s'affinera au fil du temps au fur et à mesure du développe
 
 ---
 
-## Qu'est-ce que Moonbeam ? 
+## Qu'est-ce que Moonbeam ? {: #what-is-moonbeam } 
 
 Moonbeam est une blockchain orientée développeur qui s'efforce d'assurer la compatibilité avec la chaîne d'outils et le réseau de développement Ethereum existants. Pour ce faire, il fournit une implémentation EVM complète, une API compatible Web3 et des ponts qui connectent Moonbeam aux réseaux Ethereum existants. Cela permet aux développeurs de déployer des contrats intelligents Solidity existants et des interfaces DApp sur Moonbeam avec un minimum de modifications.
 
@@ -23,16 +23,16 @@ Moonbeam sera également une parachain sur le réseau Polkadot. Cela signifie qu
 
 ---
 
-## Comment démarrer avec Moonbeam
+## Comment démarrer avec Moonbeam {: #how-to-get-started-with-moonbeam } 
 
-### Réseaux
+### Réseaux {: #networks } 
 
 Actuellement, il existe deux manières de commencer à construire sur Moonbeam: 
 
  - Construisez votre propre instance Moonbeam en tant que [noeud de developpement](/getting-started/local-node/setting-up-a-node/)
  - [se connecter](/getting-started/testnet/connect/) au [TestNet Moonbase Alpha](/networks/testnet/)
 
-### Portefeuilles
+### Portefeuilles {: #wallets } 
 
 Actuellement, nous avons testé Moonbeam avec les portefeuilles suivants:
 
@@ -43,7 +43,7 @@ Actuellement, nous avons testé Moonbeam avec les portefeuilles suivants:
 
 Cependant, tout portefeuille qui fonctionne avec un réseau personnalisé Ethereum devrait également fonctionner avec Moonbeam!
 
-### Outils
+### Outils {: #tools } 
 
 Grâce aux fonctionnalités de compatibilité Ethereum de Moonbeam, vous pouvez utiliser les outils de développement que vous connaissez et que vous aimez:
 
@@ -58,7 +58,7 @@ Grâce aux fonctionnalités de compatibilité Ethereum de Moonbeam, vous pouvez 
 
  Vous voulez qu'un autre outil Ethereum soit répertorié ici? [Faites le nous savoir!](https://discord.gg/PfpUATX)
 
-### Oracles
+### Oracles {: #oracles } 
 
  Nous avons également un certain nombre d'Oracles qui peuvent servir de flux de données à vos contrats intelligents:
 
@@ -66,7 +66,7 @@ Grâce aux fonctionnalités de compatibilité Ethereum de Moonbeam, vous pouvez 
  - [Band Protocol](/integrations/oracles/band-protocol/)
  - [Razor Network](/integrations/oracles/razor-network/)
 
-###  Ponts
+###  Ponts {: #bridges } 
 
 Actuellement, nous avons une implémentation de pont entièrement fonctionnelle qui relie les TestNets Rinkeby/Kovan d'Ethereum et Moonbase Alpha:
 
@@ -74,25 +74,25 @@ Actuellement, nous avons une implémentation de pont entièrement fonctionnelle 
 
 ---
 
-## Comment s'engager avec la communauté Moonbeam  
+## Comment s'engager avec la communauté Moonbeam {: #how-to-engage-with-the-moonbeam-community } 
 
-### :fontawesome-brands-discord:  Discord  
+### :fontawesome-brands-discord:  Discord {: #:fontawesome-brands-discord-discord } 
 Les instructions pour notre TestNet et d'autres conversations axées sur le développement se trouvent sur notre [Chaine Discord](https://discord.gg/PfpUATX).
 
-### :moonbeam-element:  Element  
+### :moonbeam-element:  Element {: #:moonbeam-element-element } 
 Les discussions techniques et le support sont encouragés dans notre salle Element (anciennement Riot) qui peut être trouvée [ici](https://app.element.io/#/room/#moonbeam:matrix.org).
 
-### :fontawesome-brands-telegram-plane:  Telegram  
+### :fontawesome-brands-telegram-plane:  Telegram  {: #:fontawesome-brands-telegram-plane-telegram }
 Des informations générales et d'autres sujets non techniques peuvent être abordés dans notre groupe Telegram [ici](https://t.me/Moonbeam_Official).
 
-### :fontawesome-brands-twitter:  Twitter  
+### :fontawesome-brands-twitter:  Twitter {: #:fontawesome-brands-twitter-twitter } 
 Suivez-nous sur Twitter pour des mises à jour régulières: [@MoonbeamNetwork](https://twitter.com/MoonbeamNetwork).
 
-### :fontawesome-brands-youtube:  YouTube  
+### :fontawesome-brands-youtube:  YouTube {: #:fontawesome-brands-youtube-youtube }
 Pour des tutoriels vidéo et du contenu connexe, abonnez-vous à notre chaîne YouTube [ici](https://www.youtube.com/c/MoonbeamNetwork).
 
-### :fontawesome-solid-envelope:  Newsletter  
+### :fontawesome-solid-envelope:  Newsletter {: #:fontawesome-solid-envelope-newsletter } 
 Nous envoyons une newsletter mensuelle avec des mises à jour du projet auxquelles vous pouvez vous inscrire [ici](https://moonbeam.network/newsletter/).
 
-## À propos de ce site
+## À propos de ce site {: #about-this-site } 
 Ce site est généré en utilisant [mkdocs](https://www.mkdocs.org/) et est basé sur le contenu du repo moonbeam-docs, qui peut être trouvé [sur :fontawesome-brands-github: GitHub](https://github.com/PureStake/moonbeam-docs).

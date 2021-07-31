@@ -8,7 +8,7 @@ description: Moonbeam facilite incroyablement le déploiement d'un contrat intel
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed//RD5MefSPNeo' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>You can find all of the relevant code for this tutorial on the <a href="{{ config.site_url }}resources/code-snippets/">code snippets page</a></div>
 
-## Introduction
+## Introduction {: #introduction } 
 
 Ce guide décrit le processus de déploiement d'un contrat intelligent basé sur Solidity sur un nœud Moonbeam à l'aide de [Truffle](https://www.trufflesuite.com/), un outil de développement couramment utilisé pour les contrats intelligents sur Ethereum. Compte tenu des fonctionnalités de compatibilité Ethereum de Moonbeam, Truffle peut être utilisé directement avec un nœud Moonbeam.
 
@@ -18,7 +18,7 @@ Ce guide décrit le processus de déploiement d'un contrat intelligent basé sur
 
 Pour ce guide, vous aurez besoin d'un nœud de développement Moonbeam fonctionnant en mode `--dev`. Cela peut être fait en suivant les étapes détaillées [ici](/getting-started/local-node/setting-up-a-node/) ou en utilisant le [plugin Truffle de Moonbeam](/integrations/trufflebox/#the-moonbeam-truffle-plugin), que nous utiliserons dans les exemples de ce tutoriel.
 
-## Vérification des prérequis
+## Vérification des prérequis {: #checking-prerequisites } 
 
 --8<-- 'text/common/install-nodejs.md'
 
@@ -34,7 +34,7 @@ A la date de publication de ce guide, les versions utilisées étaient respectiv
 !!! remarque
     Pour les exemples suivants, vous n'avez pas besoin d'installer Truffle, car il est inclus en tant que dépendance de la box Moonbeam Truffle. Si vous préférez, vous pouvez exécuter  `npx truffle` ou `./node_modules/.bin/truffle` à la place de `truffle`.
 
-## Premiers pas avec Truffle
+## Premiers pas avec Truffle {: #getting-started-with-truffle } 
 
 Pour faciliter le processus de démarrage avec Truffle, nous avons [sorti la box Moonbeam Truffle](https://moonbeam.network/announcements/moonbeam-truffle-box-available-solidity-developers/). Cela fournit une configuration standard pour accélérer le processus de déploiement des contrats sur Moonbeam. Pour en savoir plus sur la box, vous pouvez visiter [ce lien](/integrations/trufflebox/).
 
@@ -63,7 +63,7 @@ module.exports = {
 
 Notez que nous utilisons `HD-Wallet-Provider` de Truffle comme portefeuille hiérarchique déterministe. En outre, nous avons défini un réseau `dev` qui pointe vers l'URL du fournisseur du nœud, et la clé privée du compte de développement, qui détient tous les fonds dans le nœud de développement, y est incluse.
 
-## Exécution d'un nœud de développement
+## Exécution d'un nœud de développement {: #running-a-development-node } 
 
 Pour configurer un nœud de développement Moonbeam, vous pouvez suivre [ce tutoriel](/getting-started/local-node/setting-up-a-node/). Le processus prend environ 40 minutes au total et vous devez installer Substrate et toutes ses dépendances. Le plugin Moonbeam Truffle fournit un moyen de démarrer beaucoup plus rapidement avec un nœud de développement, et la seule exigence est d'avoir Docker installé (au moment de l'écriture, la version Docker utilisée était 19.03.6).
 
@@ -94,7 +94,7 @@ truffle run moonbeam remove
 
 ![Nœud local Moonbeam arrêté et image supprimée](/images/truffle/using-truffle-3.png)
 
-## Le fichier du contrat
+## Le fichier du contrat {: #the-contract-file } 
 
 Il existe également un contrat de jeton ERC-20 inclus avec la box Truffle:
 
@@ -127,7 +127,7 @@ module.exports = function (deployer) {
 
 "8000000000000000000000000" est le nombre de jetons à frapper initialement avec le contrat, soit 8 millions avec 18 décimales.
 
-## Déployer un contrat sur Moonbeam avec Truffle
+## Déployer un contrat sur Moonbeam avec Truffle {: #deploying-a-contract-to-moonbeam-using-truffle } 
 
 Avant de pouvoir déployer nos contrats, nous devons les compiler. (Nous disons "contrats" car les déploiements Truffle normaux incluent le contrat `Migrations.sol`.) Vous pouvez le faire avec la commande suivante:
 

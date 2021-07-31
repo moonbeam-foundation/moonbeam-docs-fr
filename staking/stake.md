@@ -7,7 +7,7 @@ description: Un guide qui montre comment vous pouvez staker vos jetons dans Moon
 
 ![Staking Moonbeam Banner](/images/staking/staking-stake-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Les Collators (producteurs de blocs) avec la participation la plus élevée dans le réseau rejoignent le pool actif de collators, à partir duquel ils sont sélectionnés pour offrir un bloc à la chaîne de relais.
 
@@ -17,7 +17,7 @@ Lorsqu'un collator ne se comporte pas correctement, sa participation dans le ré
 
 Avec la sortie de [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/releases/tag/v0.6.0), les utilisateurs du réseau peuvent désormais miser leurs jetons pour désigner des collators. Ce guide décrit toutes les étapes pour y parvenir.
 
-## Définitions générales
+## Définitions générales {: #general-definitions } 
 
 --8<-- 'text/staking/staking-definitions.md'
 
@@ -31,7 +31,7 @@ Actuellement, pour Moonbase Alpha:
 |              Tour               |     | {{ networks.moonbase.staking.round_blocks }} blocks ({{ networks.moonbase.staking.round_hours }} hours) |
 |          Durée de l'obligation           |     |     {{ networks.moonbase.staking.bond_lock }} rounds  |
 
-## Définitions extrinsèques
+## Définitions extrinsèques {: #extrinsics-definitions } 
 
 Il existe de nombreux extrinsèques liés à la palette de staking, ils ne sont donc pas tous couverts dans ce guide. Cependant, cette liste définit tous les extrinsèques associés au processus de nomination :
 
@@ -44,7 +44,7 @@ Il existe de nombreux extrinsèques liés à la palette de staking, ils ne sont 
  - **nominatorBondMore** — deux entrées: l'adresse d'un collator désigné et le montant. Extrinsèque pour augmenter la quantité de jetons jalonnés pour un collator déjà désigné
  - **revokeNomination** — une entrée: adresse d'un collator désigné. Extrinsèque pour supprimer une nomination existante
 
-## Récupération de la liste des collators
+## Récupération de la liste des collators {: #retrieving-the-list-of-collators } 
 
 Avant de commencer à staker des jetons, il est important de récupérer la liste des collators disponibles dans le réseau. Pour ce faire, accédez à "État de la chaîne" sous l'onglet "Developpeur" .
 
@@ -63,7 +63,7 @@ Chaque extrinsèque fournit une réponse différente:
 
 ![Compte de staking](/images/staking/staking-stake-11.png)
 
-## Comment nommer un Collator
+## Comment nommer un Collator  {: #get-the-collator-nominator-count } 
 
 Cette section décrit le processus de nomination des collators. Le tutoriel utilisera les collators suivants comme référence:
 
@@ -110,7 +110,7 @@ Dans la réponse, vous devriez voir votre compte (dans ce cas, le compte d'Alice
 
 Vous pouvez suivre les mêmes étapes que celles décrites pour désigner d'autres assembleurs dans le réseau. Par exemple, Alice a également été nominée `{{ networks.moonbase.staking.collators.address2 }}` .
 
-## Comment révoquer les nominations
+## Comment révoquer les nominations {: #how-to-stop-nominations } 
 
 Si vous êtes déjà un nominateur, vous avez deux options pour révoquer vos nominations: utiliser l'extrinsèque `revokeNomination` pour retirer vos jetons d'un collator spécifique, ou utiliser l'extrinsèque `leaveNominators` pour révoquer toutes les nominations en cours.
 
@@ -145,7 +145,7 @@ Comme mentionné précédemment, vous pouvez également supprimer toutes les nom
 
 Une fois la transaction confirmée, votre compte ne doit pas être répertorié dans l'état `nominatorState` lors de la requête et vous ne devez pas avoir de solde réservé (lié au staking).
 
-## Récompenses de staking
+## Récompenses de staking {: #staking-rewards } 
 
 À mesure que les collators reçoivent les récompenses de la production de blocs, les nominateurs reçoivent également des récompenses. Un bref aperçu de la façon dont les récompenses sont calculées se trouve sur [cette page](/staking/overview/#reward-distribution).
 

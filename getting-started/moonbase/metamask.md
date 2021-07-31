@@ -5,7 +5,7 @@ description: Apprenez à utiliser MetaMask avec le TestNet Moonbeam. Ce tutoriel
 
 # Connectez MetaMask à Moonbase Alpha
 
-## Introduction
+## Introduction {: #introduction } 
 
 Ce guide décrit les étapes nécessaires pour connecter MetaMask à Moonbase Alpha. Contrairement à notre précédent guide MetaMask, c'est beaucoup plus simple car vous n'avez pas besoin de vous connecter à un nœud Moonbeam en cours d'exécution local. Allons-y.
 
@@ -27,7 +27,7 @@ Lorsque vous y êtes invité, vous avez la possibilité d'importer un portefeuil
 
 ![MetaMask2](/images/testnet/testnet-metamask2.png)
 
-## Connexion à Moonbase Alpha
+## Connexion à Moonbase Alpha {: #connecting-to-moonbase-alpha } 
 
 Une fois que vous avez terminé de créer ou d'importer un portefeuille, vous verrez l'interface principale de MetaMask. Cliquez sur le logo en haut à droite et allez dans Paramètres.
 

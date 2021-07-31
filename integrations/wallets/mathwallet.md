@@ -7,13 +7,13 @@ description: Ce guide vous explique comment connecter Mathwallet, un portefeuill
  
 ![Intro banner](/images/mathwallet/mathwallet-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 MathWallet à [announcé](https://mathwallet.org/moonbeam-wallet/en/) qu'il supporte désormais nativement le [TestNet Moonbase Alpha](/networks/testnet/). Cela signifie que vous pouvez désormais interagir avec Moonbase Alpha en utilisant un autre portefeuille en plus de MetaMask.
 
 Dans ce tutoriel, nous verrons comment configurer MathWallet pour se connecter à notre TestNet. Nous présenterons également un bref exemple d'utilisation de MathWallet en tant que fournisseur Web3 pour d'autres outils tels que [Remix](/integrations/remix/).
 
-## Connectez MathWallet à Moonbeam
+## Connectez MathWallet à Moonbeam {: #connect-mathwallet-to-moonbeam } 
 
 Dans cette partie, nous allons passer par le processus de connexion de MathWallet à Moonbase Alpha. 
 
@@ -35,7 +35,7 @@ Et voilà, vous avez maintenant MathWallet connecté au TestNet Moonbase Alpha! 
 
 ![Wallet Connected to Moonbase Alpha](/images/mathwallet/mathwallet-images-4.png)
 
-## Ajouter un portefeuille
+## Ajouter un portefeuille {: #adding-a-wallet } 
 
 Maintenant que MathWallet est connecté à Moonbase Alpha, nous pouvons créer un portefeuille pour obtenir un compte et commencer à interagir avec le TestNet. Actuellement, il existe trois façons d'ajouter un portefeuille:
 
@@ -43,7 +43,7 @@ Maintenant que MathWallet est connecté à Moonbase Alpha, nous pouvons créer u
  - Importer un portefeuille existant à l'aide d'un mnémonique ou d'une clé privée
 - Connecter le portefeuille matériel (_non pris en charge pour le moment_)
 
-### Créer un portefeuille
+### Créer un portefeuille {: #create-a-wallet } 
 
 Pour créer un nouveau portefeuille, cliquez sur le signe + à côté de "Moonbase Alpha" et sélectionnez "Créer un portefeuille".
 
@@ -53,7 +53,7 @@ Définissez et confirmez un nom de portefeuille. Ensuite, assurez-vous de stocke
 
 ![MathWallet wallet created](/images/mathwallet/mathwallet-images-6.png)
 
-### Importer un portefeuille
+### Importer un portefeuille {: #import-a-wallet } 
 
 Pour créer un nouveau portefeuille, cliquez sur le signe +  à côté de "Moonbase Alpha" et sélectionnez "Importer un portefeuille".
 
@@ -67,7 +67,7 @@ Après avoir cliqué sur Suivant, définissez un nom de portefeuille, et c'est t
 
 ![MathWallet imported wallet](/images/mathwallet/mathwallet-images-9.png)
 
-## Utilisation de MathWallet
+## Utilisation de MathWallet {: #using-mathwallet } 
 
 MathWallet sert de fournisseur Web3 dans des outils tels que [Remix](/integrations/remix/). En ayant MathWallet connecté à Moonbase Alpha, vous pouvez déployer des contrats comme vous le souhaitez en utilisant MetaMask, en signant les transactions avec MathWallet à la place.
 

@@ -7,7 +7,7 @@ description: Apprenez à déployer des contrats intelligents basés sur Solidity
 
 ![Intégrations des bibliothèques Ethereum Moonbeam](/images/sendtx/web3-libraries-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Ce guide décrit l'utilisation du compilateur Solidity et de trois bibliothèques Ethereum différentes pour signer et envoyer manuellement une transaction sur Moonbeam. Les trois bibliothèques couvertes par ce didacticiel sont:
 
@@ -23,7 +23,7 @@ En outre, deux autres bibliothèques seront utilisées pour compiler le contrat 
 !!! remarque
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
-## Vérification des prérequis
+## Vérification des prérequis {: #checking-prerequisites } 
 
 Les exemples utilisant à la fois web3.js et ethers.js nécessitent l'installation préalable de Node.js et NPM. Pour le web3.py, vous avez besoin de Python et PIP. Au moment de la rédaction de ce guide, les versions utilisées étaient:
 
@@ -78,7 +78,7 @@ La configuration de cet exemple sera relativement simple et contiendra les fichi
  - **_increment.\*_** — il effectuera une transaction pour incrémenter le numéro stocké sur le nœud Moonbeam
  - **_reset.\*_** — la fonction à appeler qui remettra à zéro le nombre mémorisé
 
-## Le fichier contrat
+## Le fichier contrat {: #the-contract-file } 
 
 Le contrat utilisé est un simple incrémenteur, nommé arbitrairement _Incrementer.sol_, que vous pouvez trouver [ici](/snippets/code/web3-contract-local/Incrementer.sol). Le code Solidity est le suivant:
 
@@ -91,7 +91,7 @@ La fonction `constructor`, qui s'exécute lorsque le contrat est déployé, déf
 !!! remarque
     Ce contrat est un exemple simple à des fins d'illustration uniquement et ne gère pas les valeurs enveloppantes.
 
-## Compilation du contrat
+## Compilation du contrat {: #compiling-the-contract } 
 
 Le seul but du fichier de compilation est d'utiliser le compilateur Solidity pour sortir le bytecode et l'interface (ABI) de notre contrat. Vous pouvez trouver l'extrait de code de chaque bibliothèque ici (ils ont été nommés de manière arbitraire `compile.*`):
 
@@ -117,7 +117,7 @@ Le seul but du fichier de compilation est d'utiliser le compilateur Solidity pou
     --8<-- 'code/web3py-contract/compile.py'
     ```
 
-### Web3.js and Ethers.js
+### Web3.js and Ethers.js {: #web3js-and-ethersjs } 
 
 Dans la première partie [du script](/snippets/code/web3-contract-local/compile.js), le chemin du contrat est récupéré et son contenu lu.
 
@@ -125,7 +125,7 @@ Ensuite, l'objet d'entrée du compilateur Solidity est généré et il est pass�
 
 Enfin, extrayez les données du contrat `Incrementer` du fichier `Incrementer.sol` , et exportez-le pour que le script de déploiement puisse l'utiliser.
 
-### Web3.py
+### Web3.py {: #web3py } 
 
 Dans la première partie [du script](/snippets/code/web3py-contract/compile.py), le fichier du contrat est compilé à l'aide de la fonction `solcx.compile_files` . Notez que le fichier de contrat se trouve dans le même répertoire que le script de compilation.
 
@@ -134,7 +134,7 @@ Dans la première partie [du script](/snippets/code/web3py-contract/compile.py),
 
 Ensuite, et pour terminer le script, les données du contrat sont exportées. Dans cet exemple, seuls l'interface (ABI) et le bytecode ont été définis.
 
-## Déployer le contrat
+## Déployer le contrat {: #deploying-the-contract } 
 
 Quelle que soit la bibliothèque, la stratégie de déploiement du contrat intelligent compilé est quelque peu similaire. Une instance de contrat est créée à l'aide de son interface (ABI) et de son bytecode. À partir de cette instance, une fonction de déploiement est utilisée pour envoyer une transaction signée qui déploie le contrat. Vous pouvez trouver l'extrait de code de chaque bibliothèque ici (ils ont été nommés arbitrairement `deploy.*`):
 
@@ -164,7 +164,7 @@ La deuxième section ("Déployer le contrat") décrit la partie réelle du dépl
 !!! remarque
     Le script _deploy.\*_ Fournit l'adresse du contrat en tant que sortie. Ceci est pratique, car il est utilisé pour les fichiers d'interaction de contrat.
 
-### Web3.js
+### Web3.js {: #web3js } 
 
 Dans la première partie [du script](/snippets/code/web3-contract-local/deploy.js), l'instance `web3` (ou le fournisseur) est créée à l'aide du constructeur `Web3` avec le fournisseur RPC. En modifiant le fournisseur RPC donné au constructeur, vous pouvez choisir le réseau auquel vous souhaitez envoyer la transaction.
 
@@ -176,7 +176,7 @@ Ensuite, la transaction du constructeur peut être signée à l'aide de la méth
 
 Enfin, la transaction signée est envoyée et l'adresse du contrat est affichée dans le terminal.
 
-### Ethers.js
+### Ethers.js {: #ethersjs } 
 
 Dans la première partie [du script](/snippets/code/ethers-contract-local/deploy.js), différents réseaux peuvent être spécifiés avec un nom, une URL RPC (obligatoire) et un ID de chaîne. Le fournisseur (similaire à l'instance `web3`) est créé avec la méthode `ethers.providers.StaticJsonRpcProvider` . Une alternative consiste à utiliser la méthode `ethers.providers.JsonRpcProvide(providerRPC)` , qui ne nécessite que l'adresse du point de terminaison RPC du fournisseur. Mais cela pourrait créer des problèmes de compatibilité avec les spécifications de projet individuelles.
 
@@ -186,7 +186,7 @@ Dans la deuxième section, une instance de contrat est créée avec `ethers.Cont
 
 Enfin, l'adresse du contrat est affichée dans le terminal.
 
-### Web3.py
+### Web3.py {: #web3py } 
 
 Dans la première partie [du script](/snippets/code/web3py-contract/deploy.py), l'instance `web3` (ou le fournisseur) est créée à l'aide de la méthode `Web3(Web3.HTTPProvider(provider_rpc))` avec le fournisseur RPC. En modifiant le fournisseur RPC, vous pouvez choisir le réseau auquel vous souhaitez envoyer la transaction.
 
@@ -198,7 +198,7 @@ La transaction du constructeur peut être signée à l'aide de `web3.eth.account
 
 Enfin, la transaction signée est envoyée et l'adresse du contrat est affichée dans le terminal.
 
-## Lecture du contrat (méthodes d'appel)
+## Lecture du contrat (méthodes d'appel) {: #reading-from-the-contract-call-methods } 
 
 Les méthodes d'appel sont le type d'interaction qui ne modifie pas le stockage du contrat (modifier les variables), ce qui signifie qu'aucune transaction n'a besoin d'être envoyée.
 
@@ -227,7 +227,7 @@ La deuxième section ("Fonction d'appel") décrit l'appel réel au contrat. Quel
     --8<-- 'code/web3py-contract/get.py'
     ```
 
-### Web3.js
+### Web3.js {: #web3js } 
 
 Dans la première partie [du script](/snippets/code/web3-contract-local/get.js), l'instance `web3` (ou le fournisseur) est créée à l'aide du constructeur `Web3` avec le fournisseur RPC. En modifiant le fournisseur RPC donné au constructeur, vous pouvez choisir le réseau auquel vous souhaitez envoyer la transaction.
 
@@ -237,7 +237,7 @@ Dans la deuxième section, une instance de contrat est créée avec `web3.eth.Co
 
 Enfin, la valeur est affichée dans le terminal.
 
-### Ethers.js
+### Ethers.js {: #ethersjs } 
 
 Dans la première partie [du script](/snippets/code/ethers-contract-local/get.js), différents réseaux peuvent être spécifiés avec un nom, une URL RPC (obligatoire) et un ID de chaîne. Le fournisseur (similaire à l'instance `web3`) est créé avec la méthode `ethers.providers.StaticJsonRpcProvider` . Une alternative consiste à utiliser la méthode `ethers.providers.JsonRpcProvide(providerRPC)`, qui ne nécessite que l'adresse du point de terminaison RPC du fournisseur. Mais cela pourrait créer des problèmes de compatibilité avec les spécifications de projet individuelles.
 
@@ -247,7 +247,7 @@ Dans la deuxième section, une instance de contrat est créée avec `ethers.Cont
 
 Enfin, la valeur est affichée dans le terminal.
 
-### Web3.py
+### Web3.py {: #web3py } 
 
 Dans la première partie [du script](/snippets/code/web3py-contract/get.py), l'instance `web3` (ou le fournisseur) est créée à l'aide de la méthode `Web3(Web3.HTTPProvider(provider_rpc))` avec le fournisseur RPC. En modifiant le fournisseur RPC, vous pouvez choisir le réseau auquel vous souhaitez envoyer la transaction.
 
@@ -257,7 +257,7 @@ Dans la deuxième section, une instance de contrat est créée avec `web3.eth.co
 
 Enfin, la valeur est affichée dans le terminal.
 
-## Interagir avec le contrat (méthodes d'envoi)
+## Interagir avec le contrat (méthodes d'envoi) {: #interacting-with-the-contract-send-methods } 
 
 Les méthodes d'envoi sont le type d'interaction qui modifie le stockage du contrat (variables de changement), ce qui signifie qu'une transaction doit être signée et envoyée.
 
@@ -309,7 +309,7 @@ La structure de chaque fichier est très similaire à son _increment.\*_ contrep
     --8<-- 'code/web3py-contract/reset.py'
     ```
 
-### Web3.js
+### Web3.js {: #web3js } 
 
 Dans la première partie du script ([incrémenter](/snippets/code/web3-contract-local/increment.js) ou [réinitialiser](/snippets/code/web3-contract-local/reset.js) les fichies), l'instance `web3` (ou le fournisseur) est créée à l'aide du constructeur `Web3` avec le fournisseur RPC. En modifiant le fournisseur RPC donné au constructeur, vous pouvez choisir le réseau auquel vous souhaitez envoyer la transaction.
 
@@ -321,7 +321,7 @@ Ensuite, la transaction peut être signée à l'aide de la méthode `web3.eth.ac
 
 Enfin, la transaction signée est envoyée et le hachage de la transaction est affiché dans le terminal.
 
-### Ethers.js
+### Ethers.js {: #ethersjs } 
 
 Dans la première partie du script ([incrémenter](/snippets/code/ethers-contract-local/increment.js) ou [réinitialiser](/snippets/code/ethers-contract-local/reset.js) les fichiers), différents réseaux peuvent être spécifiés avec un nom, une URL RPC (obligatoire) et un ID de chaîne. Le fournisseur (similaire à l'instance `web3`) est créé avec la méthode `ethers.providers.StaticJsonRpcProvider`. Une alternative consiste à utiliser la méthode `ethers.providers.JsonRpcProvide(providerRPC)` , qui ne nécessite que l'adresse du point de terminaison RPC du fournisseur. Mais cela pourrait créer des problèmes de compatibilité avec les spécifications de projet individuelles.
 
@@ -331,7 +331,7 @@ Dans la deuxième section, une instance de contrat est créée avec `ethers.Cont
 
 Enfin, le hachage de la transaction est affiché dans le terminal.
 
-### Web3.py
+### Web3.py {: #web3py } 
 
 Dans la première partie du script ([incrémenter](/snippets/code/web3py-contract/increment.py) ou [réinitialiser](/snippets/code/web3py-contract/reset.py) les fichiers), l'instance `web3` (ou le fournisseur) est créée à l'aide de la méthode `Web3(Web3.HTTPProvider(provider_rpc))` avec le fournisseur RPC. En modifiant le fournisseur RPC, vous pouvez choisir le réseau auquel vous souhaitez envoyer la transaction.
 
@@ -343,7 +343,7 @@ La transaction peut être signée à l'aide de `web3.eth.account.signTransaction
 
 Enfin, le hachage de la transaction est affiché dans le terminal.
 
-## Exécution des scripts
+## Exécution des scripts {: #running-the-scripts } 
 
 Pour cette section, le code ci-dessus a été adapté pour cibler un nœud de développement, que vous pouvez exécuter en suivant [ce tutoriel](/getting-started/local-node/setting-up-a-node/). De plus, chaque transaction a été envoyée à partir du compte préfinancé fourni avec le nœud:
 
