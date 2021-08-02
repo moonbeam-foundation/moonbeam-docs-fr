@@ -15,7 +15,7 @@ L'un des principaux participants au réseau nécessaire pour soutenir les parach
 
 Les détenteurs de jetons qui choisissent de "soutenir" un validateur. Ils peuvent recevoir une partie de la récompense du validateur, mais sont soumis à la réduction de leurs jetons staker au cas où le validateur se comporterait mal. Un nominateur peut soutenir jusqu'à 16 validateurs et leur engagement est entièrement répartie entre les validateurs soutenus sélectionnés pour le jeu de validateurs. Si vous souhaitez nommer PureStake pour Polkadot et/ou Kusama, veuillez suivre [ce guide](https://www.purestake.com/technology/polkadot-validator/).
 
-### Preuve de participation nominée {: #nomitated-proof-of-stake } 
+### Preuve de participation nominée {: #nominated-proof-of-stake } 
 
 Le mécanisme utilisé par Polkadot pour sélectionner son ensemble de validateurs de blocs pour maximiser la sécurité de la chaîne. À la base, il s'agit d'un système de preuve de participation (PoS) dans lequel les nominateurs soutiennent les validateurs. Ces derniers avec le soutien le plus élevé sont sélectionnés pour faire partie de l'ensemble de validateurs pour une session. La mise d'un validateur est réduite en cas de mauvaise conduite. Ainsi, les proposants sont tenus de faire preuve de diligence raisonnable sur les validateurs qu'ils nomment. Si vous souhaitez nommer PureStake pour Polkadot et/ou Kusama, veuillez suivre [ce guide](https://www.purestake.com/technology/polkadot-validator/).
 
