@@ -15,7 +15,7 @@ L'intégration croisée de Moonbeam est accomplie en devenant une [parachain](/r
 
 Il y a trois cibles principales qui peuvent le plus bénéficier de la fonctionnalité cross-chain de Moonbeam:
 
-### Projets existants basés sur Ethereum {: #existing-ethereumbased-projects } 
+### Projets existants basés sur Ethereum {: #existing-ethereum-based-projects } 
 
 Les projets confrontés à des problèmes de coût et d'évolution sur Ethereum peuvent utiliser Moonbeam pour: 
 

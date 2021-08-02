@@ -30,7 +30,7 @@ En fonction du réseau auquel vous souhaitez vous connecter, vous pouvez défini
  - Nœud de développement Moonbeam: `http://127.0.0.1:9933`
  - TestNet Moonbase Alpha: `https://rpc.testnet.moonbeam.network`
 
-## Tutoriels étape par étape {: #stepbystep-tutorials } 
+## Tutoriels étape par étape {: #step-by-step-tutorials } 
 
 Si vous êtes intéressé par un guide étape par étape plus détaillé, consultez nos tutoriels spécifiques sur l'utilisation de web3.py sur Moonbeam pour  [envoyer une transaction](/getting-started/local-node/send-transaction/) ou [deployer un contrat](/getting-started/local-node/deploy-contract/).
 

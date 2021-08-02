@@ -78,7 +78,7 @@ Un autre avantage du déplacement de l'exécution de vérification de l'auteur v
 
 Par exemple, le [consensus fourni par la chaîne de relais](https://github.com/paritytech/cumulus/blob/master/client/consensus/relay-chain/src/lib.rs), [AuRa](https:/ /crates.io/crates/sc-consensus-aura) et [BABE](https://crates.io/crates/sc-consensus-babe) ont chacun leur propre exécuteur personnalisé. Avec Nimbus, ces mécanismes de consensus peuvent réutiliser le même exécuteur. La puissance de la réutilisabilité est démontrée par l'implémentation Nimbus d'AuRa en moins de 100 lignes de code.
 
-### Consensus d'échange à chaud {: #hotswapping-consensus } 
+### Consensus d'échange à chaud {: #hot-swapping-consensus } 
 
 Les équipes qui construisent des parachaines peuvent vouloir changer, ajuster ou ajuster leur algorithme de consensus de temps en temps. Sans nimbus, l'échange de consensus nécessiterait une mise à niveau du client et un hard fork.
 

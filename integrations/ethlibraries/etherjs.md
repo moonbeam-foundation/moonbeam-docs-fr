@@ -48,6 +48,6 @@ TestNet Moonbase Alpha:
  - Id de chaine: `1287`
  - NOM_RESEAU: `moonbase-alpha`
 
-## Tutoriels étape par étape {: #stepbystep-tutorials } 
+## Tutoriels étape par étape {: #step-by-step-tutorials } 
 
 Si vous êtes intéressé par un guide étape par étape plus détaillé, vous pouvez consulter nos tutoriels spécifiques sur l'utilisation de ethers.js sur Moonbeam pour [envoyer une transaction](/getting-started/local-node/send-transaction/) ou [deployer un contrat](/getting-started/local-node/deploy-contract/).

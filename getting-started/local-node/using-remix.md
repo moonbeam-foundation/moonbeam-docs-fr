@@ -94,7 +94,7 @@ Explorez le contrat sous “Contrats déployés.” Cliquez sur le nom, le symbo
 
 ![Interagir avec le contrat depuis Remix](/images/remix/using-remix-11.png)
 
-## Interagir avec un jeton ERC-20 basé sur Moonbeam depuis MetaMask {: #interacting-with-a-moonbeambased-erc20-from-metamask } 
+## Interagir avec un jeton ERC-20 basé sur Moonbeam depuis MetaMask {: #interacting-with-a-moonbeam-based-erc-20-from-metamask } 
 
 Maintenant, ouvrez MetaMask pour ajouter les jetons ERC-20 nouvellement déployés. Avant de le faire, assurez-vous d'avoir copié l'adresse du contrat à partir de Remix. De retour dans MetaMask, cliquez sur “Ajouter un Jeton” comme indiqué ci-dessous. Assurez-vous que vous êtes dans le compte qui a déployé le contrat de jeton.
 

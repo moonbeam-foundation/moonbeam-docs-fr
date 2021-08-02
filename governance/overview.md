@@ -74,7 +74,7 @@ Les paramètres de vote sont actuellement définis comme suit :
  * Le comité technique ne peut annuler une proposition avant qu'elle n'ait été adoptée qu'à l'unanimité
  * Un seul membre du comité technique peut opposer son veto à une proposition de conseil entrante, cependant, il ne peut y opposer son veto qu'une seule fois, et cela ne dure que le temps de la periode calme ({{ networks.moonbase.democracy.cool_period.days}} days)
 
-## Essayez-le sur Moonbase Alpha  {: #try-it-out } 
+## Essayez-le sur Moonbase Alpha  {: #try-it-on-moonbase-alpha } 
 
 Actuellement, dans notre TestNet Moonbase Alpha , les détenteurs de jetons peuvent soumettre des propositions et voter sur des référendums. Pour ce faire, consultez les guides suivants :
 

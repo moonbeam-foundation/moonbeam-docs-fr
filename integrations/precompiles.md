@@ -119,7 +119,7 @@ contract Hash256{
 ```
 Une fois le contrat déployé, nous pouvons appeler la méthode `checkHash()` qui renvoie _true_ si le hachage retourné par `calculateHash()` est égal au hachage fourni.
 
-## Hachage avec RIPEMD-160 {: #hashing-with-ripemd160 } 
+## Hachage avec RIPEMD-160 {: #hashing-with-ripemd-160 } 
 
 Cette fonction de hachage renvoie un hachage RIPEMD-160 à partir des données données. Pour tester cette précompilation, vous pouvez utiliser cet [outil en ligne](https://md5calc.com/hash/ripemd160) pour calculer le hachage RIPEMD-160 de n'importe quelle chaîne. Dans notre cas, nous le ferons à nouveau avec `Hello World!`. Nous réutiliserons le même code que précédemment, mais utiliserons la fonction `ripemd160`. Notez qu'il renvoie une variable de type `bytes20`:
 

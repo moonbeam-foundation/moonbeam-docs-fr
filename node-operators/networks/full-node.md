@@ -54,7 +54,7 @@ Comme indiqué précédemment, les nœuds relais/parachain écouteront sur plusi
 
 Les seuls ports qui doivent être ouverts pour le trafic entrant sont ceux désignés pour le P2P.
 
-### Ports par défaut pour un nœud complet Parachain {: #default-ports-for-a-parachain-fullnode } 
+### Ports par défaut pour un nœud complet Parachain {: #default-ports-for-a-parachain-full-node } 
 
 |  Description   |     |                Port                 |
 | :------------: | :-: | :---------------------------------: |

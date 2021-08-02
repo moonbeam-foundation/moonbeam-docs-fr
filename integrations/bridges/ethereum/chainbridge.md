@@ -82,7 +82,7 @@ Ce guide passera en revue deux exemples différents d'utilisation du pont pour t
 !!! remarque
     Le contrat de pont, le contrat ERC-20 et les adresses de contrat ERC-721 énumérées ci-dessus sont applicables pour Kovan et Rinkeby.
 
-### Transfert de jetons ERC-20 {: #erc20-token-transfer } 
+### Transfert de jetons ERC-20 {: #erc-20-token-transfer } 
 
 Les jetons ERC-20 qui veulent être déplacés à travers le pont doivent être enregistrés par les relais dans le contrat du gestionnaire. Par conséquent, pour tester le pont, nous avons déployé un jeton ERC-20 (ERC20S) où n'importe quel utilisateur peut minter 5 jetons:
 
@@ -211,7 +211,7 @@ N'oubliez pas que vous pouvez également créer des jetons ERC20S dans Kovan et 
 !!! remarque
     Les jetons ne seront transférés que si le contrat du gestionnaire dispose d'une allocation suffisante pour dépenser des jetons au nom du propriétaire. Si le processus échoue, vérifiez l'allocation.
 
-### Transfert de jeton ERC-721 {: #erc721-token-transfer } 
+### Transfert de jeton ERC-721 {: #erc-721-token-transfer } 
 
 Semblable à notre exemple précédent, les contrats de jetons ERC-721 doivent être enregistrés par les relais pour permettre le transfert via le pont. Par conséquent, nous avons personnalisé un contrat de jeton ERC-721 afin que tout utilisateur puisse créer un jeton pour tester le pont. Cependant, comme chaque jeton est non fongible, et par conséquent unique, la fonction mint n'est disponible que dans le contrat de jeton de chaîne source et non dans le contrat cible. En d'autres termes, les jetons ERC-721M ne peuvent être mintés que sur Moonbase Alpha, puis transférés à Rinkeby ou Kovan. Le diagramme suivant explique le flux de travail pour cet exemple, où il est important de souligner que l'ID de jeton et les métadonnées sont conservés.
 
