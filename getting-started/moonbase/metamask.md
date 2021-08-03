@@ -17,7 +17,7 @@ Si vous avez déjà installé MetaMask, vous pouvez facilement connecter MetaMas
 
 !!! remarque
     MetaMask apparaîtra pour demander la permission d'ajouter Moonbase Alpha en tant que réseau personnalisé. Une fois que vous avez approuvé les autorisations, MetaMask basculera votre réseau actuel vers Moonbase Alpha.
-## Création d'un portefeuille
+## Création d'un portefeuille {: #creating-a-wallet }
 
 Après avoir installé [MetaMask](https://metamask.io), la configuration ouvrira automatiquement une nouvelle tâche avec un écran de bienvenue. Cliquez sur "Commencer" pour commencer le processus de configuration.
 
