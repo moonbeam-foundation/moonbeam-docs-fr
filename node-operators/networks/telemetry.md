@@ -7,7 +7,7 @@ description: Comment exécuter la télémétrie pour un nœud complet de Paracha
 
 ![Telemetry Moonbeam Banner](/images/fullnode/telemetry-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Avec la sortie de Moonbase Alpha v6, vous pouvez créer un nœud qui se connecte au Moonbase Alpha TestNet. Vous pouvez vérifier ces étapes dans ce didacticiel.
 
@@ -16,7 +16,7 @@ Ce guide fournira les étapes nécessaires pour activer le serveur de télémét
 !!! remarque
     Les étapes décrites dans ce guide concernent une instance de télémétrie différente de la télémétrie Polkadot standard activée par défaut (vous pouvez exécuter des nœuds sans télémétrie à l’aide de l’indicateur `—no-telemetry`). Les étapes décrites dans ce guide sont obligatoires uniquement pour les nœuds d’assembleur.
 
-## Récapitulatif de l’Éxportateur de Télémétrie
+## Récapitulatif de l’Éxportateur de Télémétrie {: #telemetry-exporter-summary } 
 
 Moonbeam exécutera un serveur de télémétrie qui collecte les métriques Prometheus de tous les nœuds de parachain Moonbeam sur le réseau. L’exécuter nous sera d’une grande aide pendant notre phase de développement.
 
@@ -28,25 +28,25 @@ Pour l’instant, nous devons exécuter deux chiens de garde de nœuds, un pour 
 
 Pour obtenir de l’aide, contactez notre [serveur Discord](https://discord.gg/FQXm74UQ7V) ou le Gantree Discord.
 
-## Vérification des prérequis
+## Vérification des prérequis {: #checking-prerequisites } 
 
 Avant de suivre ce didacticiel, vous devez:
 
 1. Connectez-vous à [https://app.gantree.io](https://app.gantree.io) et créez un compte. Accédez aux clés API et copiez votre clé API.
 2. Demandez une clé PCK sur notre [serveur Discord](https://discord.gg/FQXm74UQ7V)
 
-## Exportateur de télémétrie avec Docker
+## Exportateur de télémétrie avec Docker  {: #telemetry-exporter-with-docker } 
 
 Nous exécuterons deux instances du chien de garde du nœud Gantree à l’aide de Docker: une pour la parachain et une pour la chaîne de relais.
 
-### Informations de configuration requises
+### Informations de configuration requises {: #required-configuration-information } 
  - GANTREE_NODE_WATCHDOG_API_KEY
  - GANTREE_NODE_WATCHDOG_PROJECT_ID
  - GANTREE_NODE_WATCHDOG_CLIENT_ID
  - GANTREE_NODE_WATCHDOG_PCKRC
  - GANTREE_NODE_WATCHDOG_METRICS_HOST
  
-### Instructions
+### Instructions {: #instructions } 
 
 Tout d’abord, clonez le référentiel du client de surveillance de l’instance et créez l’image docker:
 
@@ -94,11 +94,11 @@ Vous devriez voir l’attente de l’approvisionnement dans les journaux. Une fo
 
 Une fois que tout fonctionne bien, vous pouvez mettre à jour les commandes pour qu’elles s’exécutent en mode démon. Supprimez `-it` et ajoutez `-d` à la commande ci-dessus.
 
-## Exportateur de télémétrie avec Systemd
+## Exportateur de télémétrie avec Systemd {: #telemetry-exporter-with-systemd } 
 
 Nous allons exécuter deux instances du chien de garde du nœud Gantree: une pour la parachain et une pour la chaîne de relais.
 
-### Informations de configuration requises
+### Informations de configuration requises {: #required-configuration-information } 
 
  - GANTREE_NODE_WATCHDOG_API_KEY
  - GANTREE_NODE_WATCHDOG_PROJECT_ID
@@ -107,7 +107,7 @@ Nous allons exécuter deux instances du chien de garde du nœud Gantree: une pou
  - GANTREE_NODE_WATCHDOG_METRICS_HOST
 
 
-### Instructions
+### Instructions {: #instructions } 
 
 Tout d’ abord, nous avons besoin de télécharger le fichier binaire de surveillance de nœud gantree de la [page de diffusion](https://github.com/gantree-io/gantree-node-watchdog/releases), et l’ extraire dans un dossier, par exemple, `/usr/local/bin`.
 

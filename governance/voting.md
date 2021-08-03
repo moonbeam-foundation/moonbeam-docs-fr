@@ -7,7 +7,7 @@ description: Comment voter sur une proposition pour qu'elle soit adoptée ou rej
 
 ![Governance Moonbeam Banner](/images/governance/governance-voting-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Une fois qu'une proposition atteint les référendums publics, les détenteurs de jetons peuvent voter dessus en utilisant leurs propres jetons. Deux facteurs définissent le poids d'un vote : le nombre de tokens verrouillés et la durée de verrouillage (appelée condamnation). Il s'agit de s'assurer qu'il y a une adhésion économique au résultat pour empêcher la vente de votes. Par conséquent, plus vous êtes prêt à verrouiller vos jetons longtemps, plus votre vote sera pondéré. Vous avez également la possibilité de ne pas verrouiller du tout les jetons, mais le poids des votes est considérablement réduit.
 
@@ -22,7 +22,7 @@ Plus d'informations concernant la [Gouvernance](https://wiki.polkadot.network/do
 !!! remarque
     Ce guide a été réalisé avec une version personnalisée de Moonbeam avec de courtes périodes de lancement/adoption à des fins de démonstration uniquement.
 
-## Definitions
+## Definitions {: #definitions } 
 
 Certains des paramètres clés de ce guide sont les suivants :
 
@@ -43,11 +43,11 @@ Actuellement, pour Moonbase Alpha:
 |      Période d'adoption       |     | {{ networks.moonbase.democracy.enact_period.blocks}} blocks ({{ networks.moonbase.democracy.enact_period.days}} days) |
 | Nombre maximal de votes |     |                                      {{ networks.moonbase.democracy.max_votes}}                                       |
 
-## Feuille de route d'une proposition
+## Feuille de route d'une proposition {: #roadmap-of-a-proposal } 
 
 --8<-- 'text/governance/roadmap.md'
 
-## Voter sur un référendum
+## Voter sur un référendum {: #voting-on-a-referendum } 
 
 Cette section passe en revue le processus de vote lors d'un référendum. Le guide suppose qu'il y en a déjà un, en l'occurrence celui créé dans [ce guide](/governance/proposals/).
 
@@ -57,7 +57,7 @@ Pour voter sur une proposition dans le réseau, vous devez utiliser l'interface 
 
 La proposition soumise au vote fixera le solde de Bob à `1500` via gouvernance!
 
-### Comment voter
+### Comment voter {: #how-to-vote } 
 
 Voter sur Moonbeam est assez simple. Tout ce qui touche à la gouvernance vit sous l'onglet "Democracy" , ou (dans l'image) vous pouvez noter qu'il y a un `1`, indiquant qu'il y a un point sur la démocratie en attente (soit des propositions, soit des référendums). Une fois là-bas, vous pouvez visualiser les détails du référendum que vous souhaitez voter en cliquant sur la flèche à côté de la description. Le numéro à côté de l'action et de sa description s'appelle l'indice référendaire (dans ce cas, c'est 0). Lorsque vous êtes prêt, cliquez sur le bouton "Vote".
 
@@ -107,7 +107,7 @@ Rappelez-vous que, pour cet exemple, la fonction `setBalance` a été utilisé p
 
 ![Proposal Result](/images/governance/governance-vote-5.png)
 
-### Déleguer ses votes
+### Déleguer ses votes {: #delegate-voting } 
 
 Les détenteurs de tokens ont la possibilité de déléguer leur vote à un autre compte dont ils ont confiance en l'opinion. Le compte en cours de délégation n'a pas besoin d'effectuer d'action particulière. Lorsqu'ils votent, le poids du vote (c'est-à-dire le nombre de jetons multiplié par le multiplicateur de conviction choisi par le délégant) est ajouté à son vote.
 
@@ -146,7 +146,7 @@ Il y a quelques points clés à retenir pour la délégation:
  - Un détenteur de jetons qui a délégué des jetons ne peut pas participer à un référendum public. Premièrement, le détenteur du jeton doit annuler sa délégation de vote
  - Un détenteur de jetons qui a délégué des jetons doit déverrouiller manuellement ses jetons verrouillés une fois la période de verrouillage expirée. Pour cela, il faut connaître l'indice référendaire
 
-### Déverrouillage des jetons verrouillés
+### Déverrouillage des jetons verrouillés {: #unlocking-locked-tokens } 
 
 Lorsque les détenteurs de jetons votent, les jetons utilisés sont verrouillés et ne peuvent être transférés. Vous pouvez vérifier si vous avez des jetons verrouillés dans l'onglet "Accounts" , en développant les détails du compte de l'adresse à interroger. Là, vous verrez différents types de soldes (vous pouvez lire plus d'informations sur chaque type [ici](https://wiki.polkadot.network/docs/en/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)). Si vous passez la souris sur l'icône à côté de "democracy," un panneau d'information s'affichera pour vous indiquer l'état actuel de votre verouillage. Les différents états de verrouillage incluent:
 
@@ -184,7 +184,7 @@ Une fois la transaction terminée, les jetons verrouillés doivent être déverr
 
 ![Check Balance](/images/governance/governance-vote-13.png)
 
-## Biais de participation positif
+## Biais de participation positif {: #positive-turnout-bias } 
 
 Les référendums publics utilisent une métrique de biais de participation positive, c'est-à-dire une formule d'approbation à la majorité qualifiée. L'équation est la suivante:
 

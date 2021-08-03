@@ -6,7 +6,7 @@ description: Comment utiliser les données de demande d'un Oracle Razor Network 
 
 ![Razor Network Moonbeam Diagram](/images/razor/razor-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Les développeurs peuvent désormais récupérer les prix de l'oracle de Razor Network en utilisant un contrat Bridge déployé sur Moonbase Alpha TestNet. Ce Bridge agit comme un middleware et les événements émis par celui-ci sont récupérés par l'infrastructure oracle du Razor Network, envoyant les prix au contrat Bridge.
 
@@ -16,7 +16,7 @@ Pour accéder à ces flux de prix, nous devons interagir avec l'adresse du contr
 |:--------------:|-|:------------------------------------------:|
 | Moonbase Alpha | | 0x53f7660Ea48289B5DA42f1d79Eb9d4F5eB83D3BE |
 
-## Emplois
+## Emplois {: #jobs } 
 
 Chaque flux de données est associé à un ID de tâche. Par exemple:
 
@@ -28,7 +28,7 @@ Chaque flux de données est associé à un ID de tâche. Par exemple:
 
 Vous pouvez vérifier les jobs ID pour chaque flux de données sur ce [lien](https://razorscan.io/#/custom). Les flux de prix sont mis à jour toutes les 5 minutes. Pour plus d'informations, consultez le [site Web de documentation de Razor][https://docs.razor.network/].
 
-## Obtenir les données du contrat Bridge
+## Obtenir les données du contrat Bridge {: #get-data-from-bridge-contract } 
 
 Les contrats peuvent interroger des données en chaîne, telles que les prix des jetons, à partir de l'oracle de Razor Network en implémentant l'interface du contrat Bridge, qui expose les fonctions `getResult` et `getJob` .
 
@@ -47,7 +47,7 @@ La première fonction, `getResult`, prend le jobID  associé au flux de données
 
 La deuxième fonction, `getJob`, prend le jobID associé au flux de données et récupère les informations générales concernant le flux de données, telles que le nom du flux de données, le prix et l'URL utilisée pour récupérer les prix.
 
-### Exemple de contrat
+### Exemple de contrat {: #example-contract } 
 
 Nous avons déployé le contrat Bridge dans le Moonbase Alpha TestNet (à l'adresse `{{ networks.moonbase.razor.bridge_address }}`) afin que vous puissiez vérifier rapidement les informations fournies par l'oracle de Razor Network. 
 
@@ -109,7 +109,7 @@ contract Demo {
 }
 ```
 
-### Essayez-le sur Moonbase Alpha
+### Essayez-le sur Moonbase Alpha {: #try-it-on-moonbase-alpha } 
 
 Le moyen le plus simple d'essayer l’implémentation Oracle consiste à pointer l'interface vers le contrat Bridge déployé à l'adresse `{{ networks.moonbase.razor.bridge_address }}`:
 
@@ -137,5 +137,5 @@ Cela créera une instance du contrat de démonstration avec laquelle vous pourre
 
 ![Razor check price](/images/razor/razor-demo2.png)
 
-## Nous contacter
+## Nous contacter {: #contact-us } 
 Si vous avez des commentaires concernant la mise en œuvre de l'Oracle Razor Network  sur votre projet ou tout autre sujet lié à Moonbeam, n'hésitez pas à nous contacter via le canal developpement officiel de notre. [Serveur Discord](https://discord.com/invite/PfpUATX).

@@ -7,20 +7,20 @@ description: Comment utiliser les données de demande d'un Oracle Chainlink dans
 
 ![Chainlink Moonbeam Banner](/images/chainlink/chainlink-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Les développeurs peuvent désormais utiliser [le réseau Oracle décentralisé de Chainlink](https://chain.link/)  pour récupérer des données dans Moonbase Alpha TestNet. Ce tutoriel présente deux manières différentes d'utiliser les oracles Chainlink:
 
  - [Modèle de demande Basique](https://docs.chain.link/docs/architecture-request-model), dans lequel l'utilisateur final envoie une demande à un fournisseur Oracle, qui récupère les données via une API et répond à la demande en stockant ces données en chaîne
  - [Les flux de prix](https://docs.chain.link/docs/architecture-decentralized-model), où les données sont continuellement mises à jour par les opérateurs Oracle dans un contrat intelligent afin que d'autres contrats intelligents puissent les récupérer
 
-## Modèle de requêtes basique
+## Modèle de requêtes basique {: #basic-request-model } 
 
 Avant d'aller chercher les données elles-mêmes, il est important de comprendre les bases du "modèle de requêtes basique."
 
 --8<-- 'text/chainlink/chainlink-brm.md'
 
-### Le contrat client
+### Le contrat client {: #the-client-contract } 
 
 Le contrat Client est l'élément qui démarre la communication avec l'Oracle en envoyant une demande. Comme indiqué dans le diagramme, il appelle la méthode _transferAndCall_  à partir du contrat de jeton LINK, mais un traitement supplémentaire est nécessaire pour suivre la demande vers l’oracle. Pour cet exemple, vous pouvez utiliser le code de [ce fichier](/snippets/code/chainlink/Client.sol), et le déployer sur [Remix](/integrations/remix/) pour l'essayer. Examinons les fonctions essentielles du contrat:
 
@@ -65,7 +65,7 @@ contract Client is ChainlinkClient {
 
 Notez que le contrat Client doit avoir un solde de tokens LINK pour pouvoir payer cette demande. Toutefois, si vous déployez votre configuration, vous pouvez définir la valeur LINK sur 0 dans votre contrat `ChainlinkClient.sol` , mais vous devez toujours avoir le contrat de jeton LINK déployé.
 
-### Essayez-le sur Moonbase Alpha
+### Essayez-le sur Moonbase Alpha {: #try-it-on-moonbase-alpha } 
 
 Si vous souhaitez éviter les obstacles liés au déploiement de tous les contrats, à la configuration de votre nœud Oracle, à la création d'ID de travail, etc., nous avons tout prévu.
 
@@ -119,7 +119,7 @@ Après avoir créé le fichier et compilé le contrat, dirigez-vous vers l'ongle
 
 S'il y a une paire spécifique que vous souhaitez que nous incluions, n'hésitez pas à nous contacter via notre [Serveur Discord](https://discord.com/invite/PfpUATX).
 
-### Exécutez votre contrat client
+### Exécutez votre contrat client {: #run-your-client-contract } 
 
 Si vous souhaitez exécuter votre contrat Client mais utiliser notre nœud Oracle, vous pouvez le faire avec les informations suivantes :
 
@@ -130,13 +130,13 @@ Si vous souhaitez exécuter votre contrat Client mais utiliser notre nœud Oracl
 
 N'oubliez pas que le paiement du jeton LINK est défini sur zéro.
 
-### Autres demandes
+### Autres demandes {: #other-requests } 
 
 Les oracles de Chainlink peuvent provisoirement fournir de nombreux types différents de flux de données à l'aide d'adaptateurs externes. Cependant, pour plus de simplicité, notre nœud Oracle est configuré pour ne fournir que des flux de prix.
 
 Si vous souhaitez exécuter votre propre nœud Oracle dans Moonbeam, veuillez consulter [ce guide](/node-operators/oracles/node-chainlink/). Nous vous recommandons également de consulter  [le site de documentation Chainlink](https://docs.chain.link/docs).
 
-## Flux de prix
+## Flux de prix {: #price-feeds } 
 
 Avant d'aller chercher les données elles-mêmes, il est important de comprendre les bases des flux de prix.
 
@@ -146,7 +146,7 @@ L'utilisateur final peut récupérer les flux de prix avec des opérations en le
 
 ![Price Feed Diagram](/images/chainlink/chainlink-pricefeed.png)
 
-### Essayez-le sur Moonbase Alpha
+### Essayez-le sur Moonbase Alpha {: #try-it-on-moonbase-alpha } 
 
 Si vous souhaitez éviter la complexité liée au déploiement de tous les contrats, à la configuration de votre nœud Oracle, à la création d'ID de tâche, etc., nous avons tout prévu.
 

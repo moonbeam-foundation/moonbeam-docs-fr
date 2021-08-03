@@ -6,7 +6,7 @@ description: Comment utiliser ChainBridge pour connecter des actifs entre Ethere
 
 ![ChainBridge Moonbeam banner](/images/chainbridge/chainbridge-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Un pont permet à deux chaînes économiquement souveraines et technologiquement différentes de communiquer entre elles. Ils peuvent aller de centralisés et fiables à décentralisés et de confiance limitée. L'une des solutions actuellement disponibles est [ChainBridge](https://github.com/ChainSafe/ChainBridge#installation), un pont blockchain multidirectionnel modulaire construit par [ChainSafe](https://chainsafe.io/). Une implémentation ChainBridge est maintenant disponible dans Moonbeam, qui connecte notre Moonbase Alpha TestNet et les Kovan / Rinkeby TestNets d'Ethereum.
 
@@ -19,7 +19,7 @@ Ce guide est divisé en deux sections principales. Dans la première partie, nou
     - [Transférer des jetons ERC-721](/integrations/bridges/ethereum/chainbridge/#erc-721-token-transfer)
     - [Gestionnaire générique](/integrations/bridges/ethereum/chainbridge/#generic-handler)
     
-## Comment fonctionne le pont
+## Comment fonctionne le pont {: #how-the-bridge-works } 
 
 ChainBridge est, à la base, un protocole de transmission de messages. Les événements sur une chaîne source sont utilisés pour envoyer un message qui est acheminé vers la chaîne de destination. Il y a trois rôles principaux:
 
@@ -35,7 +35,7 @@ Des deux côtés du pont, il y a un ensemble de contrats intelligents, où chacu
  - **Contrats du gestionnaire** — valide les paramètres fournis par l'utilisateur, créant un enregistrement de dépôt / exécution
  - **Contrat cible** — comme son nom l'indique, c'est le contrat avec lequel nous allons interagir de chaque côté du pont
 
-### Flux de travail général
+### Flux de travail général {: #general-workflow } 
 
 
 Le flux de travail général est le suivant (de la chaîne A à la chaîne B):
@@ -52,7 +52,7 @@ Ce flux de travail est résumé dans le diagramme suivant:
 
 Les deux contrats cibles de chaque côté du pont sont liés en effectuant une série d'enregistrements dans le gestionnaire de contrat correspondant via le contrat de pont. Ces enregistrements ne peuvent actuellement être effectués que par l'administrateur du contrat de pont.
 
-### Définitions générales
+### Définitions générales {: #general-definitions } 
 
 Ici, nous avons rassemblé une liste de concepts applicables à l'implémentation ChainBridge (de la chaîne A à la chaîne B):
 
@@ -60,7 +60,7 @@ Ici, nous avons rassemblé une liste de concepts applicables à l'implémentatio
  - **ID de ressource** — est un mot de 32 octets destiné à identifier de manière unique un actif dans un environnement inter-chaînes. Notez que l'octet le moins significatif est réservé à chainId, donc nous aurions 31 octets au total pour représenter un actif d'une chaîne dans notre pont. Par exemple, cela peut exprimer tokenX sur la chaîne A est équivalent à tokenY sur la chaîne B
  - **Calldata** — est le paramètre requis pour le gestionnaire qui inclut les informations nécessaires pour exécuter la proposition sur la chaîne B. La sérialisation exacte est définie pour chaque gestionnaire. Vous pouvez trouver plus d'informations [ici](https://chainbridge.chainsafe.io/chains/ethereum/#erc20-erc721-handlers)
 
-## Essayez-le sur Moonbase Alpha
+## Essayez-le sur Moonbase Alpha {: #try-it-on-moonbase-alpha } 
 
 Nous avons mis en place un relais avec l'implémentation ChainBridge, qui est connecté à notre Moonbase Alpha TestNet et aux testnets Rinkeby et Kovan d'Ethereum.
 
@@ -82,7 +82,7 @@ Ce guide passera en revue deux exemples différents d'utilisation du pont pour t
 !!! remarque
     Le contrat de pont, le contrat ERC-20 et les adresses de contrat ERC-721 énumérées ci-dessus sont applicables pour Kovan et Rinkeby.
 
-### Transfert de jetons ERC-20
+### Transfert de jetons ERC-20 {: #erc-20-token-transfer } 
 
 Les jetons ERC-20 qui veulent être déplacés à travers le pont doivent être enregistrés par les relais dans le contrat du gestionnaire. Par conséquent, pour tester le pont, nous avons déployé un jeton ERC-20 (ERC20S) où n'importe quel utilisateur peut minter 5 jetons:
 
@@ -211,7 +211,7 @@ N'oubliez pas que vous pouvez également créer des jetons ERC20S dans Kovan et 
 !!! remarque
     Les jetons ne seront transférés que si le contrat du gestionnaire dispose d'une allocation suffisante pour dépenser des jetons au nom du propriétaire. Si le processus échoue, vérifiez l'allocation.
 
-### Transfert de jeton ERC-721
+### Transfert de jeton ERC-721 {: #erc-721-token-transfer } 
 
 Semblable à notre exemple précédent, les contrats de jetons ERC-721 doivent être enregistrés par les relais pour permettre le transfert via le pont. Par conséquent, nous avons personnalisé un contrat de jeton ERC-721 afin que tout utilisateur puisse créer un jeton pour tester le pont. Cependant, comme chaque jeton est non fongible, et par conséquent unique, la fonction mint n'est disponible que dans le contrat de jeton de chaîne source et non dans le contrat cible. En d'autres termes, les jetons ERC-721M ne peuvent être mintés que sur Moonbase Alpha, puis transférés à Rinkeby ou Kovan. Le diagramme suivant explique le flux de travail pour cet exemple, où il est important de souligner que l'ID de jeton et les métadonnées sont conservés.
 
@@ -337,7 +337,7 @@ N'oubliez pas que les jetons ERC721M ne peuvent être mintés que dans Moonbase 
 !!! remarque
     Les jetons ne seront transférés que si le contrat du gestionnaire est approuvé pour transférer les jetons au propriétaire. Si le processus échoue, vérifiez l'approbation.
 
-### Gestionnaire générique
+### Gestionnaire générique {: #generic-handler } 
 
 Le Gestionnaire générique offre la possibilité d'exécuter une fonction dans la chaîne A et de créer une proposition pour exécuter une autre fonction dans la chaîne B (similaire au diagramme de workflow général). Cela fournit un moyen convaincant de connecter deux blockchains indépendantes.
 
@@ -348,7 +348,7 @@ L'adresse du Gestionnaire générique est:
 
 Si vous souhaitez implémenter cette fonctionnalité, vous pouvez nous contacter directement via notre [Serveur Discord](https://discord.com/invite/PfpUATX).  Nous serons heureux de discuter de cette implémentation.
 
-### Moonbase Alpha ChainBridge UI
+### Moonbase Alpha ChainBridge UI {: #moonbase-alpha-chainbridge-ui } 
 
 Si vous voulez jouer avec le transfert de jetons ERC20S de Moonbase Alpha vers Kovan ou Rinkeby sans avoir à configurer les contrats dans Remix, vous pouvez consulter notre interface utilisateur [Moonbase Alpha ChainBridge UI](https://moonbase-chainbridge.netlify.app/transfer).
 

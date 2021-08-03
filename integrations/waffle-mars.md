@@ -7,7 +7,7 @@ description: Apprenez à utiliser Waffle et Mars pour écrire, compiler, tester 
 
 ![Waffle et Mars sur Moonbeam](/images/waffle-mars/waffle-mars-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 [Waffle](https://getwaffle.io/) est une bibliothèque pour compiler et tester des contrats intelligents, et [Mars](https://github.com/EthWorks/Mars) est un gestionnaire de déploiement. Ensemble, Waffle et Mars peuvent être utilisés pour écrire, compiler, tester et déployer des contrats intelligents Ethereum. Étant donné que Moonbeam est compatible avec Ethereum, Waffle et Mars peuvent être utilisés pour déployer des contrats intelligents sur un nœud de développement Moonbeam ou sur Moonbase Alpha TestNet.
 
@@ -17,7 +17,7 @@ Mars fournit un cadre simple et compatible TypeScript pour créer des scripts de
 
 Dans ce guide, vous allez créer un projet TypeScript pour écrire, compiler et tester un contrat intelligent à l'aide de Waffle, puis le déployer sur Moonbase Alpha TestNet à l'aide de Mars.
 
-## Vérification des prérequis
+## Vérification des prérequis {: #checking-prerequisites } 
 
 --8<-- 'text/common/install-nodejs.md'
 
@@ -27,7 +27,7 @@ Waffle et Mars peuvent être utilisés avec un nœud de développement Moonbeam 
 
 Une fois que vous avez créé un compte, vous devez exporter la clé privée à utiliser dans ce guide. Avant de continuer, assurez-vous que votre compte dispose de fonds et, si nécessaire, obtenez des jetons « DEV » du [faucet](/getting-started/testnet/faucet/).
 
-## Créer un projet TypeScript avec Waffle & Mars
+## Créer un projet TypeScript avec Waffle & Mars {: #create-a-typescript-project-with-waffle-mars } 
 
 Pour commencer, vous allez créer un projet TypeScript et installer et configurer quelques dépendances.
 
@@ -82,7 +82,7 @@ touch tsconfig.json
 ```
 
 Maintenant, vous devriez avoir un projet TypeScript de base avec les dépendances nécessaires pour commencer à créer avec Waffle et Mars.
-## Ajouter un contrat
+## Ajouter un contrat {: #add-a-contract } 
 
 Pour ce guide, vous allez créer un contrat ERC-20 qui émet un nombre spécifié de jetons au créateur du contrat. Il est basé sur le modèle ERC-20 de Open Zeppelin.
 
@@ -108,9 +108,9 @@ contract MyToken is ERC20 {
 
 Dans ce contrat, vous créez un token ERC20 appelé MyToken avec le symbole MYTOK, qui vous permet, en tant que créateur du contrat, de minter autant de MYTOK que vous le souhaitez.
 
-## Utilisez Waffle pour compiler et tester
+## Utilisez Waffle pour compiler et tester {: #use-waffle-to-compile-and-test } 
 
-### Compiler avec Waffle
+### Compiler avec Waffle {: #compile-with-waffle } 
 
 Maintenant que vous avez écrit un contrat intelligent, la prochaine étape consiste à utiliser Waffle pour le compiler. Avant de vous lancer dans la compilation de votre contrat, vous devrez configurer Waffle.
 
@@ -153,7 +153,7 @@ npm run build
 
 Après avoir compilé vos contrats, Waffle stocke la sortie JSON dans le répertoire `build`. Le contrat de ce guide est basé sur le modèle ERC-20 d'Open Zeppelin, de sorte que les fichiers JSON ERC-20 pertinents apparaîtront également dans le répertoire `build`.
 
-### Test avec Waffle
+### Test avec Waffle {: #test-with-waffle } 
 
 Avant de déployer votre contrat et de l'envoyer dans la nature, vous devez d'abord le tester. Waffle fournit un cadre de test avancé et dispose de nombreux outils pour vous aider à tester.
 
@@ -306,7 +306,7 @@ describe ('MyToken', () => {
 
 Si vous souhaitez écrire plus de tests par vous-même, vous pouvez envisager de tester les transferts de comptes sans fonds ou les transferts de comptes sans fonds suffisants.
 
-## Utilisez Mars pour déployer sur Moonbase Alpha
+## Utilisez Mars pour déployer sur Moonbase Alpha {: #use-mars-to-deploy-to-moonbase-alpha } 
 
 Après avoir compilé vos contrats et avant le déploiement, vous devrez générer des artefacts de contrat pour Mars. Mars utilise les artefacts de contrat pour les vérifications de type dans les déploiements. Ensuite, vous devrez créer un script de déploiement et déployer le contrat intelligent « MyToken ».
 
@@ -316,7 +316,7 @@ N'oubliez pas que vous effectuerez un déploiement sur Moonbase Alpha et devrez 
 
 Le déploiement sera divisé en trois sections : [générer des artefacts](#generate-artifacts), [créer un script de déploiement](#create-a-deployment-script) et [déployer avec Mars](#deploy-with- Mars).
 
-### Générer des artefacts
+### Générer des artefacts {: #generate-artifacts } 
 
 Les artefacts doivent être générés pour Mars afin que les vérifications de type soient activées dans les scripts de déploiement.
 
@@ -336,7 +336,7 @@ npm run build
 
 Si vous ouvrez le répertoire `build`, vous devriez maintenant voir un fichier `artifacts.ts` contenant les données d'artefact nécessaires aux déploiements. Pour continuer le processus de déploiement, vous devrez écrire un script de déploiement. Le script de déploiement sera utilisé pour indiquer à Mars quel contrat déployer, sur quel réseau et quel compte doit être utilisé pour déclencher le déploiement.
 
-### Créer un script de déploiement
+### Créer un script de déploiement {: #create-a-deployment-script } 
 
 Vous devez maintenant configurer le déploiement du contrat « MyToken » vers le Moonbase Alpha TestNet.
 
@@ -380,7 +380,7 @@ deploy({network: 'https://rpc.testnet.moonbeam.network', privateKey}, () => {
 
 Jusqu'à présent, vous devriez avoir créé un script de déploiement dans `deploy.ts` qui déploiera le contrat `MyToken` sur Moonbase Alpha, et ajouté la possibilité d'appeler facilement le script et de déployer le contrat.
 
-### Déployer avec Mars
+### Déployer avec Mars {: #deploy-with-mars } 
 
 Vous avez configuré le déploiement, il est maintenant temps de déployer réellement sur Moonbase Alpha.
 
@@ -398,6 +398,6 @@ En cas de succès, vous devriez voir les détails de votre transaction, y compri
 
 Toutes nos félicitations! Vous avez déployé un contrat sur Moonbase Alpha en utilisant Waffle et Mars !
 
-## Exemple de projet
+## Exemple de projet {: #example-project } 
 
 Si vous souhaitez voir un exemple terminé d'un projet Waffle et Mars sur Moonbeam, consultez le [moonbeam-waffle-mars-example](https://github.com/EthWorks/moonbeam-waffle-mars-example) créé par l'équipe derrière Waffle et Mars, EthWorks.
