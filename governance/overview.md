@@ -7,13 +7,13 @@ description: En tant que parachain Polkadot, Moonbeam utilisera un système de g
 
 ![Governance Moonbeam Banner](/images/governance/governance-overview-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Moonbeam est un réseau décentralisé qui sera régi par une communauté de détenteurs de jetons, comprenant les développeurs principaux, les développeurs d'applications, les collators, les utilisateurs et d'autres contributeurs. 
 
 Nous visons à faciliter l'engagement des détenteurs de jetons de chacune de ces catégories dans le cadre du lancement du réseau.
 
-## Définitions générales
+## Définitions générales {: #general-definitions } 
 
 Un grand pouvoir implique de grandes responsabilités. Certains paramètres importants à comprendre avant de s'engager dans la gouvernance de Moonbeam comprennent:
 
@@ -28,7 +28,7 @@ Un grand pouvoir implique de grandes responsabilités. Certains paramètres impo
  - **Periode calme** - La durée d'un veto du comité technique avant que la proposition puisse être soumise à nouveau 
  - **Delegation** — acte de transfert de votre droit de vote sur un autre compte jusqu'à une certaine conviction
 
-## Principes
+## Principes {: #principles } 
 
 Les principes directeurs "souples" pour l'engagement avec le processus de gouvernance de Moonbeam comprennent:
 
@@ -41,7 +41,7 @@ Les principes directeurs "souples" pour l'engagement avec le processus de gouver
 
 Ces points ont été fortement inspirés par les écrits de Vlad Zamfir sur la gouvernance. Reportez-vous à ses articles,  [en particulier celui-ci](https://medium.com/@Vlad_Zamfir/how-to-participate-in-blockchain-governance-in-good-faith-and-with-good-manners-bd4e16846434).
 
-## Mécanique de gouvernance en chaîne
+## Mécanique de gouvernance en chaîne {: #on-chain-governance-mechanics } 
 
 Le processus de gouvernance "dur" pour Moonbeam sera piloté par un processus en chaîne et tirera parti de la démocratie, du Conseil et de la Trésorerie [Substrate frame pallets](/resources/glossary/#substrate-frame-pallets), de la même manière que Kusama et la chaîne de relais Polkadot sont gouvernées. L'intention générale de ces modules est de permettre à la majorité des jetons sur le réseau de déterminer les résultats des décisions clés autour du réseau. Ces points de décision prennent la forme d'un vote pondéré par les enjeux des référendums proposés.
 
@@ -55,7 +55,7 @@ Certaines des principales composantes de ce modèle de gouvernance comprennent:
 
 Voir [cet aperçu sur le site Web de Polkadot](https://polkadot.network/a-walkthrough-of-polkadots-governance/) et [cet article wiki](https://wiki.polkadot.network/docs/en/learn-governance) pour plus de détails sur la façon dont ces palettes Substrate implémentent la gouvernance en chaîne.
 
-## Droits de vote du Conseil et du Comité technique
+## Droits de vote du Conseil et du Comité technique {: #voting-rights-of-the-council-and-the-technical-committee } 
 
 Cette section couvre quelques informations de base sur le vote et décrit les paramètres de vote du protocole tels qu'ils sont définis actuellement. Il y a une limite au temps en blocs dont disposent le comité technique et le conseil pour voter sur les motions. Les motions peuvent se terminer en moins de blocs s'il y a déjà suffisamment de votes soumis pour déterminer le résultat. Un maximum de {{ networks.moonbase.democracy.max_proposals}} propositions peuvent être ouvertes chacune en comité technique et en conseil.
 
@@ -74,7 +74,7 @@ Les paramètres de vote sont actuellement définis comme suit :
  * Le comité technique ne peut annuler une proposition avant qu'elle n'ait été adoptée qu'à l'unanimité
  * Un seul membre du comité technique peut opposer son veto à une proposition de conseil entrante, cependant, il ne peut y opposer son veto qu'une seule fois, et cela ne dure que le temps de la periode calme ({{ networks.moonbase.democracy.cool_period.days}} days)
 
-## Essayez-le sur Moonbase Alpha
+## Essayez-le sur Moonbase Alpha  {: #try-it-on-moonbase-alpha } 
 
 Actuellement, dans notre TestNet Moonbase Alpha , les détenteurs de jetons peuvent soumettre des propositions et voter sur des référendums. Pour ce faire, consultez les guides suivants :
 

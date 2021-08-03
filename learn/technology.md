@@ -5,21 +5,21 @@ description: Moonbeam est construit à l'aide de Rust et du framework Substrate,
 
 # La technologie
 
-## La pile de développement Moonbeam
+## La pile de développement Moonbeam {: #the-moonbeam-development-stack } 
 
 Moonbeam est une plate-forme blockchain de contrats intelligents construite en langage de programmation Rust et utilisant le framework Substrate.  
 
-### Langage de programmation Rust
+### Langage de programmation Rust {: #rust-programming-language } 
 
 Rust est un bon langage pour implémenter une blockchain, car il est très performant comme C et C ++, mais possède des fonctionnalités de sécurité de la mémoire intégrées qui sont appliquées au moment de la compilation, ce qui évite de nombreux bogues courants et problèmes de sécurité pouvant survenir dans les implémentations en C et C ++.
 
-### Substrate Framework
+### Substrate Framework {: #substrate-framework } 
 
 Substrate fournit un ensemble complet d'outils pour créer des chaînes de blocs, y compris un environnement d'exécution qui active une fonction de transition d'état générique et un ensemble de modules enfichables qui fournissent des implémentations de divers sous-systèmes de chaînes de blocs.
 
 Moonbeam s'appuie sur plusieurs palettes cadres de substrate existantes pour fournir des services et des fonctionnalités de blockchain clés, y compris les structures de données de blockchain de base, la mise en réseau peer-to-peer, les mécanismes de consensus, les comptes, les actifs et les soldes.  Les palettes personnalisées et la logique du runtime implémentent le comportement et les fonctionnalités spécifiques à Moonbeam, tels que l'intégration de jetons inter-chaînes. Pour les palettes à effet de levier, Moonbeam s'efforcera de rester aussi proche que possible de la base de code de Substrate en amont et d'incorporer en permanence des corrections de bogues, des améliorations et de nouvelles fonctionnalités de Substrate.
 
-## Durée d'exécution de la blockchain
+## Durée d'exécution de la blockchain {: #blockchain-runtime } 
 
 L'environnement d'exécution principal de Moonbeam spécifie la fonction de transition d'état et le comportement de la blockchain Moonbeam. Le runtime Moonbeam est construit à l'aide de [FRAME](/resources/glossary/#substrate-frame-pallets). Il comprend plusieurs palettes standard ainsi que plusieurs palettes personnalisées. Le runtime est compilé en binaire [WebAssembly (Wasm)](/resources/glossary/#webassemblywasm) et natif. Ces versions compilées seront exécutées dans les environnements de nœuds Polkadot Relay Chain et Moonbeam.  
 
@@ -43,7 +43,7 @@ Moonbeam utilise également la bibliothèque Cumulus pour fournir une intégrati
 
 En plus de ces palettes cadre de substrate, nous implémenterons des modules avec des fonctionnalités spécifiques à Moonbeam, y compris la mécanique et les récompenses de l'assembleuse et d'autres blocs de construction pour les développeurs.
 
-## Architecture de compatibilité Ethereum
+## Architecture de compatibilité Ethereum {: #ethereum-compatibility-architecture } 
 
 Les contrats intelligents sur Moonbeam peuvent être mis en œuvre en utilisant Solidity, Vyper et tout autre langage capable de compiler des contrats intelligents en bytecode compatible EVM. Moonbeam vise à fournir un environnement sécurisé et à faible friction pour le développement, les tests et l'exécution de contrats intelligents compatible avec la chaîne d'outils existante des développeurs Ethereum.  
 

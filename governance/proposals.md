@@ -7,7 +7,7 @@ description: Comment envoyer une proposition à voter sur Moonbeam via des fonct
 
 ![Governance Moonbeam Banner](/images/governance/governance-proposal-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Comme mentionné dans la [page de présentation de la gouvernance](/governance/overview/#definitions), une proposition est une soumission à la chaîne dans laquelle un détenteur de jeton suggère qu'une action soit mise en œuvre par le système.
 
@@ -22,7 +22,7 @@ Plus d'informations peuvent être trouvées dans les pages Wiki de Polkadot lié
 !!! remarque
     Ce guide a été réalisé avec une version personnalisée de Moonbeam avec de courtes périodes de lancement/mise en œuvre à des fins de démonstration uniquement.
 
-## Definitions
+## Definitions {: #definitions } 
 
 Les paramètres clés de ce guide sont les suivants:
 
@@ -43,11 +43,11 @@ Actuellement, pour Moonbase Alpha :
 | Dépôt minimum de préimage   |     |                                 {{ networks.moonbase.democracy.min_preim_deposit}} DEV                                  |
 |Dépôt minimum de proposition |     |                                    {{ networks.moonbase.democracy.min_deposit}} DEV                                     |
 
-## Feuille de route d'une proposition
+## Feuille de route d'une proposition {: #roadmap-of-a-proposal } 
 
 --8<-- 'text/governance/roadmap.md'
 
-## Proposer une action
+## Proposer une action {: #proposing-an-action } 
 
 Cette section passe en revue le processus de création d'une proposition, depuis une pré-image jusqu'à ce qu'elle atteigne les référendums publics. Au lieu de faire un exemple générique, ce guide va en fait créer une vraie proposition qui servira de base à ce guide et à d'autres
 
@@ -57,7 +57,7 @@ Pour faire une proposition dans le réseau, vous devez utiliser l'interface Polk
 
 La proposition fixera le solde de Bob à `1500` via la gouvernance!
 
-### Soumettre une pré-image de la proposition
+### Soumettre une pré-image de la proposition {: #submitting-a-preimage-of-the-proposal } 
 
 La première étape consiste à soumettre une pré-image de la proposition. En effet, le coût de stockage des grandes pré-images peut être assez élevé, car la pré-image contient toutes les informations concernant la proposition elle-même. Avec cette configuration, un compte avec plus de fonds peut soumettre une pré-image et un autre compte peut soumettre la proposition.
 
@@ -81,7 +81,7 @@ Ici, vous devez fournir les informations suivantes :
 
 Notez que le coût de stockage de la pré-image est affiché dans le coin inférieur gauche de cette fenêtre. Une fois la transaction soumise, vous verrez des confirmations dans le coin supérieur droit de l'interface de PolkadotJS Apps, mais rien n'aura changé dans l'écran principal de democracy. Cependant, ne vous inquiétez pas. Si la transaction est confirmée, la préimage a été soumise.
 
-### Soumettre une proposition
+### Soumettre une proposition {: #submitting-a-proposal } 
 
 Une fois que vous avez validé la préimage (consultez la section précédente), la prochaine étape majeure de la feuille de route est de soumettre la proposition qui s'y rapporte. Pour ce faire, dans l'écran principal démocracy, cliquez sur "soumettre une proposition."
 
@@ -103,7 +103,7 @@ Une fois la transaction soumise, vous verrez des confirmations dans le coin sup�
 
 ![Proposition listée](/images/governance/governance-proposal-6.png)
 
-### Soutien à une proposition
+### Soutien à une proposition {: #seconding-a-proposal } 
 
 Soutenir une proposition signifie que vous êtes d'accord avec elle et que vous souhaitez la sauvegarder avec vos jetons pour l'aider à atteindre les référendums publics. Le nombre de jetons à verrouiller est égal au dépôt initial du proposant - ni plus, ni moins.
 

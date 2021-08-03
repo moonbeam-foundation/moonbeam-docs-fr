@@ -14,19 +14,19 @@ Ce jeton est au cœur de la conception de Moonbeam et ne peut pas être retiré 
  - Faciliter le mécanisme de gouvernance en chaîne, y compris proposer des référendums, élire les membres du conseil, voter, etc.
  - Payer les frais de transaction réseau
 
-## Jeton Glimmer
+## Jeton Glimmer {: #glimmer-token } 
 
 Dans le déploiement de Moonbeam sur le Mainnet Polkadot, ce jeton s'appellera Glimmer, comme dans, “cet appel de contrat intelligent coûtera 3 Glimmer.”  Le symbole du jeton sera GLMR.
 
 Vous pouvez trouver plus d'informations sur Glimmer [ici](https://moonbeam.network/networks/moonbeam/glimmer-token/).
 
-## Jeton River
+## Jeton River {: #moonriver-token } 
 
 Dans le déploiement de Moonbeam sur Kusama (appelé Moonriver), ce jeton s'appellera River, comme dans “cet appel de contrat intelligent coûtera 3 River.”  Le symbole du jeton sera MOVR.
 
 Vous pouvez trouver plus d'informations sur MOVR [ici](https://moonbeam.network/networks/moonriver/river-token/).
 
-## Jeton DEV
+## Jeton DEV {: #dev-token } 
 
 Dans notre TestNet Moonbeam (appelé Moonbase Alpha), le jeton est appelé DEV. Ce jeton peut être acquis librement, car son seul objectif est de piloter le développement et les tests sur Moonbase Alpha.
 

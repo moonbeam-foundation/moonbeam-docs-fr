@@ -8,7 +8,7 @@ description: Ce tutoriel vous explique comment interagir avec un nœud Moonbeam 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed//hrpBd2-a7as' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>You can find all of the relevant code for this tutorial on the <a href="{{ config.site_url }}resources/code-snippets/">code snippets page</a></div>
 
-## Introduction
+## Introduction {: #introduction } 
 
 MetaMask peut être utilisé pour se connecter à Moonbeam via le Moonbase Alpha TestNet ou via un nœud de développement Moonbeam fonctionnant localement.
 
@@ -20,7 +20,7 @@ Ce guide décrit les étapes nécessaires pour connecter MetaMask à un nœud de
 
 Vous pouvez interagir avec Moonbeam de deux manières: en utilisant des points de terminaison RPC Substrate ou en utilisant des points de terminaison RPC compatibles Web3. Ces derniers points de terminaison sont actuellement servis à partir du même serveur RPC que ceux de substrate. Dans ce tutoriel, nous utiliserons les points de terminaison RPC Web3 pour interagir avec Moonbeam.
 
-## Installez l'extension MetaMask
+## Installez l'extension MetaMask {: #install-the-metamask-extension } 
 
 Tout d'abord, nous commençons par une nouvelle installation par défaut de [MetaMask](https://metamask.io/) à partir du Chrome Store. Après avoir téléchargé, installé et initialisé l'extension, suivez le guide "Premiers pas". Ici, vous devez créer un portefeuille, définir un mot de passe et stocker votre phrase de sauvegarde secrète (cela donne un accès direct à vos fonds, alors assurez-vous de les stocker dans un endroit sécurisé). Une fois terminé, nous importerons le compte de développement:
 
@@ -39,7 +39,7 @@ Sur l'écran d'importation, sélectionnez “clé privée” et collez l'une des
 Vous devriez vous retrouver avec un “Compte 2”  importé qui ressemble à ceci:
 ![MetaMask affichant votre nouveau compte 2](/images/metamask/using-metamask-3.png)
 
-## Connecter MetaMask à Moonbeam
+## Connecter MetaMask à Moonbeam {: #connecting-metamask-to-moonbeam } 
 
 MetaMask peut être configuré pour se connecter à votre nœud de développement local ou à Moonbase Alpha TestNet. 
 
@@ -61,7 +61,7 @@ Lorsque vous cliquez sur "sauvegarder" et quittez l'écran des paramètres rése
 
 ![Votre nouveau compte Moonbeam avec un solde de 1207925.8196](/images/metamask/using-metamask-5.png)
 
-## Initier un transfert
+## Initier un transfert  {: #initiating-a-transfer } 
 
 Essayons d'envoyer des jetons avec MetaMask.
 

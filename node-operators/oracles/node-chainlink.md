@@ -7,7 +7,7 @@ description: Comment configurer un nœud Oracle Chainlink pour le réseau Moonbe
 
 ![Chainlink Moonbeam Banner](/images/chainlink/chainlinknode-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 En tant que réseau ouvert et sans autorisation, n'importe qui peut choisir d'exploiter un Oracle fournissant des données aux contrats intelligents exécutés sur Moonbeam.
 
@@ -16,13 +16,13 @@ Cet article donne un aperçu de la configuration d'un Oracle Chainlink sur Moonb
 !!! remarque
     Les exemples fournis sont uniquement à des fins de démonstration. Les mots de passe **DOIVENT** être gérés en toute sécurité et ne jamais être stockés en clair. Ces exemples supposent un environnement basé sur Ubuntu 18.04, mais des appels pour MacOs sont inclus. Ce guide est uniquement destiné à une configuration de développement, ne l'utilisez pas pour un environnement de production.
 
-## Modèle de requete basique
+## Modèle de requete basique {: #basic-request-model } 
 
 Avant de nous plonger dans la façon de commencer, il est important de comprendre les bases du "Modèle de requete basique."
 
 --8<-- 'text/chainlink/chainlink-brm.md'
 
-## Utilisateurs avancés
+## Utilisateurs avancés {: #advanced-users } 
 
 Si vous êtes habitué à exécuter des nœuds Oracle Chainlink, ces informations vous permettront de démarrer rapidement sur le TestNet Moonbase Alpha:
 
@@ -32,7 +32,7 @@ Si vous êtes habitué à exécuter des nœuds Oracle Chainlink, ces information
  - Jeton LINK sur Moonbase Alpha: `0xa36085F69e2889c224210F603D836748e7dC0088`
  - Obtenez des jetons Moonbase Alpha depuis [notre Faucet](/getting-started/testnet/faucet/)
 
-## Commencer
+## Commencer {: #getting-started } 
 
 Ce guide vous guidera à travers le processus de configuration du nœud Oracle, résumé comme suit:
 
@@ -49,7 +49,7 @@ Les exigences de base sont:
  - Un compte avec des fonds. Vous pouvez en créer un avec [Metamask](/integrations/wallets/metamask/), qui peut être financé par [notre Faucet](https://docs.moonbeam.network/getting-started/testnet/faucet/)
  - Accès à l'IDE Remix au cas où vous souhaiteriez l'utiliser pour déployer le contrat Oracle. Vous pouvez trouver plus d'informations sur Remix sur Moonbeam [ici](/integrations/remix/)
 
-## Configuration du nœud
+## Configuration du nœud {: #node-setup } 
 
 Tout d'abord, créons un nouveau répertoire pour placer tous les fichiers nécessaires. Par example:
 
@@ -126,7 +126,7 @@ docker logs --tail 50 {container_id} #Logs progressing
 
 ![Docker logs](/images/chainlink/chainlinknode-image1.png)
 
-## Configuration du contrat
+## Configuration du contrat {: #contract-setup } 
 
 Avec le nœud Oracle en cours d'exécution, configurons le côté contrat intelligent des choses.
 
@@ -163,7 +163,7 @@ Nous pouvons utiliser l'instance du contrat déployé sur Remix pour le faire, e
 
 ![Authorize Chainlink Oracle Node](/images/chainlink/chainlinknode-image5.png)
 
-## Créer un job sur le nœud Oracle
+## Créer un job sur le nœud Oracle {: #create-job-on-the-oracle-node } 
 
 La dernière étape pour avoir un Chainlink Oracle entièrement configuré consiste à créer un job. Se référant à [Documentation officielle de Chainlink](https://docs.chain.link/docs/job-specifications):
 
@@ -206,7 +206,7 @@ Ensuite, collez le JSON suivant. Cela créera un job qui demandera le prix ETH a
 
 Et c'est tout ! Vous avez entièrement configuré un nœud Oracle Chainlink qui s'exécute sur Moonbase Alpha.
 
-## Tester l'Oracle
+## Tester l'Oracle {: #test-the-oracle } 
 
 Pour vérifier qu'Oracle est opérationnel et qu'il répond aux demandes, suivez notre tutoriel [utiliser un Oracle](/integrations/oracles/chainlink/) . L'idée principale est de déployer un contrat client qui demande à l'Oracle, et l'Oracle écrit les données demandées dans le stockage du contrat.
 

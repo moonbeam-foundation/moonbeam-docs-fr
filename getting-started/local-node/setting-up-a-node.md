@@ -8,7 +8,7 @@ description: Suivez ce tutoriel pour apprendre à configurer votre premier nœud
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed//p_0OAHSlHNM' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>Vous pouvez trouver tout le code pertinent pour ce tutoriel sur <a href="{{ config.site_url }}resources/code-snippets/">code snippets page</a></div>
 
-## Introduction
+## Introduction {: #introduction } 
 
 Ce guide décrit les étapes nécessaires pour créer un nœud de développement pour tester les fonctionnalités de compatibilité Ethereum de Moonbeam.
 
@@ -22,7 +22,7 @@ Si vous allez jusqu'à la fin de ce guide, vous aurez un nœud de développement
 
 Il existe deux façons de commencer à exécuter un nœud Moonbeam: vous pouvez utiliser [docker pour exécuter un binaire pré-construit](#getting-started-with-docker) ou vous pouvez [compiler le binaire localement](#getting-started-with-the-binary-file)  et configurer un nœud de développement vous-même.  L'utilisation de Docker est un moyen rapide et pratique de commencer car vous n'aurez pas à installer Substrate et toutes ses dépendances, et vous pouvez également ignorer la création du processus de nœud. Cela vous oblige à [installer Docker](https://docs.docker.com/get-docker/). D'un autre côté, si vous décidez que vous souhaitez passer par le processus de création de votre propre nœud de développement, cela peut prendre environ plus ou moins 30 minutes en fonction de votre matériel.
 
-## Premiers pas avec Docker
+## Premiers pas avec Docker {: #getting-started-with-docker } 
 
 L'utilisation de Docker vous permet de faire tourner un nœud en quelques secondes. Une fois Docker installé, vous pouvez exécuter la commande suivante pour télécharger l'image correspondante:
 
@@ -73,7 +73,7 @@ purestake/moonbeam \
 
 Pour continuer avec le didacticiel, la section suivante n'est pas nécessaire car vous avez déjà créé un nœud avec Docker. Vous pouvez passer à la [connexion des applications JS de Polkadot à un nœud local Moonbeam](#connecting-polkadot-js-apps-to-a-local-moonbeam-node).
 
-## Premiers pas avec le fichier binaire
+## Premiers pas avec le fichier binaire {: #getting-started-with-the-binary-file } 
 
 !!! remarque
     Si vous savez ce que vous faites, vous pouvez directement télécharger les binaires précompilés attachés à chaque version sur la [page des sorties Moonbeam](https://github.com/PureStake/moonbeam/releases). Ceux-ci ne fonctionneront pas dans tous les systèmes. Par exemple, les binaires ne fonctionnent qu'avec Linux x86-64 avec des versions spécifiques de dépendances. Le moyen le plus sûr d'assurer la compatibilité est de compiler le binaire dans le système à partir duquel il sera exécuté.
@@ -130,7 +130,7 @@ Pour plus d'informations sur certains des indicateurs et options utilisés dans 
 ```
 ./target/release/moonbeam --help
 ```
-## Connexion des applications JS de Polkadot à un nœud Moonbeam local
+## Connexion des applications JS de Polkadot à un nœud Moonbeam local {: #connecting-polkadot-js-apps-to-a-local-moonbeam-node } 
 
 Le nœud de développement est un nœud basé sur un substrat, nous pouvons donc interagir avec lui à l'aide des outils de substrat standard. Les deux points de terminaison RPC fournis sont:
 
@@ -149,15 +149,15 @@ Avec Polkadot JS Apps connecté, vous verrez le nœud de développement Moonbeam
 
 ![Select Local Node](/images/setting-up-a-node/setting-up-node-7.png)
 
-## Interroger l'état du compte
+## Interroger l'état du compte {: #querying-account-state } 
 
 Avec la sortie de [Moonbase Alpha v3](https://www.purestake.com/news/moonbeam-network-upgrades-account-structure-to-match-ethereum/), Moonbeam fonctionne désormais sous un format de compte unique, qui est le H160 de style Ethereum et est désormais également pris en charge dans Polkadot JS Apps. Pour vérifier le solde d'une adresse, vous pouvez simplement importer votre compte dans l'onglet Comptes. Vous pouvez trouver plus d'informations dans la section [comptes unifiés](/learn/unified-accounts/).
  
 Néanmoins, en tirant parti des capacités RPC complètes d'Ethereum de Moonbeam, vous pouvez également utiliser [MetaMask](/getting-started/local-node/using-metamask/) pour vérifier le solde de cette adresse. En outre, vous pouvez également utiliser d'autres outils de développement, tels que [Remix](/getting-started/local-node/using-remix/) et [Truffle](/getting-started/local-node/using-truffle/).
 
-## commandes courantes, Flags et Options
+## commandes courantes, Flags et Options {: #common-commands-flags-and-options } 
 
-### Purger la chaîne
+### Purger la chaîne {: #purging-the-chain } 
 
 Lors de l'exécution d'un nœud via le fichier binaire, les données sont stockées dans un répertoire local généralement situé dans `~/.local/shared/moonbeam/chains/development/db`. Si vous souhaitez démarrer une nouvelle instance du nœud, vous pouvez soit supprimer le contenu du dossier, soit exécuter la commande suivante dans le dossier `moonbeam` :
 
@@ -168,7 +168,7 @@ Lors de l'exécution d'un nœud via le fichier binaire, les données sont stock�
 Cela supprimera le dossier de données, notez que toutes les données de la chaîne sont maintenant perdues.
 
 Si vous avez utilisé Docker, le dossier de données est lié au conteneur Docker lui-même.
-### Flags de noeuds
+### Flags de noeuds {: #node-flags } 
 
 Les flags ne prennent pas d'argument. Pour utiliser un flag, ajoutez-le à la fin d'une commande. Par example:
 
@@ -182,7 +182,7 @@ Les flags ne prennent pas d'argument. Pour utiliser un flag, ajoutez-le à la fi
 - `--rpc-external`: Écoutez toutes les interfaces RPC
 - `--ws-external`: Écoutez toutes les interfaces Websocket
 
-### Options de noeud
+### Options de noeud {: #node-options } 
 
 Les options acceptent un argument à droite de l'option. Par example:
 
@@ -197,7 +197,7 @@ Les options acceptent un argument à droite de l'option. Par example:
 
 Pour une liste complète des flags et des options, lancez votre nœud de développement Moonbeam avec `--help` ajouté à la fin de la commande.
 
-## Flags et options avancées
+## Flags et options avancées {: #advanced-flags-and-options } 
 
 --8<-- 'text/setting-up-node/advanced-flags.md'
 
@@ -207,7 +207,7 @@ Par exemple, lors de l'exécution du binaire :
 ./target/release/moonbeam --dev --execution=Native --ethapi=debug,trace
 ```
 
-## Comptes de développement préfinancés
+## Comptes de développement préfinancés {: #pre-funded-development-accounts } 
 
 Votre nœud de développement Moonbeam est livré avec dix comptes préfinancés pour le développement. Les adresses sont dérivées de la mnémonique de développement canonique de Substrate: 
 

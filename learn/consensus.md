@@ -7,7 +7,7 @@ description: Découvrez tout les détails du consensus Nimbus de Moonbeam et son
 
 ![Bannière de consensus Moonbeam](/images/consensus/consensus-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Polkadot s'appuie sur un [modèle de consensus hybride](https://wiki.polkadot.network/docs/learn-consensus). Dans un tel schéma, le gadget de finalité de bloc et le mécanisme de production de bloc sont séparés. Par conséquent, les parachaines n'ont plus qu'à se soucier de produire des blocs et s'appuient sur la chaîne relais pour valider les transitions d'état.
 
@@ -26,7 +26,7 @@ Notez que Nimbus ne peut répondre qu'aux assembleurs éligibles pour produire u
 
 Les deux sections suivantes décrivent la stratégie de filtrage actuellement utilisée dans Moonbeam.
 
-## Filtrage du staking de la Parachaine
+## Filtrage du staking de la Parachaine {: #parachain-staking-filtering } 
 
 Les assembleurs peuvent rejoindre le pool de candidats en liant simplement des jetons via un extrinsèque. Une fois dans le pool, les détenteurs de jetons peuvent ajouter à la mise de l'assembleur via une nomination (également appelée staking), c'est-à-dire au niveau de la parachaine.
 
@@ -38,7 +38,7 @@ Le staking de la Parachaine est le premier des deux filtres Nimbus appliqués au
 
 Si vous souhaitez en savoir plus sur le staking, visitez notre [documentation de staking](/staking/overview/).
 
-## Filtrage de sous-ensembles de taille fixe
+## Filtrage de sous-ensembles de taille fixe {: #fixed-size-subset-filtering } 
 
 Une fois que le filtre de staking de la parachaine est appliqué et que les candidats sélectionnés sont récupérés, un deuxième filtre est appliqué bloc par bloc et aide à réduire les candidats sélectionnés à un plus petit nombre d'assembleurs éligibles pour le prochain créneau de création de bloc.
 
@@ -52,7 +52,7 @@ Une fois la taille du sous-ensemble définie, les assembleurs sont sélectionné
 
 ![Filtre de jalonnement Nimbus Parachain](/images/consensus/consensus-images2.png)
 
-## Pourquoi Nimbus ?
+## Pourquoi Nimbus? {: #why-nimbus } 
 
 Vous vous demandez peut-être : mais pourquoi Nimbus ? Initialement, cela n'était pas envisagé lors du développement de Moonbeam. Au fur et à mesure que Moonbeam progressait, la nécessité d'un mécanisme de consensus de la parachaine plus personnalisable mais simple est devenue claire, car les méthodes disponibles présentaient certains inconvénients ou limitations techniques.
 
@@ -64,7 +64,7 @@ Avec Nimbus, écrire un moteur de consensus parachaine est aussi simple qu'écri
 
 Certains avantages techniques de Nimbus sont examinés dans les sections suivantes.
 
-### Poids et exécution supplémentaire
+### Poids et exécution supplémentaire {: #weight-and-extra-execution } 
 
 Nimbus place l'exécution de la vérification de l'auteur dans une [Palette de substrate] (https://substrate.dev/docs/en/knowledgebase/runtime/pallets). À première vue, vous pourriez penser que cela ajoute une charge d'exécution plus élevée à un seul bloc par rapport à cette vérification hors chaîne. Mais considérez cela du point de vue d'un validateur
 
@@ -72,13 +72,13 @@ Les validateurs devront également vérifier l'auteur. En mettant la logique d'e
 
 En pratique, cette vérification sera rapide et ne poussera probablement pas le temps d'exécution au-delà de la limite. Mais d'un point de vue théorique, il est préférable de tenir compte de son poids à des fins de mise en œuvre.
 
-### Réutilisabilité
+### Réutilisabilité {: #reusability } 
 
 Un autre avantage du déplacement de l'exécution de vérification de l'auteur vers une palette, plutôt qu'un exécuteur personnalisé, est qu'un seul exécuteur peut être réutilisé pour tout consensus pouvant être exprimé dans le cadre Nimbus. Il s'agit d'algorithmes basés sur des slots et scellés par signature.
 
 Par exemple, le [consensus fourni par la chaîne de relais](https://github.com/paritytech/cumulus/blob/master/client/consensus/relay-chain/src/lib.rs), [AuRa](https:/ /crates.io/crates/sc-consensus-aura) et [BABE](https://crates.io/crates/sc-consensus-babe) ont chacun leur propre exécuteur personnalisé. Avec Nimbus, ces mécanismes de consensus peuvent réutiliser le même exécuteur. La puissance de la réutilisabilité est démontrée par l'implémentation Nimbus d'AuRa en moins de 100 lignes de code.
 
-### Consensus d'échange à chaud
+### Consensus d'échange à chaud {: #hot-swapping-consensus } 
 
 Les équipes qui construisent des parachaines peuvent vouloir changer, ajuster ou ajuster leur algorithme de consensus de temps en temps. Sans nimbus, l'échange de consensus nécessiterait une mise à niveau du client et un hard fork.
 

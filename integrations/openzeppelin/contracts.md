@@ -7,7 +7,7 @@ description:  Apprenez à créer facilement des contrats OpenZeppelin communs av
 
 ![OpenZeppelin Contracts Banner](/images/openzeppelin/ozcontracts-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Les contrats et les bibliothèques OpenZeppelin sont devenus un standard dans l'industrie. Ils aident les développeurs à minimiser les risques, car leurs modèles de code open source sont testés rigoureusement pour Ethereum et d'autres blockchains. Leur code comprend les implémentations les plus utilisées des normes et des modules complémentaires ERC et apparaît souvent dans des guides et des tutoriels de la communauté.
 
@@ -15,7 +15,7 @@ Les contrats et les bibliothèques OpenZeppelin sont devenus un standard dans l'
 
 Ce guide est divisé en deux sections. La première partie décrit l'assistant de contrats OpenZeppelin, un excellent outil en ligne pour vous aider à créer des contrats intelligents à l'aide du code OpenZeppelin. La deuxième section fournit un guide étape par étape sur la façon dont vous pouvez déployer ces contrats sur Moonbeam.
 
-## Assistant de Contrats OpenZeppelin
+## Assistant de Contrats OpenZeppelin {: #openzeppelin-contract-wizard } 
 
 OpenZeppelin a développé un outil de génération de contrat interactif basé sur le Web qui est probablement le moyen le plus simple et le plus rapide d'écrire votre contrat intelligent à l'aide du code OpenZeppelin. L'outil s'appelle Contracts Wizard, et vous pouvez le trouver sur leur [site de documentation] (https://docs.openzeppelin.com/contracts/4.x/wizard).
 
@@ -40,7 +40,7 @@ L'assistant comprend les sections suivantes :
 
 Une fois que vous avez configuré votre contrat avec tous les paramètres et fonctionnalités, c'est aussi simple que de copier et coller le code dans votre fichier de contrat.
 
-## Déploiement des contrats OpenZeppelin sur Moonbeam
+## Déploiement des contrats OpenZeppelin sur Moonbeam {: #deploying-openzeppelin-contracts-on-moonbeam } 
 
 Cette section passe en revue les étapes de déploiement des contrats OpenZeppelin sur Moonbeam. Il couvre les contrats suivants :
 
@@ -50,14 +50,14 @@ Cette section passe en revue les étapes de déploiement des contrats OpenZeppel
 
 Tout le code des contrats a été obtenu à l'aide d'OpenZeppelin [Assistant de Contrat](https://docs.openzeppelin.com/contracts/4.x/wizard).
  
-### Vérification des prérequis
+### Vérification des prérequis {: #checking-prerequisites } 
 
 Les étapes décrites dans cette section supposent que [MetaMask](https://metamask.io/) est installé et connecté à Moonbase Alpha TestNet. Le déploiement du contrat se fait à l'aide du [Remix IDE](https://remix.ethereum.org/) via l'environnement "Injected Web3". Vous pouvez trouver les tutoriels correspondants dans les liens suivants :
 
  - [Interagir avec Moonbeam en utilisant MetaMask](/integrations/wallets/metamask/)
  - [Interagir avec Moonbeam en utilisant Remix](/integrations/remix/)
 
-### Déploiement d'un jeton ERC20
+### Déploiement d'un jeton ERC20 {: #deploying-an-erc20-token } 
 
 Pour cet exemple, un jeton ERC20 sera déployé sur Moonbase Alpha. Le code final utilisé combine différents contrats d'OpenZeppelin :
 
@@ -113,7 +113,7 @@ Une fois le contrat compilé, vous êtes prêt à le déployer en procédant com
 
 Et c'est tout ! Vous avez déployé un contrat de jeton ERC20 à l'aide des contrats et des bibliothèques d'OpenZeppelin. Ensuite, vous pouvez interagir avec votre contrat de jeton via Remix, ou l'ajouter à MetaMask.
 
-### Déploiement d'un jeton ERC721
+### Déploiement d'un jeton ERC721 {: #deploying-an-erc721-token } 
 
 Pour cet exemple, un jeton ERC721 sera déployé sur Moonbase Alpha. Le code final utilisé combine différents contrats d'OpenZeppelin :
 
@@ -178,7 +178,7 @@ Une fois le contrat compilé, rendez-vous dans l'onglet "Déployer et exécuter 
 
 Et c'est tout ! Vous avez déployé un contrat de jeton ERC721 à l'aide des contrats et des bibliothèques d'OpenZeppelin. Ensuite, vous pouvez interagir avec votre contrat de jeton via Remix, ou l'ajouter à MetaMask.
 
-### Déploiement d'un jeton ERC1155
+### Déploiement d'un jeton ERC1155 {: #deploying-an-erc1155-token } 
 
 Pour cet exemple, un jeton ERC1155 sera déployé sur Moonbase Alpha. Le code final utilisé combine différents contrats d'OpenZeppelin :
 

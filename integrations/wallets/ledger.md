@@ -7,7 +7,7 @@ description: Ce guide vous explique comment utiliser votre portefeuille matérie
 
 ![Intro diagram](/images/ledger/ledger-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Les portefeuilles matériels offrent un moyen plus sûr de stocker des fonds cryptographiques, car la clé privée (utilisée pour signer les transactions) est stockée hors ligne. Ledger propose deux solutions de portefeuille matériel au moment de la rédaction : Ledger Nano S et Ledger Nano X.
 
@@ -15,7 +15,7 @@ Les portefeuilles matériels offrent un moyen plus sûr de stocker des fonds cry
 
 Ce tutoriel vous montre comment démarrer avec votre portefeuille matériel Ledger sur Moonbase Alpha. Le guide illustre uniquement les étapes d'un appareil Ledger Nano X, mais vous pouvez également le suivre avec un Ledger Nano S. Le même processus peut être appliqué aux autres réseaux de l'écosystème Moonbeam.
 
-## Vérification des prérequis
+## Vérification des prérequis {: #checking-prerequisites } 
 
 Avant de commencer, mettez à jour [Ledger Live](https://www.ledger.com/ledger-live/download) à la dernière version disponible. Assurez-vous également que votre périphérique de portefeuille matériel Ledger exécute le dernier micrologiciel. Le site Web d'assistance de Ledger propose des tutoriels sur la mise à jour du micrologiciel des deux dispositifs [Ledger Nano S](https://support.ledger.com/hc/en-us/articles/360002731113-Update-Ledger-Nano-S-firmware) et [Ledger Nano X](https://support.ledger.com/hc/en-us/articles/360013349800-Update-Ledger-Nano-X-firmware) .
 
@@ -32,7 +32,7 @@ De plus, vous aurez besoin de MetaMask comme intermédiaire entre votre appareil
 
 Veuillez noter que votre appareil Ledger signera les transactions dans n'importe quel réseau MetaMask auquel il est connecté.
 
-## Importation de votre compte Ledger dans MetaMask
+## Importation de votre compte Ledger dans MetaMask {: #importing-your-ledger-account-to-metamask } 
 
 Pour commencer, vous devez connecter votre appareil Ledger à l'ordinateur, le déverrouiller, ouvrir l'application Ethereum. Ensuite, pour importer votre compte Ethereum Ledger dans MetaMask, procédez comme suit:
 
@@ -63,7 +63,7 @@ Si vous avez importé avec succès votre compte de style Ledger Ethereum, vous d
 
 Vous avez maintenant importé avec succès un compte compatible Moonbeam depuis votre appareil Ledger et êtes maintenant prêt à commencer à [signer des transactions à l'aide de votre portefeuille matériel](#signing-a-transaction-using-your-ledger).
 
-### Navigateur Chrome
+### Navigateur Chrome {: #chrome-browser } 
 
 À partir de la version 91 de Chrome, les utilisateurs qui souhaitent connecter leur appareil Ledger à MetaMask doivent exécuter la dernière version de Ledger Live (v2.29 au moment de la rédaction). 
 
@@ -75,7 +75,7 @@ De plus, dans MetaMask, ils doivent activer le support Ledger Live. Pour ce fair
 
 Avec cette fonctionnalité activée, MetaMask ouvrira Ledger Live lors de la tentative de connexion à votre appareil Ledger. Vous pouvez en savoir plus à ce sujet dans ce [blog post MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360020394612-How-to-connect-a-Trezor-or-Ledger-Hardware-Wallet).
 
-## Signer une transaction à l'aide de votre Ledger
+## Signer une transaction à l'aide de votre Ledger {: #signing-a-transaction-using-your-ledger } 
 
 Si vous avez réussi à [importé votre compte Ledger dans MetaMask](#importing-your-ledger-account-to-metamask), vous êtes prêt à signer des transactions sur Moonbeam à l'aide de votre appareil Ledger. Ce tutoriel va vous montrer comment envoyer une transaction simple sur le TestNet Moonbase Alpha , mais il s'applique aux autres réseaux de l'écosystème Moonbeam.
 
@@ -104,7 +104,7 @@ Juste après avoir approuvé la transaction, MetaMask l'envoie au réseau. Une f
 
 Et c'est tout ! Vous avez signé une transaction sur Moonbase Alpha en utilisant votre portefeuille matériel Ledger!
 
-## Interagir avec les contrats à l'aide de votre Ledger
+## Interagir avec les contrats à l'aide de votre Ledger {: #interacting-with-contracts-using-your-ledger } 
 
 Par défaut, les périphériques Ledger n'admettent pas de champ `data` dans l'objet de transaction. Par conséquent, les utilisateurs ne peuvent pas déployer ou interagir avec des contrats intelligents.
 

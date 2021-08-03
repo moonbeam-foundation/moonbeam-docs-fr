@@ -7,7 +7,7 @@ description:  Apprenez à tirer parti de l'API de débogage Geth et du module de
 
 ![Full Node Moonbeam Banner](/images/debugtrace/debugtrace-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 L'API de débogage de Geth et le module de tracage d'OpenEthereum fournissent des méthodes RPC non standard pour obtenir un aperçu plus approfondi du traitement des transactions.
 
@@ -20,7 +20,7 @@ Les deux appels sont assez lourds du côté du nœud. Par conséquent, il est n�
  - **Noeud de développement Moonbeam** — exécutez votre propre instance Moonbeam dans votre environnement privé. Pour ce faire, vous pouvez suivre [ce guide](/getting-started/local-node/setting-up-a-node/). Assurez-vous de consulter la [section des flags avancés](/getting-started/local-node/setting-up-a-node/#advanced-flags-and-options)
  - **Nœud Moonbase Alpha** — exécutez un nœud complet du TestNet et accédez à vos propres points de terminaison privés. Pour ce faire, vous pouvez suivre [ce guide](/node-operators/networks/full-node/). Assurez-vous de consulter la [section des flags avancés](/node-operators/networks/full-node/#advanced-flags-and-options)
 
-## API de débogage Geth
+## API de débogage Geth {: #geth-debug-api } 
 
 L'implémentation RPC `debug_traceTransaction` suit les [Directives de l'API de débogage de Geth](https://geth.ethereum.org/docs/rpc/ns-debug#debug_tracetransaction).
 
@@ -32,7 +32,7 @@ La méthode RPC nécessite l'exécution du hachage de la transaction. En tant qu
 
 Le traçage des transactions basé sur JavaScript n'est pas pris en charge pour le moment.
 
-## Module de Tracage
+## Module de Tracage {: #trace-module } 
 
 L' implémentations RPC `trace_filter`suit les [Directives du module de tracage d'OpenEthereum](https://openethereum.github.io/JSONRPC-trace-module#trace_filter).
 
@@ -45,7 +45,7 @@ La méthode RPC requiert l'un des paramètres facultatifs suivants:
  - **after** — une entrée : offset (`uint`), la valeur par défaut est `0`. Numéro de décalage (ou de début) de traçage
  - **count** — une entrée : nombre de tracages (`uint`). nombre de tracages à afficher dans un lot
 
-## Essayez-le sur Moonbase Alpha
+## Essayez-le sur Moonbase Alpha {: #try-it-on-moonbase-alpha } 
 
 Comme mentionné précédemment, pour utiliser les deux fonctionnalités, vous devez disposer d'un nœud exécuté avec les flags `debug` et `trace` . Pour cet exemple, un nœud complet Moonbase Alpha local est utilisé, avec le point de terminaison HTTP RPC à `http://127.0.0.1:9933`. Si vous avez un nœud en cours d'exécution, vous devriez voir un journal de terminal similaire:
 

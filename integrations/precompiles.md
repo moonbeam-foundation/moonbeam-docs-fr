@@ -5,7 +5,7 @@ description:  Apprenez à utiliser des contrats précompilés sur Moonbase Alpha
 
 # Contrats précompilés sur Moonbase Alpha
 
-## Introduction
+## Introduction {: #introduction } 
 
 Une autre fonctionnalité ajoutée avec la [sortie de Moonbase Alpha v2](https://moonbeam.network/announcements/moonbase-alpha-v2-contract-events-pub-sub-capabilities/) est l'inclusion de certains [contrats précompilés](https://docs.klaytn.com/smart-contract/precompiled-contracts) disponibles nativement sur Ethereum. 
 
@@ -13,7 +13,7 @@ Cinq précompilations sont actuellement incluses, dont: ecrecover, sha256, ripem
 
 Dans ce guide, nous vous expliquerons comment utiliser et / ou vérifier ces précompilations.
 
-## Vérification des prérequis
+## Vérification des prérequis {: #checking-prerequisites } 
 
 --8<-- 'text/common/install-nodejs.md'
 
@@ -30,7 +30,7 @@ npm ls web3
 ```
 Au moment de la rédaction de ce guide, la version utilisée était la 1.3.0. Nous utiliserons également [Remix](/integrations/remix/), en le connectant au TestNet Moonbase Alpha via [MetaMask](/integrations/wallets/metamask/).
 
-## Vérifier les signatures avec ECRECOVER
+## Vérifier les signatures avec ECRECOVER {: #verify-signatures-with-ecrecover } 
 
 La fonction principale de cette précompilation est de vérifier la signature d'un message. En termes généraux, vous alimentez `ecrecover` les valeurs de signature de la transaction et elle renvoie une adresse. La signature est vérifiée si l'adresse renvoyée est la même que l'adresse publique qui a envoyé la transaction.
 
@@ -94,7 +94,7 @@ contract ECRECOVER{
 
 En utilisant le [compilateur et le déploiement Remix](/getting-started/local-node/using-remix/) et avec [MetaMask pointant vers Moonbase Alpha](/getting-started/testnet/metamask/), nous pouvons déployer le contrat et appeler la méthode `verify()` qui retourne _true_ si l'adresse renvoyée par `ecrecover` est égale à l'adresse utilisée pour signer le message (liée à la clé privée et doit être défini manuellement dans le contrat).
 
-## Hachage avec SHA256
+## Hachage avec SHA256 {: #hashing-with-sha256 } 
 
 Cette fonction de hachage renvoie le hachage SHA256 à partir des données données. Pour tester cette précompilation, vous pouvez utiliser cet [outil en ligne](https://md5calc.com/hash/sha256) pour calculer le hachage SHA256 de la chaîne de votre choix. Dans notre cas, nous le ferons avec `Hello World!`. Nous pouvons nous diriger directement vers Remix et déployer le code suivant, où le hachage calculé est défini pour la variable `expectedHash`:
 
@@ -119,7 +119,7 @@ contract Hash256{
 ```
 Une fois le contrat déployé, nous pouvons appeler la méthode `checkHash()` qui renvoie _true_ si le hachage retourné par `calculateHash()` est égal au hachage fourni.
 
-## Hachage avec RIPEMD-160
+## Hachage avec RIPEMD-160 {: #hashing-with-ripemd-160 } 
 
 Cette fonction de hachage renvoie un hachage RIPEMD-160 à partir des données données. Pour tester cette précompilation, vous pouvez utiliser cet [outil en ligne](https://md5calc.com/hash/ripemd160) pour calculer le hachage RIPEMD-160 de n'importe quelle chaîne. Dans notre cas, nous le ferons à nouveau avec `Hello World!`. Nous réutiliserons le même code que précédemment, mais utiliserons la fonction `ripemd160`. Notez qu'il renvoie une variable de type `bytes20`:
 
@@ -143,7 +143,7 @@ contract HashRipmd160{
 ```
 Une fois le contrat déployé, nous pouvons appeler la méthode `checkHash()` qui retourne _true_ si le hachage retourné par `calculateHash()` est égal au hachage fourni.
 
-## La fonction d'identité
+## La fonction d'identité {: #the-identity-function } 
 
 Également connue sous le nom de copie de données, cette fonction est un moyen moins coûteux de copier des données en mémoire. Le compilateur Solidity ne le prend pas en charge, il doit donc être appelé avec l'assemblage en ligne. Le [code suivant](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x-04-datacopy-data) (adapté à Solidity), peut être utilisé pour appeler ce contrat précompilé. Nous pouvons utiliser cet [outil en ligne](https://web3-type-converter.onbrn.com/) pour obtenir des octets à partir de n'importe quelle chaîne, car il s'agit de l'entrée de la fonction `callDataCopy()`.
 
@@ -171,7 +171,7 @@ contract Identity{
 ```
 Une fois le contrat déployé, nous pouvons appeler la méthode `callDataCopy()` et vérifier si `memoryStored` correspond aux octets que vous passez en tant qu'entrée de la fonction.
 
-## Exponentiation modulaire
+## Exponentiation modulaire {: #modular-exponentiation } 
 
 Ce cinquième précompilé calcule le reste lorsqu'un entier _b_ (base) est élevé à la puissance _e_-th (l'exposant), et est divisé par un entier positif _m_ (le module).
 

@@ -5,7 +5,7 @@ description: Afin de faciliter la prise en main de Moonbeam, voici des extraits 
 
 # Extraits de code
 
-## Configuration d'un nœud Moonbeam local
+## Configuration d'un nœud Moonbeam local {: #setting-up-a-local-moonbeam-node } 
 
 **Cloner le repo moonbeam-tutorials:**
 
@@ -50,17 +50,17 @@ cd moonbeam
 ./target/release/moonbeam-development --dev -lerror
 ```
 
-## Compte Genèse
+## Compte Genèse {: #genesis-account } 
 
 --8<-- 'text/metamask-local/dev-account.md'
 
-## Comptes de développement
+## Comptes de développement {: #development-accounts } 
 
 --8<-- 'code/setting-up-node/dev-accounts.md'
 
 --8<-- 'code/setting-up-node/dev-testing-account.md'
 
-## MetaMask
+## MetaMask {: #metamask } 
 
 **Détails du nœud de développement Moonbeam:**
 

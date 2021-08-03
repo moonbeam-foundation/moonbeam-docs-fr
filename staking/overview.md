@@ -7,7 +7,7 @@ description: Moonbeam fournit des fonctionnalités de staking où les détenteur
 
 ![Staking Moonbeam Banner](/images/staking/staking-overview-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Moonbeam utilise un mécanisme de production de blocs basé sur [le modèle Proof-of-Stake de Polkadot ](https://wiki.polkadot.network/docs/en/learn-consensus) où il y a des collators et des validateurs. [Les collators](https://wiki.polkadot.network/docs/en/learn-collator) maintiennent les parachains (dans ce cas, Moonbeam) en collectant les transactions des utilisateurs et en produisant des preuves de transition d'état pour les [validateurs](https://wiki.polkadot.network/docs/en/learn-validator)de la chaine de relais.
 
@@ -15,7 +15,7 @@ L'ensemble des collators (nœuds qui produisent des blocs) est sélectionné en 
 
 Les collators (et les détenteurs de jetons s'ils les nomment) ont un intérêt dans le réseau dans lequel ils sont pénalisés s'ils se comportent mal. Par conséquent, plus l'enjeu est élevé, plus la sécurité du réseau est élevée. Plus l'enjeu est élevé, plus il est probable que le collator soit sélectionné pour produire un bloc et gagner des récompenses, qu'il partage avec ses nominateurs. De cette manière, les membres du réseau sont incités à staker des jetons pour améliorer la sécurité globale.
 
-## Définitions générales
+## Définitions générales {: #general-definitions } 
 
 --8<-- 'text/staking/staking-definitions.md'
 
@@ -30,7 +30,7 @@ Actuellement, pour Moonbase Alpha:
 |              Tour                             |     | {{ networks.moonbase.staking.round_blocks }} blocks ({{ networks.moonbase.staking.round_hours }} hours) |
 | Durée de l'obligation                         |     |                            {{ networks.moonbase.staking.bond_lock }} rounds                             |
 
-## Distribution des récompenses
+## Distribution des récompenses {: #reward-distribution } 
 
 A la fin de chaque tour ({{ networks.moonbase.staking.round_blocks }} blocks), les collators sont récompensés pour les 2 tours précédents. {{ networks.moonbase.staking.bond_lock }} .
 
@@ -52,7 +52,7 @@ Pour chaque nominateur, la récompense ressemblerait à ceci :
 
 Où la mise correspond au montant de jetons cautionnés par chaque nominateur par rapport à la mise totale de ce collator.
 
-## Essayez-le sur Moonbase Alpha
+## Essayez-le sur Moonbase Alpha {: #try-it-on-moonbase-alpha } 
 
 Dans Moonbase Alpha TestNet, les détenteurs de jetons peuvent miser et gagner des récompenses (pour se familiariser avec le système car le jeton n'a aucune valeur réelle).
 

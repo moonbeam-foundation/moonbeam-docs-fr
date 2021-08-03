@@ -7,7 +7,7 @@ description: Construire des API à l'aide du protocole d'indexation The Graph su
 
 ![The Graph Node on Moonbeam](/images/thegraph/thegraphnode-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Un nœud Graph source des événements à partir d'une blockchain pour mettre à jour de manière déterministe un magasin de données qui peut ensuite être interrogé via un point de terminaison GraphQL.
 
@@ -16,7 +16,7 @@ Vous pouvez configurer un nœud Graph de deux manières : vous pouvez utiliser D
 !!! remarque
     Les étapes décrites dans ce guide ont été testées dans les environnements Ubuntu 18.04 et MacOs, et elles devront être adaptées en conséquence pour d'autres systèmes.
 
-## Vérification des prérequis
+## Vérification des prérequis {: #checking-prerequisites } 
 
 Avant de plonger dans la configuration d'un nœud graph, vous devez avoir installé les éléments suivants sur votre système :
 
@@ -31,7 +31,7 @@ De plus, vous devez avoir un nœud fonctionnant avec l'option `--ethapi=trace` a
 
 Dans ce guide, un nœud graph s'exécute sur un nœud complet Moonbase Alpha avec le flag `--ethapi=trace` .
 
-## Exécuter un nœud graph
+## Exécuter un nœud graph {: #running-a-graph-node } 
 
 La première étape consiste à cloner le [repository du noeud Graph](https://github.com/graphprotocol/graph-node/):
 

@@ -7,13 +7,13 @@ description: Comment compiler le code binaire Moonbeam pour exécuter un nœud P
 
 ![Full Node Moonbeam Banner](/images/fullnode/compile-binary-banner.png)
 
-## Introduction
+## Introduction {: #introduction } 
 
 Il existe plusieurs façons de commencer à exécuter un nœud complet sur le réseau Moonbeam. Ce guide passe en revue le processus de compilation du code binaire Moonbeam à partir du code source de Rust. Pour un aperçu plus général des nœuds en cours d'exécution, ou pour démarrer avec Docker, consultez la page [Exécuter un nœud](/node-operators/networks/full-node) de notre documentation.
 
 Ce guide est destiné aux personnes ayant de l'expérience dans la compilation de nœuds blockchain basés sur [Substrate](https://substrate.dev/). Un nœud de parachain est similaire à un nœud de substrate typique, mais il existe quelques différences. Un nœud de parachain de substrate aura un plus grand build car il contient du code pour exécuter la parachain elle-même, ainsi que du code pour synchroniser la chaîne de relais et faciliter la communication entre les deux. En tant que tel, cette version est assez volumineuse et peut prendre plus de 30 minutes et nécessiter 32 Go de mémoire.
 
-## Compiler le code Binaire
+## Compiler le code Binaire {: #compiling-the-binary } 
 
 Les commandes suivantes construiront la dernière version de la parachain Moonbeam.
 
