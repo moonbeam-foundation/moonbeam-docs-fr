@@ -41,7 +41,7 @@ La structure `ReferenceData` comprend les éléments suivants:
  - Dernière mise à jour de la base: la dernière fois que le prix de base a été mis à jour (depuis l'époque UNIX)
  - Dernier devis mis à jour: la dernière fois que le prix indiqué a été mis à jour (depuis l'époque UNIX)
  
-```
+```js
 struct ReferenceData {
    uint256 rate; 
    uint256 lastUpdatedBase; 
@@ -59,7 +59,7 @@ La deuxième fonction, `getReferenceDataBulk`, prend les informations sous forme
 
 Le code de contrat intelligent suivant fournit quelques exemples simples du contrat `StdReference` et de la fonction `getReferenceData` -  ceux-ci ne sont pas destinés à la production. L'interface `IStdReference.sol` définit la structure ReferenceData et les fonctions disponibles pour effectuer les requêtes.
 
-```sol
+```solidity
 pragma solidity 0.6.11;
 pragma experimental ABIEncoderV2;
 
@@ -93,7 +93,7 @@ Ensuite, nous pouvons utiliser le script `DemoOracle` Il fournit quatre fonction
 
  Lorsqu'elle est déployée, la fonction constructeur a besoin de l'adresse du contrat d'agrégation pour le réseau cible.
 
-```sol
+```solidity
 pragma solidity 0.6.11;
 pragma experimental ABIEncoderV2;
 
@@ -153,7 +153,7 @@ contract DemoOracle {
 
 Nous avons déployé un contrat disponible dans Moonbase Alpha TestNet (à l'adresse `0xf15c870344c1c02f5939a5C4926b7cDb90dEc655`) afin que vous puissiez facilement vérifier les informations fournies par l'oracle de Band Protocol. Pour ce faire, vous avez besoin du contrat d'interface suivant:
 
-```sol
+```solidity
 pragma solidity 0.6.11;
 pragma experimental ABIEncoderV2;
 
@@ -195,7 +195,7 @@ getReferenceData(['BTC/USD', 'BTC/ETH', 'ETH/EUR'])
 
 Ensuite, il renvoie un objet tableau avec la structure suivante:
 
-```
+```js
 [
   {
     pair: 'BTC/USD',
