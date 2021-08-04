@@ -86,10 +86,10 @@ interface IStdReference {
 ```
 Ensuite, nous pouvons utiliser le script `DemoOracle` Il fournit quatre fonctions:
 
- - getPrice: une fonction _view_ qui interroge une seule base. Dans cet exemple, le prix du `BTC` coté en `USD`
- - getMultiPrices: une fonction _view_ qui interroge plusieurs bases. Dans cet exemple, le prix de `BTC` et `ETH`, tous deux cotés en `USD`
- - savePrice: une fonction _public_ qui interroge la paire _base/quote_ . Chaque élément est fourni sous forme de chaînes distinctes, par exemple `_base = "BTC", _quotes = "USD"`. Cela envoie une transaction et modifie la variable `price` stockée dans le contrat
- - saveMultiPrices: une fonction _public_  qui interroge chaque paire _base/quote_ . Chaque élément est fourni sous forme de tableau de chaînes. Par exemple `_bases = ["BTC","ETH"], _quotes = ["USD","USD"]`. Cela envoie une transaction et modifie le tableau `prices` stocké dans le contrat, qui contiendra le prix de chaque paire dans le même ordre que spécifié dans l'entrée
+ - **getPrice**(*string[]* base, *string[]* quotes): une fonction _view_ qui interroge une seule base. Dans cet exemple, le prix du `BTC` coté en `USD`
+ - **getMultiPrices**(*string[]* bases, *string[]* quotes):  une fonction _view_ qui interroge plusieurs bases. Dans cet exemple, le prix de `BTC` et `ETH`, tous deux cotés en `USD`
+- **savePrice**(*string* base, *string* quote): une fonction _public_ qui interroge la paire _base/quote_ . Chaque élément est fourni sous forme de chaînes distinctes, par exemple `_base = "BTC", _quotes = "USD"`. Cela envoie une transaction et modifie la variable `price` stockée dans le contrat
+- **saveMultiPrices**(*string[]* bases, *string[]* quotes): une fonction _public_  qui interroge chaque paire _base/quote_ . Chaque élément est fourni sous forme de tableau de chaînes. Par exemple `_bases = ["BTC","ETH"], _quotes = ["USD","USD"]`. Cela envoie une transaction et modifie le tableau `prices` stocké dans le contrat, qui contiendra le prix de chaque paire dans le même ordre que spécifié dans l'entrée
 
  Lorsqu'elle est déployée, la fonction constructeur a besoin de l'adresse du contrat d'agrégation pour le réseau cible.
 
@@ -166,8 +166,8 @@ interface TestInterface {
 
 Avec lui, vous aurez deux fonctions d'affichage disponibles - très similaires à nos exemples précédents:
 
- - getPrice: fournit le flux de prix pour une seule paire base/quote qui est donnée en entrée à la fonction, c'est-à-dire "BTC", "USD"
- - getMultiPrices: fournit le flux de prix pour plusieurs paires base/quote pairs qui sont données en entrée de la fonction, c'est-à-dire, ["BTC", "ETH", "ETH"], ["USD", "USD", "EUR"]
+ - **getPrice**(*string* base, *string* quote): fournit le flux de prix pour une seule paire base/quote qui est donnée en entrée à la fonction, c'est-à-dire "BTC", "USD"
+ - **getMultiPrices**(*string[]* bases, *string[]* quotes): fournit le flux de prix pour plusieurs paires base/quote pairs qui sont données en entrée de la fonction, c'est-à-dire, ["BTC", "ETH", "ETH"], ["USD", "USD", "EUR"]
 
 Par exemple, en utilisant [Remix](/integrations/remix/), nous pouvons facilement interroger la paire de prix `BTC/USD` en utilisant cette interface.
 
