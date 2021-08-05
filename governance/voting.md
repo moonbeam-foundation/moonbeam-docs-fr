@@ -35,14 +35,23 @@ Certains des paramètres clés de ce guide sont les suivants :
  - **Période de verrouillage** — le temps (après la promulgation de la proposition) que les jetons des électeurs gagnants sont verrouillés. Les utilisateurs peuvent toujours utiliser ces jetons pour le staking ou le vote
  - **Delegation** — le fait de transférer votre droit de vote sur un autre compte jusqu'à une certaine condamnation
 
-Actuellement, pour Moonbase Alpha:
+=== "Moonbase Alpha"
 
-|        Variable         |     |                                                         Valeur                                                         |
-| :---------------------: | :-: | :-------------------------------------------------------------------------------------------------------------------: |
-|       Période de vote       |     |  {{ networks.moonbase.democracy.vote_period.blocks}} blocks ({{ networks.moonbase.democracy.vote_period.days}} days)  |
-|      Période d'adoption       |     | {{ networks.moonbase.democracy.enact_period.blocks}} blocks ({{ networks.moonbase.democracy.enact_period.days}} days) |
-| Nombre maximal de votes |     |                                      {{ networks.moonbase.democracy.max_votes}}                                       |
+    |        Variable         |     |                                                         Valeur                                                         |
+    | :---------------------: | :-: | :-------------------------------------------------------------------------------------------------------------------: |
+    |       Période de vote       |     |  {{ networks.moonbase.democracy.vote_period.blocks}} blocks ({{ networks.moonbase.democracy.vote_period.days}} days)  |
+    |      Période d'adoption       |     | {{ networks.moonbase.democracy.enact_period.blocks}} blocks ({{ networks.moonbase.democracy.enact_period.days}} days) |
+    | Nombre maximal de votes |     |                                      {{ networks.moonbase.democracy.max_votes}}                                       |
 
+=== "Moonriver"
+
+    |        Variable         |  |                                                          Value                                                          |
+    |:-----------------------:|::|:-----------------------------------------------------------------------------------------------------------------------:|
+    |      Enact Period       |  | {{ networks.moonriver.democracy.enact_period.blocks}} blocks ({{ networks.moonriver.democracy.enact_period.days}} days) |
+    | Maximum Number of Votes |  |                                       {{ networks.moonriver.democracy.max_votes}}                                       |
+    |       Vote Period       |  |  {{ networks.moonriver.democracy.vote_period.blocks}} blocks ({{ networks.moonriver.democracy.vote_period.days}} days)  |
+
+This guide will show you how to vote on a referendum on Moonbase Alpha.
 ## Feuille de route d'une proposition {: #roadmap-of-a-proposal } 
 
 --8<-- 'text/governance/roadmap.md'

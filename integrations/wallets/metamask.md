@@ -36,13 +36,29 @@ Ensuite, accédez à l'onglet Réseaux et cliquez sur le bouton "Ajouter un rés
 
 Ici, vous pouvez configurer MetaMask pour les réseaux suivants:
 
-Nœud de développement Moonbeam:
+=== "Nœud de développement Moonbeam"
 
---8<-- 'text/metamask-local/development-node-details.md'
+    - Network Name: `Moonbeam Dev`
+    - RPC URL: `{{ networks.development.rpc_url }}`
+    - ChainID: `{{ networks.development.chain_id }}`
+    - Symbol (Optional): `DEV`
+    - Block Explorer (Optional): `{{ networks.development.block_explorer }}`
 
-TestNet Moonbase Alpha :
+=== "TestNet Moonbase Alpha"
 
---8<-- 'text/testnet/testnet-details.md'
+    - Network Name: `Moonbase Alpha`
+    - RPC URL: `{{ networks.moonbase.rpc_url }}`
+    - ChainID: `{{ networks.moonbase.chain_id }}`
+    - Symbol (Optional): `DEV`
+    - Block Explorer (Optional): `{{ networks.moonbase.block_explorer }}`
+
+=== "Moonriver"
+
+    - Network Name: `Moonriver`
+    - RPC URL: `{{ networks.moonriver.rpc_url }}`
+    - ChainID: `{{ networks.moonriver.chain_id }}`
+    - Symbol (Optional): `MOVR`
+    - Block Explorer (Optional): `{{ networks.moonriver.block_explorer }}`
 
 ## Tutoriels étape par étape {: #step-by-step-tutorials } 
 

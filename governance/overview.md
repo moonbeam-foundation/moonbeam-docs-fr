@@ -28,6 +28,26 @@ Un grand pouvoir implique de grandes responsabilités. Certains paramètres impo
  - **Periode calme** - La durée d'un veto du comité technique avant que la proposition puisse être soumise à nouveau 
  - **Delegation** — acte de transfert de votre droit de vote sur un autre compte jusqu'à une certaine conviction
 
+=== "Moonbase Alpha"
+
+    |         Variable         |  |                                                              Value                                                              |
+    |:------------------------:|::|:-------------------------------------------------------------------------------------------------------------------------------:|
+    |      Voting Period       |  |       {{ networks.moonbase.democracy.vote_period.blocks}} blocks ({{ networks.moonbase.democracy.vote_period.days}} days)       |
+    | Fast-Track Voting Period |  | {{ networks.moonbase.democracy.fast_vote_period.blocks}} blocks ({{ networks.moonbase.democracy.fast_vote_period.hours}} hours) |
+    |     Enactment Period     |  |      {{ networks.moonbase.democracy.enact_period.blocks}} blocks ({{ networks.moonbase.democracy.enact_period.days}} day)       |
+    |     Cool-off Period      |  |       {{ networks.moonbase.democracy.cool_period.blocks}} blocks ({{ networks.moonbase.democracy.cool_period.days}} days)       |
+    |     Minimum Deposit      |  |                                        {{ networks.moonbase.democracy.min_deposit }} DEV                                        |
+
+=== "Moonriver"
+
+    |         Variable         |  |                                                              Value                                                              |
+    |:------------------------:|::|:-------------------------------------------------------------------------------------------------------------------------------:|
+    |      Voting Period       |  |      {{ networks.moonriver.democracy.vote_period.blocks}} blocks ({{ networks.moonriver.democracy.vote_period.days}} days)      |
+    | Fast-Track Voting Period |  | {{ networks.moonriver.democracy.fast_vote_period.blocks}} blocks ({{ networks.moonriver.democracy.fast_vote_period.days}} day)  |
+    |     Enactment Period     |  |     {{ networks.moonriver.democracy.enact_period.blocks}} blocks ({{ networks.moonriver.democracy.enact_period.days}} day)      |
+    |     Cool-off Period      |  |      {{ networks.moonriver.democracy.cool_period.blocks}} blocks ({{ networks.moonriver.democracy.cool_period.days}} days)      |
+    |     Minimum Deposit      |  |                                       {{ networks.moonriver.democracy.min_deposit }} MOVR                                       |
+
 ## Principes {: #principles } 
 
 Les principes directeurs "souples" pour l'engagement avec le processus de gouvernance de Moonbeam comprennent:
@@ -59,22 +79,12 @@ Voir [cet aperçu sur le site Web de Polkadot](https://polkadot.network/a-walkth
 
 Cette section couvre quelques informations de base sur le vote et décrit les paramètres de vote du protocole tels qu'ils sont définis actuellement. Il y a une limite au temps en blocs dont disposent le comité technique et le conseil pour voter sur les motions. Les motions peuvent se terminer en moins de blocs s'il y a déjà suffisamment de votes soumis pour déterminer le résultat. Un maximum de {{ networks.moonbase.democracy.max_proposals}} propositions peuvent être ouvertes chacune en comité technique et en conseil.
 
-Les paramètres de vote sont actuellement définis comme suit :
-
-|             Variable             |     |                         Valeur                         |
-| :------------------------------: | :-: | :---------------------------------------------------: |
-|     Période de vote     |     |     {{ networks.moonbase.democracy.vote_period.blocks}} blocks ({{ networks.moonbase.democracy.vote_period.days}} days)     |
-|        Période de vote accéléré        |     |     {{ networks.moonbase.democracy.fast_vote_period.blocks}} blocks ({{ networks.moonbase.democracy.fast_vote_period.days}} day)     | | 
-|          Periode de promulgation           |     |     {{ networks.moonbase.democracy.enact_period.blocks}} blocks ({{ networks.moonbase.democracy.enact_period.days}} day)  |
-| Periode calme |     |     {{ networks.moonbase.democracy.cool_period.blocks}} blocks ({{ networks.moonbase.democracy.cool_period.days}} days)  |
-|              Dépôt minimum               |     | {{ networks.moonbase.democracy.min_deposit }} GLMR |
-
 **Droits de vote à annuler:**
 
  * Le comité technique ne peut annuler une proposition avant qu'elle n'ait été adoptée qu'à l'unanimité
  * Un seul membre du comité technique peut opposer son veto à une proposition de conseil entrante, cependant, il ne peut y opposer son veto qu'une seule fois, et cela ne dure que le temps de la periode calme ({{ networks.moonbase.democracy.cool_period.days}} days)
 
-## Essayez-le sur Moonbase Alpha  {: #try-it-on-moonbase-alpha } 
+## Try it out {: #try-it-out } 
 
 Actuellement, dans notre TestNet Moonbase Alpha , les détenteurs de jetons peuvent soumettre des propositions et voter sur des référendums. Pour ce faire, consultez les guides suivants :
 

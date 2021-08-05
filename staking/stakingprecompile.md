@@ -13,6 +13,10 @@ Une palette de proof of Stake déléguée a récemment fait ses débuts appelée
 
 Le module de Staking est codé en Rust et fait partie d'une palette qui n'est normalement pas accessible depuis le côté Ethereum de Moonbeam. Cependant, une précompilation de staking permet aux développeurs d'accéder aux fonctionnalités de staking à l'aide de l'API Ethereum dans un contrat précompilé situé à l'adresse `{{networks.moonbase.staking.precompile_address}}`. Le Staking Precompile a été publié pour la première fois dans [Moonbase Alpha v8 release](https://moonbeam.network/announcements/testnet-upgrade-moonbase-alpha-v8/).
 
+--8<-- 'text/moonriver-launch/staking-phase-4.md'
+
+This guide will show you how to interact with the Staking Precompile on Moonbase Alpha.
+
 ## L'interface de solidity Parachain-Staking {: #the-parachain-staking-solidity-interface } 
 
 [StakingInterface.sol](https://github.com/PureStake/moonbeam/blob/master/precompiles/parachain-staking/StakingInterface.sol) est une interface à travers laquelle les contrats de solidité peuvent interagir avec la Parachain-Staking. La beauté est que les développeurs de solidity n'ont pas à apprendre l'API Substrate. Au lieu de cela, ils peuvent interagir avec les fonctions de Staking à l'aide de l'interface Ethereum avec laquelle ils sont familiers.

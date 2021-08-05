@@ -24,8 +24,6 @@ Quelques termes importants à comprendre en ce qui concerne les trésoreries:
 - **Période de dépenses** — le nombre de jours, par blocs, pendant lesquels la trésorerie finance le plus de propositions possible sans dépasser le maximum
 - **Nombre maximal de propositions approuvées** — le nombre maximum de propositions pouvant attendre dans la file d'attente des dépenses
 
-Currently, the Treasury values are as follows:
-
 === "Moonbase Alpha"
     |             Variable             |     |                                                             Valeur                                                      |
     | :------------------------------: | :-: | :--------------------------------------------------------------------------------------------------------------------: |
