@@ -12,7 +12,7 @@ description:  Apprenez à créer facilement des contrats OpenZeppelin communs av
 Les contrats et les bibliothèques OpenZeppelin sont devenus un standard dans l'industrie. Ils aident les développeurs à minimiser les risques, car leurs modèles de code open source sont testés rigoureusement pour Ethereum et d'autres blockchains. Leur code comprend les implémentations les plus utilisées des normes et des modules complémentaires ERC et apparaît souvent dans des guides et des tutoriels de la communauté.
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/l8RTwu6hGpY' frameborder='0' allowfullscreen></iframe></div>
-<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>In this video, we use Open Zeppelin Wizard to deploy an ERC-20 token to Moonbase Alpha</a></div>
+<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>Dans cette vidéo, nous utilisons Open Zeppelin Wizard pour déployer un jeton ERC-20 sur Moonbase Alpha</a></div>
 
 Étant donné que Moonbeam est entièrement compatible avec Ethereum, tous les contrats et bibliothèques d'OpenZeppelin peuvent être implémentés sans aucune modification.
 
