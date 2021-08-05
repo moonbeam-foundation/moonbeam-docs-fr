@@ -11,6 +11,9 @@ description:  Apprenez à créer facilement des contrats OpenZeppelin communs av
 
 Les contrats et les bibliothèques OpenZeppelin sont devenus un standard dans l'industrie. Ils aident les développeurs à minimiser les risques, car leurs modèles de code open source sont testés rigoureusement pour Ethereum et d'autres blockchains. Leur code comprend les implémentations les plus utilisées des normes et des modules complémentaires ERC et apparaît souvent dans des guides et des tutoriels de la communauté.
 
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/l8RTwu6hGpY' frameborder='0' allowfullscreen></iframe></div>
+<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>In this video, we use Open Zeppelin Wizard to deploy an ERC-20 token to Moonbase Alpha</a></div>
+
 Étant donné que Moonbeam est entièrement compatible avec Ethereum, tous les contrats et bibliothèques d'OpenZeppelin peuvent être implémentés sans aucune modification.
 
 Ce guide est divisé en deux sections. La première partie décrit l'assistant de contrats OpenZeppelin, un excellent outil en ligne pour vous aider à créer des contrats intelligents à l'aide du code OpenZeppelin. La deuxième section fournit un guide étape par étape sur la façon dont vous pouvez déployer ces contrats sur Moonbeam.
@@ -72,7 +75,7 @@ La première étape consiste à aller sur [Remix](https://remix.ethereum.org/) e
  2. Assurez-vous que le fichier a été créé avec succès. Cliquez sur le fichier pour l'ouvrir dans l'éditeur de texte
  3. Rédigez votre contrat intelligent à l'aide de l'éditeur de fichiers. Pour cet exemple, le code suivant a été utilisé :
 
-```sol
+```solidity
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -128,7 +131,7 @@ Comme pour le [contrat ERC20](#deploying-an-erc20-token), la première étape co
 
 Ensuite, vous devrez écrire le contrat intelligent et le compiler. Pour cet exemple, le code suivant est utilisé :
 
-```sol
+```solidity
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
@@ -192,7 +195,7 @@ La première étape consiste à aller sur [Remix](https://remix.ethereum.org/) e
 
 Comme indiqué pour le [jeton ERC20](#deploying-an-erc20-token), vous devrez écrire le contrat intelligent et le compiler. Pour cet exemple, le code suivant est utilisé :
 
-```sol
+```solidity
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
