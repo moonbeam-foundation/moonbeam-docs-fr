@@ -32,7 +32,7 @@ Vous pouvez vérifier les jobs ID pour chaque flux de données sur ce [lien](htt
 
 Les contrats peuvent interroger des données en chaîne, telles que les prix des jetons, à partir de l'oracle de Razor Network en implémentant l'interface du contrat Bridge, qui expose les fonctions `getResult` et `getJob` .
 
-```
+```solidity
 pragma solidity 0.6.11;
 
 interface Razor {
@@ -61,7 +61,7 @@ Nous pouvons utiliser le script `Demo` suivant . Il offre diverses fonctions:
  - savePrice: une fonction _public_ qui interroge un seul jobID . Cela envoie une transaction et modifie la variable `price` stockée dans le contrat.
  - saveMultiPrices: une fonction _public_ qui interroge plusieurs jobIDs. Par exemple, pour récupérer le prix de `ETH` et `BTC` en `USD`, nous devrons envoyer les Job IDs `[1,2]`. Cela envoie une transaction et modifie le tableau `pricesArr` stocké dans le contrat, qui contiendra le prix de chaque paire dans le même ordre que spécifié dans l'entrée
 
-```sol
+```solidity
 pragma solidity 0.6.11;
 
 interface Razor {
