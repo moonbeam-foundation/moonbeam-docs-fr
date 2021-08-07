@@ -1,39 +1,39 @@
 ---
-title: Integrate MetaMask
-description: Learn how to use MetaMask with Moonriver, the Moonbeam deployment on Kusama. This tutorial shows you how to connect a default installation of MetaMask to Moonriver.
+title: Intégration MetaMask
+description: Apprenez à utiliser MetaMask avec Moonriver (Réseau principal de Moonbeam, déployé sur Kusama). Ce tutoriel vous montre comment connecter une installation par défaut de MetaMask à Moonriver.
 ---
 
-# Connect MetaMask to Moonriver
+# Connectez MetaMask à Moonriver
 
 ## Introduction {: #introduction } 
 
-This guide outlines the steps needed to connect MetaMask to Moonriver. In contrast to the MetaMask guide for a Moonbeam development node, this is much simpler because you don't need to connect to a local running Moonbeam node. Let's jump right into it.
+Ce guide décrit les étapes nécessaires pour connecter MetaMask à Moonriver. Contrairement à notre précédent guide MetaMask, c'est beaucoup plus simple car vous n'avez pas besoin de vous connecter à un nœud Moonbeam en cours d'exécution local. Allons-y.
 
 --8<-- 'text/common/create-metamask-wallet.md'
 
-## Connecting to Moonriver {: #connecting-to-moonriver } 
+## Connexion à Moonriver {: #connecting-to-moonriver } 
 
-Once you finish creating or importing a wallet, you will see the main MetaMask interface. In here, click in the top right logo and go to Settings.
+Une fois que vous avez terminé de créer ou d'importer un portefeuille, vous verrez l'interface principale de MetaMask. Cliquez sur le logo en haut à droite et allez dans Paramètres.
 
 ![MetaMask3](/images/testnet/testnet-metamask3.png)
 
-Navigate to the Networks tab and click the "Add Network" button.
+Accédez à l'onglet Réseaux et cliquez sur le bouton "Ajouter un réseau".
 
 ![MetaMask4](/images/testnet/testnet-metamask4.png)
 
-In here, fill out the following information and then click Save:
+Remplissez les informations suivantes, puis cliquez sur Enregistrer:
 
- - Network Name: `Moonriver`
- - RPC URL: `{{ networks.moonriver.rpc_url }}`
- - ChainID: `{{ networks.moonriver.chain_id }}`
- - Symbol (Optional): `MOVR`
- - Block Explorer (Optional): `{{ networks.moonriver.block_explorer }}`
+ - Nom du réseau: `Moonriver`
+ - Nouvelle URL de RPC: `{{ networks.moonriver.rpc_url }}`
+ - ID de chaîne: `{{ networks.moonriver.chain_id }}`
+ - Symbole (facultatif): `MOVR`
+ - URL de l'explorateur de blocs (facultatif): `{{ networks.moonriver.block_explorer }}`
 
 ![Add Moonriver to MetaMask](/images/moonriver/moonriver-integrate-metamask-1.png)
 
-That's it! You have succesfully connected MetaMask to the Moonbeam deployment on Kusama, Moonriver.
+Tout est parfait, vous avez réussi à vous connecter avec succès votre MetaMask à Moonriver le réseau principal de Moonbeam, déployé sur Kusama.
 
 ![MetaMask connected to Moonriver](/images/moonriver/moonriver-integrate-metamask-2.png)
 
 !!! note
-    Moonriver (MOVR) is not currently available for sale. If you participated in the crowdloan, you will not see your rewards until after transfers have been enabled in Phase 4 of the [Moonriver network launch](https://moonbeam.network/networks/moonriver/launch/).
+   Moonriver (MOVR) n'est actuellement pas disponible à la vente. Si vous avez participé au crowdloan, vos récompenses seront visibles dès que les transferts seront activés dans la phase 4 de l'opération [Moonriver network launch](https://moonbeam.network/networks/moonriver/launch/).
