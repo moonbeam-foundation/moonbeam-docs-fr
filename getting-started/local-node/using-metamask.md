@@ -45,13 +45,29 @@ MetaMask peut être configuré pour se connecter à votre nœud de développemen
 
 Pour connecter MetaMask à Moonbeam, accédez à Paramètres -> Réseaux -> Ajouter un réseau. C'est ici que vous pouvez configurer le réseau auquel vous souhaitez que MetaMask se connecte, en utilisant les configurations réseau suivantes:
 
-Nœud de développement Moonbeam:
+=== "Nœud de développement Moonbeam"
 
---8<-- 'text/metamask-local/development-node-details.md'
+- Nom du réseau: `Moonbeam Dev`
+- URL RPC: `{{ networks.development.rpc_url }}`
+- ID de chaine: `{{ networks.development.chain_id }}`
+- Symbole (facultatif): `DEV`
+- Explorateur de blocs (facultatif): `{{ networks.development.block_explorer }}`
 
-Moonbase Alpha TestNet:
+=== "Moonbase Alpha TestNet"
 
---8<-- 'text/testnet/testnet-details.md'
+- Nom du Réseau: `Moonbase Alpha`
+- URL RPC: `{{ networks.moonbase.rpc_url }}`
+- ID de Chaine: `{{ networks.moonbase.chain_id }}`
+- Symbole (facultatif): `DEV`
+- Explorateur de blocs (facultatif): `{{ networks.moonbase.block_explorer }}`
+
+=== "Moonriver"
+
+- Nom du Réseau: `Moonriver`
+- URL RPC: `{{ networks.moonriver.rpc_url }}`
+- ID de Chaine: `{{ networks.moonriver.chain_id }}`
+- Symbole (facultatif): `MOVR`
+- Explorateur de blocs (facultatif): `{{ networks.moonriver.block_explorer }}`
 
 Pour les besoins de ce tutoriel, connectons MetaMask à notre nœud de développement Moonbeam exécuté localement.
 
