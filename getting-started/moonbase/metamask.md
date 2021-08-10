@@ -7,7 +7,7 @@ description: Apprenez à utiliser MetaMask avec le TestNet Moonbeam. Ce tutoriel
 
 ## Introduction {: #introduction } 
 
-This guide outlines the steps needed to connect MetaMask to Moonbase Alpha. In contrast to the MetaMask guide for a Moonbeam development node, this is much simpler because you don't need to connect to a local running Moonbeam node. Let's jump right into it.
+Ce guide décrit les étapes nécessaires pour connecter MetaMask à Moonbase Alpha. Contrairement au guide MetaMask pour un nœud de développement Moonbeam, celui-ci est beaucoup plus simple car vous n'avez pas besoin de vous connecter à un nœud Moonbeam local en fonctionnement. Allons-y.
 
 Si vous avez déjà installé MetaMask, vous pouvez facilement connecter MetaMask au réseau de test Moonbase Alpha :
 
@@ -34,11 +34,11 @@ Accédez à l'onglet Réseaux et cliquez sur le bouton "Ajouter un réseau" .
 
 Remplissez les informations suivantes, puis cliquez sur Enregistrer:
 
-  - Network Name: `Moonbase Alpha`
-  - RPC URL: `{{ networks.moonbase.rpc_url }}`
-  - ChainID: `{{ networks.moonbase.chain_id }}`
-  - Symbol (Optional): `DEV`
-  - Block Explorer: `{{ networks.moonbase.block_explorer }}`
+  - Nom du réseau: `Moonbase Alpha`
+  - Nouvelle URL de RPC: `{{ networks.moonbase.rpc_url }}`
+  - ID de chaîne: `{{ networks.moonbase.chain_id }}`
+  - Symbole (facultatif): `DEV`
+  - URL de l'explorateur de blocs (facultatif): `{{ networks.moonbase.block_explorer }}`
   
 ![MetaMask5](/images/testnet/testnet-metamask5.png)
 

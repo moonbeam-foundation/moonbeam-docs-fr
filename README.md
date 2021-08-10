@@ -5,7 +5,8 @@ description: Bienvenue sur le site de documentation de la plateforme de contrat 
 
 # Bienvenue sur Moonbeam
 
-![Main Page Banner](/images/main-banner.png)Currently, there are a few ways you can start building on Moonbeam: 
+![Main Page Banner](/images/main-banner.png)Actuellement, il y a plusieurs façons de commencer à construire sur Moonbeam:
+
 
 **Note: this website was translated by members of the Ambassadors program and is part of a community-led effort. The team would like to express his gratitude towards these great Ambassadors that translated all the content: Redallica, Ary and Khtsn. If you want to contribute to this translation, please visit the following [GitHub repository](https://github.com/PureStake/moonbeam-docs-fr).**
 
@@ -27,11 +28,11 @@ Moonbeam sera également une parachain sur le réseau Polkadot. Cela signifie qu
 
 ### Réseaux {: #networks } 
 
-Currently, there are a few ways you can start building on Moonbeam: 
+Actuellement, il y a plusieurs façons de commencer à construire sur Moonbeam:
 
  - Construisez votre propre instance Moonbeam en tant que [noeud de developpement](/getting-started/local-node/setting-up-a-node/)
  - [se connecter](/getting-started/testnet/connect/) au [TestNet Moonbase Alpha](/networks/testnet/)
- - [Connect](/getting-started/moonriver/connect/) to [Moonriver](/networks/moonriver/)
+ - [se connecter](/getting-started/moonriver/connect/) au [Moonriver](/networks/moonriver/)
 ### Portefeuilles {: #wallets } 
 
 Actuellement, nous avons testé Moonbeam avec les portefeuilles suivants:
