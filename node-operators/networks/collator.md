@@ -11,17 +11,17 @@ description: Instructions pour devenir un Collator dans le réseau Moonbeam une 
 
 Les collators sont des membres du réseau qui maintiennent les parachains auxquelles ils participent. Ils exécutent un nœud complet (à la fois pour leur parachain particulière et pour la chaîne de relais), et ils produisent la preuve de transition d'état pour les validateurs de chaîne de relais.
 
-Users can spin up full nodes on Moonbase Alpha and Moonriver and activate the `collate` feature to participate in the ecosystem as collators.
+Les utilisateurs peuvent créer des nœuds complets sur Moonbase Alpha et Moonriver et activer la fonction "collate" pour participer à l'écosystème en tant que collators.
 
 Moonbeam utilise le [Nimbus Parachain Consensus Framework](/learn/consensus/). Cela fournit un filtre en deux étapes pour allouer aux collators un créneau de production de bloc :
 
-  - The parachain staking filter selects the top {{ networks.moonbase.staking.max_collators }} collators on Moonbase Alpha and the top {{ networks.moonriver.staking.max_collators }} collators on Moonriver in terms of tokens staked in each network. This filtered pool is called selected candidates, and selected candidates are rotated every round
+  - Le filtre de staking de la parachain sélectionne les meilleurs {{ networks.moonbase.staking.max_collators }} collators sur Moonbase Alpha et les meilleurs {{ networks.moonriver.staking.max_collators }} collators sur Moonriver en termes de tokens stakés dans le réseau. Ce pool filtré est appelé candidats sélectionnés, et les candidats sélectionnés sont soumis à une rotation à chaque tour
   - Le filtre de sous-ensemble de taille fixe sélectionne un sous-ensemble pseudo-aléatoire des candidats précédemment sélectionnés pour chaque créneau de production de blocs
 
 Ce guide vous guidera à travers les étapes suivantes :
 
   - **[Exigences techniques](#technical-requirements)** : vous indique les critères auxquels vous devez répondre d'un point de vue technique
-  - **[Accounts and staking requirements](#accounts-and-staking-requirements)** : passe par le processus de configuration de votre compte et de jetons de liaison pour devenir un candidat à l'assemblage
+  - **[Exigences Comptes et Stacking](#accounts-and-staking-requirements)** : passe par le processus de configuration de votre compte et de jetons de liaison pour devenir un candidat à l'assemblage
   - **[Générer des clés de session](#generate-session-keys)** : explique comment générer des clés de session, utilisées pour mapper votre ID d'auteur avec votre compte H160
   - **[Mappez l'identifiant de l'auteur sur votre compte](#map-author-id-to-your-account)** - décrit les étapes pour mapper votre clé de session publique sur votre compte H160, où les récompenses de bloc seront versées.
 
@@ -34,19 +34,19 @@ D'un point de vue technique, les collators doivent répondre aux exigences suiva
 
 ## Exigences relatives au compte et au Staking {: #accounts-and-staking-requirements } 
 
-Similar to Polkadot validators, you need to create an account. For Moonbeam, this is an H160 account or basically an Ethereum style account from which you hold the private keys. In addition, you will need a minimum amount of tokens staked to be considered eligible (become a candidate). Only a certain amount of the top collators by nominated stake will be in the active set.
+Comme pour les validateurs Polkadot, vous devez créer un compte. Pour Moonbeam, il s'agit d'un compte H160 ou d'un compte de type Ethereum dont vous détenez les clés privées. En outre, vous devez disposer d'un montant minimum de jetons pour être considéré comme éligible (devenir un candidat). Seule une certaine quantité des meilleurs collators par enjeu nominatif sera dans l'ensemble actif.
 
 === "Moonbase Alpha"
-    |    Variable     |                          Value                          |
+    |    Variable     |                          Valeur                          |
     |:---------------:|:-------------------------------------------------------:|
-    |   Bond Amount   | {{ networks.moonbase.staking.collator_bond_min }} DEV   |
-    | Active set size | {{ networks.moonbase.staking.max_collators }} collators |
+    |   Montant de l'obligation   | {{ networks.moonbase.staking.collator_bond_min }} DEV   |
+    | Taille de l'ensemble actif | {{ networks.moonbase.staking.max_collators }} collators |
 
 === "Moonriver"
-    |    Variable     |                          Value                           |
+    |    Variable     |                          Valeur                           |
     |:---------------:|:--------------------------------------------------------:|
-    |   Bond Amount   | {{ networks.moonriver.staking.collator_bond_min }} MOVR  |
-    | Active set size | {{ networks.moonriver.staking.max_collators }} collators | 
+    |   Montant de l'obligation   | {{ networks.moonriver.staking.collator_bond_min }} MOVR  |
+    | Taille de l'ensemble actif | {{ networks.moonriver.staking.max_collators }} collators | 
 
 ## Compte dans PolkadotJS {: #account-in-polkadotjs } 
 
@@ -63,24 +63,24 @@ Une fois que vous avez un compte H160 importé dans PolkadotJS, vous devriez le 
 
 ## Devenir un candidat Collator {: #become-a-collator-candidate } 
 
-Before getting started, it's important to note some of the timings of different actions related to collation activities:
+Avant de commencer, il est important de noter le calendrier des différentes actions liées aux activités de collecte :
 
 === "Moonbase Alpha"
-    |               Variable                |       Value        |
+    |               Variable                |       valeur        |
     |:-------------------------------------:|:------------------:|
-    |    Join/leave collator candidates     | {{ networks.moonbase.collator_timings.join_leave_candidates.rounds }} rounds ({{ networks.moonbase.collator_timings.join_leave_candidates.hours }} hours) |
-    |        Add/remove nominations         | {{ networks.moonbase.collator_timings.add_remove_nominations.rounds }} rounds ({{ networks.moonbase.collator_timings.add_remove_nominations.hours }} hours) |
-    | Rewards payouts (after current round) | {{ networks.moonbase.collator_timings.rewards_payouts.rounds }} rounds ({{ networks.moonbase.collator_timings.rewards_payouts.hours }} hours) |
+    |    Rejoindre/quitter candidats collator     | {{ networks.moonbase.collator_timings.join_leave_candidates.rounds }} rounds ({{ networks.moonbase.collator_timings.join_leave_candidates.hours }} heures) |
+    |        Ajouter/supprimer des candidatures         | {{ networks.moonbase.collator_timings.add_remove_nominations.rounds }} rounds ({{ networks.moonbase.collator_timings.add_remove_nominations.hours }} heures) |
+    | Paiements des récompenses (after current round) | {{ networks.moonbase.collator_timings.rewards_payouts.rounds }} rounds ({{ networks.moonbase.collator_timings.rewards_payouts.hours }} heures) |
 
 === "Moonriver"
-    |               Variable                |       Value        |
+    |               Variable                |       valeur        |
     |:-------------------------------------:|:------------------:|
-    |    Join/leave collator candidates     | {{ networks.moonriver.collator_timings.join_leave_candidates.rounds }} rounds ({{ networks.moonriver.collator_timings.join_leave_candidates.hours }} hours) |
-    |        Add/remove nominations         | {{ networks.moonriver.collator_timings.add_remove_nominations.rounds }} rounds ({{ networks.moonriver.collator_timings.add_remove_nominations.hours }} hours) |
-    | Rewards payouts (after current round) | {{ networks.moonriver.collator_timings.rewards_payouts.rounds }} rounds ({{ networks.moonriver.collator_timings.rewards_payouts.hours }} hours) |
+    |    Rejoindre/quitter candidats collator     | {{ networks.moonriver.collator_timings.join_leave_candidates.rounds }} rounds ({{ networks.moonriver.collator_timings.join_leave_candidates.hours }} heures) |
+    |        Ajouter/supprimer des candidatures         | {{ networks.moonriver.collator_timings.add_remove_nominations.rounds }} rounds ({{ networks.moonriver.collator_timings.add_remove_nominations.hours }} heures) |
+    | Paiements des récompenses (after current round) | {{ networks.moonriver.collator_timings.rewards_payouts.rounds }} rounds ({{ networks.moonriver.collator_timings.rewards_payouts.hours }} heures) |
 
 !!! note 
-    The values presented in the previous table are subject to change in future releases.
+    Les valeurs présentées dans le tableau précédent sont susceptibles d'être modifiées dans les prochaines versions.
 
 ### Obtenir la taille du pool de candidats {: #get-the-size-of-the-candidate-pool } 
 
@@ -103,14 +103,14 @@ console.log(`Candidate pool size is: ${candidatePool.length}`);
 
 ### Rejoignez le pool de candidats {: #join-the-candidate-pool } 
 
-Once your node is running and in sync with the network, you become a collator candidate (and join the candidate pool). Depending on which network you are connected to, head to PolkadotJS for [Moonbase Alpha](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/accounts) or [Moonriver](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.moonriver.moonbeam.network#/accounts) and take the following steps:
+Une fois que votre nœud est en fonctionnement et en synchronisation avec le réseau, vous devenez un candidat collator (et rejoignez le pool de candidats). Selon le réseau auquel vous êtes connecté, rendez-vous sur PolkadotJS pour [Moonbase Alpha].(https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/accounts) ou [Moonriver](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.moonriver.moonbeam.network#/accounts) et suivez les étapes suivantes :
 
  1. Accédez à l'onglet "Développeurs" et cliquez sur "Extrinsèques"
  2. Sélectionnez le compte que vous souhaitez associer à vos activités de classement
- 3. Confirm your collator account is funded with at least the [minimum stake required](#accounts-and-staking-requirements) plus some extra for transaction fees
+ 3. Confirmez que votre compte collator est alimenté avec au moins la [mise minimale requise] (#accounts-and-staking-requirements) prévoir un supplément pour les frais de transaction.
  4. Sélectionnez la palette « parachainStaking » dans le menu « soumettre les éléments extrinsèques suivants »
  5. Ouvrez le menu déroulant, qui répertorie toutes les extrinsèques possibles liées au staking, et sélectionnez la fonction `joinCandidates()`
- 6. Set the bond to at least the [minimum amount](#accounts-and-staking-requirements) to be considered a collator candidate. Only collator bond counts for this check. Additional nominations do not count
+ 6. Fixez la caution à au moins le [montant minimum](#accounts-and-staking-requirements) pour être considéré comme un candidat collator. Seule la caution collator compte pour cette vérification. Les nominations supplémentaires ne comptent pas
  7. Définissez le nombre de candidats comme taille du pool de candidats. Pour savoir comment récupérer cette valeur, consultez [cette section](#get-the-size-of-the-candidate-pool)
  8. Soumettez la transaction. Suivez l'assistant et signez la transaction en utilisant le mot de passe que vous avez défini pour le compte
 
@@ -119,7 +119,7 @@ Once your node is running and in sync with the network, you become a collator ca
 !!! Remarque
      Les noms de fonction et l'exigence de caution minimale sont susceptibles de changer dans les versions futures.
 
-As mentioned before, only the top {{ networks.moonbase.staking.max_collators }} collators on Moonbase Alpha and the top {{ networks.moonriver.staking.max_collators }} collators on Moonriver by nominated stake will be in the active set. 
+Comme mentionné précédemment, seuls les meilleurs {{ networks.moonbase.staking.max_collators }} collators sur Moonbase Alpha et les meilleurs {{ networks.moonriver.staking.max_collators }} collators sur Moonriver par mise nominée seront dans l'ensemble actif. 
 ### Arrêter l'assemblage  {: #stop-collating } 
 
 Semblable à la fonction `chill()` de Polkadot, pour quitter le pool de candidats de l'assembleur, suivez les mêmes étapes qu'auparavant mais sélectionnez la fonction `leaveCandidates()` à l'étape 5.
@@ -156,15 +156,15 @@ Assurez-vous de noter cette clé publique de l'ID de l'auteur. Ensuite, cela ser
 
 Une fois que vous avez généré votre identifiant d'auteur (clés de session), l'étape suivante consiste à le mapper sur votre compte H160 (une adresse de style Ethereum). Assurez-vous de détenir les clés privées de ce compte, car c'est là que les récompenses de bloc sont versées.
 
-There is a bond that is sent when mapping your author ID with your account. This bond is per author ID registered. The bond set is as follows:
+Un lien est envoyé lors de la mise en correspondance de votre ID d'auteur avec votre compte. Ce lien est par ID d'auteur enregistré. Le lien est défini comme suit :
 
  - Moonbase Alpha - {{ networks.moonbase.staking.collator_map_bond }} DEV tokens 
  - Moonriver - {{ networks.moonriver.staking.collator_map_bond }} MOVR tokens. 
 
 Le module `authorMapping` a les éléments extrinsèques suivants programmés :
 
- - **addAssociation**(*address* authorID) — maps your author ID to the H160 account from which the transaction is being sent, ensuring is the true owner of its private keys. It requires a [bond](#accounts-and-staking-requirements)
- - **clearAssociation**(*address* authorID) — clears the association of an author ID to the H160 account from which the transaction is being sent, which needs to be the owner of that author ID. Also refunds the bond
+ - **addAssociation**(*address* authorID) — associe votre ID d'auteur au compte H160 à partir duquel la transaction est envoyée, assurant ainsi le véritable propriétaire de ses clés privées. Il nécessite un [lien](#accounts-and-staking-requirements)
+ - **clearAssociation**(*address* authorID) — efface l'association d'un ID d'auteur au compte H160 à partir duquel la transaction est envoyée, qui doit être le propriétaire de cet ID d'auteur. Rembourse également l'obligation
  - **updateAssociation**(*address* oldAuthorID, *address* newAuthorID) — met à jour le mappage d'un ancien ID d'auteur vers un nouveau. Utile après une rotation de clé ou une migration. Il exécute à la fois les extrinsèques d'association « ajouter » et « effacer » de manière atomique, permettant la rotation des clés sans avoir besoin d'une deuxième liaison
 
 Le module ajoute également les appels RPC suivants (état de la chaîne) :
@@ -173,7 +173,7 @@ Le module ajoute également les appels RPC suivants (état de la chaîne) :
 
 ### Cartographie extrinsèque {: #mapping-extrinsic } 
 
-To map your author ID to your account, you need to be inside the [candidate pool](#become-a-collator-candidate). Once you are a collator candidate, you need to send a mapping extrinsic (transaction). Note that this will bond tokens per author ID registered. To do so, take the following steps:
+Pour associer votre ID d'auteur à votre compte, vous devez faire partie du [pool de candidats](#become-a-collator-candidate). Une fois que vous êtes candidat au collateur, vous devez envoyer un mapping extrinsèque (transaction). Notez que cela vous permettra d'obtenir des tokens par l'ID de l'auteur enregistré. Pour ce faire, suivez les étapes suivantes :
 
  1. Dirigez-vous vers l'onglet "Développeur"
  2. Sélectionnez l'option "Extrinsèques"
