@@ -38,16 +38,16 @@ Les paramètres clés de ce guide sont les suivants:
 
     |         Variable            |     |                                                          Valeur                                                         |
     | :----------------------:    | :-: | :---------------------------------------------------------------------------------------------------------------------: |
-    |    Période de lancement     |     | {{ networks.moonbase.democracy.launch_period.blocks}} blocks ({{ networks.moonbase.democracy.launch_period.days}} days) |
-    |     Periode calme           |     |   {{ networks.moonbase.democracy.cool_period.blocks}} blocks ({{ networks.moonbase.democracy.cool_period.days}} days)   |
+    |    Période de lancement     |     | {{ networks.moonbase.democracy.launch_period.blocks}} blocks ({{ networks.moonbase.democracy.launch_period.days}} jours) |
+    |     Periode calme           |     |   {{ networks.moonbase.democracy.cool_period.blocks}} blocks ({{ networks.moonbase.democracy.cool_period.days}} jours)   |
     | Dépôt minimum de préimage   |     |                                 {{ networks.moonbase.democracy.min_preim_deposit}} DEV                                  |
     |Dépôt minimum de proposition |     |                                    {{ networks.moonbase.democracy.min_deposit}} DEV                                     |
 
 === "Moonriver"
     |         Variable         |  |                                                           Valeur                                                           |
     |:------------------------:|::|:-------------------------------------------------------------------------------------------------------------------------:|
-    |      Période de lancement       |  | {{ networks.moonriver.democracy.launch_period.blocks}} blocks ({{ networks.moonriver.democracy.launch_period.days}} days) |
-    |     Periode calme      |  |   {{ networks.moonriver.democracy.cool_period.blocks}} blocks ({{ networks.moonriver.democracy.cool_period.days}} days)   |
+    |      Période de lancement       |  | {{ networks.moonriver.democracy.launch_period.blocks}} blocks ({{ networks.moonriver.democracy.launch_period.days}} jours) |
+    |     Periode calme      |  |   {{ networks.moonriver.democracy.cool_period.blocks}} blocks ({{ networks.moonriver.democracy.cool_period.days}} jours)   |
     | Dépôt minimum de préimage |  |                                  {{ networks.moonriver.democracy.min_preim_deposit}} MOVR                                 |
     | Dépôt minimum de proposition |  |                                     {{ networks.moonriver.democracy.min_deposit}} MOVR                                    |
 
@@ -122,7 +122,7 @@ Soutenir une proposition signifie que vous êtes d'accord avec elle et que vous 
 
 Cette section décrit les étapes à suivre pour soutenir la proposition faite dans la section précédente. Pour ce faire, cliquez sur le bouton "Second" disponible pour chaque proposition qui apparaît dans la liste des propositions.
 
-![Proposal listed to Second](/images/governance/governance-proposal-7.png)
+![Proposition inscrite en deuxième](/images/governance/governance-proposal-7.png)
 
 Ici, vous devez fournir les informations suivantes:
 
@@ -130,12 +130,12 @@ Ici, vous devez fournir les informations suivantes:
  2. Vérifiez le nombre de jetons requis pour soutenir la proposition
  3. Cliquez sur le bouton "Second" et signez la transaction
 
-![Fill in Second Information](/images/governance/governance-proposal-8.png)
+![Remplir la deuxième information](/images/governance/governance-proposal-8.png)
 
 !!! remarque
     Les jetons peuvent être verrouillés pendant une durée indéterminée car on ne sait pas quand une proposition peut devenir un référendum (le cas échéant)
 
 Une fois la transaction soumise, vous verrez des confirmations dans le coin supérieur droit de l'interface Polkadot JS Apps. Vous devriez également voir la proposition répertoriée dans la section "Propositions" , affichant le proposant et les montants de jetons verrouillés et répertoriant les utilisateurs qui ont soutenu cette proposition!
 
-![Proposal Seconded](/images/governance/governance-proposal-9.png)
+![Proposition appuyée](/images/governance/governance-proposal-9.png)
 
