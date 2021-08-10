@@ -70,24 +70,25 @@ cd moonbeam
 
 === "Moonbeam Development Node"
 
-    - Network Name: `Moonbeam Dev`
-    - RPC URL: `{{ networks.development.rpc_url }}`
-    - ChainID: `{{ networks.development.chain_id }}`
-    - Symbol (Optional): `DEV`
-    - Block Explorer (Optional): `{{ networks.development.block_explorer }}`
+    - Nom du réseau: `Moonbeam Dev`
+    - Nouvelle URL de RPC: `{{ networks.development.rpc_url }}`
+    - ID de chaîne: `{{ networks.development.chain_id }}`
+    - Symbole (facultatif): `DEV`
+    - URL de l'explorateur de blocs (facultatif): `{{ networks.development.block_explorer }}`
 
 === "Moonbase Alpha TestNet"
 
-    - Network Name: `Moonbase Alpha`
-    - RPC URL: `{{ networks.moonbase.rpc_url }}`
-    - ChainID: `{{ networks.moonbase.chain_id }}`
-    - Symbol (Optional): `DEV`
-    - Block Explorer (Optional): `{{ networks.moonbase.block_explorer }}`
+    - Nom du réseau: `Moonbase Alpha`
+    - Nouvelle URL de RPC: `{{ networks.moonbase.rpc_url }}`
+    - ID de chaîne: `{{ networks.moonbase.chain_id }}`
+    - Symbole (facultatif): `DEV`
+    - URL de l'explorateur de blocs (facultatif): `{{ networks.moonbase.block_explorer }}`
 
 === "Moonriver"
 
-    - Network Name: `Moonriver`
-    - RPC URL: `{{ networks.moonriver.rpc_url }}`
-    - ChainID: `{{ networks.moonriver.chain_id }}`
-    - Symbol (Optional): `MOVR`
-    - Block Explorer (Optional): `{{ networks.moonriver.block_explorer }}`
+    - Nom du réseau: `Moonriv
+    er`
+    - Nouvelle URL de RPC: `{{ networks.moonriver.rpc_url }}`
+    - ID de chaîne: `{{ networks.moonriver.chain_id }}`
+    - Symbole (facultatif): `MOVR`
+    - URL de l'explorateur de blocs (facultatif): `{{ networks.moonriver.block_explorer }}`
