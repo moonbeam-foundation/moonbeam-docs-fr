@@ -23,16 +23,16 @@ Une fois terminé, la configuration la plus simple pour commencer à utiliser la
 ```js
 const ethers = require('ethers');
 
-// Variables definition
+// Définition des variables
 const privKey = '0xPRIVKEY';
 
-// Define Provider
+// Définir Provider
 const provider = new ethers.providers.StaticJsonRpcProvider('RPC_URL', {
     chainId: ChainId,
     name: 'NETWORK_NAME'
 });
 
-// Create Wallet
+// Créer un portefeuille
 let wallet = new ethers.Wallet(privKey, provider);
 ```
 
@@ -41,19 +41,19 @@ Différentes méthodes sont disponibles à l'intérieur de `provider` et `wallet
 Nœud de développement Moonbeam: 
 
  - RPC_URL: `{{ networks.development.rpc_url }}`
- - Id de chaine: `{{ networks.development.chain_id }}`
+ - ID de chaîne: `{{ networks.development.chain_id }}`
  - NOM_RESEAU: `moonbeam-development`
  
 TestNet Moonbase Alpha: 
 
  - RPC_URL: `{{ networks.moonbase.rpc_url }}`
- - Id de chaine: `{{ networks.moonbase.chain_id }}`
+ - ID de chaîne: `{{ networks.moonbase.chain_id }}`
  - NOM_RESEAU: `moonbase-alpha`
 
 Moonriver:
 
   - RPC_URL: `{{ networks.moonriver.rpc_url }}`
-  - Id de chaine: `{{ networks.moonriver.chain_id }}`
+  - ID de chaîne: `{{ networks.moonriver.chain_id }}`
   - NOM_RESEAU: `{{ networks.moonriver.chain_spec }}`
 ## Tutoriels étape par étape {: #step-by-step-tutorials } 
 

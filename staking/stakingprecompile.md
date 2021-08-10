@@ -15,7 +15,7 @@ Le module de Staking est codé en Rust et fait partie d'une palette qui n'est no
 
 --8<-- 'text/moonriver-launch/staking-phase-4.md'
 
-This guide will show you how to interact with the Staking Precompile on Moonbase Alpha.
+Ce guide vous montrera comment interagir avec la précompilation de stacking sur Moonbase Alpha.
 
 ## L'interface de solidity Parachain-Staking {: #the-parachain-staking-solidity-interface } 
 

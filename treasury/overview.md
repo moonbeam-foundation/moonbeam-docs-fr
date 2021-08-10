@@ -27,18 +27,18 @@ Quelques termes importants à comprendre en ce qui concerne les trésoreries:
 === "Moonbase Alpha"
     |             Variable             |     |                                                             Valeur                                                      |
     | :------------------------------: | :-: | :--------------------------------------------------------------------------------------------------------------------: |
-    |           Caution de proposition          |     |                            {{ networks.moonbase.treasury.proposal_bond }}% of the proposed spend                       |
+    |           Caution de proposition          |     |                            {{ networks.moonbase.treasury.proposal_bond }}% des dépenses proposées                       |
     |       Caution de proposition minimum      |     |                                  {{ networks.moonbase.treasury.proposal_bond_min }} DEV                              |
-    |           Période de dépenses           |     |  {{ networks.moonbase.treasury.spend_period_blocks }} blocks ({{ networks.moonbase.treasury.spend_period_days}} days)  |
+    |           Période de dépenses           |     |  {{ networks.moonbase.treasury.spend_period_blocks }} blocks ({{ networks.moonbase.treasury.spend_period_days}} jours)  |
     |     Nombre maximal de propositions approuvées   |     |                                  {{ networks.moonbase.treasury.max_approved_proposals }}                               |
     |     % des frais de transaction alloués   |     |                                  {{ networks.moonbase.treasury.tx_fees_allocated }}                               |
 
 === "Moonriver"
     |             Variable             |     |                                                             Valeur                                                      |
     | :------------------------------: | :-: | :--------------------------------------------------------------------------------------------------------------------: |
-    |           Caution de proposition          |     |                            {{ networks.moonriver.treasury.proposal_bond }}% of the proposed spend                       |
+    |           Caution de proposition          |     |                            {{ networks.moonriver.treasury.proposal_bond }}% des dépenses proposées                       |
     |       Caution de proposition minimum      |     |                                  {{ networks.moonriver.treasury.proposal_bond_min }} MOVR                              |
-    |           Période de dépenses           |     |  {{ networks.moonriver.treasury.spend_period_blocks }} blocks ({{ networks.moonriver.treasury.spend_period_days}} days)  |
+    |           Période de dépenses           |     |  {{ networks.moonriver.treasury.spend_period_blocks }} blocks ({{ networks.moonriver.treasury.spend_period_days}} jours)  |
     |     Nombre maximal de propositions approuvées   |     |                                  {{ networks.moonriver.treasury.max_approved_proposals }}                               |
      |     % des frais de transaction alloués   |     |                                  {{ networks.moonriver.treasury.tx_fees_allocated }}                               |
 

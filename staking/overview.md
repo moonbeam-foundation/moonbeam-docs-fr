@@ -27,19 +27,19 @@ Les collators (et les détenteurs de jetons s'ils les nomment) ont un intérêt 
   |   Nomination minimale                         |     |                          {{ networks.moonbase.staking.min_nom_amount}} tokens                           |
   | Nominateurs maximum par collator            |     |                             {{ networks.moonbase.staking.max_nom_per_col }}                             |
   | Nombre maximal de collators par nominateur  |     |                             {{ networks.moonbase.staking.max_col_per_nom }}                             |
-  |              Tour                             |     | {{ networks.moonbase.staking.round_blocks }} blocks ({{ networks.moonbase.staking.round_hours }} hours) |
+  |              Round                             |     | {{ networks.moonbase.staking.round_blocks }} blocks ({{ networks.moonbase.staking.round_hours }} heures) |
   | Durée de l'obligation                         |     |                            {{ networks.moonbase.staking.bond_lock }} rounds                             |
 
 === "Moonriver"
 
-    |             Variable             |  |                                                   Value                                                   |
+    |             Variable             |  |                                                   Valeur                                                   |
     |:--------------------------------:|::|:---------------------------------------------------------------------------------------------------------:|
-    |     Minimum nomination stake     |  |                           {{ networks.moonriver.staking.min_nom_stake }} MOVR                             |
-    |        Minimum nomination        |  |                           {{ networks.moonriver.staking.min_nom_amount}} MOVR                             |
-    | Maximum nominators per collators |  |                             {{ networks.moonriver.staking.max_nom_per_col }}                              |
-    | Maximum collators per nominator  |  |                             {{ networks.moonriver.staking.max_col_per_nom }}                              |
-    |              Round               |  | {{ networks.moonriver.staking.round_blocks }} blocks ({{ networks.moonriver.staking.round_hours }} hours) |
-    |          Bond duration           |  |                             {{ networks.moonriver.staking.bond_lock }} rounds 
+    |     Mise de nomination minimale     |  |                           {{ networks.moonriver.staking.min_nom_stake }} MOVR                             |
+    |        Nomination minimale        |  |                           {{ networks.moonriver.staking.min_nom_amount}} MOVR                             |
+    | Nominateurs maximum par collator |  |                             {{ networks.moonriver.staking.max_nom_per_col }}                              |
+    | Nombre maximal de collators par nominateur  |  |                             {{ networks.moonriver.staking.max_col_per_nom }}                              |
+    |              Round               |  | {{ networks.moonriver.staking.round_blocks }} blocks ({{ networks.moonriver.staking.round_hours }} heures) |
+    |          Durée de l'obligation           |  |                             {{ networks.moonriver.staking.bond_lock }} rounds 
 ## Distribution des récompenses {: #reward-distribution } 
 
 A la fin de chaque tour ({{ networks.moonbase.staking.round_blocks }} blocks), les collators sont récompensés pour les 2 tours précédents. {{ networks.moonbase.staking.bond_lock }} .
@@ -62,7 +62,7 @@ Pour chaque nominateur, la récompense ressemblerait à ceci :
 
 Où la mise correspond au montant de jetons cautionnés par chaque nominateur par rapport à la mise totale de ce collator.
 
-## Try it out {: #try-it-out } 
+## Essayez-le {: #try-it-out } 
 
 Dans Moonbase Alpha TestNet, les détenteurs de jetons peuvent miser et gagner des récompenses (pour se familiariser avec le système car le jeton n'a aucune valeur réelle).
 

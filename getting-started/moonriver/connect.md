@@ -1,13 +1,13 @@
 ---
-title: Connect
-description: All of the information needed to connect to Moonriver, the Moonbeam deployment on Kusama, including available RPC and WSS endpoints. 
+title: Se connecter
+description: Moonriver est le réseau principal de Moonbeam qui est déployé sur Kusama. Vous trouverez toutes les informations nécessaires pour vous y connecter.
 ---
 
 # Connect to Moonriver
 
 ## Introduction {: #introduction } 
 
-Moonriver has two endpoints available for users to connect to: one for HTTPS and one for WSS.
+Moonriver dispose de deux points de terminaison auxquels les utilisateurs peuvent se connecter: un pour HTTPS et un pour WSS.
 
 --8<-- 'text/moonriver/connect.md'
 
