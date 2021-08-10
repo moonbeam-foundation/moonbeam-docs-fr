@@ -25,26 +25,26 @@ Avec la sortie de [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/rele
 
     |             Variable             |     |                         Valeur                         |
     | :------------------------------: | :-: | :---------------------------------------------------: |
-    |     Enjeu minimum de nomination     |     |     {{ networks.moonbase.staking.min_nom_stake }}     |
-    |        Nomination minimale        |     |     {{ networks.moonbase.staking.min_nom_amount}}     | | Maximum nominators per collators |     |     {{ networks.moonbase.staking.max_nom_per_col }}   |
+    |     Participation minimale à la nomination     |     |     {{ networks.moonbase.staking.min_nom_stake }}     |
+    |        Nomination minimale        |     |     {{ networks.moonbase.staking.min_nom_amount}}     | | Nominateurs maximum par collator |     |     {{ networks.moonbase.staking.max_nom_per_col }}   |
     | Collators maximum par nominateur  |     |     {{ networks.moonbase.staking.max_col_per_nom }}   |
-    |              Tour               |     | {{ networks.moonbase.staking.round_blocks }} blocks ({{ networks.moonbase.staking.round_hours }} hours) |
+    |              Tour               |     | {{ networks.moonbase.staking.round_blocks }} blocks ({{ networks.moonbase.staking.round_hours }} heures) |
     |          Durée de l'obligation           |     |     {{ networks.moonbase.staking.bond_lock }} rounds  |
 
 === "Moonriver"
 
-    |             Variable             |  |                                                   Value                                                   |
+    |             Variable             |  |                                                   Valeur                                                   |
     |:--------------------------------:|::|:---------------------------------------------------------------------------------------------------------:|
-    |     Minimum nomination stake     |  |                           {{ networks.moonriver.staking.min_nom_stake }} MOVR                             |
-    |        Minimum nomination        |  |                           {{ networks.moonriver.staking.min_nom_amount}} MOVR                             |
-    | Maximum nominators per collators |  |                             {{ networks.moonriver.staking.max_nom_per_col }}                              |
-    | Maximum collators per nominator  |  |                             {{ networks.moonriver.staking.max_col_per_nom }}                              |
+    |     Participation minimale à la nomination    |  |                           {{ networks.moonriver.staking.min_nom_stake }} MOVR                             |
+    |        Nomination minimale        |  |                           {{ networks.moonriver.staking.min_nom_amount}} MOVR                             |
+    | Nominateurs maximum par collator |  |                             {{ networks.moonriver.staking.max_nom_per_col }}                              |
+    | Collators maximum par Nominateur  |  |                             {{ networks.moonriver.staking.max_col_per_nom }}                              |
     |              Round               |  | {{ networks.moonriver.staking.round_blocks }} blocks ({{ networks.moonriver.staking.round_hours }} hours) |
-    |          Bond duration           |  |                             {{ networks.moonriver.staking.bond_lock }} rounds                             |
+    |          Durée de l'obligation            |  |                             {{ networks.moonriver.staking.bond_lock }} rounds                             |
 
 --8<-- 'text/moonriver-launch/staking-phase-4.md'
 
-This guide will show you how to stake on Moonbase Alpha.
+Ce guide vous montrera comment stacker sur Moonbase Alpha.
 
 ## Définitions extrinsèques {: #extrinsics-definitions } 
 
