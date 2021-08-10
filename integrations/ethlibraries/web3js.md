@@ -23,7 +23,7 @@ Une fois terminé, la configuration la plus simple pour commencer à utiliser la
 ```js
 const Web3 = require('web3');
 
-//Create web3 instance
+//Créer une instance web3
 const web3 = new Web3('RPC_URL');
 ```
 

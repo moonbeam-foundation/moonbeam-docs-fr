@@ -38,27 +38,27 @@ Ici, vous pouvez configurer MetaMask pour les réseaux suivants:
 
 === "Nœud de développement Moonbeam"
 
-    - Network Name: `Moonbeam Dev`
-    - RPC URL: `{{ networks.development.rpc_url }}`
-    - ChainID: `{{ networks.development.chain_id }}`
-    - Symbol (Optional): `DEV`
-    - Block Explorer (Optional): `{{ networks.development.block_explorer }}`
+    - Nom du réseau: `Moonbeam Dev`
+    - Nouvelle URL de RPC: `{{ networks.development.rpc_url }}`
+    - ID de chaîne: `{{ networks.development.chain_id }}`
+    - Symbole (facultatif): `DEV`
+    - URL de l'explorateur de blocs (facultatif): `{{ networks.development.block_explorer }}`
 
 === "TestNet Moonbase Alpha"
 
-    - Network Name: `Moonbase Alpha`
-    - RPC URL: `{{ networks.moonbase.rpc_url }}`
-    - ChainID: `{{ networks.moonbase.chain_id }}`
-    - Symbol (Optional): `DEV`
-    - Block Explorer (Optional): `{{ networks.moonbase.block_explorer }}`
+    - Nom du réseau: `Moonbase Alpha`
+    - Nouvelle URL de RPC: `{{ networks.moonbase.rpc_url }}`
+    - ID de chaîne: `{{ networks.moonbase.chain_id }}`
+    - Symbole (facultatif): `DEV`
+    - URL de l'explorateur de blocs (facultatif): `{{ networks.moonbase.block_explorer }}`
 
 === "Moonriver"
 
-    - Network Name: `Moonriver`
-    - RPC URL: `{{ networks.moonriver.rpc_url }}`
-    - ChainID: `{{ networks.moonriver.chain_id }}`
+    - Nom du réseau: `Moonriver`
+    - Nouvelle URL de RPC: `{{ networks.moonriver.rpc_url }}`
+    - ID de chaîne: `{{ networks.moonriver.chain_id }}`
     - Symbol (Optional): `MOVR`
-    - Block Explorer (Optional): `{{ networks.moonriver.block_explorer }}`
+    - URL de l'explorateur de blocs (facultatif): `{{ networks.moonriver.block_explorer }}`
 
 ## Tutoriels étape par étape {: #step-by-step-tutorials } 
 

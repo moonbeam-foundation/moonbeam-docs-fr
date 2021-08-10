@@ -310,7 +310,7 @@ Si vous souhaitez écrire plus de tests par vous-même, vous pouvez envisager de
 
 Après avoir compilé vos contrats et avant le déploiement, vous devrez générer des artefacts de contrat pour Mars. Mars utilise les artefacts de contrat pour les vérifications de type dans les déploiements. Ensuite, vous devrez créer un script de déploiement et déployer le contrat intelligent « MyToken ».
 
-Remember, you will be deploying to Moonbase Alpha and will need to use the TestNet RPC URL: `{{ networks.moonbase.rpc_url }}`.
+N'oubliez pas que vous effectuerez un déploiement sur Moonbase Alpha et devrez utiliser les configurations TestNet : `{{ networks.moonbase.rpc_url }}`.
 
 Le déploiement sera divisé en trois sections : [générer des artefacts](#generate-artifacts), [créer un script de déploiement](#create-a-deployment-script) et [déployer avec Mars](#deploy-with- Mars).
 
