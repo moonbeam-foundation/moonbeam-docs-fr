@@ -44,14 +44,14 @@ Les paramètres clés de ce guide sont les suivants:
     |Dépôt minimum de proposition |     |                                    {{ networks.moonbase.democracy.min_deposit}} DEV                                     |
 
 === "Moonriver"
-    |         Variable         |  |                                                           Value                                                           |
+    |         Variable         |  |                                                           Valeur                                                           |
     |:------------------------:|::|:-------------------------------------------------------------------------------------------------------------------------:|
-    |      Launch Period       |  | {{ networks.moonriver.democracy.launch_period.blocks}} blocks ({{ networks.moonriver.democracy.launch_period.days}} days) |
-    |     Cool-off Period      |  |   {{ networks.moonriver.democracy.cool_period.blocks}} blocks ({{ networks.moonriver.democracy.cool_period.days}} days)   |
-    | Minimum Preimage Deposit |  |                                  {{ networks.moonriver.democracy.min_preim_deposit}} MOVR                                 |
-    | Minimum Proposal Deposit |  |                                     {{ networks.moonriver.democracy.min_deposit}} MOVR                                    |
+    |      Période de lancement       |  | {{ networks.moonriver.democracy.launch_period.blocks}} blocks ({{ networks.moonriver.democracy.launch_period.days}} days) |
+    |     Periode calme      |  |   {{ networks.moonriver.democracy.cool_period.blocks}} blocks ({{ networks.moonriver.democracy.cool_period.days}} days)   |
+    | Dépôt minimum de préimage |  |                                  {{ networks.moonriver.democracy.min_preim_deposit}} MOVR                                 |
+    | Dépôt minimum de proposition |  |                                     {{ networks.moonriver.democracy.min_deposit}} MOVR                                    |
 
-This guide will show you how to submit a proposal on Moonbase Alpha.
+Ce guide vous montrera comment soumettre une proposition sur Moonbase Alpha.
 
 ## Feuille de route d'une proposition {: #roadmap-of-a-proposal } 
 
