@@ -12,7 +12,7 @@ Ce guide décrit les étapes nécessaires pour connecter MetaMask à Moonbase Al
 Si vous avez déjà installé MetaMask, vous pouvez facilement connecter MetaMask au réseau de test Moonbase Alpha :
 
 <div class="button-wrapper">
-    <a href="#" class="md-button connectMetaMask">Connect MetaMask</a>
+    <a href="#" class="md-button connectMetaMask" value="moonbase">Connect MetaMask</a>
 </div>
 
 !!! remarque

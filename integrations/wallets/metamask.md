@@ -16,7 +16,7 @@ Actuellement, MetaMask peut être configuré pour se connecter à deux réseaux:
 Si vous avez déjà installé MetaMask, vous pouvez facilement connecter MetaMask au TestNet Moonbase Alpha :
 
 <div class="button-wrapper">
-    <a href="#" class="md-button connectMetaMask">Connect MetaMask</a>
+    <a href="#" class="md-button connectMetaMask" value="moonbase">Connect to MetaMask</a>
 </div>
 
 !!! remarque
