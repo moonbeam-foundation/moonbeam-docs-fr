@@ -41,7 +41,7 @@ La structure `ReferenceData` comprend les éléments suivants:
  - Dernière mise à jour de la base: la dernière fois que le prix de base a été mis à jour (depuis l'époque UNIX)
  - Dernier devis mis à jour: la dernière fois que le prix indiqué a été mis à jour (depuis l'époque UNIX)
  
-```
+```js
 struct ReferenceData {
    uint256 rate; 
    uint256 lastUpdatedBase; 
@@ -59,7 +59,7 @@ La deuxième fonction, `getReferenceDataBulk`, prend les informations sous forme
 
 Le code de contrat intelligent suivant fournit quelques exemples simples du contrat `StdReference` et de la fonction `getReferenceData` -  ceux-ci ne sont pas destinés à la production. L'interface `IStdReference.sol` définit la structure ReferenceData et les fonctions disponibles pour effectuer les requêtes.
 
-```sol
+```solidity
 pragma solidity 0.6.11;
 pragma experimental ABIEncoderV2;
 
@@ -86,14 +86,14 @@ interface IStdReference {
 ```
 Ensuite, nous pouvons utiliser le script `DemoOracle` Il fournit quatre fonctions:
 
- - getPrice: une fonction _view_ qui interroge une seule base. Dans cet exemple, le prix du `BTC` coté en `USD`
- - getMultiPrices: une fonction _view_ qui interroge plusieurs bases. Dans cet exemple, le prix de `BTC` et `ETH`, tous deux cotés en `USD`
- - savePrice: une fonction _public_ qui interroge la paire _base/quote_ . Chaque élément est fourni sous forme de chaînes distinctes, par exemple `_base = "BTC", _quotes = "USD"`. Cela envoie une transaction et modifie la variable `price` stockée dans le contrat
- - saveMultiPrices: une fonction _public_  qui interroge chaque paire _base/quote_ . Chaque élément est fourni sous forme de tableau de chaînes. Par exemple `_bases = ["BTC","ETH"], _quotes = ["USD","USD"]`. Cela envoie une transaction et modifie le tableau `prices` stocké dans le contrat, qui contiendra le prix de chaque paire dans le même ordre que spécifié dans l'entrée
+ - **getPrice**(*string[]* base, *string[]* quotes): une fonction _view_ qui interroge une seule base. Dans cet exemple, le prix du `BTC` coté en `USD`
+ - **getMultiPrices**(*string[]* bases, *string[]* quotes): une fonction _view_ qui interroge plusieurs bases. Dans cet exemple, le prix de `BTC` et `ETH`, tous deux cotés en `USD`
+ - **savePrice**(*string* base, *string* quote): une fonction _public_ qui interroge la paire _base/quote_ . Chaque élément est fourni sous forme de chaînes distinctes, par exemple `_base = "BTC", _quotes = "USD"`. Cela envoie une transaction et modifie la variable `price` stockée dans le contrat
+ - **saveMultiPrices**(*string[]* bases, *string[]* quotes): une fonction _public_  qui interroge chaque paire _base/quote_ . Chaque élément est fourni sous forme de tableau de chaînes. Par exemple `_bases = ["BTC","ETH"], _quotes = ["USD","USD"]`. Cela envoie une transaction et modifie le tableau `prices` stocké dans le contrat, qui contiendra le prix de chaque paire dans le même ordre que spécifié dans l'entrée
 
  Lorsqu'elle est déployée, la fonction constructeur a besoin de l'adresse du contrat d'agrégation pour le réseau cible.
 
-```sol
+```solidity
 pragma solidity 0.6.11;
 pragma experimental ABIEncoderV2;
 
@@ -153,7 +153,7 @@ contract DemoOracle {
 
 Nous avons déployé un contrat disponible dans Moonbase Alpha TestNet (à l'adresse `0xf15c870344c1c02f5939a5C4926b7cDb90dEc655`) afin que vous puissiez facilement vérifier les informations fournies par l'oracle de Band Protocol. Pour ce faire, vous avez besoin du contrat d'interface suivant:
 
-```sol
+```solidity
 pragma solidity 0.6.11;
 pragma experimental ABIEncoderV2;
 
@@ -166,8 +166,8 @@ interface TestInterface {
 
 Avec lui, vous aurez deux fonctions d'affichage disponibles - très similaires à nos exemples précédents:
 
- - getPrice: fournit le flux de prix pour une seule paire base/quote qui est donnée en entrée à la fonction, c'est-à-dire "BTC", "USD"
- - getMultiPrices: fournit le flux de prix pour plusieurs paires base/quote pairs qui sont données en entrée de la fonction, c'est-à-dire, ["BTC", "ETH", "ETH"], ["USD", "USD", "EUR"]
+ - **getPrice**(*string* base, *string* quote): fournit le flux de prix pour une seule paire base/quote qui est donnée en entrée à la fonction, c'est-à-dire "BTC", "USD"
+ - **getMultiPrices**(*string[]* bases, *string[]* quotes): fournit le flux de prix pour plusieurs paires base/quote pairs qui sont données en entrée de la fonction, c'est-à-dire, ["BTC", "ETH", "ETH"], ["USD", "USD", "EUR"]
 
 Par exemple, en utilisant [Remix](/integrations/remix/), nous pouvons facilement interroger la paire de prix `BTC/USD` en utilisant cette interface.
 
@@ -195,7 +195,7 @@ getReferenceData(['BTC/USD', 'BTC/ETH', 'ETH/EUR'])
 
 Ensuite, il renvoie un objet tableau avec la structure suivante:
 
-```
+```js
 [
   {
     pair: 'BTC/USD',

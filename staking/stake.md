@@ -52,18 +52,61 @@ Avant de commencer à staker des jetons, il est important de récupérer la list
 
 Ici, fournissez alors les informations suivantes:
 
- 1. Choisissez la palette avec laquelle interagir. Dans ce cas, c'est la palette `parachainStaking`
- 2. Choisissez l'état à interroger. Dans ce cas, il s'agit de l' état `selectedCandidates` ou `candidatePool`
- 3. Envoyez la requête d'état en cliquant sur le bouton "+"
+ 1. Rendez-vous dans l'onglet "Developer"
+ 2. Cliquez sur "Chain State"
+ 3. Choisissez la palette avec laquelle interagir. Dans ce cas, il s'agit de la palette 'parachaineStaking'
+ 4. Choisissez l'état à interroger. Dans ce cas, il s'agit de l'état `selectedCandidates` ou `candidatePool`
+ 5. Envoyez la requête d'état en cliquant sur le bouton "+"
 
 Chaque extrinsèque fournit une réponse différente:
 
  - **selectedCandidates** — renvoie l'ensemble des collators actifs actuel, c'est-à-dire les {{ networks.moonbase.staking.max_collators }} meilleurs collators par total de jetons stakés (y compris les nominations)
  - **candidatePool** — renvoie la liste actuelle de tous les collators, y compris ceux qui ne sont pas dans l'ensemble actif
 
-![Compte de staking](/images/staking/staking-stake-11.png)
+![Compte de staking](/images/staking/staking-stake-1.png)
 
-## Comment nommer un Collator  {: #get-the-collator-nominator-count } 
+## Obtenez le nombre de nominateurs du Collator  {: #get-the-collator-nominator-count } 
+
+Tout d'abord, vous devez obtenir le `collator_nominator_count` car vous devrez soumettre ce paramètre dans une transaction ultérieure. Pour ce faire, vous devrez exécuter l'extrait de code JavaScript suivant depuis [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/js):
+
+```js
+// Script simple pour obtenir collator_nominator_count
+// N'oubliez pas de remplacer COLLATOR_ADDRESS par l'adresse du Collator souhaité.
+const collatorAccount = 'COLLATOR_ADDRESS'; 
+const collatorInfo = await api.query.parachainStaking.collatorState2(collatorAccount);
+console.log(collatorInfo.toHuman()["nominators"].length);
+```
+
+1. Dirigez-vous vers l'onglet "Déveloper"
+2. Cliquez sur "JavaScript"
+3. Copiez le code de l'extrait précédent et collez-le dans la zone de l'éditeur de code
+4. (Facultatif) Cliquez sur l'icône de sauvegarde et attribuez un nom à l'extrait de code, par exemple, "Get collator_nominator_count". Cela enregistrera l'extrait de code localement
+5. Cliquez sur le bouton Exécuter. Cela exécutera le code de l'éditeur
+6. Copiez le résultat, car vous en aurez besoin lors du lancement d'une nomination
+
+![Obtenez le nombre de nominateurs du collator](/images/staking/staking-stake-3.png)
+
+## Obtenez votre nombre de nominations existantes {: #get-your-number-of-existing-nominations }
+Si vous n'avez jamais fait de nomination à partir de votre adresse, vous pouvez sauter cette section. Cependant, si vous n'êtes pas sûr du nombre de nominations existantes, vous devrez exécuter l'extrait de code JavaScript suivant pour obtenir `nomination_count` depuis [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/js):
+
+```js
+// Script simple pour obtenir votre nombre de nominations existantes.
+// N'oubliez pas de remplacer YOUR_ADDRESS_HERE par votre adresse de nominateur.
+const yourNominatorAccount = 'YOUR_ADDRESS_HERE';
+const nominatorInfo = await api.query.parachainStaking.nominatorState(yourNominatorAccount);
+console.log(nominatorInfo.toHuman()["nominations"].length);
+```
+
+1. Dirigez-vous vers l'onglet "Déveloper"
+2. Cliquez sur "JavaScript"
+3. Copiez le code de l'extrait précédent et collez-le dans la zone de l'éditeur de code
+4. (Facultatif) Cliquez sur l'icône d'enregistrement et attribuez un nom à l'extrait de code, par exemple, « Get existing nominations  ». Cela enregistrera l'extrait de code localement.
+5. Cliquez sur le bouton Exécuter. Cela exécutera le code de l'éditeur
+6. Copiez le résultat, car vous en aurez besoin lors du lancement d'une nomination
+
+![Obtenir le nombre de nominations existantes](/images/staking/staking-stake-4.png)
+
+## Comment nommer un Collator  {: #how-to-nominate-a-collator }
 
 Cette section décrit le processus de nomination des collators. Le tutoriel utilisera les collators suivants comme référence:
 
@@ -78,7 +121,7 @@ Pour cet exemple, un compte a été importé et nommé avec un nom super origina
 
 Actuellement, tout ce qui concerne le staking doit être accessible via le menu "Extrinsics" , sous l'onglet "Developer":
 
-![Compte de staking](/images/staking/staking-stake-1.png)
+![Compte de staking](/images/staking/staking-stake-5.png)
 
 Pour désigner un collator, fournissez les informations suivantes:
 
@@ -87,24 +130,29 @@ Pour désigner un collator, fournissez les informations suivantes:
  3. Choisissez la méthode extrinsèque à utiliser pour la transaction. Cela déterminera les champs qui doivent remplir les étapes suivantes. Dans ce cas, c'est l'extrinsèque `nominate`
  4. Désignez l'adresse du collator que vous souhaitez nommer. Dans ce cas, il est défini sur `{{ networks.moonbase.staking.collators.address1 }}`
  5. Désignez le nombre de jetons que vous souhaitez miser
- 6. Cliquez sur le bouton "Soumettre la transaction" et signez la transaction
+ 6. Saisissez le `collator_nominator_count` que vous [récupéré ci-dessus à partir de la console JavaScript](/staking/stake/#get-the-collator-nominator-count)
+ 7. Saisissez le `nomination_count` [que vous avez récupéré à partir de la console Javascript](/staking/stake/#get-your-number-of-existing-nominations). C'est `0` si vous n'avez pas encore nommé de Collator.
+ 8. Cliquez sur le bouton "Submit Transaction" et signez la transaction
 
-![Staking Join Nominators Extrinsics](/images/staking/staking-stake-2.png)
+![Staking Rejoignez les nominateurs extrinsèques](/images/staking/staking-stake-6.png)
+
+!!! note
+    Les paramètres utilisés aux étapes 6 et 7 sont à des fins d'estimation de gaz et n'ont pas besoin d'être exacts. Cependant, ils ne doivent pas être inférieurs aux valeurs réelles.
 
 Une fois la transaction confirmée, vous pouvez retourner dans l'onglet "Comptes" pour vérifier que vous disposez d'un solde réservé (égal au nombre de jetons mis en jeu).
 
 Pour vérifier une nomination, vous pouvez accéder à "État de la chaîne" sous l'onglet "Developpeur" .
 
-![Staking Account and Chain State](/images/staking/staking-stake-3.png)
+!Compte de staking et état de la chaîne](/images/staking/staking-stake-3.png)
 
 Ici fournissez alors les informations suivantes:
 
  1. Choisissez la palette avec laquelle vous souhaitez interagir. Dans ce cas, c'est la palette `parachainStaking`
- 2. Choisissez l'état à interroger. Dans ce cas, c'est l'état `nominators`
- 3. Assurez-vous de désactiver le curseur "option d'inclusion"
+ 2. Choisissez l'état à interroger. Dans ce cas, c'est `nominatorState`
+ 3. Assurez-vous d'activer le curseur "inclure l'option"
  4. Envoyez la requête d'état en cliquant sur le bouton "+"
 
-![Staking Chain State Query](/images/staking/staking-stake-4.png)
+![Requête d'état de la chaîne de staking](/images/staking/staking-stake-8.png)
 
 Dans la réponse, vous devriez voir votre compte (dans ce cas, le compte d'Alice) avec une liste des nominations. Chaque nomination contient l'adresse cible du collator et le montant.
 
@@ -124,7 +172,7 @@ Vous pouvez supprimer votre nomination d'un collator spécifique en accédant au
  4. Désignez l'adresse du collecteur pour lequel vous souhaitez supprimer votre nomination. Dans ce cas, il est défini sur `{{ networks.moonbase.staking.collators.address2 }}`
  5. Cliquez sur le bouton "Soumettre la transaction" et signez la transaction
 
-![Staking Revoke Nomination Extrinsic](/images/staking/staking-stake-7.png)
+![Staking Révoquer Nomination Extrinsèque](/images/staking/staking-stake-9.png)
 
 Une fois la transaction confirmée, vous pouvez vérifier que votre nomination a été supprimée dans l'option "État de la chaîne" sous l'onglet "Developpeur" .
 
@@ -132,16 +180,16 @@ Fournissez alors les informations suivantes:
 
  1. Choisissez la palette avec laquelle vous souhaitez interagir. Dans ce cas, c'est la palette `parachainStaking`
  2. Choisissez l'état à interroger. Dans ce cas, c'est l'état `nominatorState`
- 3. Assurez-vous de désactiver le curseur "include options"
+ 3. Assurez-vous d'activer le curseur "inclure les options"
  4. Envoyez la requête d'état en cliquant sur le bouton "+"
 
-![Staking Revoke Nomination Cain State](/images/staking/staking-stake-8.png)
+![Staking Révoquer l'état de la chaîne de nomination](/images/staking/staking-stake-8.png)
 
 Dans la réponse, vous devriez voir votre compte (dans ce cas, le compte d'Alice) avec une liste des nominations. Chaque nomination contient l'adresse cible du collator et le montant.
 
 Comme mentionné précédemment, vous pouvez également supprimer toutes les nominations en cours avec l'extrinsèque `leaveNominators` (à l'étape 3 des instructions "Extrinsics"). Cet extrinsèque ne nécessite aucune entrée:
 
-![Staking Leave Nominatiors Extrinsic](/images/staking/staking-stake-9.png)
+![Staking quitter les nominateurs extrinsèques](/images/staking/staking-stake-10.png)
 
 Une fois la transaction confirmée, votre compte ne doit pas être répertorié dans l'état `nominatorState` lors de la requête et vous ne devez pas avoir de solde réservé (lié au staking).
 
@@ -153,4 +201,4 @@ En résumé, les nominateurs gagneront des récompenses au prorata de leur mise 
 
 Dans l'exemple précédent, Alice a été récompensée avec `0.0044` jetons après deux tours de paiement:
 
-![Staking Reward Example](/images/staking/staking-stake-10.png)
+![Staking Exemple de récompense](/images/staking/staking-stake-1.png)
