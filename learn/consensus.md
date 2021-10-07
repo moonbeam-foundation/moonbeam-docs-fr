@@ -5,7 +5,7 @@ description: Découvrez tout les détails du consensus Nimbus de Moonbeam et son
 
 # Le framework du consensus de la Parachaine Nimbus
 
-![Bannière de consensus Moonbeam](/images/consensus/consensus-banner.png)
+![Bannière de consensus Moonbeam](/images/learn/features/consensus/consensus-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -32,7 +32,7 @@ Les assembleurs peuvent rejoindre le pool de candidats en liant simplement des j
 
 Le staking de la Parachaine est le premier des deux filtres Nimbus appliqués au pool de candidats assembleurs. Il sélectionne les meilleurs {{ networks.moonbase.staking.max_collators }} assembleurs en termes de jetons mis en jeu dans le réseau, ce qui inclut le lien assembleur et les nominations des détenteurs de jetons. Ce pool filtré est appelé candidats sélectionnés, et les candidats sélectionnés sont renouvelés à chaque tour (qui dure {{ networks.moonbase.staking.round_blocks }} blocs). Pour un tour donné, le schéma suivant décrit le filtrage du staking de la parachaine :
 
-![Filtre de staking de la Parachaine Nimbus](/images/consensus/consensus-images1.png)
+![Filtre de staking de la Parachaine Nimbus](/images/learn/features/consensus/consensus-1.png)
 
 À partir de ce pool, un autre filtre est appliqué pour récupérer un sous-ensemble d'assembleurs éligibles pour le prochain créneau de création de bloc.
 
@@ -50,7 +50,7 @@ Au contraire, un taux d'éligibilité inférieur pourrait permettre des délais 
 
 Une fois la taille du sous-ensemble définie, les assembleurs sont sélectionnés au hasard à l'aide d'une source d'entropie. Actuellement, un algorithme interne de retournement de pièces est implémenté, mais il sera ensuite migré pour utiliser la [balise aléatoire] de la chaîne de relais (https://wiki.polkadot.network/docs/learn-randomness). Par conséquent, un nouveau sous-ensemble d'assembleurs éligibles est sélectionné pour chaque bloc de chaîne de relais. Pour un tour donné et un bloc `XYZ` donné, le schéma suivant décrit le filtrage de sous-ensemble de taille fixe :
 
-![Filtre de jalonnement Nimbus Parachain](/images/consensus/consensus-images2.png)
+![Filtre de jalonnement Nimbus Parachain](/images/learn/features/consensus/consensus-2.png)
 
 ## Pourquoi Nimbus? {: #why-nimbus } 
 

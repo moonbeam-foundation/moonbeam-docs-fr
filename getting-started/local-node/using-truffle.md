@@ -73,7 +73,7 @@ Pour démarrer un nœud de développement Moonbeam dans votre environnement loca
 truffle run moonbeam install
 ```
 
-![Téléchargement de l'images Docker](/images/truffle/using-truffle-1.png)
+![Téléchargement de l'images Docker](/images/builders/interact/truffle/truffle-2.png)
 
 Une fois téléchargé, nous pouvons procéder au démarrage du nœud local avec la commande suivante:
 
@@ -83,7 +83,7 @@ truffle run moonbeam start
 
 Vous verrez un message indiquant que le nœud a démarré, suivi des deux points de terminaison disponibles.
 
-![Le nœud local Moonbeam a démarré](/images/truffle/using-truffle-2.png)
+![Le nœud local Moonbeam a démarré](/images/builders/interact/truffle/truffle-3.png)
 
 Une fois que vous avez fini d'utiliser votre nœud de développement Moonbeam, vous pouvez exécuter les lignes suivantes pour l'arrêter et supprimer l'image Docker si tel est le cas:
 
@@ -92,7 +92,7 @@ truffle run moonbeam stop && \
 truffle run moonbeam remove
 ```
 
-![Nœud local Moonbeam arrêté et image supprimée](/images/truffle/using-truffle-3.png)
+![Nœud local Moonbeam arrêté et image supprimée](/images/builders/interact/truffle/truffle-4.png)
 
 ## Le fichier du contrat {: #the-contract-file } 
 
@@ -137,7 +137,7 @@ truffle compile
 
 En cas de succès, vous devriez voir une sortie comme celle-ci:
 
-![Message Truffle de réussite de la compilation ](/images/truffle/using-truffle-4.png)
+![Message Truffle de réussite de la compilation ](/images/builders/interact/truffle/truffle-6.png)
 
 Nous sommes maintenant prêts à déployer les contrats compilés. Vous pouvez le faire avec la commande suivante:
 
@@ -147,7 +147,7 @@ truffle migrate --network dev
 
 En cas de succès, vous verrez les actions de déploiement, y compris l'adresse du contrat déployé:
 
-![Actions de déploiement de contrat réussies](/images/truffle/using-truffle-5.png)
+![Actions de déploiement de contrat réussies](/images/builders/interact/truffle/truffle-7.png)
 
 Une fois que vous avez suivi le [Guide MetaMask](/getting-started/local-node/using-metamask/) et le [Guide Remix](/getting-started/local-node/using-remix/), vous pourrez prendre l'adresse du contrat déployé qui est retournée et la charger dans MetaMask ou Remix.
 

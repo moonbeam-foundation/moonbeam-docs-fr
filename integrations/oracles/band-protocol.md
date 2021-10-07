@@ -4,7 +4,7 @@ description: Comment utiliser les données de requètes d'un Oracle Band Protoco
 ---
 # Oracle Band Protocole 
 
-![Band Protocol Moonbeam Diagram](/images/band/band-banner.png)
+![Band Protocol Moonbeam Diagram](/images/builders/integrations/oracles/band/band-banner.png)
 
 ## Introduction {: #introduction } 
 Les développeurs ont deux manières différentes d'obtenir les prix à partir de l'infrastructure oracle du protocole Band. D'une part, ils peuvent utiliser les contrats intelligents de Band sur Moonbeam. Ce faisant, ils accèdent aux données qui sont en chaîne et sont mises à jour à intervalles réguliers ou lorsque le glissement de prix est supérieur à un montant cible (différent pour chaque jeton). D'autre part, les développeurs peuvent utiliser la bibliothèque d'assistance Javascript, qui utilise un point de terminaison d'API pour récupérer les données en utilisant des fonctions similaires à celles des contrats intelligents, mais cette implémentation contourne complètement la blockchain. Cela peut être utile si votre DApp a besoin d'un accès direct aux données.
@@ -173,11 +173,11 @@ Par exemple, en utilisant [Remix](/integrations/remix/), nous pouvons facilement
 
 Après avoir créé le fichier et compiler le contrat, dirigez-vous vers l'onglet "Deploy and Run Transactions" , entrez l'adresse du contrat (`0xf15c870344c1c02f5939a5C4926b7cDb90dEc655`) et cliquez sur "At Address." Assurez-vous d'avoir réglé "Environment" sur "Injected Web3" pour être connecté à Moonbase Alpha. 
 
-![Band Protocol Remix deploy](/images/band/band-demo1.png)
+![Band Protocol Remix deploy](/images/builders/integrations/oracles/band/band-demo-1.png)
 
 Cela créera une instance du contrat de démonstration avec laquelle vous pourrez interagir. Utilisez les fonctions `getPrice()` et `getMultiPrices()` pour interroger les données de la paire correspondante.
 
-![Band Protocol Remix check price](/images/band/band-demo2.png)
+![Band Protocol Remix check price](/images/builders/integrations/oracles/band/band-demo-2.png)
 
 ## Bibliothèque JavaScript d'aide BandChain.js {: #bandchainjs-javascript-helper-library } 
 
@@ -236,6 +236,6 @@ queryData();
 
 Nous pouvons exécuter ce code avec un nœud, et la sortie suivante `dataQuery` devrait ressembler à ceci:
 
-![Band Protocol JavaScript Library](/images/band/band-console.png)
+![Band Protocol JavaScript Library](/images/builders/integrations/oracles/band/band-console.png)
 
 Notez que par rapport à la demande effectuée via des contrats intelligents, le résultat est donné directement dans les bonnes unités.

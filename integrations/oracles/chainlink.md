@@ -5,7 +5,7 @@ description: Comment utiliser les données de demande d'un Oracle Chainlink dans
 
 # Oracle Chainlink 
 
-![Chainlink Moonbeam Banner](/images/chainlink/chainlink-banner.png)
+![Chainlink Moonbeam Banner](/images/builders/integrations/oracles/chainlink/chainlink-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -115,7 +115,7 @@ Allons-y et utilisons le contrat d'interface avec le jobID `BTC to USD` dans [Re
 
 Après avoir créé le fichier et compilé le contrat, dirigez-vous vers l'onglet "Déployer et exécuter les transactions" , entrez l'adresse du contrat du client et cliquez sur "À l'adresse." Assurez-vous d'avoir réglé "Environnement" sur "Injected Web3" pour être connecté à Moonbase Alpha. Cela créera une instance du contrat client avec laquelle vous pourrez interagir. Utilisez la fonction `requestPrice()` pour interroger les données de l'ID de tâche correspondant. Une fois la transaction confirmée, nous devons attendre que tout le processus expliqué auparavant se produise. Nous pouvons vérifier le prix en utilisant la fonction de visualisation `currentPrice()`.
 
-![Chainlink Basic Request on Moonbase Alpha](/images/chainlink/chainlink-image1.png)
+![Chainlink Basic Request on Moonbase Alpha](/images/builders/integrations/oracles/chainlink/chainlink-1.png)
 
 S'il y a une paire spécifique que vous souhaitez que nous incluions, n'hésitez pas à nous contacter via notre [Serveur Discord](https://discord.com/invite/PfpUATX).
 
@@ -144,7 +144,7 @@ Dans une configuration standard, chaque flux de prix est mis à jour par un rés
 
 L'utilisateur final peut récupérer les flux de prix avec des opérations en lecture seule via un contrat consommateur, en référençant la bonne interface d'agrégateur (contrat proxy). Le proxy agit comme un middleware pour fournir au consommateur l'agrégateur le plus à jour pour un flux de prix particulier.
 
-![Price Feed Diagram](/images/chainlink/chainlink-pricefeed.png)
+![Price Feed Diagram](/images/builders/integrations/oracles/chainlink/chainlink-price-feed.png)
 
 ### Essayez-le sur Moonbase Alpha {: #try-it-on-moonbase-alpha } 
 
@@ -198,7 +198,7 @@ Après avoir créé le fichier et compilé le contrat, dirigez-vous vers l'ongle
 
 Cela créera une instance du contrat consommateur avec laquelle vous pourrez interagir. Utilisez la fonction `getLatestPrice()` pour interroger les données du flux de prix correspondant.
 
-![Chainlink Price Feeds on Moonbase Alpha](/images/chainlink/chainlink-image2.png)
+![Chainlink Price Feeds on Moonbase Alpha](/images/builders/integrations/oracles/chainlink/chainlink-2.png)
 
 Notez que pour obtenir le prix réel, vous devez tenir compte des décimales du flux de prix, disponible avec la méthode `decimals()` .
 

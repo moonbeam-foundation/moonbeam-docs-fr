@@ -5,7 +5,7 @@ description: Un guide qui montre comment vous pouvez staker vos jetons dans Moon
 
 # Comment staker vos jetons
 
-![Staking Moonbeam Banner](/images/staking/staking-stake-banner.png)
+![Staking Moonbeam Banner](/images/tokens/staking/stake/stake-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -48,7 +48,7 @@ Il existe de nombreux extrinsèques liés à la palette de staking, ils ne sont 
 
 Avant de commencer à staker des jetons, il est important de récupérer la liste des collators disponibles dans le réseau. Pour ce faire, accédez à "État de la chaîne" sous l'onglet "Developpeur" .
 
-![Compte de staking](/images/staking/staking-stake-10.png)
+![Compte de staking](/images/tokens/staking/stake/stake-10.png)
 
 Ici, fournissez alors les informations suivantes:
 
@@ -61,7 +61,7 @@ Chaque extrinsèque fournit une réponse différente:
  - **selectedCandidates** — renvoie l'ensemble des collators actifs actuel, c'est-à-dire les {{ networks.moonbase.staking.max_collators }} meilleurs collators par total de jetons stakés (y compris les nominations)
  - **candidatePool** — renvoie la liste actuelle de tous les collators, y compris ceux qui ne sont pas dans l'ensemble actif
 
-![Compte de staking](/images/staking/staking-stake-11.png)
+![Compte de staking](/images/legacy/staking/staking-stake-11.png)
 
 ## Comment nommer un Collator  {: #get-the-collator-nominator-count } 
 
@@ -78,7 +78,7 @@ Pour cet exemple, un compte a été importé et nommé avec un nom super origina
 
 Actuellement, tout ce qui concerne le staking doit être accessible via le menu "Extrinsics" , sous l'onglet "Developer":
 
-![Compte de staking](/images/staking/staking-stake-1.png)
+![Compte de staking](/images/tokens/staking/stake/stake-1.png)
 
 Pour désigner un collator, fournissez les informations suivantes:
 
@@ -89,13 +89,13 @@ Pour désigner un collator, fournissez les informations suivantes:
  5. Désignez le nombre de jetons que vous souhaitez miser
  6. Cliquez sur le bouton "Soumettre la transaction" et signez la transaction
 
-![Staking Join Nominators Extrinsics](/images/staking/staking-stake-2.png)
+![Staking Join Nominators Extrinsics](/images/tokens/staking/stake/stake-2.png)
 
 Une fois la transaction confirmée, vous pouvez retourner dans l'onglet "Comptes" pour vérifier que vous disposez d'un solde réservé (égal au nombre de jetons mis en jeu).
 
 Pour vérifier une nomination, vous pouvez accéder à "État de la chaîne" sous l'onglet "Developpeur" .
 
-![Staking Account and Chain State](/images/staking/staking-stake-3.png)
+![Staking Account and Chain State](/images/tokens/staking/stake/stake-3.png)
 
 Ici fournissez alors les informations suivantes:
 
@@ -104,7 +104,7 @@ Ici fournissez alors les informations suivantes:
  3. Assurez-vous de désactiver le curseur "option d'inclusion"
  4. Envoyez la requête d'état en cliquant sur le bouton "+"
 
-![Staking Chain State Query](/images/staking/staking-stake-4.png)
+![Staking Chain State Query](/images/tokens/staking/stake/stake-4.png)
 
 Dans la réponse, vous devriez voir votre compte (dans ce cas, le compte d'Alice) avec une liste des nominations. Chaque nomination contient l'adresse cible du collator et le montant.
 
@@ -124,7 +124,7 @@ Vous pouvez supprimer votre nomination d'un collator spécifique en accédant au
  4. Désignez l'adresse du collecteur pour lequel vous souhaitez supprimer votre nomination. Dans ce cas, il est défini sur `{{ networks.moonbase.staking.collators.address2 }}`
  5. Cliquez sur le bouton "Soumettre la transaction" et signez la transaction
 
-![Staking Revoke Nomination Extrinsic](/images/staking/staking-stake-7.png)
+![Staking Revoke Nomination Extrinsic](/images/tokens/staking/stake/stake-7.png)
 
 Une fois la transaction confirmée, vous pouvez vérifier que votre nomination a été supprimée dans l'option "État de la chaîne" sous l'onglet "Developpeur" .
 
@@ -135,13 +135,13 @@ Fournissez alors les informations suivantes:
  3. Assurez-vous de désactiver le curseur "include options"
  4. Envoyez la requête d'état en cliquant sur le bouton "+"
 
-![Staking Revoke Nomination Cain State](/images/staking/staking-stake-8.png)
+![Staking Revoke Nomination Cain State](/images/tokens/staking/stake/stake-8.png)
 
 Dans la réponse, vous devriez voir votre compte (dans ce cas, le compte d'Alice) avec une liste des nominations. Chaque nomination contient l'adresse cible du collator et le montant.
 
 Comme mentionné précédemment, vous pouvez également supprimer toutes les nominations en cours avec l'extrinsèque `leaveNominators` (à l'étape 3 des instructions "Extrinsics"). Cet extrinsèque ne nécessite aucune entrée:
 
-![Staking Leave Nominatiors Extrinsic](/images/staking/staking-stake-9.png)
+![Staking Leave Nominatiors Extrinsic](/images/tokens/staking/stake/stake-9.png)
 
 Une fois la transaction confirmée, votre compte ne doit pas être répertorié dans l'état `nominatorState` lors de la requête et vous ne devez pas avoir de solde réservé (lié au staking).
 
@@ -153,4 +153,4 @@ En résumé, les nominateurs gagneront des récompenses au prorata de leur mise 
 
 Dans l'exemple précédent, Alice a été récompensée avec `0.0044` jetons après deux tours de paiement:
 
-![Staking Reward Example](/images/staking/staking-stake-10.png)
+![Staking Reward Example](/images/tokens/staking/stake/stake-10.png)

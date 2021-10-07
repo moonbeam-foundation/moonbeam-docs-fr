@@ -15,7 +15,7 @@ Pour demander des jetons automatiquement, nous avons créé un bot Discord (nomm
  
 Dans la catégorie "Divers," vous trouverez notre canal de bot AlphaNet. 
 
-![Discord1](/images/testnet/testnet-discord1.png)
+![Discord1](/images/builders/get-started/moonbase/discord-1.png)
 
 Pour vérifier votre solde, saisissez le message suivant, en le remplaçant `<enter-address-here->` with your H160 address:
 
@@ -31,7 +31,7 @@ To get DEV tokens, enter the following message, replacing `<enter-address-here->
 
 Mission Control vous enverra 10 jetons DEV et affichera le solde de votre compte actuel. N'oubliez pas que Mission Control est limité à une distribution toutes les 24 heures par utilisateur Discord.
 
-![Discord2](/images/testnet/testnet-discord2.png)
+![Discord2](/images/builders/get-started/moonbase/discord-2.png)
 
 ## Procédure manuelle {: #manual-procedure } 
 

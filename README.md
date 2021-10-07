@@ -5,7 +5,7 @@ description: Bienvenue sur le site de documentation de la plateforme de contrat 
 
 # Bienvenue sur Moonbeam
 
-![Main Page Banner](/images/main-banner.png)
+![Main Page Banner](/images/learn/platform/main-banner.png)
 
 **Note: this website was translated by members of the Ambassadors program and is part of a community-led effort. The team would like to express his gratitude towards these great Ambassadors that translated all the content: Redallica, Ary and Khtsn. If you want to contribute to this translation, please visit the following [GitHub repository](https://github.com/PureStake/moonbeam-docs-fr).**
 

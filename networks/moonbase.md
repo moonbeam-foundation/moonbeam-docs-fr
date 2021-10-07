@@ -22,7 +22,7 @@ Moonbase Alpha a la configuration suivante:
  - La chaîne de relais héberge trois validateurs (hébergés par PureStake) pour finaliser les blocs de chaîne de relais. L'un d'eux est sélectionné pour finaliser chaque bloc assemblé par les assembleurs de Moonbeam. Cette configuration permet de passer à une configuration à deux parachaïnes à l'avenir
  - Il existe deux points de terminaison RPC (hébergés par PureStake). Les utilisateurs peuvent exécuter des nœuds complets pour accéder à leurs propres points de terminaison RPC privés
 
-![TestNet Diagramme](/images/testnet/Moonbase-Alpha-v7.png)
+![TestNet Diagramme](/images/learn/platform/networks/moonbase-diagram-v7.png)
 
 ## Caractéristiques {: #features } 
 

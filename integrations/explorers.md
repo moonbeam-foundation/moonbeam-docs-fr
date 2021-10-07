@@ -4,7 +4,7 @@ description: Un aperçu des explorateurs de blocs actuellement disponibles qui p
 ---
 # Explorateurs de blocs
 
-![Explorer Banner](/images/explorers/explorers-banner.png)
+![Explorer Banner](/images/builders/tools/explorers/explorers-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -27,7 +27,7 @@ Par défaut, l'explorateur est connecté au Moonbase Alpha TestNet. Cependant, v
  2. Sélectionnez "Developpement" si vous avez un nœud en cours d'exécution sur `http://localhost:9933` (emplacement RPC par défaut d'un nœud Moonbeam fonctionnant avec l’indicateur `--dev`). Vous pouvez également revenir à "Moonbase Alpha"
  3. Dans le cas où vous souhaitez vous connecter à une URL RPC spécifique, sélectionnez "RPC personnalisé" et saisissez l'URL. Par exemple, `http://localhost:9937`
 
-![Expedition Explorer](/images/explorers/explorers-images-1.png)
+![Expedition Explorer](/images/builders/tools/explorers/explorers-1.png)
 
 ### Blockscout (TestNet) {: #blockscout-testnet } 
 
@@ -43,7 +43,7 @@ Comme fonctionnalités principales, Blockscout propose:
 
 Une instance de Blockscout fonctionnant sur Moonbase Alpha TestNet peut être trouvée dans [ce lien](https://moonbase-blockscout.testnet.moonbeam.network/).
 
-![Blockscout Explorer](/images/explorers/explorers-images-2.png)
+![Blockscout Explorer](/images/builders/tools/explorers/explorers-2.png)
 
 ## API Substrate {: #substrate-api }
 
@@ -51,11 +51,11 @@ Une instance de Blockscout fonctionnant sur Moonbase Alpha TestNet peut être tr
 
 Polkadot JS Apps utilise le point de terminaison WebSocket pour interagir avec le réseau. Pour le connecter à un nœud de développement Moonbeam, vous pouvez suivre les étapes de [ce tutoriel](/getting-started/local-node/setting-up-a-node/#connecting-polkadot-js-apps-to-a-local-moonbeam-node). Le port par défaut pour cela est `9944`.
 
-![Polkadot JS Local Node](/images/explorers/explorers-images-3.png)
+![Polkadot JS Local Node](/images/builders/tools/explorers/explorers-3.png)
 
 Pour afficher et interagir avec la couche substrate de Moonbase Alpha, accédez à [cette URL](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/explorer). Il s'agit de Polkadot JS Apps pointant vers le TestNet. Vous pouvez trouver plus d'informations sur [cette page](/integrations/wallets/polkadotjs/).
 
-![Polkadot JS Moonbase Alpha](/images/explorers/explorers-images-4.png)
+![Polkadot JS Moonbase Alpha](/images/builders/tools/explorers/explorers-4.png)
 
 ### Subscan {: #subscan } 
 
@@ -63,4 +63,4 @@ Subscan fournit des capacités d'explorateur de chaînes de blocs pour les chaî
 
 Une instance de Subscan fonctionnant sur Moonbase Alpha TestNet peut être trouvée dans [ce lien](https://moonbase.subscan.io/).
 
-![Subscan Moonbase Alpha](/images/explorers/explorers-images-5.png)
+![Subscan Moonbase Alpha](/images/builders/tools/explorers/explorers-5.png)

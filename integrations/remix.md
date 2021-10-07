@@ -5,7 +5,7 @@ description: Apprenez à utiliser l'un des outils de développement Ethereum les
 
 # Interagir avec Moonbeam à l'aide de Remix
 
-![Intro diagram](/images/integrations/integrations-remix-banner.png)
+![Intro diagram](/images/builders/tools/remix/remix-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -30,11 +30,11 @@ Une fois compilé, nous pouvons accéder à l'onglet "Déployer et exécuter des
 
 Pour cet exemple, nous déploierons le contrat à partir d'un compte MetaMask financé. Vous pouvez utiliser notre [faucet du TestNet](/getting-started/testnet/faucet/) pour financer votre compte pour les déploiements sur Moonbase Alpha. Ensuite, passez en entrée `Test Contract` à notre fonction de contructeur et appuyez sur déployer. Une fenêtre contextuelle MetaMask affichera les informations concernant la transaction, que nous devrons signer en cliquant sur "confirmer."
 
-![Deploying Contract](/images/remix/integrations-remix-1.png)
+![Deploying Contract](/images/builders/tools/remix/remix-1.png)
 
 Une fois la transaction incluse, le contrat apparaît dans la section "Contrats déployés" sur Remix. Là, nous pouvons interagir avec les fonctions disponibles dans notre contrat.
 
-![Interact with Contract](/images/remix/integrations-remix-2.png)
+![Interact with Contract](/images/builders/tools/remix/remix-2.png)
 
 ## Tutoriels étape par étape {: #step-by-step-tutorials } 
 Si vous êtes intéressé par un guide étape par étape plus détaillé, consultez nos tutoriels spécifiques sur l'utilisation de [Remix sur un nœud de développement Moonbeam](/getting-started/local-node/using-remix/). Les étapes peuvent également être adaptées pour se déployer sur le Moonbase Alpha TestNet en y [connectant MetaMask](/getting-started/testnet/metamask/).

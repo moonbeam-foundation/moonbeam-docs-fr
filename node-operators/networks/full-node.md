@@ -5,7 +5,7 @@ description: Comment exécuter un nœud Parachain complet pour que le réseau Mo
 
 # Exécuter un nœud sur Moonbeam
 
-![Full Node Moonbeam Banner](/images/fullnode/fullnode-banner.png)
+![Full Node Moonbeam Banner](/images/node-operators/networks/full-node/full-node-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -188,7 +188,7 @@ Si vous utilisez MacOS, vous pouvez trouver tous les extraits de code [ici](/sni
 
 Une fois que Docker a extrait les images nécessaires, votre nœud Moonbeam (ou Moonriver) complet démarrera, affichant de nombreuses informations, telles que la spécification de la chaîne, le nom du nœud, le rôle, l'état de genèse, et plus encore :
 
-![Démarrage du nœud complet](/images/fullnode/fullnode-docker1.png)
+![Démarrage du nœud complet](/images/node-operators/networks/full-node/full-node-docker-1.png)
 
 !!! remarque
     Si vous souhaitez exécuter un point de terminaison RPC, vous connecter à polkadot.js.org ou exécuter votre propre application, utilisez les indicateurs `--unsafe-rpc-external` et/ou `--unsafe-ws-external` pour exécuter le nœud complet avec accès externe aux ports RPC. Plus de détails sont disponibles en exécutant `moonbeam --help`.
@@ -204,7 +204,7 @@ docker run -p {{ networks.relay_chain.p2p }}:{{ networks.relay_chain.p2p }} -p {
 
 Pendant le processus de synchronisation, vous verrez des messages à la fois de la chaîne de relais intégrée et de la parachain (sans balise). Ces messages affichent un bloc cible (état du réseau en direct) et un meilleur bloc (état synchronisé du nœud local).
 
-![Démarrage du nœud complet](/images/fullnode/fullnode-docker2.png)
+![Démarrage du nœud complet](/images/node-operators/networks/full-node/full-node-docker-2.png)
 
 !!! remarque
     Il faudra quelques jours pour synchroniser complètement la chaîne de relais Kusama intégrée. Assurez-vous que votre système répond aux [exigences](#exigences).
@@ -462,7 +462,7 @@ Et finalement, vérifiez que le service fonctionne:
 systemctl status moonbeam.service
 ```
 
-![Service Status](/images/fullnode/fullnode-binary1.png)
+![Service Status](/images/node-operators/networks/full-node/full-node-binary-1.png)
 
 Vous pouvez également vérifier les journaux en exécutant :
 
@@ -470,7 +470,7 @@ Vous pouvez également vérifier les journaux en exécutant :
 journalctl -f -u moonbeam.service
 ```
 
-![Service Logs](/images/fullnode/fullnode-binary2.png)
+![Service Logs](/images/node-operators/networks/full-node/full-node-binary-2.png)
 
 ## Drapeaux avancés et Options {: #advanced-flags-and-options } 
 

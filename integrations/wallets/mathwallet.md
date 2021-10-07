@@ -5,7 +5,7 @@ description: Ce guide vous explique comment connecter Mathwallet, un portefeuill
 
 # Interagir avec Moonbeam à l'aide de MathWallet
  
-![Intro banner](/images/mathwallet/mathwallet-banner.png)
+![Intro banner](/images/tokens/connect/mathwallet/mathwallet-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -21,19 +21,19 @@ Tout d'abord, vous devez installer l'extension de navigateur MathWallet, que vou
 
 Une fois l'extension de navigateur installée, veuillez l'ouvrir et définir un mot de passe.
 
-![Set wallet password](/images/mathwallet/mathwallet-images-1.png)
+![Set wallet password](/images/tokens/connect/mathwallet/mathwallet-1.png)
 
 Ensuite, activons Moonbase Alpha sous Paramètres (icône d'engrenage en haut à droite) -> Réseaux -> Ethereum.
 
-![Enable Moonbase Alpha](/images/mathwallet/mathwallet-images-2.png)
+![Enable Moonbase Alpha](/images/tokens/connect/mathwallet/mathwallet-2.png)
 
 Et enfin, sur l'écran principal, cliquez sur Changer de réseau et sélectionnez Moonbase Alpha
 
-![Connect to Moonbase Alpha](/images/mathwallet/mathwallet-images-3.png)
+![Connect to Moonbase Alpha](/images/tokens/connect/mathwallet/mathwallet-3.png)
 
 Et voilà, vous avez maintenant MathWallet connecté au TestNet Moonbase Alpha! Votre portefeuille devrait ressembler à ceci:
 
-![Wallet Connected to Moonbase Alpha](/images/mathwallet/mathwallet-images-4.png)
+![Wallet Connected to Moonbase Alpha](/images/tokens/connect/mathwallet/mathwallet-4.png)
 
 ## Ajouter un portefeuille {: #adding-a-wallet } 
 
@@ -47,25 +47,25 @@ Maintenant que MathWallet est connecté à Moonbase Alpha, nous pouvons créer u
 
 Pour créer un nouveau portefeuille, cliquez sur le signe + à côté de "Moonbase Alpha" et sélectionnez "Créer un portefeuille".
 
-![MathWallet create a wallet](/images/mathwallet/mathwallet-images-5.png)
+![MathWallet create a wallet](/images/tokens/connect/mathwallet/mathwallet-5.png)
 
 Définissez et confirmez un nom de portefeuille. Ensuite, assurez-vous de stocker en toute sécurité le mnémonique, car il offre un accès direct à vos fonds. Une fois le processus terminé, vous devriez voir votre portefeuille nouvellement créé avec son adresse publique associée.
 
-![MathWallet wallet created](/images/mathwallet/mathwallet-images-6.png)
+![MathWallet wallet created](/images/tokens/connect/mathwallet/mathwallet-6.png)
 
 ### Importer un portefeuille {: #import-a-wallet } 
 
 Pour créer un nouveau portefeuille, cliquez sur le signe +  à côté de "Moonbase Alpha" et sélectionnez "Importer un portefeuille".
 
-![MathWallet import a wallet](/images/mathwallet/mathwallet-images-7.png)
+![MathWallet import a wallet](/images/tokens/connect/mathwallet/mathwallet-7.png)
 
 Ensuite, choisissez entre l'importation à l'aide d'un mnémonique ou d'une clé privée. Pour la première option, entrez le mnémonique mot par mot, séparé par des espaces. Pour la deuxième option, entrez la clé privée (avec le préfixe 0x ou non, cela fonctionne dans les deux cas).
 
-![MathWallet private key or mnemonic import](/images/mathwallet/mathwallet-images-8.png)
+![MathWallet private key or mnemonic import](/images/tokens/connect/mathwallet/mathwallet-8.png)
 
 Après avoir cliqué sur Suivant, définissez un nom de portefeuille, et c'est tout! Vous devriez voir votre portefeuille importé avec son adresse publique associée.
 
-![MathWallet imported wallet](/images/mathwallet/mathwallet-images-9.png)
+![MathWallet imported wallet](/images/tokens/connect/mathwallet/mathwallet-9.png)
 
 ## Utilisation de MathWallet {: #using-mathwallet } 
 
@@ -73,7 +73,7 @@ MathWallet sert de fournisseur Web3 dans des outils tels que [Remix](/integratio
 
 Par exemple, dans Remix, lors du déploiement d'un contrat intelligent, assurez-vous de sélectionner l'option "Injected Web3" dans le menu "Environment". Si vous avez connecté MathWallet, vous verrez l'ID de la chaîne TestNet juste en dessous ( 1287 ) et votre compte MathWallet injecté dans Remix également. Lors de l'envoi d'une transaction, vous devriez voir une fenêtre contextuelle similaire sur MathWallet:
 
-![MathWallet sign transaction](/images/mathwallet/mathwallet-images-10.png)
+![MathWallet sign transaction](/images/tokens/connect/mathwallet/mathwallet-10.png)
 
 En cliquant sur «Accepter», vous signez cette transaction et le contrat sera déployé sur le TestNet Moonbase Alpha.
 

@@ -5,7 +5,7 @@ description: Ce guide vous explique comment utiliser votre portefeuille matérie
 
 # Portefeuille materiel Ledger
 
-![Intro diagram](/images/ledger/ledger-banner.png)
+![Intro diagram](/images/tokens/connect/ledger/ledger-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -39,14 +39,14 @@ Pour commencer, vous devez connecter votre appareil Ledger à l'ordinateur, le d
  1. Cliquez sur le logo en haut à droite pour développer le menu
  2. Sélectionnez "Connect Hardware Wallet"
 
-![MetaMask Connect Hardware Wallet](/images/ledger/ledger-images1.png)
+![MetaMask Connect Hardware Wallet](/images/tokens/connect/ledger/ledger-1.png)
 
 Dans l'écran suivant, vous êtes invité à sélectionner le portefeuille matériel que vous souhaitez utiliser dans MetaMask. Au moment de la rédaction, seuls les portefeuilles matériels Ledger et Trezor sont pris en charge. Ici, suivez les étapes suivantes:
 
  1. Sélectionnez le logo Ledger
  2. Cliquer sur "Continue"
 
-![MetaMask Select Ledger Hardware Wallet](/images/ledger/ledger-images2.png)
+![MetaMask Select Ledger Hardware Wallet](/images/tokens/connect/ledger/ledger-2.png)
 
 Si MetaMask a réussi à se connecter à votre appareil Ledger, vous devriez voir une liste de cinq comptes de style Ethereum. Si ca n'est pas le cas, vérifiez que Ledger Live est fermé, que vous avez connecté votre appareil Ledger à l'ordinateur, l'avez déverrouillé et que l'application Ethereum est ouverte. Si vous utiliser chrome vérifiez ces [étapes supplémentaires](#chrome-browser).
 
@@ -55,11 +55,11 @@ Si MetaMask a réussi à se connecter à votre appareil Ledger, vous devriez voi
  1. Sélectionnez les comptes que vous souhaitez importer depuis votre appareil Ledger
  2. Cliquer sur "Unlock"
 
-![MetaMask Select Ethereum Accounts to Import](/images/ledger/ledger-images3.png)
+![MetaMask Select Ethereum Accounts to Import](/images/tokens/connect/ledger/ledger-3.png)
 
 Si vous avez importé avec succès votre compte de style Ledger Ethereum, vous devriez le voir s'afficher sur l'écran principal de MetaMask comme illustré dans l'image suivante:
 
-![MetaMask Successfully Imported Ledger Account](/images/ledger/ledger-images4.png)
+![MetaMask Successfully Imported Ledger Account](/images/tokens/connect/ledger/ledger-4.png)
 
 Vous avez maintenant importé avec succès un compte compatible Moonbeam depuis votre appareil Ledger et êtes maintenant prêt à commencer à [signer des transactions à l'aide de votre portefeuille matériel](#signing-a-transaction-using-your-ledger).
 
@@ -81,7 +81,7 @@ Si vous avez réussi à [importé votre compte Ledger dans MetaMask](#importing-
 
 Tout d'abord, assurez-vous que votre compte Ledger soit [financé avec des jetons DEV](/getting-started/moonbase/faucet/). Cliquez ensuite sur le bouton "Send".
 
-![MetaMask Ledger Account Funded](/images/ledger/ledger-images5.png)
+![MetaMask Ledger Account Funded](/images/tokens/connect/ledger/ledger-5.png)
 
 Comme vous le feriez dans une transaction standard, définissez l'adresse du destinataire, entrez le nombre de jetons à envoyer, vérifiez les détails de la transaction et confirmez-la. Cela lancera l'assistant de signature de transaction dans votre appareil Ledger. Ici, suivez les étapes suivantes:
 
@@ -96,11 +96,11 @@ Comme vous le feriez dans une transaction standard, définissez l'adresse du des
 !!! remarque
     Au moment de la rédaction, le nom du jeton est toujours affiché sous la forme `ETH`. Veuillez noter que le token manipulé est celui correspondant au réseau auquel MetaMask est connecté.
 
-![MetaMask Ledger Transaction Wizard](/images/ledger/ledger-images6.png)
+![MetaMask Ledger Transaction Wizard](/images/tokens/connect/ledger/ledger-6.png)
 
 Juste après avoir approuvé la transaction, MetaMask l'envoie au réseau. Une fois la transaction confirmée, elle sera affichée comme "Envoyer" sur l'écran principal de MetaMask.
 
-![MetaMask Ledger Transaction Wizard](/images/ledger/ledger-images7.png)
+![MetaMask Ledger Transaction Wizard](/images/tokens/connect/ledger/ledger-7.png)
 
 Et c'est tout ! Vous avez signé une transaction sur Moonbase Alpha en utilisant votre portefeuille matériel Ledger!
 
@@ -118,4 +118,4 @@ Cependant, si vous souhaitez utiliser votre portefeuille matériel Ledger pour l
 !!! remarque
     Cette option est nécessaire pour utiliser votre appareil Ledger pour interagir avec les contrats de jetons ERC20 qui pourraient vivre à l'intérieur de l'écosystème Moonbeam.
 
-![MetaMask Ledger Allow Contracts Tx](/images/ledger/ledger-images8.png)
+![MetaMask Ledger Allow Contracts Tx](/images/tokens/connect/ledger/ledger-8.png)

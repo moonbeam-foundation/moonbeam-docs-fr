@@ -5,7 +5,7 @@ description: Comment envoyer une proposition à voter sur Moonbeam via des fonct
 
 # Propositions
 
-![Governance Moonbeam Banner](/images/governance/governance-proposal-banner.png)
+![Governance Moonbeam Banner](/images/tokens/governance/proposals/governance-proposal-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -53,7 +53,7 @@ Cette section passe en revue le processus de création d'une proposition, depuis
 
 Pour faire une proposition dans le réseau, vous devez utiliser l'interface PolkadotJS Apps. Pour ce faire, vous devez d'abord importer un compte de style Ethereum (adresse H160), ce que vous pouvez faire en suivant [ce tutoriel](/integrations/wallets/polkadotjs/#creating-or-importing-an-h160-account). Pour cet exemple, trois comptes ont été importés et nommés avec des noms super originaux : Alice, Bob et Charley.
 
-![Comptes dans PolkadotJS](/images/governance/governance-proposal-1.png)
+![Comptes dans PolkadotJS](/images/tokens/governance/proposals/proposals-1.png)
 
 La proposition fixera le solde de Bob à `1500` via la gouvernance!
 
@@ -63,7 +63,7 @@ La première étape consiste à soumettre une pré-image de la proposition. En e
 
 Tout ce qui touche à la gouvernance vit sous l'onglet "Démocracy" . Une fois là-bas, cliquez sur le bouton "soummetre la preimage" .
 
-![Soumettre la préimage](/images/governance/governance-proposal-2.png)
+![Soumettre la préimage](/images/tokens/governance/proposals/proposals-2.png)
 
 Ici, vous devez fournir les informations suivantes :
 
@@ -74,7 +74,7 @@ Ici, vous devez fournir les informations suivantes :
  5. Copiez le hachage de la préimage. Cela représente la proposition. Vous utiliserez ce hachage lors de la soumission de la proposition réelle
  6. Cliquez sur le bouton "Soummetre la preimage" et signez la transaction.
 
-![Remplissez les informations de pré-image](/images/governance/governance-proposal-3.png)
+![Remplissez les informations de pré-image](/images/tokens/governance/proposals/proposals-3.png)
 
 !!! remarque
     Assurez-vous de copier le hachage de la préimage, car il est nécessaire pour soumettre la proposition.
@@ -85,7 +85,7 @@ Notez que le coût de stockage de la pré-image est affiché dans le coin infér
 
 Une fois que vous avez validé la préimage (consultez la section précédente), la prochaine étape majeure de la feuille de route est de soumettre la proposition qui s'y rapporte. Pour ce faire, dans l'écran principal démocracy, cliquez sur "soumettre une proposition."
 
-![soumettre une proposition](/images/governance/governance-proposal-4.png)
+![soumettre une proposition](/images/tokens/governance/proposals/proposals-4.png)
 
 Ici, vous devez fournir les informations suivantes :
 
@@ -94,14 +94,14 @@ Ici, vous devez fournir les informations suivantes :
  3. Réglez le solde verrouillé. Il s'agit du nombre de jetons que le proposant associe à sa proposition. N'oubliez pas que la proposition avec le plus grand nombre de jetons verrouillés va au référendum. Le dépôt minimum est affiché juste en dessous de cet onglet de saisie
  4. Cliquez sur le bouton "Soumettre la proposition" et signez la transaction
 
-![Remplissez les informations de la proposition](/images/governance/governance-proposal-5.png)
+![Remplissez les informations de la proposition](/images/tokens/governance/proposals/proposals-5.png)
 
 !!! remarque
     Les jetons peuvent être verrouillés pendant une durée indéterminée car on ne sait pas quand une proposition peut devenir un référendum (le cas échéant).
 
 Une fois la transaction soumise, vous verrez des confirmations dans le coin supérieur droit de l'interface Polkadot JS Apps. Vous devriez également voir la proposition répertoriée dans la section "Propositions" , affichant le proposant et les montants de jetons verrouillés, et elle est maintenant prête à être secondée!
 
-![Proposition listée](/images/governance/governance-proposal-6.png)
+![Proposition listée](/images/tokens/governance/proposals/proposals-6.png)
 
 ### Soutien à une proposition {: #seconding-a-proposal } 
 
@@ -112,7 +112,7 @@ Soutenir une proposition signifie que vous êtes d'accord avec elle et que vous 
 
 Cette section décrit les étapes à suivre pour soutenir la proposition faite dans la section précédente. Pour ce faire, cliquez sur le bouton "Second" disponible pour chaque proposition qui apparaît dans la liste des propositions.
 
-![Proposal listed to Second](/images/governance/governance-proposal-7.png)
+![Proposal listed to Second](/images/tokens/governance/proposals/proposals-7.png)
 
 Ici, vous devez fournir les informations suivantes:
 
@@ -120,12 +120,12 @@ Ici, vous devez fournir les informations suivantes:
  2. Vérifiez le nombre de jetons requis pour soutenir la proposition
  3. Cliquez sur le bouton "Second" et signez la transaction
 
-![Fill in Second Information](/images/governance/governance-proposal-8.png)
+![Fill in Second Information](/images/tokens/governance/proposals/proposals-8.png)
 
 !!! remarque
     Les jetons peuvent être verrouillés pendant une durée indéterminée car on ne sait pas quand une proposition peut devenir un référendum (le cas échéant)
 
 Une fois la transaction soumise, vous verrez des confirmations dans le coin supérieur droit de l'interface Polkadot JS Apps. Vous devriez également voir la proposition répertoriée dans la section "Propositions" , affichant le proposant et les montants de jetons verrouillés et répertoriant les utilisateurs qui ont soutenu cette proposition!
 
-![Proposal Seconded](/images/governance/governance-proposal-9.png)
+![Proposal Seconded](/images/tokens/governance/proposals/proposals-9.png)
 

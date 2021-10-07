@@ -5,7 +5,7 @@ description: Construire des API à l'aide du protocole d'indexation The Graph su
 
 # Exécuter un nœud Graph sur Moonbeam
 
-![The Graph Node on Moonbeam](/images/thegraph/thegraphnode-banner.png)
+![The Graph Node on Moonbeam](/images/node-operators/indexer-nodes/the-graph/the-graph-node-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -48,7 +48,7 @@ Ensuite, exécutez le fichier `setup.sh`. Cela extraira toutes les images Docker
 
 La fin des journaux de la commande précédente devrait ressembler à :
 
-![Graph Node setup](/images/thegraph/thegraphnode-images1.png)
+![Graph Node setup](/images/node-operators/indexer-nodes/the-graph/the-graph-node-1.png)
 
 Une fois que tout est configuré, vous devez modifier l "environnement Ethereum" à l'interieur du fichier `docker-compose.yml`, afin qu'il pointe vers le point de terminaison du nœud sur lequel vous exécutez ce nœud graph. Notez que le fichier `setup.sh` détectel' `Host IP` et écrit sa valeur, vous devrez donc la modifier en conséquence.
 
@@ -105,10 +105,10 @@ Enfin, pour exécuter le nœud graph, exécutez simplement la commande suivante:
 docker-compose up
 ```
 
-![Graph Node compose up](/images/thegraph/thegraphnode-images2.png)
+![Graph Node compose up](/images/node-operators/indexer-nodes/the-graph/the-graph-node-2.png)
 
 Après un certain temps, vous devriez voir les journaux liés à la synchronisation du nœud graph avec le dernier bloc disponible sur le réseau :
 
-![Graph Node logs](/images/thegraph/thegraphnode-images3.png)
+![Graph Node logs](/images/node-operators/indexer-nodes/the-graph/the-graph-node-3.png)
 
 Et c'est tout ! Vous avez un nœud graph exécuté sur le Moonbase Alpha TestNet. N'hésitez pas à adapter également cet exemple à un nœud de développement Moonbeam.

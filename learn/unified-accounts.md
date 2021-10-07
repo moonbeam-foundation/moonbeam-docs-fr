@@ -4,7 +4,7 @@ description: Moonbeam utilise désormais nativement le système de compte H160 b
 ---
 # Comptes unifiés
 
-![Intro diagram](/images/learn/unifiedaccounts-banner.png)
+![Intro diagram](/images/learn/features/unified-accounts/unified-accounts-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -22,7 +22,7 @@ Cependant, Alice ne connaît que la clé privée de l'adresse H160, et non la ve
 
 Le diagramme suivant illustre cette configuration.
 
-![Old account system diagram](/images/learn/unifiedaccounts-images-1.png)
+![Old account system diagram](/images/learn/features/unified-accounts/unified-accounts-1.png)
 
 Cela peut créer des frictions et une mauvaise expérience utilisateur pour Alice. Tout d'abord, elle doit déplacer les jetons vers son adresse H256 mappée H160 pour pouvoir effectuer des transactions et déployer des contrats via l'EVM. Deuxièmement, elle doit également détenir un solde dans son autre adresse H256 (pour laquelle elle a une clé privée différente) pour utiliser les fonctionnalités basées sur substrate. Bref, Alice a besoin d'un minimum de deux clés privées pour avoir le meilleur des deux mondes.
 
@@ -34,6 +34,6 @@ Avec les comptes unifiés, un utilisateur (appelons-le Bob) n'aura besoin que d'
 
 Le diagramme de cette nouvelle configuration se présente comme suit.
 
-![New account system diagram](/images/learn/unifiedaccounts-images-2.png)
+![New account system diagram](/images/learn/features/unified-accounts/unified-accounts-2.png)
 
 Voilà, Bob ne détient qu'une seule clé privée qui correspond à une adresse. Il n'a pas besoin de déplacer les soldes entre 2 comptes différents et est capable d'accéder à toutes les fonctionnalités avec un seul compte et une clé privée. Nous avons normalisé ce compte unique pour se conformer à l'adresse H160 de style Ethereum et aux normes clés ECDSA.

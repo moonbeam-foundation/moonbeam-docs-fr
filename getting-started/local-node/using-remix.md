@@ -22,11 +22,11 @@ Ce guide suppose que vous disposez d'un nœud Moonbeam local en mode `--dev` et 
 
 Si vous avez suivi les guides ci-dessus, vous devriez avoir un nœud local Moonbeam qui commencera à créer des blocs au fur et à mesure que les transactions arriveront:
 
-![Noeud Moonbeam local produisant des blocs](/images/remix/using-remix-1.png)
+![Noeud Moonbeam local produisant des blocs](/images/tokens/connect/metamask/metamask-12.png)
 
 Et vous devriez avoir une installation MetaMask connectée à votre nœud de développement Moonbeam avec au moins un compte qui a un solde. Cela devrait ressembler à quelque chose comme ceci (vue développée):
 
-![Installation de MetaMask avec un solde](/images/remix/using-remix-2.png)
+![Installation de MetaMask avec un solde](/images/builders/interact/remix/using-remix-2.png)
 
 !!! remarque
     Assurez-vous que vous êtes connecté à votre nœud Moonbeam et non à un autre réseau !
@@ -37,11 +37,11 @@ Maintenant, lançons Remix pour exercer des fonctionnalités plus avancées dans
 
 Lancez Remix en accédant à [https://remix.ethereum.org/](https://remix.ethereum.org/).  Dans l'écran principal, sous Environnements, sélectionnez Solidity pour configurer Remix pour le développement Solidity, puis accédez à la vue Explorateurs de fichiers:
 
-![Explorateur de fichiers](/images/remix/using-remix-3.png)
+![Explorateur de fichiers](/images/builders/interact/remix/using-remix-3.png)
 
 Nous allons créer un nouveau fichier pour enregistrer le contrat intelligent Solidity. Appuyez sur le bouton + sous Explorateurs de fichiers et entrez le nom "MyToken.sol" dans la boîte de dialogue contextuelle
 
-![Créer un nouveau dossier pour votre contrat Solidity](/images/remix/using-remix-4.png)
+![Créer un nouveau dossier pour votre contrat Solidity](/images/builders/interact/remix/using-remix-4.png)
 
 Ensuite, collons le contrat intelligent suivant dans l'onglet éditeur qui apparaît:
 
@@ -53,11 +53,11 @@ Il s'agit d'un simple contrat ERC-20 basé sur le modèle actuel ERC-20 Open Zep
 
 Une fois que vous avez collé le contrat dans l'éditeur, il devrait ressembler à ceci:
 
-![Coller le contrat dans l'éditeur](/images/remix/using-remix-5.png)
+![Coller le contrat dans l'éditeur](/images/builders/interact/remix/using-remix-5.png)
 
 Maintenant, accédez à l'option de la barre latérale de compilation pour appuyer sur le bouton “Compile MyToken.sol”:
 
-![Compile MyToken.sol](/images/remix/using-remix-6.png)
+![Compile MyToken.sol](/images/builders/interact/remix/using-remix-6.png)
 
 Vous verrez Remix télécharger toutes les dépendances d'Open Zeppelin et compiler le contrat.
 
@@ -67,7 +67,7 @@ Nous pouvons maintenant déployer le contrat en accédant à l'option Déploieme
 
 Dès que vous sélectionnez "Injected Web3", vous serez invité à autoriser Remix à se connecter à votre compte MetaMask.
 
-![Remplacer](/images/remix/using-remix-7.png)
+![Remplacer](/images/builders/interact/remix/using-remix-7.png)
 
 Appuyez sur “suivant” dans Metamask pour permettre à Remix d'accéder au compte sélectionné.
 
@@ -75,48 +75,48 @@ De retour sur Remix, vous devriez voir que le compte que vous souhaitez utiliser
 
 Une fois que vous avez entré cette valeur, sélectionnez "Déployer."
 
-![Saisir un solde de compte et déployer](/images/remix/using-remix-8.png)
+![Saisir un solde de compte et déployer](/images/builders/interact/remix/using-remix-8.png)
 
 7Vous serez invité dans MetaMask à confirmer la transaction de déploiement du contrat.
 
-![Confirmez le message de transaction](/images/remix/using-remix-9.png)
+![Confirmez le message de transaction](/images/builders/interact/remix/using-remix-9.png)
 
 !!! remarque
     Si vous rencontrez des problèmes pour déployer un contrat spécifique, vous pouvez essayer d'augmenter manuellement la limite de gaz. Vous pouvez le faire sous Paramètres -> Avancé -> Contrôles de gaz avancés = ON.
 
 Après avoir appuyé sur Confirmer et que le déploiement est terminé, vous verrez la transaction répertoriée dans MetaMask. Le contrat apparaîtra sous Contrats déployés dans Remix.
 
-![Étiquette confirmée sur une transaction](/images/remix/using-remix-10.png)
+![Étiquette confirmée sur une transaction](/images/builders/interact/remix/using-remix-10.png)
 
 Une fois le contrat déployé, vous pouvez interagir avec lui depuis Remix.
 
 Explorez le contrat sous “Contrats déployés.” Cliquez sur le nom, le symbole et totalSupply devrait renvoyer respectivement “MyToken,” “MYTOK,” and “8000000000000000000000000”. Si vous copiez l'adresse à partir de laquelle vous avez déployé le contrat et le collez dans le champ balanceOf, vous devriez voir l'intégralité du solde comme appartenant à cet utilisateur. Copiez l'adresse du contrat en cliquant sur le bouton à côté du nom et de l'adresse du contrat.
 
-![Interagir avec le contrat depuis Remix](/images/remix/using-remix-11.png)
+![Interagir avec le contrat depuis Remix](/images/builders/interact/remix/using-remix-11.png)
 
 ## Interagir avec un jeton ERC-20 basé sur Moonbeam depuis MetaMask {: #interacting-with-a-moonbeam-based-erc-20-from-metamask } 
 
 Maintenant, ouvrez MetaMask pour ajouter les jetons ERC-20 nouvellement déployés. Avant de le faire, assurez-vous d'avoir copié l'adresse du contrat à partir de Remix. De retour dans MetaMask, cliquez sur “Ajouter un Jeton” comme indiqué ci-dessous. Assurez-vous que vous êtes dans le compte qui a déployé le contrat de jeton.
 
-![Ajouter un jeton](/images/remix/using-remix-12.png)
+![Ajouter un jeton](/images/builders/interact/remix/using-remix-12.png)
 
 Collez l'adresse du contrat copiée dans le champ “Jeton personnalisé”. Les champs “symbole du jeton” and “Décimales de précision” doivent être automatiquement renseignés.
 
-![Collez l'adresse de contrat copiée](/images/remix/using-remix-13.png)
+![Collez l'adresse de contrat copiée](/images/builders/interact/remix/using-remix-13.png)
 
 Après avoir cliqué sur “Suivant,” vous devrez confirmer que vous souhaitez ajouter ces jetons à votre compte MetaMask. Cliquez sur “Ajouter un jeton” et vous devriez voir un solde de 8M MyTokens dans MetaMask:
 
-![Ajoutez les jetons à votre compte MetaMask](/images/remix/using-remix-14.png)
+![Ajoutez les jetons à votre compte MetaMask](/images/builders/interact/remix/using-remix-14.png)
 
 Nous pouvons maintenant envoyer certains de ces jetons ERC-20 à l'autre compte que nous avons configuré dans MetaMask. Cliquez sur “envoyer” pour lancer le transfert de 500 MyTokens et sélectionnez le compte de destination.
 
 Après avoir cliqué sur “suivant,” il vous sera demandé de confirmer (semblable à ce qui est illustré ci-dessous).
 
-![Confirmation du transfert de jeton](/images/remix/using-remix-15.png)
+![Confirmation du transfert de jeton](/images/builders/interact/remix/using-remix-15.png)
 
 Cliquez sur “Confirmer” et, une fois la transaction terminée, vous verrez une confirmation et une réduction du solde du compte MyToken du compte de l'expéditeur dans MetaMask:
 
-![Vérifier la réduction du solde du compte](/images/remix/using-remix-16.png)
+![Vérifier la réduction du solde du compte](/images/builders/interact/remix/using-remix-16.png)
 
 Si vous possédez le compte auquel vous avez envoyé les jetons, vous pouvez ajouter l'actif de jeton pour vérifier que le transfert est arrivé.
 

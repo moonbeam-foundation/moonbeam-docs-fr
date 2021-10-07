@@ -5,7 +5,7 @@ description: Comment compiler le code binaire Moonbeam pour exécuter un nœud P
 
 # Compiler le code Binaire
 
-![Full Node Moonbeam Banner](/images/fullnode/compile-binary-banner.png)
+![Full Node Moonbeam Banner](/images/node-operators/networks/compile-binary/compile-binary-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -42,7 +42,7 @@ Enfin, le code binaire de la parachain:
 cargo build --release
 ```
 
-![Compiler le code Binaire](/images/fullnode/compile-binary1.png)
+![Compiler le code Binaire](/images/node-operators/networks/compile-binary/compile-binary-1.png)
 
 Si _cargo not found error_ apparaît dans le terminal, ajoutez manuellement Rust à votre chemin système ou redémarrez votre système:
 

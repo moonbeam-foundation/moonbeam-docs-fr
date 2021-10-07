@@ -5,7 +5,7 @@ description: Démonstration de l'interface de précompilation Moonbeam Parachain
 
 # Précompilation de Staking
 
-![Staking Moonbeam Banner](/images/staking/staking-precompile-banner.png)
+![Staking Moonbeam Banner](/images/tokens/staking/precompiles/precompile-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -49,13 +49,13 @@ L'exemple ci-dessous est illustré sur Moonbase Alpha, cependant, il est compati
 1. Obtenez une copie de [StakingInterface.sol](https://github.com/PureStake/moonbeam/blob/master/precompiles/parachain-staking/StakingInterface.sol)
 2. Copiez et collez le contenu du fichier dans un fichier Remix nommé StakingInterface.sol
 
-![Copier et coller l'interface de staking dans Remix](/images/staking/staking-precompile-1.png)
+![Copier et coller l'interface de staking dans Remix](/images/tokens/staking/precompiles/precompile-1.png)
 
 ### Compiler le contrat {: #compile-the-contract } 
 1. Cliquez sur l'onglet Compiler, deuxième à partir du haut
 2. Compilez [Staking Interface.sol] (https://github.com/PureStake/moonbeam/blob/master/precompiles/parachain-staking/StakingInterface.sol)
 
-![Compilation de StakingInteface.sol](/images/staking/staking-precompile-2.png)
+![Compilation de StakingInteface.sol](/images/tokens/staking/precompiles/precompile-2.png)
 
 ### Accéder au contrat {: #access-the-contract } 
 1. Cliquez sur l'onglet Déployer et exécuter, juste en dessous de l'onglet Compiler dans Remix. **Remarque** : nous ne déployons pas de contrat ici, mais nous accédons à un contrat précompilé déjà déployé
@@ -63,7 +63,7 @@ L'exemple ci-dessous est illustré sur Moonbase Alpha, cependant, il est compati
 3. Assurez-vous que "ParachainStaking - StakingInterface.sol" est sélectionné dans la liste déroulante Contrat. Puisqu'il s'agit d'un contrat précompilé, il n'est pas nécessaire de déployer, à la place, nous allons fournir l'adresse de la précompilation dans le champ « À l'adresse »
 4. Fournissez l'adresse de la précompile de Staking : `{{networks.moonbase.staking.precompile_address}}` et cliquez sur « À l'adresse »
 
-![Fournir l'adresse](/images/staking/staking-precompile-3.png)
+![Fournir l'adresse](/images/tokens/staking/precompiles/precompile-3.png)
 
 ### Nommez un Collecteur {: #nominate-a-collator } 
 Pour cet exemple, nous allons nommer un collecteur. Les nominateurs sont des détenteurs de jetons qui misent des jetons, se portant garants pour des collecteurs spécifiques. Tout utilisateur qui détient un montant minimum de {{networks.moonbase.staking.min_nom_stake}} tokens comme solde gratuit peut devenir un nominateur.
@@ -73,7 +73,7 @@ Pour cet exemple, nous allons nommer un collecteur. Les nominateurs sont des dé
 3. Indiquez le montant à proposer dans WEI. Il y a un minimum de `{{networks.moonbase.staking.min_nom_stake}}` jetons à nommer, donc le montant le plus bas dans WEI est `5000000000000000000`
 4. Appuyez sur "transact" et confirmez la transaction dans Metamask
 
-![Nomer un collecteur](/images/staking/staking-precompile-4.png)
+![Nomer un collecteur](/images/tokens/staking/precompiles/precompile-4.png)
 
 ### Vérifier la nomination {: #verify-nomination } 
 Pour vérifier que votre nomination a réussi, vous pouvez vérifier l'état de la chaîne dans les applications Polkadot.js. Tout d'abord, ajoutez votre adresse Metamask au [carnet d'adresses dans les applications Polkadot.js](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/addresses) . Si vous avez déjà terminé cette étape, vous pouvez passer à la section suivante.
@@ -84,7 +84,7 @@ Pour vérifier que votre nomination a réussi, vous pouvez vérifier l'état de 
 3. Ajoutez votre adresse métamasque
 4. Fournissez un surnom pour le compte
 
-![Ajouter au carnet d'adresses](/images/staking/staking-precompile-5.png)
+![Ajouter au carnet d'adresses](/images/tokens/staking/precompiles/precompile-5.png)
 
 #### Vérifier l'état du nominateur {: #verify-nominator-state } 
 1. Pour vérifier que votre nomination a réussi, rendez-vous sur [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/chainstate) et accédez à Développeur -> État de la chaîne
@@ -92,9 +92,9 @@ Pour vérifier que votre nomination a réussi, vous pouvez vérifier l'état de 
 3. Sélectionnez la requête "nominatorState"
 4. Cliquez sur le bouton "Plus" pour retourner les résultats et vérifier votre nomination
 
-![Vérifier la nomination](/images/staking/staking-precompile-6.png)
+![Vérifier la nomination](/images/tokens/staking/precompiles/precompile-6.png)
 
 ### Révocation d'une nomination {: #revoking-a-nomination } 
 Pour révoquer une nomination et récupérer vos jetons, appelez la méthode `revoke_nomination`, en fournissant la même adresse que celle avec laquelle vous avez commencé la nomination ci-dessus. Vous pouvez vérifier à nouveau l'état de votre nominateur sur Polkadot.js Apps pour confirmer.
 
-![Révoquer la nomination](/images/staking/staking-precompile-7.png)
+![Révoquer la nomination](/images/tokens/staking/precompiles/precompile-7.png)

@@ -5,7 +5,7 @@ description: Apprenez à déployer des contrats intelligents basés sur Solidity
 
 # Utiliser les bibliothèques Ethereum pour déployer des contrats intelligents sur Moonbeam
 
-![Intégrations des bibliothèques Ethereum Moonbeam](/images/sendtx/web3-libraries-banner.png)
+![Intégrations des bibliothèques Ethereum Moonbeam](/images/builders/interact/eth-libraries/web3-libraries-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -369,13 +369,13 @@ Tout d'abord, déployez le contrat en exécutant (notez que le répertoire a ét
 Cela déploiera le contrat et retournera l'adresse:
 
 === "Web3.js"
-    ![Deploy Contract Web3js](/images/deploycontract/contract-deploy-web3js.png)
+    ![Deploy Contract Web3js](/images/builders/interact/eth-libraries/deploy-contract/contract-deploy-web3js.png)
 
 === "Ethers.js"
-    ![Deploy Contract Etherjs](/images/deploycontract/contract-deploy-ethers.png)
+    ![Deploy Contract Etherjs](/images/builders/interact/eth-libraries/deploy-contract/contract-deploy-ethers.png)
 
 === "Web3.py"
-    ![Deploy Contract Web3py](/images/deploycontract/contract-deploy-web3py.png)
+    ![Deploy Contract Web3py](/images/builders/interact/eth-libraries/deploy-contract/contract-deploy-web3py.png)
 
 Ensuite, exécutez le fichier d'incrémentation. Vous pouvez utiliser le fichier get pour vérifier la valeur du nombre stocké dans le contrat avant et après l'incrémentation:
 
@@ -412,13 +412,13 @@ Ensuite, exécutez le fichier d'incrémentation. Vous pouvez utiliser le fichier
 Cela affichera la valeur avant la transaction d'incrémentation, le hachage de la transaction et la valeur après:
 
 === "Web3.js"
-    ![Increment Contract Web3js](/images/deploycontract/contract-increment-web3js.png)
+    ![Increment Contract Web3js](/images/builders/interact/eth-libraries/deploy-contract/contract-increment-web3js.png)
 
 === "Ethers.js"
-    ![Increment Contract Etherjs](/images/deploycontract/contract-increment-ethers.png)
+    ![Increment Contract Etherjs](/images/builders/interact/eth-libraries/deploy-contract/contract-increment-ethers.png)
 
 === "Web3.py"
-    ![Increment Contract Web3py](/images/deploycontract/contract-increment-web3py.png)
+    ![Increment Contract Web3py](/images/builders/interact/eth-libraries/deploy-contract/contract-increment-web3py.png)
 
 Enfin, exécutez le fichier de réinitialisation. Encore une fois, vous pouvez utiliser le fichier get pour vérifier la valeur du nombre stocké dans le contrat avant et après sa réinitialisation:
 
@@ -455,11 +455,11 @@ Enfin, exécutez le fichier de réinitialisation. Encore une fois, vous pouvez u
 Cela affichera la valeur avant la transaction de réinitialisation, le hachage de la transaction et la valeur après:
 
 === "Web3.js"
-    ![Réinitialiser le contrat Web3js](/images/deploycontract/contract-reset-web3js.png)
+    ![Réinitialiser le contrat Web3js](/images/builders/interact/eth-libraries/deploy-contract/contract-reset-web3js.png)
 
 === "Ethers.js"
-    ![Réinitialiser le contrat Etherjs](/images/deploycontract/contract-reset-ethers.png)
+    ![Réinitialiser le contrat Etherjs](/images/builders/interact/eth-libraries/deploy-contract/contract-reset-ethers.png)
 
 === "Web3.py"
-    ![Réinitialiser le contrat Web3py](/images/deploycontract/contract-reset-web3py.png)
+    ![Réinitialiser le contrat Web3py](/images/builders/interact/eth-libraries/deploy-contract/contract-reset-web3py.png)
 

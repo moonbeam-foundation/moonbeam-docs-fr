@@ -32,7 +32,7 @@ docker pull purestake/moonbeam:{{ networks.development.build_tag }}
 
 La fin des logs de la console devrait ressembler à ceci:
 
-![Docker - imaged pulled](/images/setting-up-a-node/setting-up-node-1.png)
+![Docker - imaged pulled](/images/builders/get-started/moonbeam-dev/moonbeam-dev-1.png)
 
 Une fois l'image Docker téléchargée, l'étape suivante consiste à exécuter l'image.
 
@@ -61,7 +61,7 @@ Vous pouvez exécuter l'image Docker en utilisant les éléments suivants:
 
 Cela devrait faire tourner un nœud de développement Moonbeam en mode ‘instant seal’ pour les tests en local, de sorte que les blocs soient créés instantanément à mesure que les transactions sont reçues. En cas de succès, vous devriez voir une sortie montrant un état inactif en attente de création de blocs:
 
-![Docker - output shows blocks being produced](/images/setting-up-a-node/setting-up-node-2.png)
+![Docker - output shows blocks being produced](/images/builders/get-started/moonbeam-dev/moonbeam-dev-2.png)
 
 Pour plus d'informations sur certains des indicateurs et options utilisés dans l'exemple, consultez [Common Flags and Options](#common-flags-and-options). Si vous souhaitez voir une liste complète de tous les indicateurs, options et sous-commandes, ouvrez le menu d'aide en exécutant:
 
@@ -110,7 +110,7 @@ Si une erreur _cargo not found error_ apparaît dans le terminal, ajoutez manuel
 
 Voici à quoi devrait ressembler le build en fin de sortie:
 
-![End of build output](/images/setting-up-a-node/setting-up-node-3.png)
+![End of build output](/images/builders/get-started/moonbeam-dev/moonbeam-dev-3.png)
 
 Ensuite, vous voudrez exécuter le nœud en mode dev à l'aide de la commande suivante:
 
@@ -123,7 +123,7 @@ Ensuite, vous voudrez exécuter le nœud en mode dev à l'aide de la commande su
 
 Vous devriez voir en sortie ce qui suit, montrant un état inactif en attente de la production de blocs:
 
-![Output shows blocks being produced](/images/setting-up-a-node/setting-up-node-4.png)
+![Output shows blocks being produced](/images/builders/get-started/moonbeam-dev/moonbeam-dev-4.png)
 
 Pour plus d'informations sur certains des indicateurs et options utilisés dans l'exemple, consultez [Common Flags and Options](#common-flags-and-options). Si vous souhaitez voir une liste complète de tous les indicateurs, options et sous-commandes, ouvrez le menu d'aide en exécutant:
 
@@ -139,15 +139,15 @@ Le nœud de développement est un nœud basé sur un substrat, nous pouvons donc
 
 Commençons par nous y connecter avec Polkadot JS Apps. Ouvrez un navigateur sur: [https://polkadot.js.org/apps/#/explorer](https://polkadot.js.org/apps/#/explorer). Cela ouvrira Polkadot JS Apps, qui se connecte automatiquement à Polkadot MainNet.
 
-![Polkadot JS Apps](/images/setting-up-a-node/setting-up-node-5.png)
+![Polkadot JS Apps](/images/builders/get-started/moonbeam-dev/moonbeam-dev-5.png)
 
 Cliquez sur le coin supérieur gauche pour ouvrir le menu de configuration des réseaux, puis naviguez vers le bas pour ouvrir le sous-menu Développement. Là-dedans, vous voudrez activer l'option "Local Node", qui pointe Polkadot JS Apps sur `ws://127.0.0.1:9944`. Ensuite, sélectionnez le bouton Switch, et le site devrait se connecter à votre nœud de développement Moonbeam.
 
-![Select Local Node](/images/setting-up-a-node/setting-up-node-6.png)
+![Select Local Node](/images/builders/get-started/moonbeam-dev/moonbeam-dev-6.png)
 
 Avec Polkadot JS Apps connecté, vous verrez le nœud de développement Moonbeam attendre l'arrivée des transactions pour commencer à produire des blocs.
 
-![Select Local Node](/images/setting-up-a-node/setting-up-node-7.png)
+![Select Local Node](/images/builders/get-started/moonbeam-dev/moonbeam-dev-7.png)
 
 ## Interroger l'état du compte {: #querying-account-state } 
 
