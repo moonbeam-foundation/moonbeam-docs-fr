@@ -4,7 +4,7 @@ description: Suivez ce tutoriel pour apprendre à utiliser la bibliothèque Java
 ---
 # Bibliothèque JavaScript Web3.js
 
-![Intro diagram](/images/integrations/integrations-web3js-banner.png)
+![Intro diagram](/images/builders/tools/eth-libraries/web3js-banner.png)
 
 ## Introduction {: #introduction } 
 

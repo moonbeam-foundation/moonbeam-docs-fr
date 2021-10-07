@@ -24,7 +24,7 @@ Vous pouvez interagir avec Moonbeam de deux manières: en utilisant des points d
 
 Tout d'abord, nous commençons par une nouvelle installation par défaut de [MetaMask](https://metamask.io/) à partir du Chrome Store. Après avoir téléchargé, installé et initialisé l'extension, suivez le guide "Premiers pas". Ici, vous devez créer un portefeuille, définir un mot de passe et stocker votre phrase de sauvegarde secrète (cela donne un accès direct à vos fonds, alors assurez-vous de les stocker dans un endroit sécurisé). Une fois terminé, nous importerons le compte de développement:
 
-![Importer un compte dev a Metamask](/images/metamask/using-metamask-1.png)
+![Importer un compte dev a Metamask](/images/tokens/connect/metamask/metamask-3.png)
 
 Les détails des comptes de développement préfinancés pour ce nœud de développement sont les suivants:
 
@@ -34,10 +34,10 @@ Les détails des comptes de développement préfinancés pour ce nœud de dével
 
 Sur l'écran d'importation, sélectionnez “clé privée” et collez l'une des clés répertoriées ci-dessus. Pour cet exemple, nous utiliserons la clé de Gerald :
 
-![Collez votre clé de compte dans MetaMask](/images/metamask/using-metamask-2.png)
+![Collez votre clé de compte dans MetaMask](/images/tokens/connect/metamask/metamask-4.png)
 
 Vous devriez vous retrouver avec un “Compte 2”  importé qui ressemble à ceci:
-![MetaMask affichant votre nouveau compte 2](/images/metamask/using-metamask-3.png)
+![MetaMask affichant votre nouveau compte 2](/images/tokens/connect/metamask/metamask-5.png)
 
 ## Connecter MetaMask à Moonbeam {: #connecting-metamask-to-moonbeam } 
 
@@ -55,11 +55,11 @@ Moonbase Alpha TestNet:
 
 Pour les besoins de ce tutoriel, connectons MetaMask à notre nœud de développement Moonbeam exécuté localement.
 
-![Entrez vos nouvelles informations de réseau dans MetaMask](/images/metamask/using-metamask-4.png)
+![Entrez vos nouvelles informations de réseau dans MetaMask](/images/legacy/metamask/using-metamask-4.png)
 
 Lorsque vous cliquez sur "sauvegarder" et quittez l'écran des paramètres réseau, MetaMask doit être connecté au nœud de développement Moonbeam local via son RPC Web3, et vous devriez voir le compte de développement Moonbeam avec un solde de 1207925.8196 DEV.
 
-![Votre nouveau compte Moonbeam avec un solde de 1207925.8196](/images/metamask/using-metamask-5.png)
+![Votre nouveau compte Moonbeam avec un solde de 1207925.8196](/images/legacy/metamask/using-metamask-5.png)
 
 ## Initier un transfert  {: #initiating-a-transfer } 
 
@@ -67,19 +67,19 @@ Essayons d'envoyer des jetons avec MetaMask.
 
 Pour plus de simplicité, nous allons transférer de ce compte de développement à celui créé lors de la configuration de MetaMask. Cliquez sur "envoyer" pour lancer le transfert. Par conséquent, nous pouvons utiliser l'option “Transférer entre mes comptes” . Transférons 100 jetons et laissons tous les autres paramètres tels quels:
 
-![Lancer un transfert de jeton](/images/metamask/using-metamask-6.png)
+![Lancer un transfert de jeton](/images/tokens/connect/metamask/metamask-9.png)
 
 Une fois que vous avez soumis la transaction, vous la verrez “en attente” jusqu'à ce qu'elle soit confirmée, comme le montre l'image suivante:
 
-![Confirmation de transaction](/images/metamask/using-metamask-7.png)
+![Confirmation de transaction](/images/tokens/connect/metamask/metamask-10.png)
 
 Notez que le solde du compte 2 a été diminué du montant envoyé + les frais d'essence. En retournant au compte 1, nous voyons que les 100 jetons envoyés sont arrivés:
 
-![Nouveau solde dans le compte 1](/images/metamask/using-metamask-8.png)
+![Nouveau solde dans le compte 1](/images/tokens/connect/metamask/metamask-11.png)
 
 Si vous revenez à votre terminal sur lequel votre nœud Moonbeam est en cours d'exécution, vous commencerez à voir des blocs créés à mesure que les transactions arriveront:
 
-![Nœud de développement Moonbeam](/images/metamask/using-metamask-9.png)
+![Nœud de développement Moonbeam](/images/tokens/connect/metamask/metamask-12.png)
 
 !!! remarque
     Si vous finissez par réinitialiser votre nœud de développement à l'aide de la commande Substrate purge-chain, vous devrez réinitialiser votre compte genesis MetaMask en utilisant Paramètres -> Avancé -> Réinitialiser le compte. Cela effacera l'historique des transactions de vos comptes et réinitialisera le nonce. Assurez-vous de ne rien effacer de ce que vous souhaitez conserver!

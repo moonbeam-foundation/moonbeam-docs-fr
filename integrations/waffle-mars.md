@@ -5,7 +5,7 @@ description: Apprenez à utiliser Waffle et Mars pour écrire, compiler, tester 
 
 # Utiliser Waffle & Mars sur Moonbeam
 
-![Waffle et Mars sur Moonbeam](/images/waffle-mars/waffle-mars-banner.png)
+![Waffle et Mars sur Moonbeam](/images/builders/interact/waffle-mars/waffle-mars-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -149,7 +149,7 @@ C'est tout ce que vous devez faire pour configurer Waffle, maintenant vous êtes
 npm run build
 ```
 
-![Sortie du compilateur Waffle](/images/waffle-mars/waffle-mars-1.png)
+![Sortie du compilateur Waffle](/images/builders/interact/waffle-mars/waffle-mars-1.png)
 
 Après avoir compilé vos contrats, Waffle stocke la sortie JSON dans le répertoire `build`. Le contrat de ce guide est basé sur le modèle ERC-20 d'Open Zeppelin, de sorte que les fichiers JSON ERC-20 pertinents apparaîtront également dans le répertoire `build`.
 
@@ -332,7 +332,7 @@ Les artefacts doivent être générés pour Mars afin que les vérifications de 
 ```
 npm run build
 ```
-![Sortie du compilateur Waffle et Mars](/images/waffle-mars/waffle-mars-2.png)
+![Sortie du compilateur Waffle et Mars](/images/builders/interact/waffle-mars/waffle-mars-2.png)
 
 Si vous ouvrez le répertoire `build`, vous devriez maintenant voir un fichier `artifacts.ts` contenant les données d'artefact nécessaires aux déploiements. Pour continuer le processus de déploiement, vous devrez écrire un script de déploiement. Le script de déploiement sera utilisé pour indiquer à Mars quel contrat déployer, sur quel réseau et quel compte doit être utilisé pour déclencher le déploiement.
 
@@ -390,11 +390,11 @@ npm exécuter déployer
 ```
 
 2. Dans votre Terminal, Mars vous invitera à appuyer sur 'ENTER' pour envoyer votre transaction :
-![Mars confirme le déploiement](/images/waffle-mars/waffle-mars-3.png)
+![Mars confirme le déploiement](/images/builders/interact/waffle-mars/waffle-mars-3.png)
 
 En cas de succès, vous devriez voir les détails de votre transaction, y compris son hachage, le bloc dans lequel elle a été incluse et son adresse.
 
-![Sortie de déploiement de Mars](/images/waffle-mars/waffle-mars-4.png)
+![Sortie de déploiement de Mars](/images/builders/interact/waffle-mars/waffle-mars-4.png)
 
 Toutes nos félicitations! Vous avez déployé un contrat sur Moonbase Alpha en utilisant Waffle et Mars !
 

@@ -5,7 +5,7 @@ description: Apprenez à créer et envoyer des transactions sur le réseau compa
 
 # Utilisation des bibliothèques Ethereum pour envoyer des transactions sur Moonbeam
 
-![Intégrations des bibliothèques Ethereum Moonbeam](/images/sendtx/web3-libraries-banner.png)
+![Intégrations des bibliothèques Ethereum Moonbeam](/images/builders/interact/eth-libraries/web3-libraries-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -219,11 +219,11 @@ Next, run the _transaction.\*_ script to execute the transaction:
 Et enfin, revérifiez le solde pour vous assurer que le transfert a réussi. L'exécution entière devrait ressembler à ceci:
 
 === "Web3.js"
-    ![Send Tx Web3js](/images/sendtx/sendtx-web3js.png)
+    ![Send Tx Web3js](/images/builders/interact/eth-libraries/send-tx/sendtx-web3js.png)
 
 === "Ethers.js"
-    ![Send Tx Etherjs](/images/sendtx/sendtx-ethers.png)
+    ![Send Tx Etherjs](/images/builders/interact/eth-libraries/send-tx/sendtx-ethers.png)
 
 === "Web3.py"
-    ![Send Tx Web3py](/images/sendtx/sendtx-web3py.png)
+    ![Send Tx Web3py](/images/builders/interact/eth-libraries/send-tx/sendtx-web3py.png)
 

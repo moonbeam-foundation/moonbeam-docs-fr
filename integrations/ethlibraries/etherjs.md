@@ -4,7 +4,7 @@ description: Suivez ce tutoriel pour apprendre à utiliser la bibliothèque Ethe
 ---
 # Bibliothèque Javascript Ether.js.
 
-![Intro diagram](/images/integrations/integrations-ethersjs-banner.png)
+![Intro diagram](/images/builders/tools/eth-libraries/ethersjs-banner.png)
 
 ## Introduction {: #introduction } 
 

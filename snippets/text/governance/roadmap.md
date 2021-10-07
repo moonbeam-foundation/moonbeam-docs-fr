@@ -7,4 +7,4 @@ Avant qu'une proposition ne soit adoptée, elle doit passer par différentes ét
  - Une fois en référendum, les détenteurs de jetons votent "Aye" ou "Nay" sur la proposition en verrouillant des jetons. Deux facteurs expliquent le poids du vote : le montant bloqué et la période de blocage
  - Si la proposition est acceptée, elle est promulguée après un certain temps
 
-![Proposal Roadmap](/images/governance/governance-proposal-roadmap.png)
+![Proposal Roadmap](/images/tokens/governance/proposals/governance-proposal-roadmap.png)

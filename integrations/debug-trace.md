@@ -5,7 +5,7 @@ description:  Apprenez à tirer parti de l'API de débogage Geth et du module de
 
 # API de débogage et module de tracage
 
-![Full Node Moonbeam Banner](/images/debugtrace/debugtrace-banner.png)
+![Full Node Moonbeam Banner](/images/builders/tools/debug-trace/debug-trace-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -49,7 +49,7 @@ La méthode RPC requiert l'un des paramètres facultatifs suivants:
 
 Comme mentionné précédemment, pour utiliser les deux fonctionnalités, vous devez disposer d'un nœud exécuté avec les flags `debug` et `trace` . Pour cet exemple, un nœud complet Moonbase Alpha local est utilisé, avec le point de terminaison HTTP RPC à `http://127.0.0.1:9933`. Si vous avez un nœud en cours d'exécution, vous devriez voir un journal de terminal similaire:
 
-![Debug API](/images/debugtrace/debugtrace-images1.png)
+![Debug API](/images/builders/tools/debug-trace/debug-trace-1.png)
 
 Par exemple, pour l'appel `debug_traceTransaction` vous pouvez effectuer la requête JSON RPC suivante dans votre terminal (dans ce cas, pour le hachage de transaction `0x04978f83e778d715eb074352091b2159c0689b5ae2da2554e8fe8e609ab463bf`):
 
@@ -65,7 +65,7 @@ curl http://localhost:9933 -H "Content-Type:application/json;charset=utf-8" -d \
 
 Le nœud répond avec les informations de transaction répétées étape par étape (la réponse a été recadrée car elle est assez longue):
 
-![Trace Debug Node Running](/images/debugtrace/debugtrace-images2.png)
+![Trace Debug Node Running](/images/builders/tools/debug-trace/debug-trace-2.png)
 
 Pour l'appel `trace_filter` vous pouvez effectuer la requête JSON RPC suivante dans votre terminal (dans ce cas, le filtre est du bloc 20000 à 25000, uniquement pour les transactions où se trouve le destinataire  `0x4E0078423a39EfBC1F8B5104540aC2650a756577`, il commencera par un offset zéro et fournira les 20 premières tracages):
 
@@ -80,5 +80,5 @@ curl http://localhost:9933 -H "Content-Type:application/json;charset=utf-8" -d \
 
 Le nœud répond avec les informations de tracage correspondant au filtre (la réponse a été rognée car elle est assez longue).
 
-![Trace Filter Node Running](/images/debugtrace/debugtrace-images3.png)
+![Trace Filter Node Running](/images/builders/tools/debug-trace/debug-trace-3.png)
 

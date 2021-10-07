@@ -5,7 +5,7 @@ description: Interrogation des données Blockchain Moonbeam avec l'API Covalent
 
 # Premiers pas avec l'API Covalent
 
-![The Graph sur Moonbeam](/images/covalent/covalentbannerimage.png)
+![The Graph sur Moonbeam](/images/builders/integrations/indexers/covalent/covalent-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -132,7 +132,7 @@ Copiez et collez le bloc de code ci-dessous dans votre environnement préféré,
 
 The output should resemble the below. The balances endpoint returns a list of all ERC20 and NFT token balances including ERC721 and ERC1155 along with their current spot prices (if available).
 
-![Javascript Console Output](/images/covalent/covalentjs.png)
+![Javascript Console Output](/images/builders/integrations/indexers/covalent/covalentjs.png)
 
 ## Exemple Python {: #python-example } 
 Covalent n'a pas de wrapper API officiel. Pour interroger directement l'API, vous devrez utiliser la [bibliothèque de requêtes] Python (https://pypi.org/project/requests/). Installez les requêtes dans votre environnement à partir de la ligne de commande avec `pip install request`. Ensuite, importez-le et utilisez-le dans votre code. Utilisez les méthodes get des verbes HTTP pour renvoyer les informations de l'API. Copiez et collez le bloc de code ci-dessous dans votre environnement préféré et exécutez-le. La sortie devrait ressembler à la capture d'écran ci-dessus, mais le formatage peut varier en fonction de votre environnement.

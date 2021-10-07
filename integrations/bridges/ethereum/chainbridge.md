@@ -4,7 +4,7 @@ description: Comment utiliser ChainBridge pour connecter des actifs entre Ethere
 ---
 # Pont Ethereum Moonbeam de ChainBridge
 
-![ChainBridge Moonbeam banner](/images/chainbridge/chainbridge-banner.png)
+![ChainBridge Moonbeam banner](/images/builders/integrations/bridges/eth/chainbridge/chainbridge-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -48,7 +48,7 @@ Le flux de travail général est le suivant (de la chaîne A à la chaîne B):
 
 Ce flux de travail est résumé dans le diagramme suivant:
 
-![ChainBridge Moonbeam diagram](/images/chainbridge/chainbridge-diagram.png)
+![ChainBridge Moonbeam diagram](/images/builders/integrations/bridges/eth/chainbridge/chainbridge-diagram.png)
 
 Les deux contrats cibles de chaque côté du pont sont liés en effectuant une série d'enregistrements dans le gestionnaire de contrat correspondant via le contrat de pont. Ces enregistrements ne peuvent actuellement être effectués que par l'administrateur du contrat de pont.
 
@@ -103,7 +103,7 @@ En termes simples, le contrat modifié utilisé pour lancer le transfert a l' _I
 
 Le flux de travail général pour cet exemple peut être vu dans ce diagramme:
 
-![ChainBridge ERC20 workflow](/images/chainbridge/chainbridge-erc20.png)
+![ChainBridge ERC20 workflow](/images/builders/integrations/bridges/eth/chainbridge/chainbridge-erc20.png)
 
 Pour essayer le pont avec cet exemple de jeton ERC-20, nous devons suivre les étapes suivantes (quelle que soit la direction du transfert):
  
@@ -157,7 +157,7 @@ Après avoir ajouté le contrat ERC20 personnalisé à Remix et l'avoir compilé
 4. Appelez la fonction `mintTokens()` et signez la transaction. 
 5. Une fois la transaction confirmée, vous devriez avoir reçu 5 jetons ERC20S. Vous pouvez vérifier votre solde en ajoutant le jeton à [MetaMask](/integrations/wallets/metamask/).
 
-![ChainBridge ERC20 mint Tokens](/images/chainbridge/chainbridge-image1.png)
+![ChainBridge ERC20 mint Tokens](/images/builders/integrations/bridges/eth/chainbridge/chainbridge-1.png)
 
 Une fois que nous avons les jetons, nous pouvons procéder à leur envoi par le pont vers la chaîne cible. Dans ce cas, rappelez-vous que nous le faisons à partir depuis **Moonbase Alpha** vers **Kovan**. Il existe une interface unique qui vous permettra de transférer les jetons ERC20S et ERC721M. Pour cet exemple, vous utiliserez la fonction `sendERC20SToken()` pour initier le transfert de vos jetons ERC20S mintés:
 
@@ -200,11 +200,11 @@ Après avoir ajouté le contrat Bridge à Remix et l'avoir compilé, pour envoye
 
 Une fois la transaction confirmée, le processus peut prendre environ 3 minutes, après quoi vous devriez avoir reçu les jetons à Kovan!
 
-![ChainBridge ERC20 send Tokens](/images/chainbridge/chainbridge-image2.png)
+![ChainBridge ERC20 send Tokens](/images/builders/integrations/bridges/eth/chainbridge/chainbridge-2.png)
 
 Vous pouvez vérifier votre solde en ajoutant le jeton à [MetaMask](/integrations/wallets/metamask/) et en le connectant au réseau cible - dans notre cas Kovan.
 
-![ChainBridge ERC20 balance](/images/chainbridge/chainbridge-image3.png)
+![ChainBridge ERC20 balance](/images/builders/integrations/bridges/eth/chainbridge/chainbridge-3.png)
 
 N'oubliez pas que vous pouvez également créer des jetons ERC20S dans Kovan et les envoyer à Moonbase Alpha. Pour approuver un dépenseur ou augmenter son allocation, vous pouvez utiliser la fonction `increaseAllowance()` de l'interface fournie. Pour vérifier l'allocation du contrat de gestionnaire dans le contrat de jeton ERC20, vous pouvez utiliser la fonction `allowance()` de l'interface.
 
@@ -215,7 +215,7 @@ N'oubliez pas que vous pouvez également créer des jetons ERC20S dans Kovan et 
 
 Semblable à notre exemple précédent, les contrats de jetons ERC-721 doivent être enregistrés par les relais pour permettre le transfert via le pont. Par conséquent, nous avons personnalisé un contrat de jeton ERC-721 afin que tout utilisateur puisse créer un jeton pour tester le pont. Cependant, comme chaque jeton est non fongible, et par conséquent unique, la fonction mint n'est disponible que dans le contrat de jeton de chaîne source et non dans le contrat cible. En d'autres termes, les jetons ERC-721M ne peuvent être mintés que sur Moonbase Alpha, puis transférés à Rinkeby ou Kovan. Le diagramme suivant explique le flux de travail pour cet exemple, où il est important de souligner que l'ID de jeton et les métadonnées sont conservés.
 
-![ChainBridge ERC721 workflow](/images/chainbridge/chainbridge-erc721.png)
+![ChainBridge ERC721 workflow](/images/builders/integrations/bridges/eth/chainbridge/chainbridge-erc721.png)
 
 Pour minter des jetons dans Moonbase Alpha (nommés ERC721Moon avec le symbole ERC721M) et les envoyer dans les deux sens à Kovan / Rinkeby, vous avez besoin de l'adresse suivante:
 
@@ -283,7 +283,7 @@ Après avoir ajouté le contrat à Remix et l'avoir compilé, nous voudrons ensu
 4. Appelez la fonction `mintTokens()` et signez la transaction. 
 5. Une fois la transaction confirmée, vous devriez avoir reçu un jeton ERC721M. Vous pouvez vérifier votre solde en ajoutant le jeton à [MetaMask](/integrations/wallets/metamask/).
 
-![ChainBridge ERC721 mint Tokens](/images/chainbridge/chainbridge-image4.png) 
+![ChainBridge ERC721 mint Tokens](/images/builders/integrations/bridges/eth/chainbridge/chainbridge-4.png) 
 
 L'interface suivante vous permet d'utiliser la fonction `sendERC721MoonToken()` pour lancer le transfert de jetons mintés à l'origine dans Moonbase Alpha (ERC721M).
 
@@ -326,11 +326,11 @@ Vous pouvez maintenant envoyer le jeton ERC721M via le pont vers la chaîne cibl
 
 Une fois la transaction confirmée, le processus peut prendre environ 3 minutes, après quoi vous devriez avoir reçu le même identifiant de jeton dans Kovan!
 
-![ChainBridge ERC721 send Token](/images/chainbridge/chainbridge-image5.png)
+![ChainBridge ERC721 send Token](/images/builders/integrations/bridges/eth/chainbridge/chainbridge-5.png)
 
 Vous pouvez vérifier votre solde en ajoutant le jeton à [MetaMask](/integrations/wallets/metamask/) et en le connectant au réseau cible, dans notre cas Kovan.
 
-![ChainBridge ERC721 balance](/images/chainbridge/chainbridge-image6.png)
+![ChainBridge ERC721 balance](/images/builders/integrations/bridges/eth/chainbridge/chainbridge-6.png)
 
 N'oubliez pas que les jetons ERC721M ne peuvent être mintés que dans Moonbase Alpha et qu'ils seront ensuite disponibles pour être envoyés dans les deux sens vers Kovan ou Rinkeby. Il est important de toujours vérifier l'allocation fournie au contrat de gestionnaire dans le contrat de jeton ERC721 correspondant. Vous pouvez approuver le contrat du gestionnaire pour envoyer des jetons en votre nom à l'aide de la fonction `approve()` fournie dans l'interface. Vous pouvez vérifier l'approbation de chacun de vos identifiants de jeton avec la fonction `getApproved()` .
 

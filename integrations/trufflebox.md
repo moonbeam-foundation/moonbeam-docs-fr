@@ -4,7 +4,7 @@ description: Commencez à utiliser la Truffle Box Moonbeam  pour un moyen rapide
 ---
 # La Truffle Box Moonbeam
 
-![Intro diagram](/images/integrations/integrations-trufflebox-banner.png)
+![Intro diagram](/images/builders/tools/truffle-banner.png)
 
 ## Introduction {: #introduction }
 Dans le cadre d'un effort continu pour aider les développeurs qui souhaitent commencer à travailler sur Moonbeam, nous avons [lancé la Truffle Box Moonbeam](https://moonbeam.network/announcements/moonbeam-truffle-box-available-solidity-developers/). Avec elle, les développeurs trouveront une configuration standard pour commencer à déployer rapidement des contrats intelligents sur Moonbeam. Avec la Truffle Box Moonbeam,, nous avons également incorporé le plugin Moonbeam Truffle, qui introduit quelques commandes pour exécuter un nœud de développement dans votre environnement local en tant qu'image Docker. Cela supprime le processus de configuration d'un nœud local (qui peut prendre jusqu'à 40 minutes lors de la construction de son binaire) et constitue une solution rapide et facile pour commencer à développer dans votre environnement local.
@@ -36,7 +36,7 @@ mkdir moonbeam-truffle-box && cd moonbeam-truffle-box
 truffle unbox PureStake/moonbeam-truffle-box
 ```
 
-![Unbox Moonbeam Truffle box](/images/trufflebox/trufflebox-07.png)
+![Unbox Moonbeam Truffle box](/images/builders/interact/truffle/truffle-1.png)
 
 Néanmoins, la Box a également Truffle comme dépendance au cas où vous ne voudriez pas l'installer en global. Dans ce cas, vous pouvez directement cloner le référentiel suivant:
 
@@ -130,7 +130,7 @@ Pour configurer un nœud de développement Moonbeam, vous pouvez actuellement su
 truffle run moonbeam install
 ``` 
 
-![Install Moonbeam Truffle box](/images/trufflebox/trufflebox-01.png)
+![Install Moonbeam Truffle box](/images/legacy/trufflebox/trufflebox-01.png)
 
  
 Ensuite, vous disposez d'un ensemble de commandes disponibles pour contrôler le nœud inclus dans l'image Docker:
@@ -157,7 +157,7 @@ Chacune des commandes ci-dessus effectue l'action suivante:
 
 Vous pouvez voir la sortie de ces commandes dans l'image suivante:
 
-![Install Moonbeam Truffle box](/images/trufflebox/trufflebox-02.png)
+![Install Moonbeam Truffle box](/images/builders/interact/truffle/truffle-5.png)
 
 Si vous connaissez Docker, vous pouvez ignorer les commandes du plugin et interagir directement avec l'image Docker.
 
@@ -168,7 +168,7 @@ La box a la configuration minimale requise pour vous aider à démarrer. Compilo
 ```
 truffle compile
 ``` 
-![Compile Contracts](/images/trufflebox/trufflebox-03.png)
+![Compile Contracts](/images/legacy/trufflebox/trufflebox-03.png)
 
 N'oubliez pas que si Truffle est installé en global, vous pouvez ignorer la partie ./node_modules/.bin/ dans les commandes. Une fois le contrat compilé, nous pouvons exécuter le test de base inclus dans la Box (notez que Ganache est utilisé pour ces tests et non le nœud de développement Moonbeam):
 
@@ -176,7 +176,7 @@ N'oubliez pas que si Truffle est installé en global, vous pouvez ignorer la par
 truffle test
 ```
 
-![Test Contract Moonbeam Truffle box](/images/trufflebox/trufflebox-04.png)
+![Test Contract Moonbeam Truffle box](/images/legacy/trufflebox/trufflebox-04.png)
 
 Après avoir exécuté la commande d'installation du plugin, qui télécharge l'image Docker du nœud de développement Moonbeam, démarrons le nœud local et déployons le contrat de jeton dans notre environnement local:
 
@@ -185,7 +185,7 @@ truffle run moonbeam start
 truffle migrate --network dev
 ```
 
-![Deploy on Dev Moonbeam Truffle box](/images/trufflebox/trufflebox-05.png)
+![Deploy on Dev Moonbeam Truffle box](/images/legacy/trufflebox/trufflebox-05.png)
 
 Enfin, nous pouvons déployer notre contrat de jeton sur Moonbase Alpha, mais d'abord, assurez-vous de définir une clé privée avec des fonds dans le fichier truffle-config.js. Une fois la clé privée définie, nous pouvons exécuter la commande migrate pointant vers le TestNet.
 
@@ -193,7 +193,7 @@ Enfin, nous pouvons déployer notre contrat de jeton sur Moonbase Alpha, mais d'
 truffle migrate --network moonbase
 ```
 
-![Deploy on Moonbase Moonbeam Truffle box](/images/trufflebox/trufflebox-06.png)
+![Deploy on Moonbase Moonbeam Truffle box](/images/legacy/trufflebox/trufflebox-06.png)
 
 Et voilà, vous avez utilisé la Truffle Box Moonbeam pour déployer un simple contrat de jeton ERC20 dans votre nœud de développement Moonbeam et Moonbase Alpha.
  

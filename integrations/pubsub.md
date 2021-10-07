@@ -61,7 +61,7 @@ EventSignature = keccak256(Transfer(address,address,uint256))
 
 Le résultat du calcul est affiché dans l'extrait de code précédent. Nous reviendrons sur le filtrage par thèmes plus tard. Le reste du code gère la fonction de rappel. Une fois que nous exécutons ce code, nous obtiendrons un identifiant d'abonnement et le terminal attendra tout événement via cet abonnement:
 
-![Subscription ID](/images/testnet/testnet-pubsub1.png)
+![Subscription ID](/images/builders/tools/pubsub/pubsub-1.png)
 
 Ensuite, un transfert de jeton ERC-20 sera envoyé avec les paramètres suivants:
 
@@ -71,11 +71,11 @@ Ensuite, un transfert de jeton ERC-20 sera envoyé avec les paramètres suivants
 
 Une fois la transaction envoyée, le journal de l'événement émis par la transaction apparaîtra dans le terminal:
 
-![Log of the transfer event](/images/testnet/testnet-pubsub2.png)
+![Log of the transfer event](/images/builders/tools/pubsub/pubsub-2.png)
 
 Décomposons la réponse reçue. Notre événement cible envoie deux informations indexées: les adresses `from` et `to` (dans cet ordre), qui sont traitées comme des sujets. L'autre donnée partagée par notre événement est le nombre de jetons, qui n'est pas indexé. Par conséquent, il y a un total de trois sujets (le maximum est de quatre), qui correspondent à l'opcode LOG3:
 
-![Description of LOG3](/images/testnet/testnet-pubsub3.png)
+![Description of LOG3](/images/builders/tools/pubsub/pubsub-3.png)
 
 Par conséquent, vous pouvez voir que les adresses `from` et `to` sont contenues dans les rubriques renvoyées par les journaux. Les adresses Ethereum ont une longueur de 40 caractères hexadécimaux (1 caractère hexadécimal équivaut à 4 bits, donc 160 bits ou format H160). Ainsi, les 24 zéros supplémentaires sont nécessaires pour combler le vide avec H256, qui comporte 64 caractères hexadécimaux. 
 
@@ -119,7 +119,7 @@ web3.eth
 
 Ici, en utilisant le caractères générique null  en place pour la signature d'événement, nous filtrons pour écouter tous les événements émis par le contrat auquel nous avons souscrit. Mais avec cette configuration, nous pouvons également utiliser un deuxième champ de saisie (`topic_1`) pour définir un filtre par adresse comme mentionné précédemment. Dans le cas de notre abonnement, nous vous informons que nous souhaitons recevoir uniquement les événements où `topic_1` est l'une des adresses que nous fournissons. Notez que les adresses doivent être au format H256. Par exemple, l'adresse `0x44236223aB4291b93EEd10E4B511B37a398DEE55` doit être saisie sous la forme `0x00000000000000000000000044236223aB4291b93EEd10E4B511B37a398DEE55`. Comme précédemment, la sortie de cet abonnement affichera la signature de l'événement `topic_0` pour nous indiquer quel événement a été émis par le contrat.
 
-![Conditional Subscription](/images/testnet/testnet-pubsub7.png)
+![Conditional Subscription](/images/builders/tools/pubsub/pubsub-4.png)
 
 Comme indiqué, après avoir fourni les deux adresses avec un formatage conditionnel, nous avons reçu deux journaux avec le même ID d'abonnement. Les événements émis par les transactions à partir d'adresses différentes ne généreront aucun journal pour cet abonnement.
 
@@ -128,21 +128,21 @@ Cet exemple a montré comment nous pourrions nous abonner uniquement aux journau
 ## Abonnez-vous aux transactions entrantes en attente {: #subscribe-to-incoming-pending-transactions } 
 Afin de souscrire aux transactions en attente, nous pouvons utiliser la méthode `web3.eth.subscribe(‘pendingTransactions’, [, callback])` , implémentant la même fonction de rappel pour vérifier la réponse. Ceci est beaucoup plus simple que notre exemple précédent et renvoie le hachage de transaction des transactions en attente.
 
-![Subscribe pending transactions response](/images/testnet/testnet-pubsub4.png)
+![Subscribe pending transactions response](/images/builders/tools/pubsub/pubsub-5.png)
 
 Nous pouvons vérifier que ce hachage de transaction est le même que celui affiché dans MetaMask (ou Remix).
 
 ## Abonnez-vous aux en-têtes de bloc entrants {: #subscribe-to-incoming-block-headers } 
 Un autre type disponible dans la bibliothèque Web3.js consiste à s'abonner à de nouveaux en-têtes de bloc. Pour ce faire, nous utilisons la méthode `web3.eth.subscribe('newBlockHeaders' [, callback])` , implémentant la même fonction de rappel pour vérifier la réponse. Cet abonnement fournit des en-têtes de bloc entrants et peut être utilisé pour suivre les changements dans la blockchain.
 
-![Subscribe to block headers response](/images/testnet/testnet-pubsub5.png)
+![Subscribe to block headers response](/images/builders/tools/pubsub/pubsub-6.png)
 
 Notez qu'un seul en-tête de bloc est affiché dans l'image. Ces messages sont affichés pour chaque bloc produit afin qu'ils puissent remplir le terminal assez rapidement.
 
 ## Vérifiez si un nœud est synchronisé avec le réseau {: #check-if-a-node-is-synchronized-with-the-network } 
 Avec pub / sub, il est également possible de vérifier si un nœud particulier auquel vous êtes abonné est actuellement synchronisé avec le réseau. Pour cela, nous pouvons tirer parti de la méthode `web3.eth.subscribe(‘syncing' [, callback])` , en implémentant la même fonction de rappel pour vérifier la réponse. Cet abonnement renverra un objet lorsque le nœud est synchronisé avec le réseau.
 
-![Subscribe to syncing response](/images/testnet/testnet-pubsub6.png)
+![Subscribe to syncing response](/images/builders/tools/pubsub/pubsub-7.png)
 
 ## Limitations actuelles {: #current-limitations } 
 L'implémentation pub / sub dans [Frontier](https://github.com/paritytech/frontier) est toujours en développement actif. Cette première version permet aux développeurs DApp (ou aux utilisateurs en général) de s'abonner à des types d'événements spécifiques, mais il existe encore quelques limitations. Vous avez peut-être remarqué dans les exemples précédents que certains des champs n'affichent pas les informations appropriées avec la version actuelle publiée, et c'est parce que certaines propriétés ne sont pas encore prises en charge par Frontier.

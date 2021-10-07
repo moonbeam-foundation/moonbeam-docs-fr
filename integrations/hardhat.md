@@ -5,7 +5,7 @@ description: Utilisez Hardhat pour compiler, déployer et déboguer les contrats
 
 # Construire avec Hardhat sur Moonbeam
 
-![Hardhat Create Project](/images/hardhat/hardhat-banner.png)
+![Hardhat Create Project](/images/builders/interact/hardhat/hardhat-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -61,7 +61,7 @@ Cela créera un fichier de configuration Hardhat (`hardhat.config.js`) dans notr
 
 Après avoir exécuté la commande, choisissez `Create an empty hardhat.config.js`:
 
-![Hardhat Create Project](/images/hardhat/hardhat-images-1.png)
+![Hardhat Create Project](/images/builders/interact/hardhat/hardhat-1.png)
 
 ## Le repertoire contrat {: #the-contract-file } 
 
@@ -169,7 +169,7 @@ Notre contrat, `Box.sol`, utilise Solidity 0.8.1. Assurez-vous que le fichier de
 npx hardhat compile
 ```
 
-![Hardhat Contract Compile](/images/hardhat/hardhat-images-2.png)
+![Hardhat Contract Compile](/images/builders/interact/hardhat/hardhat-2.png)
 
 Après compilation, un répertoire `artifacts` est créé: il contient le bytecode et les métadonnées du contrat, qui sont des fichiers `.json` . C'est une bonne idée d'ajouter ce répertoire à votre fichier `.gitignore`.
 
@@ -220,7 +220,7 @@ En utilisant la commande `run`, nous pouvons maintenant déployer le contrat `Bo
 
 Après quelques secondes, le contrat est déployé et vous devriez voir l'adresse dans le terminal.
 
-![Hardhat Contract Deploy](/images/hardhat/hardhat-images-3.png)
+![Hardhat Contract Deploy](/images/builders/interact/hardhat/hardhat-3.png)
 
 Félicitations, votre contrat est en ligne! Enregistrez l'adresse, car nous l'utiliserons pour interagir avec cette instance de contrat à l'étape suivante.
 
@@ -255,7 +255,7 @@ await box.store(5)
 
 La transaction sera signée par votre compte Moonbase et diffusée sur le réseau. La sortie doit ressembler à:
 
-![Transaction output](/images/hardhat/hardhat-images-4.png)
+![Transaction output](/images/builders/interact/hardhat/hardhat-4.png)
 
 Notez votre adresse intitulée `from`, l'adresse du contrat et les `data` qui sont transmises. Maintenant, récupérons la valeur en exécutant:
 

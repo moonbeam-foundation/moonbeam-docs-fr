@@ -5,7 +5,7 @@ description:  Apprenez à créer facilement des contrats OpenZeppelin communs av
 
 # OpenZeppelin Contrats & Librairies
 
-![OpenZeppelin Contracts Banner](/images/openzeppelin/ozcontracts-banner.png)
+![OpenZeppelin Contracts Banner](/images/builders/interact/oz-remix/oz-contracts-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -36,7 +36,7 @@ L'assistant comprend les sections suivantes :
   4. **Contrôle d'accès** — liste de tous les [mécanismes de contrôle d'accès](https://docs.openzeppelin.com/contracts/4.x/access-control) disponibles pour chaque norme de jeton
   5. **Affichage du code interactif** : affiche le code du contrat intelligent avec la configuration définie par l'utilisateur
 
-![Assistant de Contrats OpenZeppelin](/images/openzeppelin/ozwizard-images1.png)
+![Assistant de Contrats OpenZeppelin](/images/builders/interact/oz-remix/oz-wizard-1.png)
 
 Une fois que vous avez configuré votre contrat avec tous les paramètres et fonctionnalités, c'est aussi simple que de copier et coller le code dans votre fichier de contrat.
 
@@ -91,7 +91,7 @@ contract MyToken is ERC20, Ownable {
 
 Ce contrat intelligent de jeton ERC20 a été extrait de l'[Assistant de contrat](#openzeppelin-contract-wizard), en définissant un préminage de `1000` jetons et en activant la fonction `Mintable`.
 
-![Démarrer avec Remix](/images/openzeppelin/ozcontracts-images1.png)
+![Démarrer avec Remix](/images/builders/interact/oz-remix/oz-contracts-1.png)
 
 Une fois votre contrat intelligent rédigé, vous pouvez le compiler en procédant comme suit :
 
@@ -99,7 +99,7 @@ Une fois votre contrat intelligent rédigé, vous pouvez le compiler en procéda
  2. Cliquez sur le bouton compiler
  3. Alternativement, vous pouvez vérifier la fonction "Compilation automatique"
 
-![Compiler le contrat ERC20 avec Remix](/images/openzeppelin/ozcontracts-images2.png)
+![Compiler le contrat ERC20 avec Remix](/images/builders/interact/oz-remix/oz-contracts-2.png)
 
 Une fois le contrat compilé, vous êtes prêt à le déployer en procédant comme suit :
 
@@ -109,7 +109,7 @@ Une fois le contrat compilé, vous êtes prêt à le déployer en procédant com
  4. Si tout est prêt, cliquez sur le bouton "Déployer". Vérifiez les informations de transaction dans MetaMask et confirmez-les
  5. Après quelques secondes, la transaction devrait être confirmée et vous devriez voir votre contrat sous « Contrats déployés »
 
-![Déployer le contrat ERC20 avec Remix](/images/openzeppelin/ozcontracts-images3.png)
+![Déployer le contrat ERC20 avec Remix](/images/builders/interact/oz-remix/oz-contracts-3.png)
 
 Et c'est tout ! Vous avez déployé un contrat de jeton ERC20 à l'aide des contrats et des bibliothèques d'OpenZeppelin. Ensuite, vous pouvez interagir avec votre contrat de jeton via Remix, ou l'ajouter à MetaMask.
 
@@ -174,7 +174,7 @@ Une fois le contrat compilé, rendez-vous dans l'onglet "Déployer et exécuter 
  3. Si tout est prêt, cliquez sur le bouton "Déployer". Vérifiez les informations de transaction dans MetaMask et confirmez-les
  4. Après quelques secondes, la transaction devrait être confirmée et vous devriez voir votre contrat sous « Contrats déployés »
 
-![Déployer le contrat ERC721 avec Remix](/images/openzeppelin/ozcontracts-images4.png)
+![Déployer le contrat ERC721 avec Remix](/images/builders/interact/oz-remix/oz-contracts-4.png)
 
 Et c'est tout ! Vous avez déployé un contrat de jeton ERC721 à l'aide des contrats et des bibliothèques d'OpenZeppelin. Ensuite, vous pouvez interagir avec votre contrat de jeton via Remix, ou l'ajouter à MetaMask.
 
@@ -236,6 +236,6 @@ Une fois le contrat compilé, rendez-vous dans l'onglet "Déployer et exécuter 
  3. Si tout est prêt, cliquez sur le bouton "Déployer". Vérifiez les informations de transaction dans MetaMask et confirmez-les
  4. Après quelques secondes, la transaction devrait être confirmée et vous devriez voir votre contrat sous « Contrats déployés »
 
-![Déployer le contrat ERC1155 avec Remix](/images/openzeppelin/ozcontracts-images5.png)
+![Déployer le contrat ERC1155 avec Remix](/images/builders/interact/oz-remix/oz-contracts-5.png)
 
 Et c'est tout ! Vous avez déployé un contrat de jeton ERC1155 à l'aide des contrats et des bibliothèques d'OpenZeppelin. Ensuite, vous pouvez interagir avec votre contrat de jeton via Remix.

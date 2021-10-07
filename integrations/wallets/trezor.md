@@ -5,7 +5,7 @@ description: Ce guide vous explique comment utiliser votre portefeuille matérie
 
 # Portefeuille matériel Trezor
 
-![Intro diagram](/images/trezor/trezor-banner.png)
+![Intro diagram](/images/tokens/connect/trezor/trezor-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -36,18 +36,18 @@ Pour commencer, vous devez avoir configuré un portefeuille (soit standard, soit
  1. Cliquez sur le logo en haut à droite pour développer le menu
  2. Sélectionnez "Connect Hardware wallet"
 
-![MetaMask Connect Hardware Wallet](/images/ledger/ledger-images1.png)
+![MetaMask Connect Hardware Wallet](/images/tokens/connect/ledger/ledger-1.png)
 
 Juste après, vous êtes invité à sélectionner le portefeuille matériel que vous souhaitez utiliser dans MetaMask. Au moment de la rédaction, seuls les portefeuilles matériels Ledger et Trezor sont pris en charge. Si votre appareil Trezor est prêt à fonctionner, suivez les étapes suivantes:
 
  1. Selectionnez le logo Trezor
  2. Cliquez sur "Continue"
 
-![MetaMask Select Trezor Hardware Wallet](/images/trezor/trezor-images2.png)
+![MetaMask Select Trezor Hardware Wallet](/images/tokens/connect/trezor/trezor-2.png)
 
 Après avoir cliqué sur le bouton, un nouvel onglet nommé `TrezorConnect` devrait apparaitre, où vous devrez associer votre appareil. Ce n'est pas nécessaire si vous avez ouvert Trezor Suite et que votre appareil est connecté. Ici, cliquez sur "Pair devices.
 
-![Trezor Hardware Wallet Connect Pair Device](/images/trezor/trezor-images3.png)
+![Trezor Hardware Wallet Connect Pair Device](/images/tokens/connect/trezor/trezor-3.png)
 
 Sur l'écran suivant, procédez comme suit:
 
@@ -55,15 +55,15 @@ Sur l'écran suivant, procédez comme suit:
  2. Sélectionnez l'appareil Trezor que vous souhaitez utiliser
  3. Cliquez sur "Connect"
 
-![Trezor Hardware Wallet Connect Wizard Select and Connect Device](/images/trezor/trezor-images4.png)
+![Trezor Hardware Wallet Connect Wizard Select and Connect Device](/images/tokens/connect/trezor/trezor-4.png)
 
 Une fois votre appareil connecté, vous devez autoriser MetaMask à lire ses clés publiques. Par conséquent, cliquez sur "Autoriser une fois pour cette session". En option, vous pouvez également cocher la case "Ne plus me demander".
 
-![Trezor Hardware Wallet Connect Wizard Allow Read Public Keys](/images/trezor/trezor-images5.png)
+![Trezor Hardware Wallet Connect Wizard Allow Read Public Keys](/images/tokens/connect/trezor/trezor-5.png)
 
 Ensuite, il vous est demandé si vous souhaitez exporter la clé publique de votre compte Ethereum (l'onglet a été recadré et étiqueté 1 dans l'image suivante). Juste après, vous êtes invité à utiliser [l'option de phrase secrète de Trezor (onglet rogné et étiqueté 2 dans l'image). Si vous souhaitez utiliser le portefeuille par défaut, cliquez simplement sur "Entrée". A l'inverse, veuillez suivre [Article wiki de Trezor pour les portefeuilles de mots de passe](https://wiki.trezor.io/Passphrase).
 
-![Trezor Hardware Wallet Connect Wizard Allow Export and Passphrase](/images/trezor/trezor-images6.png)
+![Trezor Hardware Wallet Connect Wizard Allow Export and Passphrase](/images/tokens/connect/trezor/trezor-6.png)
 
 Si MetaMask a réussi à se connecter à votre appareil Trezor, vous devriez voir une liste de cinq comptes de style Ethereum. A l'inverse, veuillez vérifier que vous avez correctement connecté votre appareil Trezor à l'ordinateur et qu'il est déverrouillé. Vous pouvez également répéter le processus avec l'application Trezor Suite ouverte.
 
@@ -72,11 +72,11 @@ Si MetaMask a réussi à se connecter à votre appareil Trezor, vous devriez voi
  1. Sélectionnez les comptes que vous souhaitez importer depuis votre appareil Trezor
  2. Cliquer sur "Unlock"
 
-![Trezor Select Ethereum Accounts to Import](/images/trezor/trezor-images7.png)
+![Trezor Select Ethereum Accounts to Import](/images/tokens/connect/trezor/trezor-7.png)
 
 Si vous avez importé avec succès votre compte de style Trezor Ethereum, vous devriez le voir s'afficher sur l'écran principal de MetaMask comme indiqué dans l'image suivante:
 
-![MetaMask Successfully Imported Trezor Account](/images/trezor/trezor-images8.png)
+![MetaMask Successfully Imported Trezor Account](/images/tokens/connect/trezor/trezor-8.png)
 
 Vous avez maintenant importé avec succès un compte compatible Moonbeam depuis votre appareil Trezor et êtes maintenant prêt à commencer [signer des transactions à l'aide de votre portefeuille matériel](#signing-a-transaction-using-your-trezor).
 
@@ -86,11 +86,11 @@ Si vous avez réussi à [importer votre compte Trezor dans MetaMask](#importing-
 
 Tout d'abord, assurez-vous que votre compte Trezor est [financé avec des jetons DEV](/getting-started/moonbase/faucet/). Ensuite, cliquez sur le bouton "Send".
 
-![MetaMask Trezor Account Funded](/images/trezor/trezor-images9.png)
+![MetaMask Trezor Account Funded](/images/tokens/connect/trezor/trezor-9.png)
 
 Un onglet `TrezorConnect` devrait apparaître, demandant la permission de lire les clés publiques de votre appareil et de préparer votre Trezor pour la transaction et la signature de données. Une fois que vous êtes prêt, cliquez sur "Allow once for this session (Autoriser une fois pour cette session)"." En option, vous pouvez également cocher la case "Don't ask me again (Ne plus me demander)".
 
-![Trezor Hardware Wallet Allow Read Public Keys and Signing](/images/trezor/trezor-images10.png)
+![Trezor Hardware Wallet Allow Read Public Keys and Signing](/images/tokens/connect/trezor/trezor-10.png)
 
 Comme vous le feriez dans une transaction standard, définissez l'adresse du destinataire, entrez le nombre de jetons à envoyer, vérifiez les détails de la transaction et confirmez-la. Cela lancera l'assistant de signature de transaction dans votre appareil Trezor. Ici, suivez les étapes suivantes:
 
@@ -100,11 +100,11 @@ Comme vous le feriez dans une transaction standard, définissez l'adresse du des
 !!! remarque
     Au moment de la rédaction, le nom du jeton pour tous les réseaux liés à Moonbeam est toujours affiché comme `UNKN`. Veuillez noter que le token manipulé est celui correspondant au réseau auquel MetaMask est connecté.
 
-![Trezor Hardware Wallet Sign Transaction](/images/trezor/trezor-images11.png)
+![Trezor Hardware Wallet Sign Transaction](/images/tokens/connect/trezor/trezor-11.png)
 
 Juste après avoir approuvé la transaction, MetaMask l'envoie au réseau. Une fois la transaction confirmée, elle sera affichée comme "Envoyer" sur l'écran principal de MetaMask.
 
-![MetaMask Trezor Transaction Wizard](/images/trezor/trezor-images12.png)
+![MetaMask Trezor Transaction Wizard](/images/tokens/connect/trezor/trezor-12.png)
 
 Et c'est tout ! Vous avez signé une transaction sur Moonbase Alpha en utilisant votre portefeuille matériel Trezor. 
 

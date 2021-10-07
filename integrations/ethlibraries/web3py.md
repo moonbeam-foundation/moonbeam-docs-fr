@@ -3,7 +3,7 @@ title: Web3.py
 description: Suivez ce tutoriel pour apprendre à utiliser la bibliothèque Python Ethereum Web3 pour déployer des contrats intelligents Solidity sur Moonbeam.
 ---
 # Bibliothèque Python Web3.py
-![Intro diagram](/images/integrations/integrations-web3py-banner.png)
+![Intro diagram](/images/builders/tools/eth-libraries/web3py-banner.png)
 
 ## Introduction {: #introduction } 
 

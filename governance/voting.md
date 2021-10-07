@@ -5,7 +5,7 @@ description: Comment voter sur une proposition pour qu'elle soit adoptée ou rej
 
 # Propositions
 
-![Governance Moonbeam Banner](/images/governance/governance-voting-banner.png)
+![Governance Moonbeam Banner](/images/tokens/governance/voting/voting-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -53,7 +53,7 @@ Cette section passe en revue le processus de vote lors d'un référendum. Le gui
 
 Pour voter sur une proposition dans le réseau, vous devez utiliser l'interface PolkadotJS Apps. Pour ce faire, vous devez d'abord importer un compte de style Ethereum (adresse H160), ce que vous pouvez faire en suivant [ce guide](/integrations/wallets/polkadotjs/#creating-or-importing-an-h160-account). Pour cet exemple, trois comptes ont été importés et nommés avec des noms super originaux : Alice, Bob et Charley.
 
-![Accounts in PolkadotJS](/images/governance/governance-proposal-1.png)
+![Accounts in PolkadotJS](/images/tokens/governance/proposals/proposals-1.png)
 
 La proposition soumise au vote fixera le solde de Bob à `1500` via gouvernance!
 
@@ -61,7 +61,7 @@ La proposition soumise au vote fixera le solde de Bob à `1500` via gouvernance!
 
 Voter sur Moonbeam est assez simple. Tout ce qui touche à la gouvernance vit sous l'onglet "Democracy" , ou (dans l'image) vous pouvez noter qu'il y a un `1`, indiquant qu'il y a un point sur la démocratie en attente (soit des propositions, soit des référendums). Une fois là-bas, vous pouvez visualiser les détails du référendum que vous souhaitez voter en cliquant sur la flèche à côté de la description. Le numéro à côté de l'action et de sa description s'appelle l'indice référendaire (dans ce cas, c'est 0). Lorsque vous êtes prêt, cliquez sur le bouton "Vote".
 
-![Vote Button](/images/governance/governance-vote-1.png)
+![Vote Button](/images/legacy/governance/governance-vote-1.png)
 
 Ici, vous devez fournir les informations suivantes:
 
@@ -81,14 +81,14 @@ Ici, vous devez fournir les informations suivantes:
 
  4. Cliquer sur "Vote Aye" pour approuver la proposition ou sur "Vote Nay" pour désapprouver la proposition, puis signer la transaction
 
-![Vote Submission](/images/governance/governance-vote-2.png)
+![Vote Submission](/images/legacy/governance/governance-vote-2.png)
 
 !!! remarque
     Les périodes de blocage indiquées dans l'image précédente ne sont pas à prendre comme référence. Ce guide a été réalisé avec une version personnalisée de Moonbeam avec de courtes périodes de lancement/adoption à des fins de démonstration uniquement.
 
 Dans ce cas, Alice a décidé de "Vote Aye" sur la proposition avec une condamnation de `6x`. D'autre part, Charley a décidé de "Vote Nay" sur la proposition mais a choisi de ne verrouiller aucun jeton (ses jetons ne sont verrouillés que pendant la durée du référendum), sa condamnation a donc été `0.1x`. Avec de telles distributions de voix, les résultats partiels peuvent être vus dans l'onglet principal "Democracy".
 
-![Vote Information](/images/governance/governance-vote-3.png)
+![Vote Information](/images/legacy/governance/governance-vote-3.png)
 
 Il y a quelques points clés à retenir du vote:
 
@@ -101,11 +101,11 @@ Il y a quelques points clés à retenir du vote:
 
 Après l'expiration de la période de vote, la proposition sera visible sous l'onglet "Dispatch" si approuvéé. Ici, vous pouvez également voir le temps restant jusqu'à ce que la proposition soit adoptée.
 
-![Proposal Enactment](/images/governance/governance-vote-4.png)
+![Proposal Enactment](/images/tokens/governance/voting/vote-5.png)
 
 Rappelez-vous que, pour cet exemple, la fonction `setBalance` a été utilisé pour régler le solde de Bob à 1500 jetons. Une fois la période d'adoption passée, vous pouvez revenir à l'onglet "Accounts" pour vérifier que la proposition et devenu loi.
 
-![Proposal Result](/images/governance/governance-vote-5.png)
+![Proposal Result](/images/legacy/governance/governance-vote-5.png)
 
 ### Déleguer ses votes {: #delegate-voting } 
 
@@ -113,7 +113,7 @@ Les détenteurs de tokens ont la possibilité de déléguer leur vote à un autr
 
 Pour déléguer votre vote, accédez d'abord au menu "Extrinsics" en dessous de l'onglet "Developers".
 
-![Extrinsics Menu](/images/governance/governance-vote-6.png)
+![Extrinsics Menu](/images/tokens/governance/voting/vote-6.png)
 
 Ici, vous devez fournir les informations suivantes:
 
@@ -125,7 +125,7 @@ Ici, vous devez fournir les informations suivantes:
  6. Définissez le nombre de jetons que vous souhaitez déléguer au compte fourni auparavant
  7. Cliquez sur le bouton "Submit Transaction" et signez la transaction
 
-![Extrinsics Transaction for Delegation](/images/governance/governance-vote-7.png)
+![Extrinsics Transaction for Delegation](/images/tokens/governance/voting/vote-7.png)
 
 Dans cet exemple, Alice a délégué un poids total de 1000 (1000 jetons avec un facteur de conviction x1) à Charley.
 
@@ -134,7 +134,7 @@ Dans cet exemple, Alice a délégué un poids total de 1000 (1000 jetons avec un
 
 Une fois le compte auquel vous avez délégué votre vote vote, le poids total du vote délégué sera attribué à l'option que le compte a sélectionnée. Pour cet exemple, Charley a décidé de voter en faveur d'une proposition qui est en référendum public. Il a voté avec un poids total de 800 (800 jetons avec un facteur de conviction x1). Mais parce qu'Alice lui a délégué 1000 votes, les votes "Aye" totalisent 1800 unités.
 
-![Total Votes with Delegation](/images/governance/governance-vote-8.png)
+![Total Votes with Delegation](/images/tokens/governance/voting/vote-9.png)
 
 Pour supprimer la délégation, répétez le processus décrit précédemment, mais sélectionnez l'extrinsic `undelegate` à l'étape 3.
 
@@ -154,11 +154,11 @@ Lorsque les détenteurs de jetons votent, les jetons utilisés sont verrouillés
  - Verrouillé en raison du multiplicateur de condamnation sélectionné, affichant le nombre de blocages et le temps restant
  - Le verrouillage a expiré, ce qui signifie que vous pouvez maintenant récupérer vos jetons
 
-![Account Lock Status](/images/governance/governance-vote-9.png)
+![Account Lock Status](/images/tokens/governance/voting/vote-10.png)
 
 Une fois le verrouillage expiré, vous pouvez demander à nouveau vos jetons. Pour ce faire, accédez au menu "Extrinsics" en dessous de l'onglet "Developers" .
 
-![Extrinsics Menu](/images/governance/governance-vote-10.png)
+![Extrinsics Menu](/images/tokens/governance/voting/vote-11.png)
 
 Ici, deux extrinsics différents doivent être envoyés. Tout d'abord, vous devez fournir les informations suivantes:
 
@@ -168,7 +168,7 @@ Ici, deux extrinsics différents doivent être envoyés. Tout d'abord, vous deve
  4. Entrez l'index référendaire. Il s'agit du numéro qui figurait à gauche dans l'onglet "Democracy". Dans ce cas, c'est 0
  5. Cliquez sur le bouton "Submit Transaction" et signez la transaction
 
-![Remove Vote Extrinsics](/images/governance/governance-vote-11.png)
+![Remove Vote Extrinsics](/images/tokens/governance/voting/vote-12.png)
 
 Pour le prochain extrinsic, vous devez fournir les informations suivantes:
 
@@ -178,17 +178,17 @@ Pour le prochain extrinsic, vous devez fournir les informations suivantes:
  4. Entrez le compte cible qui recevra les jetons débloqués. Dans ce cas, les jetons seront rendus à Alice
  5. Cliquez sur le bouton "Submit Transaction" et signez la transaction
 
-![Unlock Extrinsics](/images/governance/governance-vote-12.png)
+![Unlock Extrinsics](/images/tokens/governance/voting/vote-13.png)
 
 Une fois la transaction terminée, les jetons verrouillés doivent être déverrouillés. Pour vérifier, vous pouvez revenir l'onglet "Accounts" , pour cet exemple, Alice a son solde complet comme "transferable."
 
-![Check Balance](/images/governance/governance-vote-13.png)
+![Check Balance](/images/tokens/governance/voting/vote-14.png)
 
 ## Biais de participation positif {: #positive-turnout-bias } 
 
 Les référendums publics utilisent une métrique de biais de participation positive, c'est-à-dire une formule d'approbation à la majorité qualifiée. L'équation est la suivante:
 
-![Positive Turnout Bias](/images/governance/governance-vote-bias.png)
+![Positive Turnout Bias](/images/tokens/governance/voting/vote-bias.png)
 
 Ou:
 

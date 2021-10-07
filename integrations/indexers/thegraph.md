@@ -5,7 +5,7 @@ description: Construire des API à l'aide du protocole d'indexation The Graph su
 
 # Utiliser The Graph sur Moonbeam
 
-![The Graph on Moonbeam](/images/thegraph/thegraph-banner.png)
+![The Graph on Moonbeam](/images/builders/integrations/indexers/the-graph/the-graph-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -267,6 +267,6 @@ Ou:
 
 Les journaux de la commande précédente devraient ressembler à:
 
-![The Graph deployed](/images/thegraph/thegraph-images1.png)
+![The Graph deployed](/images/builders/integrations/indexers/the-graph/the-graph-1.png)
 
 Les DApps peuvent désormais utiliser les points de terminaison Subgraph pour récupérer les données indexées par le protocole The Graph.

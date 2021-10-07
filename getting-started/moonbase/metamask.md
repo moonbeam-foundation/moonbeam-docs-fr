@@ -21,26 +21,26 @@ Si vous avez déjà installé MetaMask, vous pouvez facilement connecter MetaMas
 
 Après avoir installé [MetaMask](https://metamask.io), la configuration ouvrira automatiquement une nouvelle tâche avec un écran de bienvenue. Cliquez sur "Commencer" pour commencer le processus de configuration.
 
-![MetaMask1](/images/testnet/testnet-metamask1.png)
+![MetaMask1](/images/tokens/connect/metamask/metamask-1.png)
 
 Lorsque vous y êtes invité, vous avez la possibilité d'importer un portefeuille à l'aide de votre phrase de récupération. Pour cet exercice, nous allons configurer un nouveau portefeuille.
 
-![MetaMask2](/images/testnet/testnet-metamask2.png)
+![MetaMask2](/images/tokens/connect/metamask/metamask-2.png)
 
 ## Connexion à Moonbase Alpha {: #connecting-to-moonbase-alpha } 
 
 Une fois que vous avez terminé de créer ou d'importer un portefeuille, vous verrez l'interface principale de MetaMask. Cliquez sur le logo en haut à droite et allez dans Paramètres.
 
-![MetaMask3](/images/testnet/testnet-metamask3.png)
+![MetaMask3](/images/tokens/connect/metamask/metamask-6.png)
 
 Accédez à l'onglet Réseaux et cliquez sur le bouton "Ajouter un réseau" .
 
-![MetaMask4](/images/testnet/testnet-metamask4.png)
+![MetaMask4](/images/tokens/connect/metamask/metamask-7.png)
 
 Remplissez les informations suivantes, puis cliquez sur Enregistrer:
 
 --8<-- 'text/testnet/testnet-details.md'
 
-![MetaMask5](/images/testnet/testnet-metamask5.png)
+![MetaMask5](/images/tokens/connect/metamask/metamask-8.png)
 
 C'est tout! Vous avez connecté avec succès MetaMask au TestNet Moonbeam, Moonbase.

@@ -5,7 +5,7 @@ description: Moonbeam fournit des fonctionnalités de staking où les détenteur
 
 # Staking dans Moonbeam
 
-![Staking Moonbeam Banner](/images/staking/staking-overview-banner.png)
+![Staking Moonbeam Banner](/images/learn/features/staking/staking-overview-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -42,13 +42,13 @@ Lorsque les collators se joignent à l'ensemble des collators, ils établissent 
 
 Mathématiquement parlant, pour les collators, la récompense ressemblerait à ceci:
 
-![Staking Collator Reward](/images/staking/staking-overview-1.png)
+![Staking Collator Reward](/images/learn/features/staking/staking-overview-1.png)
 
 Où la mise correspond au montant de jetons cautionnés par le collator par rapport à la mise totale de ce collator (nominations comptables).
 
 Pour chaque nominateur, la récompense ressemblerait à ceci :
 
-![Staking Nominator Reward](/images/staking/staking-overview-2.png)
+![Staking Nominator Reward](/images/learn/features/staking/staking-overview-2.png)
 
 Où la mise correspond au montant de jetons cautionnés par chaque nominateur par rapport à la mise totale de ce collator.
 

@@ -5,7 +5,7 @@ description: Instructions pour devenir un Collator dans le réseau Moonbeam une 
 
 # Exécuter un Collator sur Moonbeam
 
-![Collator Moonbeam Banner](/images/fullnode/collator-banner.png)
+![Collator Moonbeam Banner](/images/node-operators/networks/collators/collator-banner.png)
 
 ## Introduction {: #introduction } 
 
@@ -49,7 +49,7 @@ Actuellement, vous avez deux façons de procéder en ce qui concerne la créatio
 
 Une fois que vous avez un compte H160 importé dans PolkadotJS, vous devriez le voir sous l'onglet "Comptes" . Assurez-vous d'avoir votre adresse publique à portée de main (`PUBLIC_KEY`), car elle est nécessaire pour configurer le [déploiement de votre nœud complet](/node-operators/networks/full-node/) avec les options de collation.
 
-![Account in PolkadotJS](/images/fullnode/collator-polkadotjs1.png)
+![Account in PolkadotJS](/images/node-operators/networks/collators/collator-polkadotjs-1.png)
 
 ## Devenir un candidat Collator {: #become-a-collator-candidate } 
 
@@ -70,7 +70,7 @@ console.log(`Candidate pool size is: ${candidatePool.length}`);
   5. Cliquez sur le bouton Exécuter. Cela exécutera le code de la boîte de l'éditeur
   6. Copiez le résultat, car vous en aurez besoin pour rejoindre le vivier de candidats
 
-![Obtenir le nombre de candidats](/images/fullnode/collator-polkadotjs2.png)
+![Obtenir le nombre de candidats](/images/node-operators/networks/collators/collator-polkadotjs-2.png)
 
 ### Rejoignez le pool de candidats {: #join-the-candidate-pool } 
 
@@ -85,7 +85,7 @@ Une fois que votre nœud est en cours d'exécution et synchronisé avec le rése
  7. Définissez le nombre de candidats comme taille du pool de candidats. Pour savoir comment récupérer cette valeur, consultez [cette section](#get-the-size-of-the-candidate-pool)
  8. Soumettez la transaction. Suivez l'assistant et signez la transaction en utilisant le mot de passe que vous avez défini pour le compte
 
-![Rejoindre le pool de collateurs PolkadotJS](/images/fullnode/collator-polkadotjs3.png)
+![Rejoindre le pool de collateurs PolkadotJS](/images/node-operators/networks/collators/collator-polkadotjs-3.png)
 
 !!! Remarque
      Les noms de fonction et l'exigence de caution minimale sont susceptibles de changer dans les versions futures.
@@ -102,7 +102,7 @@ Avec la sortie de [Moonbase Alpha v8](/networks/testnet/), les collators signero
 
 Tout d'abord, assurez-vous que vous [exécutez un nœud d'assemblage](/node-operators/networks/full-node/) et que vous avez exposé les ports RPC. Une fois que votre nœud d'assemblage est en cours d'exécution, votre terminal doit imprimer des journaux similaires :
 
-![Journaux du terminal de l'assembleur](/images/fullnode/collator-terminal1.png)
+![Journaux du terminal de l'assembleur](/images/node-operators/networks/collators/collator-terminal-1.png)
 
 Ensuite, les clés de session peuvent être tournées en envoyant un appel RPC au point de terminaison HTTP avec la méthode `author_rotateKeys`. Pour référence, si le point de terminaison HTTP de votre assembleur est sur le port "9933", l'appel JSON-RPC peut ressembler à ceci :
 
@@ -120,7 +120,7 @@ curl http://127.0.0.1:9933 -H \
 
 Le nœud d'assemblage doit répondre avec la clé publique correspondante du nouvel ID d'auteur (clé de session).
 
-![Coller Terminal Logs RPC Rotate Keys](/images/fullnode/collator-terminal2.png)
+![Coller Terminal Logs RPC Rotate Keys](/images/node-operators/networks/collators/collator-terminal-2.png)
 
 Assurez-vous de noter cette clé publique de l'ID de l'auteur. Ensuite, cela sera mappé sur une adresse de style H160 Ethereum à laquelle les récompenses de bloc sont versées.
 
@@ -152,11 +152,11 @@ Pour mapper votre ID d'auteur à votre compte, vous devez être dans le [pool de
  6. Saisissez l'ID de l'auteur. Dans ce cas, il a été obtenu via l'appel RPC `author_rotateKeys` dans la section précédente
  7. Cliquez sur "Soumettre la transaction"
 
-![Mappage de l'ID d'auteur sur le compte extrinsèque](/images/fullnode/collator-polkadotjs4.png)
+![Mappage de l'ID d'auteur sur le compte extrinsèque](/images/node-operators/networks/collators/collator-polkadotjs-4.png)
 
 Si la transaction est réussie, vous verrez une notification de confirmation sur votre écran. Au contraire, assurez-vous d'avoir rejoint le [pool de candidats](#become-a-collator-candidate).
 
-![Mappage de l'ID d'auteur vers le compte extrinsèque réussi](/images/fullnode/collator-polkadotjs5.png)
+![Mappage de l'ID d'auteur vers le compte extrinsèque réussi](/images/node-operators/networks/collators/collator-polkadotjs-5.png)
 
 ### Vérification des mappages {: #checking-the-mappings } 
 
@@ -169,6 +169,6 @@ Vous pouvez également vérifier les mappages actuels sur la chaîne en vérifia
   5. Fournissez un ID d'auteur à interroger. En option, vous pouvez désactiver le curseur pour récupérer tous les mappages
   6. Cliquez sur le bouton "+" pour envoyer l'appel RPC
 
-![État de la chaîne de mappage d'ID d'auteur](/images/fullnode/collator-polkadotjs6.png)
+![État de la chaîne de mappage d'ID d'auteur](/images/node-operators/networks/collators/collator-polkadotjs-6.png)
 
 Vous devriez pouvoir voir le compte H160 associé à l'ID d'auteur fourni. Si aucun ID d'auteur n'était inclus, cela renverrait tous les mappages stockés dans la chaîne.

@@ -5,7 +5,7 @@ description: En tant que parachain Polkadot, Moonbeam utilisera un système de g
 
 # La Gouvernance dans Moonbeam
 
-![Governance Moonbeam Banner](/images/governance/governance-overview-banner.png)
+![Governance Moonbeam Banner](/images/learn/features/governance/governance-overview-banner.png)
 
 ## Introduction {: #introduction } 
 
